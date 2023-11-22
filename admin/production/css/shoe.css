@@ -1,0 +1,27 @@
+table, th, td {
+    border:1px solid black;
+    text-align: center;
+}
+td{
+    word-break: break-all;
+}
+#tableShoe{
+    border-collapse: collapse;
+    width: 100%;
+    margin: 0 auto;
+}
+#tableShoe td, #tableShoe th{
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+#tableShoe tr:nth-child(even){
+    background-color: #f2f2f2; 
+}
+#tableShoe tr:hover{
+    background-color: #ddd;
+}
+#tableShoe th{
+    text-align: left;
+    background-color: grey;
+    color: white;
+}
