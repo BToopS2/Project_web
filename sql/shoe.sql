@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Máy chủ: 127.0.0.1:3309
--- Thời gian đã tạo: Th6 03, 2022 lúc 11:44 PM
--- Phiên bản máy phục vụ: 10.4.22-MariaDB
--- Phiên bản PHP: 7.4.27
+-- Máy chủ: 127.0.0.1
+-- Thời gian đã tạo: Th10 23, 2023 lúc 10:07 AM
+-- Phiên bản máy phục vụ: 10.4.28-MariaDB
+-- Phiên bản PHP: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -34,19 +34,19 @@ CREATE TABLE `cart` (
   `shoe_color` varchar(255) NOT NULL,
   `shoe_size` int(11) NOT NULL,
   `status` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `cart`
 --
 
 INSERT INTO `cart` (`id`, `user_id`, `shoe_id`, `shoe_color`, `shoe_size`, `status`) VALUES
-(25, 15, 26, 'hồng', 23, 2),
-(27, 18, 26, 'hồng', 23, 3),
-(28, 18, 25, 'hồng', 23, 3),
-(29, 18, 23, 'xanh', 23, 3),
-(30, 18, 15, 'xanh', 23, 3),
-(31, 18, 24, 'xanh', 3, 3);
+(6, 2, 25, 'hồng', 23, 1),
+(7, 1, 28, 'xanh', 32, 2),
+(8, 19, 29, 'xanh', 32, 3),
+(9, 19, 28, 'xanh', 32, 3),
+(10, 1, 28, 'xanh', 32, 3),
+(11, 19, 29, 'xanh', 32, 1);
 
 -- --------------------------------------------------------
 
@@ -57,7 +57,7 @@ INSERT INTO `cart` (`id`, `user_id`, `shoe_id`, `shoe_color`, `shoe_size`, `stat
 CREATE TABLE `category` (
   `id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `category`
@@ -79,19 +79,20 @@ INSERT INTO `category` (`id`, `name`) VALUES
 CREATE TABLE `orders` (
   `id` int(11) NOT NULL,
   `cart_id` int(11) NOT NULL,
-  `date` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `quantity` int(11) NOT NULL,
+  `date` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `orders`
 --
 
-INSERT INTO `orders` (`id`, `cart_id`, `date`) VALUES
-(19, 27, '2022-06-03'),
-(20, 28, '2022-06-03'),
-(21, 29, '2022-06-03'),
-(22, 30, '2022-06-03'),
-(23, 31, '2022-06-03');
+INSERT INTO `orders` (`id`, `cart_id`, `quantity`, `date`) VALUES
+(1, 1, 0, '2023-11-22'),
+(2, 2, 0, '2023-11-22'),
+(4, 8, 0, '2023-11-22'),
+(5, 9, 0, '2023-11-22'),
+(6, 10, 0, '2023-11-22');
 
 -- --------------------------------------------------------
 
@@ -108,32 +109,16 @@ CREATE TABLE `shoe` (
   `category_id` int(11) NOT NULL,
   `color` varchar(255) NOT NULL,
   `review` varchar(500) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `shoe`
 --
 
 INSERT INTO `shoe` (`id`, `name`, `price`, `sale`, `size`, `category_id`, `color`, `review`) VALUES
-(3, 'giầy lồn', 11, 1, '1', 1, 'xanh,vàng,cam,hồng cánh sen,trắng,đỏ,tím,đen', 'xanh,vàng,cam,hồng cánh sen,trắng,đỏ,tím,đen'),
-(7, 'Mẫn Lan', 99999999999, 0, '10', 2, 'xanh,vàng,cam,hồng cánh sen,trắng,đỏ,tím,đen', ''),
-(8, 'Tu Le Dang', 1111, 3, '1', 3, 'xanh,vàng,cam,hồng cánh sen,trắng,đỏ,tím,đen', ''),
-(9, 'Tu Le Dang', 34332, 3, '33', 2, 'xanh,vàng,cam,hồng cánh sen,trắng,đỏ,tím,đen', ''),
-(10, '44354', 45435, 4, '4', 2, 'xanh,vàng,cam,hồng cánh sen,trắng,đỏ,tím,đen', ''),
-(11, 'Nguyễn Gia Trường', 34, 3, '2', 2, 'xanh,vàng,cam,hồng cánh sen,trắng,đỏ,tím,đen', ''),
-(12, 'Nguyễn Gia Trường', 111, 11, '11', 2, 'xanh,vàng,cam,hồng cánh sen,trắng,đỏ,tím,đen', ''),
-(13, 'Nguyễn Gia Trường', 111, 1, '2', 3, 'xanh,vàng,cam,hồng cánh sen,trắng,đỏ,tím,đen', ''),
-(14, 'Nguyễn Gia Trường', 134, 2, '2', 1, 'xanh,vàng,cam,hồng cánh sen,trắng,đỏ,tím,đen', ''),
-(15, 'Nguyen Gia Truong', 343, 3, '3', 4, 'xanh,vàng,cam,hồng cánh sen,trắng,đỏ,tím,đen', ''),
-(16, 'Nguyễn Gia Trường', 121, 2, '2', 3, 'xanh,vàng,cam,hồng cánh sen,trắng,đỏ,tím,đen', ''),
-(19, 'Lan Xing', 100000, 5, '10', 2, 'xanh,vàng,cam,hồng cánh sen,trắng,đỏ,tím,đen', ''),
-(20, 'Nguyen Gia Truong', 10000, 2, '3', 1, 'xanh,vàng,cam,hồng cánh sen,trắng,đỏ,tím,đen', ''),
-(21, 'Nguyễn Gia Trường', 1231, 0, '2', 3, 'xanh,vàng,cam,hồng cánh sen,trắng,đỏ,tím,đen', ''),
-(23, 'Nguyễn Gia Trường', 1234, 1, '23,10,1,2,3,4,5,6', 1, 'xanh,vàng,cam,hồng cánh sen,trắng,đỏ,tím,đen', 'hhh'),
-(24, 'Tu Le Dang', 12, 2, '1', 1, 'hồng,xanh,vàng', 'xanh,vàng,cam,hồng cánh sen,trắng,đỏ,tím,đenxanh,vàng,cam,hồng cánh sen,trắng,đỏ,tím,đenxanh,vàng,cam,hồng cánh sen,trắng,đỏ,tím,đenxanh,vàng,cam,hồng cánh sen,trắng,đỏ,tím,đenxanh,vàng,cam,hồng cánh sen,trắng,đỏ,tím,đenxanh,vàng,cam,hồng cánh sen,trắng,đỏ,tím,đenxanh,vàng,cam,hồng cánh sen,trắng,đỏ,tím,đen'),
-(25, 'eehheeh', 2312, 22, '23,10,1,2,3,4,5,6', 2, 'hồng,xanh', 'giày như lồn'),
-(26, 'giày fake', 322123, 23, '23,10,1,2,3,4,5,6', 1, 'hồng', 'giày như lồn'),
-(27, 'giày như l', 23232, 22, '23,10,1,2,3,4,5,6', 1, 'hồng cánh sen,xanh nhạt', 'giày như lồn');
+(28, 'Nike air', 2000, 15, '32', 4, 'xanh, đỏ, vàng', 'Giày đẹp'),
+(29, 'Jordan', 100000, 50, '32,42,33', 4, 'xanh, đỏ, vàng', 'ddd'),
+(30, 'sssddd', 322, 23, '231', 2, 'red', 'ssad');
 
 -- --------------------------------------------------------
 
@@ -145,7 +130,7 @@ CREATE TABLE `shoe_image` (
   `id` int(11) NOT NULL,
   `shoe_id` int(11) NOT NULL,
   `link_image` varchar(500) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `shoe_image`
@@ -167,7 +152,6 @@ INSERT INTO `shoe_image` (`id`, `shoe_id`, `link_image`) VALUES
 (25, 24, 'imageShoe/ao.jpg'),
 (26, 23, 'imageShoe/73039743_457799481516743_2944413433908428800_n.jpg'),
 (27, 23, 'imageShoe/74589546_545009112982009_579124783078178816_n.jpg'),
-(28, 23, 'imageShoe/146972117_2849928912001221_7521882077628797924_n.jpg'),
 (29, 22, 'imageShoe/cogiaoman.png'),
 (30, 25, 'imageShoe/SharedScreenshot3.jpg'),
 (31, 25, 'imageShoe/SharedScreenshot4.jpg'),
@@ -176,7 +160,12 @@ INSERT INTO `shoe_image` (`id`, `shoe_id`, `link_image`) VALUES
 (34, 26, 'imageShoe/SharedScreenshot2.jpg'),
 (35, 27, 'imageShoe/245073628_3091058767796051_5731964485928323993_n.jpg'),
 (36, 27, 'imageShoe/245495174_2898697773716058_6691009756593589867_n.png'),
-(37, 27, 'imageShoe/245642692_415139920308073_6895757974366559092_n.png');
+(37, 27, 'imageShoe/245642692_415139920308073_6895757974366559092_n.png'),
+(38, 28, 'imageShoe/14-8.jpg'),
+(39, 28, 'imageShoe/14-8.jpg'),
+(40, 29, 'imageShoe/hinh-nen-may-tinh-5k-songoku-sieu-xayda-1.jpg'),
+(41, 30, 'imageShoe/14-8.jpg'),
+(42, 30, 'imageShoe/hinh-nen-may-tinh-5k-songoku-sieu-xayda-1.jpg');
 
 -- --------------------------------------------------------
 
@@ -195,15 +184,16 @@ CREATE TABLE `user` (
   `gender` tinyint(1) NOT NULL DEFAULT 0,
   `email` varchar(255) NOT NULL,
   `phone` varchar(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `user`
 --
 
 INSERT INTO `user` (`id`, `username`, `password`, `fullname`, `dob`, `address`, `role`, `gender`, `email`, `phone`) VALUES
-(15, 'truong', '25d55ad283aa400af464c76d713c07ad', 'Nguyễn Gia Trường', '2001-04-27', 'Bắc Ninh', 1, 1, 'truongjae@gmail.com', '0345382199'),
-(18, 'truong2', '25d55ad283aa400af464c76d713c07ad', 'Nguyễn Gia Trường', '2001-04-27', 'Tiên Du', 0, 1, 'truongjae27@gmail.com', '0345382194');
+(1, 'admin@gmail.com', '25f9e794323b453885f5181f1b624d0b', 'HoangHuuHieu', '2023-11-09', 'Vietnam', 1, 1, 'hieu@gmail.com', '2121321321'),
+(2, 'hieu@gmail.com', '25f9e794323b453885f5181f1b624d0b', 'Hieuhh', '2023-10-30', 'vietnam', 0, 0, 'g@gmail.com', '2132132133'),
+(19, 'Hieuhoang', 'e807f1fcf82d132f9bb018ca6738a19f', 'HieuHoang', '2023-11-18', 'Vietnam', 0, 1, 'hieu02@gmail.com', '3123212312');
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -253,7 +243,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT cho bảng `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT cho bảng `category`
@@ -265,25 +255,25 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT cho bảng `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT cho bảng `shoe`
 --
 ALTER TABLE `shoe`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT cho bảng `shoe_image`
 --
 ALTER TABLE `shoe_image`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
 -- AUTO_INCREMENT cho bảng `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

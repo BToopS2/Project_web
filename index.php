@@ -170,7 +170,7 @@
       <div class="ps-section--features-product ps-section masonry-root pt-100 pb-100">
         <div class="ps-container">
           <div class="ps-section__header mb-50">
-            <h3 class="ps-section__title" data-mask="features">Danh mục cách sản phẩm</h3>
+            <h3 class="ps-section__title" data-mask="features">- Danh mục cách sản phẩm</h3>
             <ul class="ps-masonry__filter">
               <li class="current"><a href="#" data-filter="*">All <sup><?php  echo $shoeRepository->countShoeByCategoryName('');?></sup></a></li>
               <li><a href="#" data-filter=".nike">Nike <sup><?php  echo $shoeRepository->countShoeByCategoryName('nike');?></sup></a></li>
