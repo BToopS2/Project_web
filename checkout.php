@@ -155,28 +155,34 @@
                           <thead>
                             <tr>
                               <th class="text-uppercase">Product</th>
-                              <th class="text-uppercase">Total</th>
+                              <th class="text-uppercase">Price</th>
+                              
                             </tr>
                           </thead>
                           <tbody>
                             <?php
                               $cartList = $cartRepository->findByUserIdAndStatus($infoUser['id'],1);
                               foreach($cartList as $cart){
-                                $shoe = $shoeRepository->getById($cart['shoe_id'])->fetch_assoc();
+                              $shoe = $shoeRepository->getById($cart['shoe_id'])->fetch_assoc();
                             ?>
                             <tr>
-                              <td><?php echo $shoe['shoe_name'] ?></td>
-                              <td><?php echo $shoe['price'] - $shoe['price']*$shoe['sale']*0.01 ?></td>
+                              <td><?php echo $shoe['shoe_name'] ?> </td>
+                              <td><?php echo $shoe['price'] - $shoe['price']*$shoe['sale']*0.01 ?> VND</td>
                             </tr>
                             <?php
                               }
                             ?>
+                            
                           </tbody>
+
                         </table>
+                        <hr width="100%" text-align="center">
+                        <h4 style="color: aliceblue; padding-left: 2%;">Total Price: <span style="color: aqua; float: right; padding-right: 1%;"><?php echo $sumPrice ?> VND</span></h4>
+
                       </div>
-                      
+                     
                       <footer>
-                        <h3>Payment Method</h3>
+                        <h3>Payment Method </h3>  
                         <div class="form-group cheque">
                           <div class="ps-radio">
                             <input class="form-control" type="radio" id="rdo01" name="payment" checked>

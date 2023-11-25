@@ -367,7 +367,7 @@
           var price = document.getElementById("total"+i.toString()).innerText;
           sum+= parseInt(price);
         }
-        document.getElementById("totalPrice").innerText = sum+" VND";
+        document.getElementById("totalPrice").innerText = <?php echo $sumPrice ?> + " VND";
       }
 
 
