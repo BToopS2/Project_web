@@ -135,7 +135,7 @@
   }
   */
 
-  /* Define skycon things. */
+  /* Define HUScon things. */
   /* FIXME: I'm *really really* sorry that this code is so gross. Really, I am.
    * I'll try to clean it up eventually! Promise! */
   var KEYFRAME = 500,
@@ -522,14 +522,14 @@
     }
   }
 
-  var Skycons = function(opts) {
+  var HUScons = function(opts) {
         this.list        = [];
         this.interval    = null;
         this.color       = opts && opts.color ? opts.color : "black";
         this.resizeClear = !!(opts && opts.resizeClear);
       };
 
-  Skycons.CLEAR_DAY = function(ctx, t, color) {
+  HUScons.CLEAR_DAY = function(ctx, t, color) {
     var w = ctx.canvas.width,
         h = ctx.canvas.height,
         s = Math.min(w, h);
@@ -537,7 +537,7 @@
     sun(ctx, t, w * 0.5, h * 0.5, s, s * STROKE, color);
   };
 
-  Skycons.CLEAR_NIGHT = function(ctx, t, color) {
+  HUScons.CLEAR_NIGHT = function(ctx, t, color) {
     var w = ctx.canvas.width,
         h = ctx.canvas.height,
         s = Math.min(w, h);
@@ -545,7 +545,7 @@
     moon(ctx, t, w * 0.5, h * 0.5, s, s * STROKE, color);
   };
 
-  Skycons.PARTLY_CLOUDY_DAY = function(ctx, t, color) {
+  HUScons.PARTLY_CLOUDY_DAY = function(ctx, t, color) {
     var w = ctx.canvas.width,
         h = ctx.canvas.height,
         s = Math.min(w, h);
@@ -554,7 +554,7 @@
     cloud(ctx, t, w * 0.375, h * 0.625, s * 0.75, s * STROKE, color);
   };
 
-  Skycons.PARTLY_CLOUDY_NIGHT = function(ctx, t, color) {
+  HUScons.PARTLY_CLOUDY_NIGHT = function(ctx, t, color) {
     var w = ctx.canvas.width,
         h = ctx.canvas.height,
         s = Math.min(w, h);
@@ -563,7 +563,7 @@
     cloud(ctx, t, w * 0.375, h * 0.625, s * 0.75, s * STROKE, color);
   };
 
-  Skycons.CLOUDY = function(ctx, t, color) {
+  HUScons.CLOUDY = function(ctx, t, color) {
     var w = ctx.canvas.width,
         h = ctx.canvas.height,
         s = Math.min(w, h);
@@ -571,7 +571,7 @@
     cloud(ctx, t, w * 0.5, h * 0.5, s, s * STROKE, color);
   };
 
-  Skycons.RAIN = function(ctx, t, color) {
+  HUScons.RAIN = function(ctx, t, color) {
     var w = ctx.canvas.width,
         h = ctx.canvas.height,
         s = Math.min(w, h);
@@ -580,7 +580,7 @@
     cloud(ctx, t, w * 0.5, h * 0.37, s * 0.9, s * STROKE, color);
   };
 
-  Skycons.SLEET = function(ctx, t, color) {
+  HUScons.SLEET = function(ctx, t, color) {
     var w = ctx.canvas.width,
         h = ctx.canvas.height,
         s = Math.min(w, h);
@@ -589,7 +589,7 @@
     cloud(ctx, t, w * 0.5, h * 0.37, s * 0.9, s * STROKE, color);
   };
 
-  Skycons.SNOW = function(ctx, t, color) {
+  HUScons.SNOW = function(ctx, t, color) {
     var w = ctx.canvas.width,
         h = ctx.canvas.height,
         s = Math.min(w, h);
@@ -598,7 +598,7 @@
     cloud(ctx, t, w * 0.5, h * 0.37, s * 0.9, s * STROKE, color);
   };
 
-  Skycons.WIND = function(ctx, t, color) {
+  HUScons.WIND = function(ctx, t, color) {
     var w = ctx.canvas.width,
         h = ctx.canvas.height,
         s = Math.min(w, h);
@@ -607,7 +607,7 @@
     swoosh(ctx, t, w * 0.5, h * 0.5, s, s * STROKE, 1, 2, color);
   };
 
-  Skycons.FOG = function(ctx, t, color) {
+  HUScons.FOG = function(ctx, t, color) {
     var w = ctx.canvas.width,
         h = ctx.canvas.height,
         s = Math.min(w, h),
@@ -634,10 +634,10 @@
     line(ctx, c + w * 0.2 + k * 0.5, f, d + w * 0.8 - k * 0.5, f);
   };
 
-  Skycons.prototype = {
+  HUScons.prototype = {
     _determineDrawingFunction: function(draw) {
       if(typeof draw === "string")
-        draw = Skycons[draw.toUpperCase().replace(/-/g, "_")] || null;
+        draw = HUScons[draw.toUpperCase().replace(/-/g, "_")] || null;
 
       return draw;
     },
@@ -726,5 +726,5 @@
     }
   };
 
-  global.Skycons = Skycons;
+  global.HUScons = HUScons;
 }(this));

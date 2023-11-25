@@ -360,12 +360,12 @@ function init_JQVmap() {
 };
 
 
-function init_skycons() {
+function init_HUScons() {
 
-    if (typeof (Skycons) === 'undefined') { return; }
-    console.log('init_skycons');
+    if (typeof (HUScons) === 'undefined') { return; }
+    console.log('init_HUScons');
 
-    var icons = new Skycons({
+    var icons = new HUScons({
         "color": "#73879C"
     }),
         list = [
@@ -2896,7 +2896,7 @@ function init_echarts() {
                         color: [
                             [0.2, 'lightgreen'],
                             [0.4, 'orange'],
-                            [0.8, 'skyblue'],
+                            [0.8, 'HUSblue'],
                             [1, '#ff4500']
                         ],
                         width: 30
@@ -4728,7 +4728,7 @@ $(document).ready(function () {
     init_charts();
     init_echarts();
     init_morris_charts();
-    init_skycons();
+    init_HUScons();
     init_select2();
     init_validator();
     init_DataTables();

@@ -63,7 +63,7 @@
             <!-- sidebar menu -->
             <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
               <div class="menu_section">
-                <h3>HUSSTORE - ADMIN</h3>
+                <h3>HUS STORE - ADMIN</h3>
                 <ul class="nav side-menu">
 
                   <li><a><i class="fa fa-paw"></i> Quản Lý <span class="fa fa-chevron-down"></span></a>
@@ -209,7 +209,7 @@
           </div>
         </div>
         <div class="right_col" role="main">
-        <a class="btn btn-primary" href="addShoe.php" role="button">Thêm Giày</a>
+        <a class="btn btn-primary" href="addShoe.php" role="button">Thêm Sản Phẩm</a>
           <table id="tableShoe">
             <tr>
               <th class="text-center" style="min-width:50px">STT</th>
@@ -273,8 +273,8 @@
     <script src="../vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
     <!-- iCheck -->
     <script src="../vendors/iCheck/icheck.min.js"></script>
-    <!-- Skycons -->
-    <script src="../vendors/skycons/skycons.js"></script>
+    <!-- HUScons -->
+    <script src="../vendors/HUScons/HUScons.js"></script>
     <!-- Flot -->
     <script src="../vendors/Flot/jquery.flot.js"></script>
     <script src="../vendors/Flot/jquery.flot.pie.js"></script>

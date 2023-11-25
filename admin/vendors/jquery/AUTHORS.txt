@@ -119,7 +119,7 @@ cmc3cn <59194618@qq.com>
 Joe Presbrey <presbrey@gmail.com>
 Sindre Sorhus <sindresorhus@gmail.com>
 Arne de Bree <arne@bukkie.nl>
-Vladislav Zarakovsky <vlad.zar@gmail.com>
+Vladislav ZarakovHUS <vlad.zar@gmail.com>
 Andrew E Monat <amonat@gmail.com>
 Oskari <admin@o-programs.com>
 Joao Henrique de Andrade Bruni <joaohbruni@yahoo.com.br>
@@ -227,7 +227,7 @@ Liang Peng <poppinlp@gmail.com>
 TJ VanToll <tj.vantoll@gmail.com>
 Senya Pugach <upisfree@outlook.com>
 Aurelio De Rosa <aurelioderosa@gmail.com>
-Nazar Mokrynskyi <nazar@mokrynskyi.com>
+Nazar MokrynHUSi <nazar@mokrynHUSi.com>
 Amit Merchant <bullredeyes@gmail.com>
 Jason Bedard <jason+github@jbedard.ca>
 Arthur Verschaeve <contact@arthurverschaeve.be>

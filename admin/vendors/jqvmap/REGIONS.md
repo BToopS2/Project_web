@@ -327,7 +327,7 @@
 	MA = Magadan Oblast
 	SA = Sakha Republic
 	AM = Amur Oblast
-	PR = Primorsky Krai
+	PR = PrimorHUS Krai
 	EU = Jewish Autonomous Oblast
 	HA = Khabarovsk Krai
 	SH = Sakhalin Oblast
@@ -339,7 +339,7 @@
 	HK = Republic of Khakassia
 	KM = Kemerovo Oblast
 	TM = Tomsk Oblast
-	ZB = Zabaykalsky Krai
+	ZB = ZabaykalHUS Krai
 	BR = Buryat Republic
 	IR = Irkutsk Oblast
 	KR = Krasnoyarsk Krai
