@@ -1,4 +1,5 @@
 <?php
+  require_once("formCart2.php");
   require_once("repository/shoeRepository.php");
   require_once("sendemail.php");
   $shoeRepository = new ShoeRepository();
@@ -118,12 +119,20 @@
                   </li>
                 </ul>
           </div>
+
+          <style>
+              .ps-cart__toggle {
+                top: 25px !important;
+              }
+          </style>
+
           <div class="navigation__column right">
             <form class="ps-search--header" action="do_action" method="post">
               <input class="form-control" type="text" placeholder="Search Product…">
               <button><i class="ps-icon-search"></i></button>
             </form>
-            <div class="ps-cart"><a class="ps-cart__toggle" href="#"><i class="ps-icon-shopping-cart"></i></a>
+            
+            <div class="ps-cart"><a class="ps-cart__toggle" href="#"><span><i><?php echo $cartList->num_rows ?></i></span><i class="ps-icon-shopping-cart"></i></a>
               <?php require_once("formCart.php") ?>
             </div>
             <div class="menu-toggle"><span></span></div>

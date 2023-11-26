@@ -38,11 +38,11 @@ $infoUser = Auth::loginWithCookie();
         }
         ?>
     </div>
-    <div class="ps-cart__total">
+    <!-- <div class="ps-cart__total">
         <p>Number of items:<span><?php echo $cartList->num_rows ?></span></p>
         <p>Price Total:<span><?php echo $sumPrice ?> VND</span></p>
-    </div>
-    <div class="ps-cart__footer"><a class="ps-btn" href="cart.php">Check out<i class="ps-icon-arrow-left"></i></a></div>
+    </div> -->
+    <div class="ps-cart__footer"><a class="ps-btn" href="cart.php">Xem giỏ hàng<i class="ps-icon-arrow-left"></i></a></div>
 </div>
 <?php
     }
