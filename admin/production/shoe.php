@@ -15,7 +15,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="icon" href="images/favicon.ico" type="image/ico" />
 
-    <title>ADMIN Controler | </title>
+    <title>Gentelella Alela! | </title>
 
     <!-- Bootstrap -->
     <link href="../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -44,7 +44,7 @@
         <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
-              <a href="../../index.php" class="site_title"><i class="fa fa-home" aria-hidden="true"></i> <span>HOME</span></a>
+              <a href="../../index.php" class="site_title"><i class="fa fa-paw"></i> <span>HOME</span></a>
             </div>
 
             <div class="clearfix"></div>
@@ -63,38 +63,20 @@
             <!-- sidebar menu -->
             <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
               <div class="menu_section">
-                <h3>HUSSTORE - ADMIN</h3>
+                <h3>General</h3>
                 <ul class="nav side-menu">
-
-                  <li><a><i class="fa fa-paw"></i> Quản Lý <span class="fa fa-chevron-down"></span></a>
+                  <li><a><i class="fa fa-home"></i> Quản Lý <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="shoe.php">Quản Lý Sản Phẩm</a></li>
+                    <li><a href="shoe.php">Quản Lý Giày</a></li>
                       <li><a href="order.php">Quản Lý Đơn Hàng</a></li>
                       <li><a href="user.php">Quản Lý User</a></li>
                     </ul>
                   </li>
-                
-                  <li><a><i class="fa fa-money"></i> Doanh Thu<span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                      <li><a href="#">Theo Ngày</a></li>
-                      <li><a href="#">Theo Tuần</a></li>
-                      <li><a href="#">Theo Tháng</a></li>
-                      <li><a href="#">Theo Quý</a></li>
-                      <li><a href="#">Theo Năm</a></li>
-                    </ul>
-                  </li>
-
-                  <li><a><i class="fa fa-line-chart"></i> Biểu Đồ Phát Triển <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                      <li><a href="#">Lượt truy cập</a></li>
-                      <li><a href="#">Doanh Thu</a></li>
-                      <li><a href="#">Lợi Nhuận</a></li>
-                    </ul>
-                  </li>
-
+                 
                 </ul>
-                
               </div>
+              
+
             </div>
             <!-- /sidebar menu -->
 
