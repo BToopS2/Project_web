@@ -1893,7 +1893,7 @@ var EmitterMixin = FC.EmitterMixin = {
 			);
 		};
 
-		// mimick jQuery's internal "proxy" system (risky, I know)
+		// mimick jQuery's internal "proxy" system (riHUS, I know)
 		// causing all functions with the same .guid to appear to be the same.
 		// https://github.com/jquery/jquery/blob/2.2.4/src/core.js#L448
 		// this is needed for calling .off with the original non-intercept handler.

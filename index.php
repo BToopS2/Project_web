@@ -1,4 +1,5 @@
 <?php
+  require_once("formCart2.php");
   require_once("repository/shoeRepository.php");
   require_once("sendemail.php");
   $shoeRepository = new ShoeRepository();
@@ -15,10 +16,10 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <link href="apple-touch-icon.png" rel="apple-touch-icon">
     <link href="favicon.png" rel="icon">
-    <meta name="author" content="Nghia Minh Luong">
+    <meta name="author" content="TV2H">
     <meta name="keywords" content="Default Description">
     <meta name="description" content="Default keyword">
-    <title>HUSSTORE - Homepage</title>
+    <title>HUS STORE - Homepage</title>
     <!-- Fonts-->
     <link href="https://fonts.googleapis.com/css?family=Archivo+Narrow:300,400,700%7CMontserrat:300,400,500,600,700,800,900" rel="stylesheet">
     <link rel="stylesheet" href="plugins/font-awesome/css/font-awesome.min.css">
@@ -78,7 +79,7 @@
         <div class="container-fluid">
           <div class="row">
                 <div class="col-lg-6 col-md-8 col-sm-6 col-xs-12 ">
-                  <p>334 Nguyễn Trãi, Thanh Xuân, Hà Nội  -  Hotline: +84123456789 - 0123456789</p>
+                  <p>334 Nguyễn Trãi, Thanh Xuân, Hà Nội  -  Hotline: +84123456789 - 804-399-3580</p>
                 </div>
                 <div class="col-lg-6 col-md-4 col-sm-6 col-xs-12 ">
                   <div class="header__actions">
@@ -118,12 +119,20 @@
                   </li>
                 </ul>
           </div>
+
+          <style>
+              .ps-cart__toggle {
+                top: 25px !important;
+              }
+          </style>
+
           <div class="navigation__column right">
             <form class="ps-search--header" action="do_action" method="post">
               <input class="form-control" type="text" placeholder="Search Product…">
               <button><i class="ps-icon-search"></i></button>
             </form>
-            <div class="ps-cart"><a class="ps-cart__toggle" href="#"><i class="ps-icon-shopping-cart"></i></a>
+            
+            <div class="ps-cart"><a class="ps-cart__toggle" href="#"><span><i><?php echo $cartList->num_rows ?></i></span><i class="ps-icon-shopping-cart"></i></a>
               <?php require_once("formCart.php") ?>
             </div>
             <div class="menu-toggle"><span></span></div>
@@ -132,7 +141,7 @@
       </nav>
     </header>
     <div class="header-services">
-      <div class="ps-services owl-slider" data-owl-auto="true" data-owl-loop="true" data-owl-speed="7000" data-owl-gap="0" data-owl-nav="true" data-owl-dots="false" data-owl-item="1" data-owl-item-xs="1" data-owl-item-sm="1" data-owl-item-md="1" data-owl-item-lg="1" data-owl-duration="1000" data-owl-mousedrag="on">
+      <div class="ps-services owl-slider" data-owl-auto="true" data-owl-loop="true" data-owl-speed="5000" data-owl-gap="0" data-owl-nav="true" data-owl-dots="false" data-owl-item="1" data-owl-item-xs="1" data-owl-item-sm="1" data-owl-item-md="1" data-owl-item-lg="1" data-owl-duration="1000" data-owl-mousedrag="on">
         <p class="ps-service"><i class="ps-icon-delivery"></i><strong>Miễn phí vận chuyển</strong>: Get free standard delivery on every order with Sky Store</p>
         <p class="ps-service"><i class="ps-icon-delivery"></i><strong>Vận chuyển 0VND</strong>: Get free standard delivery on every order with Sky Store</p>
         <p class="ps-service"><i class="ps-icon-delivery"></i><strong>Free delivery</strong>: Get free standard delivery on every order with Sky Store</p>
@@ -164,13 +173,24 @@
                 <p>Supa wanted something that was going to rep his East Coast <br> roots and, more specifically, his hometown of <br/> New York City in  a big way.</p>
               </div><a class="tp-caption ps-btn" id="layer364" href="#" data-x="['left','left','left','left']" data-hoffset="['-60','15','15','15']" data-y="['middle','middle','middle','middle']" data-voffset="['120','140','200','200']" data-type="text" data-responsive_offset="on" data-textAlign="['center','center','center','center']" data-frames="[{&quot;delay&quot;:1500,&quot;speed&quot;:1500,&quot;frame&quot;:&quot;0&quot;,&quot;from&quot;:&quot;x:50px;opacity:0;&quot;,&quot;to&quot;:&quot;o:1;&quot;,&quot;ease&quot;:&quot;Power3.easeInOut&quot;},{&quot;delay&quot;:&quot;wait&quot;,&quot;speed&quot;:300,&quot;frame&quot;:&quot;999&quot;,&quot;to&quot;:&quot;x:50px;opacity:0;&quot;,&quot;ease&quot;:&quot;Power3.easeInOut&quot;}]">Purchase Now<i class="ps-icon-next"></i></a>
             </li>
+            <li class="ps-banner" data-index="rs-2942" data-transition="random" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off" data-rotate="0"><img class="rev-slidebg" src="images/slider/Giay-nam-9-1170x1170.jpg" alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="5" data-no-retina>
+              <div class="tp-caption ps-banner__header" id="layer-1" data-x="left" data-hoffset="['-60','15','15','15']" data-y="['middle','middle','middle','middle']" data-voffset="['-150','-120','-150','-170']" data-width="['none','none','none','400']" data-type="text" data-responsive_offset="on" data-frames="[{&quot;delay&quot;:1000,&quot;speed&quot;:1500,&quot;frame&quot;:&quot;0&quot;,&quot;from&quot;:&quot;x:50px;opacity:0;&quot;,&quot;to&quot;:&quot;o:1;&quot;,&quot;ease&quot;:&quot;Power3.easeInOut&quot;},{&quot;delay&quot;:&quot;wait&quot;,&quot;speed&quot;:300,&quot;frame&quot;:&quot;999&quot;,&quot;to&quot;:&quot;x:50px;opacity:0;&quot;,&quot;ease&quot;:&quot;Power3.easeInOut&quot;}]">
+                <p style="color:red">March 2002 <br> Nike SB Dunk Low Pro</p>
+              </div>
+              <div class="tp-caption ps-banner__title" id="layer21" data-x="['left','left','left','left']" data-hoffset="['-60','15','15','15']" data-y="['middle','middle','middle','middle']" data-voffset="['-60','-40','-50','-70']" data-type="text" data-responsive_offset="on" data-textAlign="['center','center','center','center']" data-frames="[{&quot;delay&quot;:1200,&quot;speed&quot;:1500,&quot;frame&quot;:&quot;0&quot;,&quot;from&quot;:&quot;x:50px;opacity:0;&quot;,&quot;to&quot;:&quot;o:1;&quot;,&quot;ease&quot;:&quot;Power3.easeInOut&quot;},{&quot;delay&quot;:&quot;wait&quot;,&quot;speed&quot;:300,&quot;frame&quot;:&quot;999&quot;,&quot;to&quot;:&quot;x:50px;opacity:0;&quot;,&quot;ease&quot;:&quot;Power3.easeInOut&quot;}]">
+                <p class="text-uppercase">CHUKYMEN</p>
+              </div>
+              <div class="tp-caption ps-banner__description" id="layer211" data-x="['left','left','left','left']" data-hoffset="['-60','15','15','15']" data-y="['middle','middle','middle','middle']" data-voffset="['30','50','50','50']" data-type="text" data-responsive_offset="on" data-textAlign="['center','center','center','center']" data-frames="[{&quot;delay&quot;:1200,&quot;speed&quot;:1500,&quot;frame&quot;:&quot;0&quot;,&quot;from&quot;:&quot;x:50px;opacity:0;&quot;,&quot;to&quot;:&quot;o:1;&quot;,&quot;ease&quot;:&quot;Power3.easeInOut&quot;},{&quot;delay&quot;:&quot;wait&quot;,&quot;speed&quot;:300,&quot;frame&quot;:&quot;999&quot;,&quot;to&quot;:&quot;x:50px;opacity:0;&quot;,&quot;ease&quot;:&quot;Power3.easeInOut&quot;}]">
+                <p>Supa wanted something that was going to rep his East Coast <br> roots and, more specifically, his hometown of <br/> New York City in  a big way.</p>
+              </div><a class="tp-caption ps-btn" id="layer31" href="#" data-x="['left','left','left','left']" data-hoffset="['-60','15','15','15']" data-y="['middle','middle','middle','middle']" data-voffset="['120','140','200','200']" data-type="text" data-responsive_offset="on" data-textAlign="['center','center','center','center']" data-frames="[{&quot;delay&quot;:1500,&quot;speed&quot;:1500,&quot;frame&quot;:&quot;0&quot;,&quot;from&quot;:&quot;x:50px;opacity:0;&quot;,&quot;to&quot;:&quot;o:1;&quot;,&quot;ease&quot;:&quot;Power3.easeInOut&quot;},{&quot;delay&quot;:&quot;wait&quot;,&quot;speed&quot;:300,&quot;frame&quot;:&quot;999&quot;,&quot;to&quot;:&quot;x:50px;opacity:0;&quot;,&quot;ease&quot;:&quot;Power3.easeInOut&quot;}]">Purchase Now<i class="ps-icon-next"></i></a>
+            </li>
           </ul>
         </div>
       </div>
       <div class="ps-section--features-product ps-section masonry-root pt-100 pb-100">
         <div class="ps-container">
           <div class="ps-section__header mb-50">
-            <h3 class="ps-section__title" data-mask="features">- Danh mục cách sản phẩm</h3>
+            <h3 class="ps-section__title" data-mask="">- Danh mục sản phẩm </h3>
             <ul class="ps-masonry__filter">
               <li class="current"><a href="#" data-filter="*">All <sup><?php  echo $shoeRepository->countShoeByCategoryName('');?></sup></a></li>
               <li><a href="#" data-filter=".nike">Nike <sup><?php  echo $shoeRepository->countShoeByCategoryName('nike');?></sup></a></li>
@@ -180,19 +200,25 @@
               <li><a href="#" data-filter=".kids">Kids <sup><?php  echo $shoeRepository->countShoeByCategoryName('kids');?></sup></a></li>
             </ul>
           </div>
-          <div class="ps-section__content pb-50">
-            <div class="masonry-wrapper" data-col-md="4" data-col-sm="2" data-col-xs="1" data-gap="30" data-radio="100%">
-              <div class="ps-masonry">
-                <div class="grid-sizer"></div>
-                
+        </div>  
+        
+        <div class="ps-container">
+          <style>
+            
+          </style>
+          <div class="ps-section__content">
+            <div class="girdpro">
+            <!-- <div class="masonry-wrapper" data-col-md="4" data-col-sm="2" data-col-xs="1" data-gap="30" data-radio="100%"> -->
+              <!-- <div class="ps-masonry"> -->
+                <!-- <div class="grid-sizer"></div> -->
                 <?php
                     $checkNew = false;
-                    $listShoe = $shoeRepository->getAll(12);
+                    $listShoe = $shoeRepository->getAll(0);
                     foreach($listShoe as $shoe){
                 ?>
-                <div class="grid-item <?php echo $shoe['name']?>">
+                <div class="grid-item ">
                   <div class="grid-item__content-wrapper">
-                    <div class="ps-shoe mb-30">
+                    <div class="ps-shoe ">
                       <div class="ps-shoe__thumbnail">
                         <?php
                           if(!$checkNew){
@@ -200,7 +226,7 @@
                             $checkNew = true;
                           }
                           if($shoe['sale']>0){
-                            echo '<div class="ps-badge ps-badge--sale ps-badge--2nd"><span>-'.$shoe['sale'].' %</span></div>';
+                            echo '<div class="ps-badge ps-badge--sale ps-badge--2nd"><span>-'.$shoe['sale'].'%</span></div>';
                           }
                          ?>
 
@@ -251,11 +277,11 @@
                     </div>
                   </div>
                 </div>
-
                 <?php
                   }
                 ?>
               </div>
+            </div>
             </div>
           </div>
         </div>
@@ -316,7 +342,7 @@
             </div>
           </div>
           <div class="ps-section__content">
-            <div class="ps-owl--colection owl-slider" data-owl-auto="true" data-owl-loop="true" data-owl-speed="5000" data-owl-gap="30" data-owl-nav="false" data-owl-dots="false" data-owl-item="4" data-owl-item-xs="1" data-owl-item-sm="2" data-owl-item-md="3" data-owl-item-lg="4" data-owl-duration="1000" data-owl-mousedrag="on">
+            <div class="ps-owl--colection owl-slider" data-owl-auto="true" data-owl-loop="true" data-owl-speed="2000" data-owl-gap="30" data-owl-nav="false" data-owl-dots="false" data-owl-item="4" data-owl-item-xs="1" data-owl-item-sm="2" data-owl-item-md="3" data-owl-item-lg="4" data-owl-duration="1000" data-owl-mousedrag="on">
               <?php 
                 foreach($listShoe as $shoe){
                   if($shoe['sale']>0){
@@ -326,7 +352,7 @@
                   <div class="ps-shoe__thumbnail">
                     <div class="ps-badge"><span>New</span></div>
                     <?php
-                        echo '<div class="ps-badge ps-badge--sale ps-badge--2nd"><span>-'.$shoe['sale'].' %</span></div>';
+                        echo '<div class="ps-badge ps-badge--sale ps-badge--2nd"><span>-'.$shoe['sale'].'%</span></div>';
                     ?>
                     <a class="ps-shoe__favorite" href="#"><i class="ps-icon-heart"></i></a>
                     <?php
@@ -431,9 +457,10 @@
           </div>
         </div>
       </div>
-      <div class="ps-home-contact">
+      <!-- <div class="ps-home-contact">
         <div id="contact-map" data-address="New York, NY" data-title="BAKERY LOCATION!" data-zoom="17"></div>
         <div class="ps-home-contact__form">
+        
           <header>
             <h3>Contact Us</h3>
             <p>Learn about our company profile, communityimpact, sustainable motivation, and more.</p>
@@ -456,13 +483,16 @@
                 <button name="send_email" class="ps-btn">Send Message<i class="fa fa-angle-right"></i></button>
               </div>
               <?php
-                if(isset($_POST['send_email']))
-                  $sendEmail->send($_POST['name'],$_POST['email'],"Xin Chào",$_POST['content']);
+                // if(isset($_POST['send_email']))
+                  // $sendEmail->send($_POST['name'],$_POST['email'],"Xin Chào",$_POST['content']);
               ?>
             </form>
           </footer>
+          
         </div>
-      </div>
+      </div> -->
+      
+      <hr  width="100%" size="5px" text-align="center" color="green" noshade="noshade"/>
       <div class="ps-subscribe">
         <div class="ps-container">
           <div class="row">
@@ -491,7 +521,7 @@
                         <h3 class="ps-widget__title">Address Office 1</h3>
                       </header>
                       <footer>
-                        <p><strong>460 West 34th Street, 15th floor, New York</strong></p>
+                        <p><strong>334 Nguyễn Trãi, Thanh Xuân, Hà Nội</strong></p>
                         <p>Email: <a href='mailto:support@store.com'>support@store.com</a></p>
                         <p>Phone: +323 32434 5334</p>
                         <p>Fax: ++323 32434 5333</p>
@@ -504,7 +534,7 @@
                         <h3 class="ps-widget__title">Address Office 2</h3>
                       </header>
                       <footer>
-                        <p><strong>PO Box 16122 Collins  Victoria 3000 Australia</strong></p>
+                        <p><strong>144 Xuân Thủy, Cầu Giấy, Hà Nội</strong></p>
                         <p>Email: <a href='mailto:support@store.com'>support@store.com</a></p>
                         <p>Phone: +323 32434 5334</p>
                         <p>Fax: ++323 32434 5333</p>
@@ -564,7 +594,7 @@
           <div class="ps-container">
             <div class="row">
                   <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 ">
-                    <p>&copy; <a href="#">SKYTHEMES</a>, Inc. All rights Resevered. Design by <a href="#"> Alena Studio</a></p>
+                    <p>&copy; <a href="#">SKYTHEMES</a>, Inc. All rights Resevered. Design by <a href="#"> TV2H_team</a></p>
                   </div>
                   <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 ">
                     <ul class="ps-social">

@@ -53,6 +53,7 @@
            5.2 margin
            5.3 padding
 */
+
 .masonry-wrapper .grid-item .grid-item__inner, .setting .grid-item .grid-item__inner {
   position: relative; }
 
@@ -2647,17 +2648,17 @@ textarea.form-control {
     top: 50px; }
 
 .masonry-wrapper {
-  margin: 0; }
+  margin: 0 ; }
   .masonry-wrapper .grid-item,
   .masonry-wrapper .grid-sizer {
     width: 100%; }
   .masonry-wrapper .grid-item .grid-item__inner .grid-item__content-wrapper {
     background-color: #9EC3C3; }
   .masonry-wrapper.ac_masonry-grid .grid-item__content-wrapper {
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0; }
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px; }
 
 .setting {
   margin: 0;
@@ -6537,4 +6538,23 @@ html .bg--parallax {
 .pl-100 {
   padding-left: 100px; }
 
+.girdpro {
+    display: flex;
+    min-height: calc(100vh - 11.25rem);
+    flex-wrap: wrap;
+    align-content: flex-start;
+    padding-top: 0.3125rem;
+}
+.grid-item {
+  margin-left:20px;
+  margin-top: 100px;
+  width: 22.66667% !important;
+  padding: 0.3125rem !important;
+  box-sizing: border-box !important;
+}
+
+.ps-cart__toggle {
+  top: 25px !important;
+}
+          
 /*# sourceMappingURL=style.css.map */

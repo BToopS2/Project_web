@@ -1,4 +1,5 @@
 <?php
+  require_once("formCart2.php");
   require_once("backend/authWithCookie.php");
   require_once("backend/auth.php");
   require_once("repository/cartRepository.php");
@@ -24,10 +25,10 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <link href="apple-touch-icon.png" rel="apple-touch-icon">
     <link href="favicon.png" rel="icon">
-    <meta name="author" content="Nghia Minh Luong">
+    <meta name="author" content="TV2H">
     <meta name="keywords" content="Default Description">
     <meta name="description" content="Default keyword">
-    <title>Sky - Cart</title>
+    <title>HUS - Cart</title>
     <!-- Fonts-->
     <link href="https://fonts.googleapis.com/css?family=Archivo+Narrow:300,400,700%7CMontserrat:300,400,500,600,700,800,900" rel="stylesheet">
     <link rel="stylesheet" href="plugins/font-awesome/css/font-awesome.min.css">
@@ -59,7 +60,7 @@
         <div class="container-fluid">
         <div class="row">
                 <div class="col-lg-6 col-md-8 col-sm-6 col-xs-12 ">
-                  <p>460 West 34th Street, 15th floor, New York  -  Hotline: 804-377-3580 - 804-399-3580</p>
+                  <p>334 Nguyễn Trãi, Thanh Xuân, Hà Nội - Hotline: +84123456789 - 0123456789</p>
                 </div>
                 <div class="col-lg-6 col-md-4 col-sm-6 col-xs-12 ">
                   <div class="header__actions">
@@ -110,7 +111,7 @@
               <input class="form-control" type="text" placeholder="Search Product…">
               <button><i class="ps-icon-search"></i></button>
             </form>
-            <div class="ps-cart"><a class="ps-cart__toggle" href="#"><i class="ps-icon-shopping-cart"></i></a>
+            <div class="ps-cart"><a class="ps-cart__toggle" href="#"><span><i><?php echo $cartList->num_rows ?></i></span><i class="ps-icon-shopping-cart"></i></a>
               <?php require_once("formCart.php") ?>
             </div>
             <div class="menu-toggle"><span></span></div>
@@ -120,9 +121,9 @@
     </header>
     <div class="header-services">
       <div class="ps-services owl-slider" data-owl-auto="true" data-owl-loop="true" data-owl-speed="7000" data-owl-gap="0" data-owl-nav="true" data-owl-dots="false" data-owl-item="1" data-owl-item-xs="1" data-owl-item-sm="1" data-owl-item-md="1" data-owl-item-lg="1" data-owl-duration="1000" data-owl-mousedrag="on">
-        <p class="ps-service"><i class="ps-icon-delivery"></i><strong>Free delivery</strong>: Get free standard delivery on every order with Sky Store</p>
-        <p class="ps-service"><i class="ps-icon-delivery"></i><strong>Free delivery</strong>: Get free standard delivery on every order with Sky Store</p>
-        <p class="ps-service"><i class="ps-icon-delivery"></i><strong>Free delivery</strong>: Get free standard delivery on every order with Sky Store</p>
+        <p class="ps-service"><i class="ps-icon-delivery"></i><strong>Free delivery</strong>: Get free standard delivery on every order with HUS Store</p>
+        <p class="ps-service"><i class="ps-icon-delivery"></i><strong>Free delivery</strong>: Get free standard delivery on every order with HUS Store</p>
+        <p class="ps-service"><i class="ps-icon-delivery"></i><strong>Free delivery</strong>: Get free standard delivery on every order with HUS Store</p>
       </div>
     </div>
     <main class="ps-main">
@@ -224,7 +225,7 @@
                         <h3 class="ps-widget__title">Address Office 1</h3>
                       </header>
                       <footer>
-                        <p><strong>460 West 34th Street, 15th floor, New York</strong></p>
+                        <p><strong>334 Nguyễn Trãi, Thanh Xuân, Hà Nội</strong></p>
                         <p>Email: <a href='mailto:support@store.com'>support@store.com</a></p>
                         <p>Phone: +323 32434 5334</p>
                         <p>Fax: ++323 32434 5333</p>
@@ -237,7 +238,7 @@
                         <h3 class="ps-widget__title">Address Office 2</h3>
                       </header>
                       <footer>
-                        <p><strong>PO Box 16122 Collins  Victoria 3000 Australia</strong></p>
+                        <p><strong>144 Xuân Thủy, Cầu Giấy, Hà Nội</strong></p>
                         <p>Email: <a href='mailto:support@store.com'>support@store.com</a></p>
                         <p>Phone: +323 32434 5334</p>
                         <p>Fax: ++323 32434 5333</p>
@@ -297,7 +298,7 @@
           <div class="ps-container">
             <div class="row">
                   <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 ">
-                    <p>&copy; <a href="#">SKYTHEMES</a>, Inc. All rights Resevered. Design by <a href="#"> Alena Studio</a></p>
+                    <p>&copy; <a href="#">HUSTHEMES</a>, Inc. All rights Resevered. Design by <a href="#"> TV2H_team</a></p>
                   </div>
                   <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 ">
                     <ul class="ps-social">
@@ -367,7 +368,7 @@
           var price = document.getElementById("total"+i.toString()).innerText;
           sum+= parseInt(price);
         }
-        document.getElementById("totalPrice").innerText = sum+" VND";
+        document.getElementById("totalPrice").innerText = <?php echo $sumPrice ?> + " VND";
       }
 
 

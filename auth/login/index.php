@@ -29,6 +29,7 @@
 					<div class="wrap d-md-flex">
 						<div class="text-wrap p-4 p-lg-5 text-center d-flex align-items-center order-md-last">
 							<div class="text w-100">
+								<h2>HUS STORE</h2>
 								<h2>Welcome to login</h2>
 								<p>Don't have an account?</p>
 								<a href="../register/index.php" class="btn btn-white btn-outline-white">Sign Up</a>
@@ -37,7 +38,7 @@
 						<div class="login-wrap p-4 p-lg-5">
 			      	<div class="d-flex">
 			      		<div class="w-100">
-			      			<h3 class="mb-4">Sign In</h3>
+			      			<h2 class="mb-4">Tài khoản</h2>
 			      		</div>
 						  
 								<div class="w-100">

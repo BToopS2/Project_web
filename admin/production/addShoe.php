@@ -196,8 +196,8 @@
         <a class="btn btn-primary" href="shoe.php" role="button">Trở Về</a>
         <form method="POST" enctype="multipart/form-data">
         <div class="form-group">
-          <label for="exampleInputEmail1">Tên Giày</label>
-          <input required minlength="5" maxlength="50" name="name" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nhập tên giày">
+          <label for="exampleInputEmail1">Tên Sản Phẩm</label>
+          <input required minlength="5" maxlength="50" name="name" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nhập tên sản phẩm">
         </div>
         <div class="form-group">
           <label for="exampleInputPassword1">Giá Tiền (VND)</label>
@@ -208,11 +208,11 @@
           <input required min="0" max="100" name="sale" type="number" class="form-control" id="exampleInputPassword1" placeholder="Nhập % giảm giá">
         </div>
         <div class="form-group">
-          <label for="exampleInputPassword1">Kích cỡ</label>
+          <label for="exampleInputPassword1">Kích Cỡ</label>
           <input required min="1" max="100" name="size" type="text" class="form-control" id="exampleInputPassword1" placeholder="Nhập kích cỡ">
         </div>
         <div class="form-group">
-          <label for="exampleInputPassword1">Màu</label>
+          <label for="exampleInputPassword1">Màu Sắc</label>
           <input required minlength="1" maxlength="50" name="color" type="text" class="form-control" id="exampleInputPassword1" placeholder="Nhập màu">
         </div>
         <div class="form-group">
@@ -221,7 +221,7 @@
         </div>
         <div class="form-group">
           <label for="exampleInputPassword1">Thể Loại</label>
-          <select name="category_id" class="form-control">
+          <select name="category_id" class="form-control" >
               <?php
                 $listCategory = $categoryRepository->getAll();
                 foreach($listCategory as $category){
@@ -233,13 +233,13 @@
             </select>
         </div>
         <div class="form-group">
-          <label for="exampleInputPassword1">Chọn ảnh</label>
+          <label for="exampleInputPassword1">Chọn Ảnh</label>
           <div class="input-group mb-3">
             <div class="input-group-prepend">
             </div>
             <div class="custom-file">
-                <input multiple accept="image/png, image/jpeg" name="files[]" type="file" class="custom-file-input" id="inputGroupFile01">
-                <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                <input multiple accept="image/png, image/jpeg, image/jpg" name="files[]" type="file" class="custom-file-input" id="inputGroupFile01">
+                <label class="custom-file-label" for="inputGroupFile01">Upload</label>
             </div>
             </div>
         </div>
@@ -287,8 +287,8 @@
     <script src="../vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
     <!-- iCheck -->
     <script src="../vendors/iCheck/icheck.min.js"></script>
-    <!-- Skycons -->
-    <script src="../vendors/skycons/skycons.js"></script>
+    <!-- HUScons -->
+    <script src="../vendors/HUScons/HUScons.js"></script>
     <!-- Flot -->
     <script src="../vendors/Flot/jquery.flot.js"></script>
     <script src="../vendors/Flot/jquery.flot.pie.js"></script>

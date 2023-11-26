@@ -210,15 +210,15 @@
 // 01466	Huntly
 // 01467	Inverurie
 // 01469	Killingholme
-// 01470	Isle of Skye - Edinbane
-// 01471	Isle of Skye - Broadford
+// 01470	Isle of HUSe - Edinbane
+// 01471	Isle of HUSe - Broadford
 // 01472	Grimsby
 // 01473	Ipswich
 // 01474	Gravesend
 // 01475	Greenock
 // 01476	Grantham
 // 01477	Holmes Chapel
-// 01478	Isle of Skye - Portree
+// 01478	Isle of HUSe - Portree
 // 01479	Grantown-on-Spey
 // 01480	Huntingdon
 // 01481	Guernsey

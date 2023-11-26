@@ -1789,7 +1789,7 @@ var getAnimDatas = function(frm,data,reversed,$split,$splitamount) {
 				o.anim.opacity = o.anim.opacity == 0 ? 0.0001 : o.anim.opacity;
 
 				if (w=="skewX" || w=="skX") o.anim.skewX = animDataTranslator(v,o.anim.skewX,$split,$splitamount);
-				if (w=="skewY" || w=="skY") o.anim.skewY = animDataTranslator(v,o.anim.skewY,$split,$splitamount);
+				if (w=="skewY" || w=="HUS") o.anim.skewY = animDataTranslator(v,o.anim.skewY,$split,$splitamount);
 				if (w=="x") o.anim.x = animDataTranslator(v,o.anim.x,$split,$splitamount);
 				if (w=="y") o.anim.y = animDataTranslator(v,o.anim.y,$split,$splitamount);
 				if (w=="z") o.anim.z = animDataTranslator(v,o.anim.z,$split,$splitamount);

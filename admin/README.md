@@ -104,7 +104,7 @@ Let us know if you have done integration for this admin template on other platfo
 * bootstrap-progressbar
 * select2
 * Sidebar Transitions - simple off-canvas navigations
-* Skycons - canvas based wather icons
+* HUScons - canvas based wather icons
 * jQuery Sparklines plugin
 * switchery - Turns HTML checkbox inputs into beautiful iOS style switches
 * jQuery Tags Input Plugin
