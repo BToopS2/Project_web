@@ -1,0 +1,368 @@
+
+
+
+<?php
+require_once("backend/filterUser.php");
+require_once("repository/orderRepository.php");
+
+$orderRepository = new OrderRepository();
+$infoUser = Auth::loginWithCookie();
+
+$desired = $infoUser['fullname'];
+$orderList = $orderRepository->getAll2($desired);
+$orderList2 = $orderRepository->getAll();
+?>
+  
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <link href="apple-touch-icon.png" rel="apple-touch-icon">
+    <link href="favicon.png" rel="icon">
+    <meta name="author" content="Nghia Minh Luong">
+    <meta name="keywords" content="Default Description">
+    <meta name="description" content="Default keyword">
+    <title>Sky - Checkout</title>
+    <!-- Fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Archivo+Narrow:300,400,700%7CMontserrat:300,400,500,600,700,800,900" rel="stylesheet">
+    <link rel="stylesheet" href="plugins/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="plugins/ps-icon/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- CSS Library-->
+    <link rel="stylesheet" href="plugins/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="plugins/owl-carousel/assets/owl.carousel.css">
+    <link rel="stylesheet" href="plugins/jquery-bar-rating/dist/themes/fontawesome-stars.css">
+    <link rel="stylesheet" href="plugins/slick/slick/slick.css">
+    <link rel="stylesheet" href="plugins/bootstrap-select/dist/css/bootstrap-select.min.css">
+    <link rel="stylesheet" href="plugins/Magnific-Popup/dist/magnific-popup.css">
+    <link rel="stylesheet" href="plugins/jquery-ui/jquery-ui.min.css">
+    <link rel="stylesheet" href="plugins/revolution/css/settings.css">
+    <link rel="stylesheet" href="plugins/revolution/css/layers.css">
+    <link rel="stylesheet" href="plugins/revolution/css/navigation.css">
+    <!-- Custom-->
+    <link rel="stylesheet" href="css/style.css">
+    <!--HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries-->
+    <!--WARNING: Respond.js doesn't work if you view the page via file://-->
+    <!--[if lt IE 9]><script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script><script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script><![endif]-->
+  </head>
+  <body class="ps-loading">
+    <div class="header--sidebar"></div>
+    <header class="header">
+      <div class="header__top">
+        <div class="container-fluid">
+        <div class="row">
+                <div class="col-lg-6 col-md-8 col-sm-6 col-xs-12 ">
+                  <p>460 West 34th Street, 15th floor, New York  -  Hotline: 804-377-3580 - 804-399-3580</p>
+                </div>
+                <div class="col-lg-6 col-md-4 col-sm-6 col-xs-12 ">
+                  <div class="header__actions">
+                    <?php
+                      require_once("backend/filterWithCookie.php");
+                    ?>
+                  </div>
+                </div>
+          </div>
+        </div>
+      </div>
+      <nav class="navigation">
+        <div class="container-fluid">
+          <div class="navigation__column left">
+            <div class="header__logo"><a class="ps-logo" href="index.php"><img src="images/logo.png" alt=""></a></div>
+          </div>
+          <div class="navigation__column center">
+                <ul class="main-menu menu">
+                  <li class="menu-item menu-item-has-children dropdown"><a href="index.php">Home</a>
+                  </li>
+                  <li class="menu-item menu-item-has-children has-mega-menu"><a href="#">Men</a></li>
+                  <li class="menu-item"><a href="#">Women</a></li>
+                  <li class="menu-item"><a href="#">Kids</a></li>
+                  <li class="menu-item menu-item-has-children dropdown"><a href="#">News</a>
+                        <ul class="sub-menu">
+                          <li class="menu-item menu-item-has-children dropdown"><a href="blog-grid.php">Blog-grid</a>
+                                <ul class="sub-menu">
+                                  <li class="menu-item"><a href="blog-grid.php">Blog Grid 1</a></li>
+                                  <li class="menu-item"><a href="blog-grid-2.php">Blog Grid 2</a></li>
+                                </ul>
+                          </li>
+                          <li class="menu-item"><a href="blog-list.php">Blog List</a></li>
+                        </ul>
+                  </li>
+                  <li class="menu-item menu-item-has-children dropdown"><a href="contact-us.php">Contact</a>
+                  </li>
+                </ul>
+          </div>
+          <div class="navigation__column right">
+            <form class="ps-search--header" action="do_action" method="post">
+              <input class="form-control" type="text" placeholder="Search Product…">
+              <button><i class="ps-icon-search"></i></button>
+            </form>
+            <div class="ps-cart"><a class="ps-cart__toggle" href="#"><span><i></i></span><i class="ps-icon-shopping-cart"></i></a>
+            <?php require_once("formCart.php") ?>
+            </div>
+            <div class="menu-toggle"><span></span></div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="header-services">
+      <div class="ps-services owl-slider" data-owl-auto="true" data-owl-loop="true" data-owl-speed="7000" data-owl-gap="0" data-owl-nav="true" data-owl-dots="false" data-owl-item="1" data-owl-item-xs="1" data-owl-item-sm="1" data-owl-item-md="1" data-owl-item-lg="1" data-owl-duration="1000" data-owl-mousedrag="on">
+        <p class="ps-service"><i class="ps-icon-delivery"></i><strong>Free delivery</strong>: Get free standard delivery on every order with Sky Store</p>
+        <p class="ps-service"><i class="ps-icon-delivery"></i><strong>Free delivery</strong>: Get free standard delivery on every order with Sky Store</p>
+        <p class="ps-service"><i class="ps-icon-delivery"></i><strong>Free delivery</strong>: Get free standard delivery on every order with Sky Store</p>
+      </div>
+    </div>
+    
+    <main class="ps-main">
+    <style>
+        /* Thêm CSS để tùy chỉnh giao diện */
+        #tableShoe {
+            background-color: #f8f9fa; /* Màu xám nhạt */
+            color: #495057; /* Màu chữ in đẹp */
+            text-align: center;
+            
+        }
+
+        #tableShoe th, #tableShoe td {
+            border-color: #e9ecef; /* Màu đường viền */
+        }
+
+        #tableShoe thead th {
+            background-color: #343a40; /* Màu nền đen cho phần đầu bảng */
+            color: #ffffff; /* Màu chữ in đẹp cho tiêu đề */
+            text-align: center;
+        }
+        .btn-back:hover {
+            background-color: #0056b3; /* Màu nền xanh dương đậm khi di chuột qua */
+        }
+
+        .badge-status {
+            font-size: 12px;
+            padding: 8px 12px;
+        }
+        .btn-back {
+            margin-top: 20px;
+            display: inline-block;
+            padding: 10px 15px;
+            background-color: #007bff; /* Màu nền xanh dương cho nút Back */
+            color: #fff; /* Màu chữ in trắng */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            
+        }
+        .btn-container {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-12">
+                <h2 class="text-center mb-4" style="margin-bottom: 20px;">Đơn Đã Đặt <i class="fa-solid fa-cart-shopping fa-bounce"></i></h2>
+                <div class="table-responsive">
+                    <table class="table table-bordered table-hover" id="tableShoe">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th class="text-center" style="min-width:50px">STT</th>
+                                <th class="text-center" style="min-width:150px">Tên Khách Hàng</th>
+                                <th class="text-center" style="min-width:150px">Địa Chỉ</th>
+                                <th class="text-center" style="min-width:150px">Tên Giày</th>
+                                <th class="text-center" style="min-width:50px">Giá Giày</th>
+                                <th class="text-center" style="min-width:100px">Kích Cỡ</th>
+                                <th class="text-center" style="min-width:100px">Màu</th>
+                                <th class="text-center" style="min-width:100px">Ngày Đặt Hàng</th>
+                                <th class="text-center" style="min-width:100px">Trạng Thái</th>
+                                <th class="text-center" style="min-width:100px"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            $i = 1;
+                            foreach ($orderList as $order) {
+                            ?>
+                                <tr>
+                                    <td class="text-center"><?php echo $i++; ?></td>
+                                    <td class="text-center"><?php echo $order['fullname'] ?></td>
+                                    <td class="text-center"><?php echo $order['address'] ?></td>
+                                    <td class="text-center"><?php echo $order['name'] ?></td>
+                                    <td class="text-center"><?php echo ($order['price'] - $order['price'] * $order['sale'] * 0.01) . " VND" ?></td>
+                                    <td class="text-center"><?php echo $order['shoe_size'] ?></td>
+                                    <td class="text-center"><?php echo $order['shoe_color'] ?></td>
+                                    <td class="text-center"><?php echo $order['date'] ?></td>
+                                    <td class="text-center">
+                                        <?php if ($order['status'] == 3) { ?>
+                                            <span class="badge badge-success badge-status">Đã Duyệt <i class="fa-solid fa-truck"></i></span>
+                                        <?php } ?>
+                                        <?php if ($order['status'] == 2) { ?>
+                                            <span class="badge badge-success badge-status" style="background-color: blue;">Người Bán Đang Chuẩn Bị Hàng <i class="fa-solid fa-gifts fa-flip"></i></span>
+                                        <?php } ?>
+                                    </td>
+                                    <td class="text-center">
+                                        <?php if ($order['status'] == 2 || $order['status'] == 3) { ?>
+                                            <a class="btn btn-danger" href="admin/production/deleteOrder.php?id=<?php echo $order['order_id'] ?>" role="button" onclick="cancelOrder(event, '<?php echo $_SERVER['PHP_SELF']; ?>');">Hủy Đơn</a>
+                                        <?php } ?>
+                                    </td>
+                                </tr>
+                            <?php
+                            }
+                            ?>
+                        </tbody>
+                    </table>
+                </div>
+                <a href="index.php" class="btn btn-back" style="margin-left:500px;">BACK</a> 
+            </div>
+        </div>
+    </div>
+</main>
+
+<!-- Thêm JavaScript Bootstrap -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+    function cancelOrder(event, currentPage) {
+        if (confirm('Bạn có muốn hủy đơn không?')) {
+            const link = event.currentTarget.getAttribute('href');
+            window.location.href = link;
+        } else {
+            event.preventDefault();
+        }
+    }
+</script>
+
+
+
+      <div class="ps-footer bg--cover" data-background="images/background/parallax.jpg" style="margin-top: 300px;">
+      
+        <div class="ps-footer__content">
+          <div class="ps-container">
+            <div class="row">
+                  <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 ">
+                    <aside class="ps-widget--footer ps-widget--info">
+                      <header><a class="ps-logo" href="index.php"><img src="images/logo-white.png" alt=""></a>
+                        <h3 class="ps-widget__title">Address Office 1</h3>
+                      </header>
+                      <footer>
+                        <p><strong>460 West 34th Street, 15th floor, New York</strong></p>
+                        <p>Email: <a href='mailto:support@store.com'>support@store.com</a></p>
+                        <p>Phone: +323 32434 5334</p>
+                        <p>Fax: ++323 32434 5333</p>
+                      </footer>
+                    </aside>
+                  </div>
+                  <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 ">
+                    <aside class="ps-widget--footer ps-widget--info second">
+                      <header>
+                        <h3 class="ps-widget__title">Address Office 2</h3>
+                      </header>
+                      <footer>
+                        <p><strong>PO Box 16122 Collins  Victoria 3000 Australia</strong></p>
+                        <p>Email: <a href='mailto:support@store.com'>support@store.com</a></p>
+                        <p>Phone: +323 32434 5334</p>
+                        <p>Fax: ++323 32434 5333</p>
+                      </footer>
+                    </aside>
+                  </div>
+                  <div class="col-lg-2 col-md-2 col-sm-4 col-xs-12 ">
+                    <aside class="ps-widget--footer ps-widget--link">
+                      <header>
+                        <h3 class="ps-widget__title">Find Our store</h3>
+                      </header>
+                      <footer>
+                        <ul class="ps-list--link">
+                          <li><a href="#">Coupon Code</a></li>
+                          <li><a href="#">SignUp For Email</a></li>
+                          <li><a href="#">Site Feedback</a></li>
+                          <li><a href="#">Careers</a></li>
+                        </ul>
+                      </footer>
+                    </aside>
+                  </div>
+                  <div class="col-lg-2 col-md-2 col-sm-4 col-xs-12 ">
+                    <aside class="ps-widget--footer ps-widget--link">
+                      <header>
+                        <h3 class="ps-widget__title">Get Help</h3>
+                      </header>
+                      <footer>
+                        <ul class="ps-list--line">
+                          <li><a href="#">Order Status</a></li>
+                          <li><a href="#">Shipping and Delivery</a></li>
+                          <li><a href="#">Returns</a></li>
+                          <li><a href="#">Payment Options</a></li>
+                          <li><a href="#">Contact Us</a></li>
+                        </ul>
+                      </footer>
+                    </aside>
+                  </div>
+                  <div class="col-lg-2 col-md-2 col-sm-4 col-xs-12 ">
+                    <aside class="ps-widget--footer ps-widget--link">
+                      <header>
+                        <h3 class="ps-widget__title">Products</h3>
+                      </header>
+                      <footer>
+                        <ul class="ps-list--line">
+                          <li><a href="#">Shoes</a></li>
+                          <li><a href="#">Clothing</a></li>
+                          <li><a href="#">Accessries</a></li>
+                          <li><a href="#">Football Boots</a></li>
+                        </ul>
+                      </footer>
+                    </aside>
+                  </div>
+            </div>
+          </div>
+        </div>
+        <div class="ps-footer__copyright">
+          <div class="ps-container">
+            <div class="row">
+                  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 ">
+                    <p>&copy; <a href="#">SKYTHEMES</a>, Inc. All rights Resevered. Design by <a href="#"> Alena Studio</a></p>
+                  </div>
+                  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 ">
+                    <ul class="ps-social">
+                      <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                      <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                      <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                      <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                    </ul>
+                  </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <!-- JS Library-->
+    <script type="text/javascript" src="plugins/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="plugins/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="plugins/jquery-bar-rating/dist/jquery.barrating.min.js"></script>
+    <script type="text/javascript" src="plugins/owl-carousel/owl.carousel.min.js"></script>
+    <script type="text/javascript" src="plugins/gmap3.min.js"></script>
+    <script type="text/javascript" src="plugins/imagesloaded.pkgd.js"></script>
+    <script type="text/javascript" src="plugins/isotope.pkgd.min.js"></script>
+    <script type="text/javascript" src="plugins/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+    <script type="text/javascript" src="plugins/jquery.matchHeight-min.js"></script>
+    <script type="text/javascript" src="plugins/slick/slick/slick.min.js"></script>
+    <script type="text/javascript" src="plugins/elevatezoom/jquery.elevatezoom.js"></script>
+    <script type="text/javascript" src="plugins/Magnific-Popup/dist/jquery.magnific-popup.min.js"></script>
+    <script type="text/javascript" src="plugins/jquery-ui/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAx39JFH5nhxze1ZydH-Kl8xXM3OK4fvcg&amp;region=GB"></script><script type="text/javascript" src="plugins/revolution/js/jquery.themepunch.tools.min.js"></script>
+<script type="text/javascript" src="plugins/revolution/js/jquery.themepunch.revolution.min.js"></script>
+<script type="text/javascript" src="plugins/revolution/js/extensions/revolution.extension.video.min.js"></script>
+<script type="text/javascript" src="plugins/revolution/js/extensions/revolution.extension.slideanims.min.js"></script>
+<script type="text/javascript" src="plugins/revolution/js/extensions/revolution.extension.layeranimation.min.js"></script>
+<script type="text/javascript" src="plugins/revolution/js/extensions/revolution.extension.navigation.min.js"></script>
+<script type="text/javascript" src="plugins/revolution/js/extensions/revolution.extension.parallax.min.js"></script>
+<script type="text/javascript" src="plugins/revolution/js/extensions/revolution.extension.actions.min.js"></script>
+    <!-- Custom scripts-->
+    <script type="text/javascript" src="js/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,8 @@
+<?php
+   require_once("repository/orderRepository.php");
+    $orderRepository = new OrderRepository();
+    $orderRepository->deleteById($_GET['id']);
+    echo "<script>alert('Hủy đơn thành công');
+        window.location.href='cart_2.php';
+        </script>";
+?>

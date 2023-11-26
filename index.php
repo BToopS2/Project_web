@@ -18,7 +18,7 @@
     <meta name="author" content="Nghia Minh Luong">
     <meta name="keywords" content="Default Description">
     <meta name="description" content="Default keyword">
-    <title>HUSSTORE - Homepage</title>
+    <title>Sky - Homepage</title>
     <!-- Fonts-->
     <link href="https://fonts.googleapis.com/css?family=Archivo+Narrow:300,400,700%7CMontserrat:300,400,500,600,700,800,900" rel="stylesheet">
     <link rel="stylesheet" href="plugins/font-awesome/css/font-awesome.min.css">
@@ -78,7 +78,7 @@
         <div class="container-fluid">
           <div class="row">
                 <div class="col-lg-6 col-md-8 col-sm-6 col-xs-12 ">
-                  <p>334 Nguyễn Trãi, Thanh Xuân, Hà Nội  -  Hotline: +84123456789 - 0123456789</p>
+                  <p>460 West 34th Street, 15th floor, New York  -  Hotline: 804-377-3580 - 804-399-3580</p>
                 </div>
                 <div class="col-lg-6 col-md-4 col-sm-6 col-xs-12 ">
                   <div class="header__actions">
@@ -123,7 +123,7 @@
               <input class="form-control" type="text" placeholder="Search Product…">
               <button><i class="ps-icon-search"></i></button>
             </form>
-            <div class="ps-cart"><a class="ps-cart__toggle" href="#"><i class="ps-icon-shopping-cart"></i></a>
+            <div class="ps-cart"><a class="ps-cart__toggle" href="cart_2.php"><i class="ps-icon-shopping-cart"></i></a>
               <?php require_once("formCart.php") ?>
             </div>
             <div class="menu-toggle"><span></span></div>
