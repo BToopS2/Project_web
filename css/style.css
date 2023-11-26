@@ -6553,4 +6553,8 @@ html .bg--parallax {
   box-sizing: border-box !important;
 }
 
+.ps-cart__toggle {
+  top: 25px !important;
+}
+          
 /*# sourceMappingURL=style.css.map */

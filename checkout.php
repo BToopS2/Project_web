@@ -1,5 +1,5 @@
 <?php
- 
+  require_once("formCart2.php");
   require_once("backend/authWithCookie.php");
   require_once("backend/auth.php");
   require_once("repository/cartRepository.php");
@@ -100,7 +100,7 @@
               <input class="form-control" type="text" placeholder="Search Product…">
               <button><i class="ps-icon-search"></i></button>
             </form>
-            <div class="ps-cart"><a class="ps-cart__toggle" href="#"><span><i></i></span><i class="ps-icon-shopping-cart"></i></a>
+            <div class="ps-cart"><a class="ps-cart__toggle" href="#"><span><i><?php echo $cartList->num_rows ?></i></span><i class="ps-icon-shopping-cart"></i></a>
             <?php require_once("formCart.php") ?>
             </div>
             <div class="menu-toggle"><span></span></div>
