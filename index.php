@@ -21,6 +21,7 @@
     <meta name="description" content="Default keyword">
     <title>HUS STORE - Homepage</title>
     <!-- Fonts-->
+    
     <link href="https://fonts.googleapis.com/css?family=Archivo+Narrow:300,400,700%7CMontserrat:300,400,500,600,700,800,900" rel="stylesheet">
     <link rel="stylesheet" href="plugins/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="plugins/ps-icon/style.css">
@@ -594,7 +595,7 @@
           <div class="ps-container">
             <div class="row">
                   <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 ">
-                    <p>&copy; <a href="#">SKYTHEMES</a>, Inc. All rights Resevered. Design by <a href="#"> TV2H_team</a></p>
+                    <p>&copy; <a href="#">HUS_DEGINER</a>, Inc. All rights Resevered. Design by <a href="#"> TV2H_team</a></p>
                   </div>
                   <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 ">
                     <ul class="ps-social">
@@ -633,5 +634,6 @@
     <script type="text/javascript" src="plugins/revolution/js/extensions/revolution.extension.actions.min.js"></script>
     <!-- Custom scripts-->
     <script type="text/javascript" src="js/main.js"></script>
+    
   </body>
 </html>

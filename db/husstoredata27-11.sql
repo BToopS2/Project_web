@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 27, 2023 lúc 04:27 PM
+-- Thời gian đã tạo: Th10 27, 2023 lúc 12:07 PM
 -- Phiên bản máy phục vụ: 10.4.28-MariaDB
--- Phiên bản PHP: 8.2.4
+-- Phiên bản PHP: 8.0.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -45,7 +45,7 @@ INSERT INTO `cart` (`id`, `user_id`, `shoe_id`, `shoe_color`, `shoe_size`, `stat
 (7, 1, 28, 'xanh', 32, 2),
 (8, 19, 29, 'xanh', 32, 2),
 (9, 19, 28, 'xanh', 32, 2),
-(10, 1, 28, 'xanh', 32, 3),
+(10, 1, 28, 'xanh', 32, 2),
 (11, 19, 29, 'xanh', 32, 2),
 (12, 19, 30, 'red', 231, 2),
 (13, 19, 29, 'red', 231, 2),
@@ -81,6 +81,7 @@ INSERT INTO `cart` (`id`, `user_id`, `shoe_id`, `shoe_color`, `shoe_size`, `stat
 (56, 1, 36, '33', 3, 2),
 (57, 19, 39, '33', 3, 2),
 (58, 19, 31, '33', 3, 2),
+(59, 1, 43, '213', 3321, 2),
 (60, 1, 42, '213', 3321, 2),
 (63, 19, 40, '213', 3321, 2),
 (66, 19, 40, '2123', 2123, 2),
@@ -91,30 +92,21 @@ INSERT INTO `cart` (`id`, `user_id`, `shoe_id`, `shoe_color`, `shoe_size`, `stat
 (75, 19, 31, '2', 2, 2),
 (76, 19, 30, '321321', 213, 2),
 (77, 19, 34, 'xanh', 231, 2),
-(86, 19, 40, '213', 3321, 2),
-(87, 19, 29, '5', 5, 2),
+(83, 19, 42, '213', 3321, 2),
+(84, 19, 42, '2123', 2123, 1),
+(86, 19, 40, '213', 3321, 1),
+(87, 19, 29, '5', 5, 1),
 (88, 1, 30, 'xanh', 32, 2),
 (89, 1, 41, 'xanh', 231, 2),
 (90, 1, 36, '2', 2, 2),
 (91, 1, 42, '21', 21, 2),
 (92, 1, 29, '2123', 2123, 2),
 (93, 1, 39, 'xanh', 32, 2),
-(94, 1, 42, '2123', 2123, 2),
-(96, 1, 41, '213', 3321, 2),
-(97, 19, 43, 'xanh', 32, 2),
-(98, 1, 30, '2', 2, 2),
-(99, 19, 42, '213', 3321, 2),
-(100, 19, 37, '2123', 2123, 2),
-(101, 19, 31, '234324', 234324, 2),
-(102, 19, 28, '321321', 213, 2),
-(103, 19, 41, '2', 2, 2),
-(104, 19, 40, '5', 5, 2),
-(105, 19, 43, '5', 5, 2),
-(106, 19, 43, '213', 3321, 2),
-(107, 19, 43, '213', 3321, 2),
-(108, 19, 42, '213', 3321, 2),
-(109, 19, 29, '2123', 2123, 2),
-(111, 19, 43, '213', 3321, 1);
+(94, 1, 42, '2123', 2123, 1),
+(95, 1, 43, '2123', 2123, 1),
+(96, 1, 41, '213', 3321, 1),
+(97, 19, 43, 'xanh', 32, 1),
+(98, 1, 30, '2', 2, 1);
 
 -- --------------------------------------------------------
 
@@ -137,6 +129,30 @@ INSERT INTO `category` (`id`, `name`) VALUES
 (3, 'kids'),
 (4, 'nike'),
 (5, 'adidas');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `contacts`
+--
+
+CREATE TABLE `contacts` (
+  `id` int(11) NOT NULL,
+  `NAME` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `message` text NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `contacts`
+--
+
+INSERT INTO `contacts` (`id`, `NAME`, `email`, `message`, `created_at`) VALUES
+(3, 'Tuấn Nguyễn  Anh 2', 'nguyenatuan0302@gmail.com', 'Đẹp', '2023-11-27 02:54:21'),
+(4, 'Tuấn Nguyễn  Anh 2', 'nguyenatuan0302@gmail.com', 'Xấu', '2023-11-27 02:59:29'),
+(5, 'Nguyễn Anh Tuấn ', 'nguyenatuan0302@gmail.com', 'Pro', '2023-11-27 04:14:13'),
+(6, 'Hoàng Hữu Hiếu', 'hoanghuuhieu@gmail.com', 'Trang web rất hữu ích', '2023-11-27 04:18:41');
 
 -- --------------------------------------------------------
 
@@ -229,25 +245,7 @@ INSERT INTO `orders` (`id`, `cart_id`, `quantity`, `date`) VALUES
 (73, 90, 0, '2023-11-26'),
 (74, 91, 0, '2023-11-26'),
 (75, 92, 0, '2023-11-26'),
-(76, 93, 0, '2023-11-26'),
-(77, 94, 0, '2023-11-26'),
-(78, 95, 0, '2023-11-26'),
-(79, 96, 0, '2023-11-26'),
-(80, 98, 0, '2023-11-26'),
-(81, 86, 0, '2023-11-26'),
-(82, 87, 0, '2023-11-26'),
-(83, 97, 0, '2023-11-26'),
-(84, 99, 0, '2023-11-26'),
-(85, 100, 0, '2023-11-26'),
-(86, 101, 0, '2023-11-26'),
-(87, 102, 0, '2023-11-26'),
-(88, 103, 0, '2023-11-26'),
-(89, 104, 0, '2023-11-26'),
-(90, 105, 0, '2023-11-26'),
-(91, 106, 0, '2023-11-26'),
-(92, 107, 0, '2023-11-27'),
-(93, 108, 0, '2023-11-27'),
-(94, 109, 0, '2023-11-27');
+(76, 93, 0, '2023-11-26');
 
 -- --------------------------------------------------------
 
@@ -282,11 +280,11 @@ INSERT INTO `shoe` (`id`, `name`, `price`, `sale`, `size`, `category_id`, `color
 (36, 'dsasda', 3123, 21, '21', 1, '21', '21'),
 (37, '2342424', 234242, 3, '234324', 1, '234324', '23423'),
 (38, '4ewewerw', 432, 3, '324', 5, 'fe', '3'),
+(39, '24333333', 234, 3, '3', 5, '33', '3'),
 (40, '5555555555555555', 5, 5, '5', 4, '5', '5'),
 (41, 'đsasad', 23, 2, '2', 1, '2', '2'),
 (42, 'sasasasasasad', 321, 2, '2123', 4, '2123', '1231'),
-(43, 'Porg333', 10000, 22, '3321', 1, '213', '12332'),
-(44, '21413', 213, 1, '2', 5, '23', '2');
+(43, 'Porg333', 10000, 22, '3321', 1, '213', '12332');
 
 -- --------------------------------------------------------
 
@@ -340,9 +338,7 @@ INSERT INTO `shoe_image` (`id`, `shoe_id`, `link_image`) VALUES
 (46, 42, 'imageShoe/361589311_158993533811228_2576465232391058538_n.jpg'),
 (47, 43, 'imageShoe/Screenshot 2023-08-01 011907.png'),
 (48, 43, 'imageShoe/Screenshot 2023-08-01 011925.png'),
-(49, 43, 'imageShoe/Screenshot 2023-08-05 155335.png'),
-(50, 44, 'imageShoe/Screenshot 2023-07-29 231146.png'),
-(51, 44, 'imageShoe/Screenshot 2023-08-01 221027.png');
+(49, 43, 'imageShoe/Screenshot 2023-08-05 155335.png');
 
 -- --------------------------------------------------------
 
@@ -368,9 +364,9 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `username`, `password`, `fullname`, `dob`, `address`, `role`, `gender`, `email`, `phone`) VALUES
-(1, 'admin@gmail.com', '25f9e794323b453885f5181f1b624d0b', 'Hoang Huu Hieu', '2023-11-09', 'Vietnam', 1, 1, 'hieu@gmail.com', '2121321321'),
+(1, 'admin@gmail.com', '25f9e794323b453885f5181f1b624d0b', 'HoangHuuHieu', '2023-11-09', 'Vietnam', 1, 1, 'hieu@gmail.com', '2121321321'),
 (2, 'hieu@gmail.com', '25f9e794323b453885f5181f1b624d0b', 'Hieuhh', '2023-10-30', 'vietnam', 0, 0, 'g@gmail.com', '2132132133'),
-(19, 'Hieuhoang', 'e807f1fcf82d132f9bb018ca6738a19f', 'Hiếu Hoàng Hữu', '2023-10-31', 'Ha noi, Viet Nam', 0, 1, 'hieu02@gmail.com', '0333222213');
+(19, 'Hieuhoang', 'e807f1fcf82d132f9bb018ca6738a19f', 'HieuHoang', '2023-11-18', 'Vietnam', 0, 1, 'hieu02@gmail.com', '3123212312');
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -386,6 +382,12 @@ ALTER TABLE `cart`
 -- Chỉ mục cho bảng `category`
 --
 ALTER TABLE `category`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Chỉ mục cho bảng `contacts`
+--
+ALTER TABLE `contacts`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -420,7 +422,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT cho bảng `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=112;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=99;
 
 --
 -- AUTO_INCREMENT cho bảng `category`
@@ -429,22 +431,28 @@ ALTER TABLE `category`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
+-- AUTO_INCREMENT cho bảng `contacts`
+--
+ALTER TABLE `contacts`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
 -- AUTO_INCREMENT cho bảng `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=95;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
 
 --
 -- AUTO_INCREMENT cho bảng `shoe`
 --
 ALTER TABLE `shoe`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 
 --
 -- AUTO_INCREMENT cho bảng `shoe_image`
 --
 ALTER TABLE `shoe_image`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
 
 --
 -- AUTO_INCREMENT cho bảng `user`

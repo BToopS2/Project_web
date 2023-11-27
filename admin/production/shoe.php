@@ -4,6 +4,10 @@
     require_once("../../repository/categoryRepository.php");
     $shoeRepository = new ShoeRepository(); 
     $categoryRepository = new CategoryRepository();
+    include("../../connect.php");
+    $sql = "SELECT * FROM contacts LIMIT 5"; 
+    $result = $conn->query($sql);
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -141,72 +145,55 @@
                 </li>
 
                 <li role="presentation" class="nav-item dropdown open">
-                  <a href="javascript:;" class="dropdown-toggle info-number" id="navbarDropdown1" data-toggle="dropdown" aria-expanded="false">
-                    <i class="fa fa-envelope-o"></i>
-                    <span class="badge bg-green">6</span>
-                  </a>
-                  <ul class="dropdown-menu list-unstyled msg_list" role="menu" aria-labelledby="navbarDropdown1">
-                    <li class="nav-item">
-                      <a class="dropdown-item">
-                        <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
-                        <span>
-                          <span>John Smith</span>
-                          <span class="time">3 mins ago</span>
+                    <a href="javascript:;" class="dropdown-toggle info-number" id="navbarDropdown1" data-toggle="dropdown" aria-expanded="false">
+                        <i class="fa fa-envelope-o"></i>
+                        <span class="badge bg-green">
+                            <?php
+                            if ($result->num_rows > 0) {
+                                echo $result->num_rows.'+'; // Hiển thị tổng số hàng
+                            } else {
+                                echo '0';
+                            }
+                            ?>
                         </span>
-                        <span class="message">
-                          Film festivals used to be do-or-die moments for movie makers. They were where...
-                        </span>
-                      </a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="dropdown-item">
-                        <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
-                        <span>
-                          <span>John Smith</span>
-                          <span class="time">3 mins ago</span>
-                        </span>
-                        <span class="message">
-                          Film festivals used to be do-or-die moments for movie makers. They were where...
-                        </span>
-                      </a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="dropdown-item">
-                        <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
-                        <span>
-                          <span>John Smith</span>
-                          <span class="time">3 mins ago</span>
-                        </span>
-                        <span class="message">
-                          Film festivals used to be do-or-die moments for movie makers. They were where...
-                        </span>
-                      </a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="dropdown-item">
-                        <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
-                        <span>
-                          <span>John Smith</span>
-                          <span class="time">3 mins ago</span>
-                        </span>
-                        <span class="message">
-                          Film festivals used to be do-or-die moments for movie makers. They were where...
-                        </span>
-                      </a>
-                    </li>
-                    <li class="nav-item">
-                      <div class="text-center">
-                        <a class="dropdown-item">
-                          <strong>See All Alerts</strong>
-                          <i class="fa fa-angle-right"></i>
-                        </a>
-                      </div>
-                    </li>
-                  </ul>
-                </li>
-              </ul>
-            </nav>
-          </div>
+                    </a>
+                    <ul class="dropdown-menu list-unstyled msg_list" role="menu" aria-labelledby="navbarDropdown1">
+                        <?php
+                        if ($result->num_rows > 0) {
+                            while ($row = $result->fetch_assoc()) {
+                        ?>
+                                <li class="nav-item">
+                                    <a class="dropdown-item">
+                                        <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span> 
+                                        <span>
+                                            <span><?php echo $row['NAME']; ?></span>
+                                            <span class="time"><?php echo date('H:i', strtotime($row['created_at'])); ?></span>
+                                        </span>
+                                        <span class="message">
+                                            <?php echo $row['message']; ?>
+                                        </span>
+                                    </a>
+                                </li>
+                        <?php
+                            }
+                        } else {
+                            echo '<li class="nav-item"><a class="dropdown-item">No messages</a></li>';
+                        }
+                        ?>
+                        <li class="nav-item">
+                            <div class="text-center">
+                                <a class="dropdown-item" href="see_all_alerts.php"> <!-- Điều hướng đến trang hiển thị tất cả các thông báo -->
+                                    <strong>See All Alerts</strong>
+                                    <i class="fa fa-angle-right"></i>
+                                   </a>
+                                </div>
+                              </li>
+                          </ul>
+                     </li>
+
+                              </ul> 
+                            </nav>
+                          </div>
         </div>
         <div class="right_col" role="main">
         <a class="btn btn-primary" href="addShoe.php" role="button">Thêm Sản Phẩm</a>

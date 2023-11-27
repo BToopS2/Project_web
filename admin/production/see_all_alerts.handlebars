@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>See All Alerts</title>
+    <!-- Sử dụng Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-3">
+                <!-- Thanh banner bên trái -->
+                <div class="bg-info p-3">
+                    <h3 class="text-white">Left Banner</h3>
+                    <!-- Bạn có thể thêm nội dung khác cho thanh banner này -->
+                </div>
+            </div>
+            <div class="col-md-9">
+                <!-- Nội dung chính -->
+                <h1 class="mb-4">All Alerts</h1>
+
+                <?php
+                // Thực hiện truy vấn hoặc lấy dữ liệu thông báo từ cơ sở dữ liệu
+                include("../../connect.php");
+
+                $sql = "SELECT * FROM contacts"; // Thay your_alerts_table bằng tên thực của bảng thông báo
+
+                $result = $conn->query($sql);
+
+                if ($result === false) {
+                    echo "Error: " . $sql . "<br>" . $conn->error;
+                } else {
+                    // Hiển thị danh sách các thông báo
+                    if ($result->num_rows > 0) {
+                        echo '<ul class="list-group">';
+                        while ($row = $result->fetch_assoc()) {
+                            echo '<li class="list-group-item">';
+                            echo '<strong>' . $row['NAME'] . '</strong> - ' . $row['message'] . ' ';
+                            echo '<span class="badge badge-secondary">' . $row['created_at'] . '</span>';
+                            echo '</li>';
+                        }
+                        echo '</ul>';
+                    } else {
+                        echo '<p class="text-muted">Không có thông báo.</p>';
+                    }
+                }
+
+                $conn->close();
+                ?>
+            </div>
+        </div>
+
+        <!-- Sử dụng Bootstrap JS và Popper.js -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    </div>
+</body>
+
+</html>
