@@ -5,7 +5,7 @@
     $shoeRepository = new ShoeRepository(); 
     $categoryRepository = new CategoryRepository();
     include("../../connect.php");
-    $sql = "SELECT * FROM contacts LIMIT 5"; // Đổi your_table_name thành tên bảng chứa dữ liệu của bạn
+    $sql = "SELECT * FROM contacts LIMIT 5"; 
     $result = $conn->query($sql);
 
 ?>
@@ -150,7 +150,7 @@
                         <span class="badge bg-green">
                             <?php
                             if ($result->num_rows > 0) {
-                                echo $result->num_rows; // Hiển thị tổng số hàng
+                                echo $result->num_rows.'+'; // Hiển thị tổng số hàng
                             } else {
                                 echo '0';
                             }
@@ -167,7 +167,7 @@
                                         <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span> 
                                         <span>
                                             <span><?php echo $row['NAME']; ?></span>
-                                            <span class="time"><?php echo $row['created_at']; ?></span>
+                                            <span class="time"><?php echo date('H:i', strtotime($row['created_at'])); ?></span>
                                         </span>
                                         <span class="message">
                                             <?php echo $row['message']; ?>
