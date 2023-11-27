@@ -167,7 +167,8 @@
                                         <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span> 
                                         <span>
                                             <span><?php echo $row['NAME']; ?></span>
-                                            <span class="time"><?php echo $row['created_at']; ?></span>
+                                            <span class="time"><?php echo date('H:i', strtotime($row['created_at'])); ?></span>
+
                                         </span>
                                         <span class="message">
                                             <?php echo $row['message']; ?>
