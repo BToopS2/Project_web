@@ -150,7 +150,7 @@
                         <span class="badge bg-green">
                             <?php
                             if ($result->num_rows > 0) {
-                                echo $result->num_rows; // Hiển thị tổng số hàng
+                                echo $result->num_rows.'+'; // Hiển thị tổng số hàng
                             } else {
                                 echo '0';
                             }
