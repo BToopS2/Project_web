@@ -11,10 +11,10 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <link href="apple-touch-icon.png" rel="apple-touch-icon">
     <link href="favicon.png" rel="icon">
-    <meta name="author" content="Nghia Minh Luong">
+    <meta name="author" content="TV2H">
     <meta name="keywords" content="Default Description">
     <meta name="description" content="Default keyword">
-    <title>Sky - Blog Grid</title>
+    <title>HUS - Blog Grid</title>
     <!-- Fonts-->
     <link href="https://fonts.googleapis.com/css?family=Archivo+Narrow:300,400,700%7CMontserrat:300,400,500,600,700,800,900" rel="stylesheet">
     <link rel="stylesheet" href="plugins/font-awesome/css/font-awesome.min.css">
@@ -46,7 +46,7 @@
         <div class="container-fluid">
         <div class="row">
                 <div class="col-lg-6 col-md-8 col-sm-6 col-xs-12 ">
-                  <p>460 West 34th Street, 15th floor, New York  -  Hotline: 804-377-3580 - 804-399-3580</p>
+                  <p>334 Nguyễn Trãi, Thanh Xuân, Hà Nội - Hotline: +84123456789 - 0123456789</p>
                 </div>
                 <div class="col-lg-6 col-md-4 col-sm-6 col-xs-12 ">
                   <div class="header__actions">
@@ -109,9 +109,9 @@
     </header>
     <div class="header-services">
       <div class="ps-services owl-slider" data-owl-auto="true" data-owl-loop="true" data-owl-speed="7000" data-owl-gap="0" data-owl-nav="true" data-owl-dots="false" data-owl-item="1" data-owl-item-xs="1" data-owl-item-sm="1" data-owl-item-md="1" data-owl-item-lg="1" data-owl-duration="1000" data-owl-mousedrag="on">
-        <p class="ps-service"><i class="ps-icon-delivery"></i><strong>Free delivery</strong>: Get free standard delivery on every order with Sky Store</p>
-        <p class="ps-service"><i class="ps-icon-delivery"></i><strong>Free delivery</strong>: Get free standard delivery on every order with Sky Store</p>
-        <p class="ps-service"><i class="ps-icon-delivery"></i><strong>Free delivery</strong>: Get free standard delivery on every order with Sky Store</p>
+        <p class="ps-service"><i class="ps-icon-delivery"></i><strong>Free delivery</strong>: Get free standard delivery on every order with HUS Store</p>
+        <p class="ps-service"><i class="ps-icon-delivery"></i><strong>Free delivery</strong>: Get free standard delivery on every order with HUS Store</p>
+        <p class="ps-service"><i class="ps-icon-delivery"></i><strong>Free delivery</strong>: Get free standard delivery on every order with HUS Store</p>
       </div>
     </div>
     <main class="ps-main">
@@ -123,7 +123,7 @@
                         <div class="ps-post mb-30">
                           <div class="ps-post__thumbnail"><a class="ps-post__overlay" href="blog-detail.php"></a><img src="images/blog/1.jpg" alt=""></div>
                           <div class="ps-post__content"><a class="ps-post__title" href="blog-detail.php">An Inside Look at the Breaking2 Kit</a>
-                            <p class="ps-post__meta"><span>By:<a class="mr-5" href="blog.php">Alena Studio</a></span> -<span class="ml-5">Jun 10, 2017</span></p>
+                            <p class="ps-post__meta"><span>By:<a class="mr-5" href="blog.php">TV2H_team</a></span> -<span class="ml-5">Jun 10, 2017</span></p>
                             <p>Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further…</p><a class="ps-morelink" href="blog-detail.php">Read more<i class="fa fa-long-arrow-right"></i></a>
                           </div>
                         </div>
@@ -132,7 +132,7 @@
                         <div class="ps-post mb-30">
                           <div class="ps-post__thumbnail"><a class="ps-post__overlay" href="blog-detail.php"></a><img src="images/blog/2.jpg" alt=""></div>
                           <div class="ps-post__content"><a class="ps-post__title" href="blog-detail.php">Unpacking the Breaking2 Race Strategy</a>
-                            <p class="ps-post__meta"><span>By:<a class="mr-5" href="blog.php">Alena Studio</a></span> -<span class="ml-5">Jun 10, 2017</span></p>
+                            <p class="ps-post__meta"><span>By:<a class="mr-5" href="blog.php">TV2H_team</a></span> -<span class="ml-5">Jun 10, 2017</span></p>
                             <p>Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further…</p><a class="ps-morelink" href="blog-detail.php">Read more<i class="fa fa-long-arrow-right"></i></a>
                           </div>
                         </div>
@@ -141,7 +141,7 @@
                         <div class="ps-post mb-30">
                           <div class="ps-post__thumbnail"><a class="ps-post__overlay" href="blog-detail.php"></a><img src="images/blog/3.jpg" alt=""></div>
                           <div class="ps-post__content"><a class="ps-post__title" href="blog-detail.php">Nike’s Latest Football Cleat Breaks the Mold</a>
-                            <p class="ps-post__meta"><span>By:<a class="mr-5" href="blog.php">Alena Studio</a></span> -<span class="ml-5">Jun 10, 2017</span></p>
+                            <p class="ps-post__meta"><span>By:<a class="mr-5" href="blog.php">TV2H_team</a></span> -<span class="ml-5">Jun 10, 2017</span></p>
                             <p>Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further…</p><a class="ps-morelink" href="blog-detail.php">Read more<i class="fa fa-long-arrow-right"></i></a>
                           </div>
                         </div>
@@ -150,7 +150,7 @@
                         <div class="ps-post mb-30">
                           <div class="ps-post__thumbnail"><a class="ps-post__overlay" href="blog-detail.php"></a><img src="images/blog/1.jpg" alt=""></div>
                           <div class="ps-post__content"><a class="ps-post__title" href="blog-detail.php">An Inside Look at the Breaking2 Kit</a>
-                            <p class="ps-post__meta"><span>By:<a class="mr-5" href="blog.php">Alena Studio</a></span> -<span class="ml-5">Jun 10, 2017</span></p>
+                            <p class="ps-post__meta"><span>By:<a class="mr-5" href="blog.php">TV2H_team</a></span> -<span class="ml-5">Jun 10, 2017</span></p>
                             <p>Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further…</p><a class="ps-morelink" href="blog-detail.php">Read more<i class="fa fa-long-arrow-right"></i></a>
                           </div>
                         </div>
@@ -159,7 +159,7 @@
                         <div class="ps-post mb-30">
                           <div class="ps-post__thumbnail"><a class="ps-post__overlay" href="blog-detail.php"></a><img src="images/blog/2.jpg" alt=""></div>
                           <div class="ps-post__content"><a class="ps-post__title" href="blog-detail.php">Unpacking the Breaking2 Race Strategy</a>
-                            <p class="ps-post__meta"><span>By:<a class="mr-5" href="blog.php">Alena Studio</a></span> -<span class="ml-5">Jun 10, 2017</span></p>
+                            <p class="ps-post__meta"><span>By:<a class="mr-5" href="blog.php">TV2H_team</a></span> -<span class="ml-5">Jun 10, 2017</span></p>
                             <p>Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further…</p><a class="ps-morelink" href="blog-detail.php">Read more<i class="fa fa-long-arrow-right"></i></a>
                           </div>
                         </div>
@@ -168,7 +168,7 @@
                         <div class="ps-post mb-30">
                           <div class="ps-post__thumbnail"><a class="ps-post__overlay" href="blog-detail.php"></a><img src="images/blog/3.jpg" alt=""></div>
                           <div class="ps-post__content"><a class="ps-post__title" href="blog-detail.php">Nike’s Latest Football Cleat Breaks the Mold</a>
-                            <p class="ps-post__meta"><span>By:<a class="mr-5" href="blog.php">Alena Studio</a></span> -<span class="ml-5">Jun 10, 2017</span></p>
+                            <p class="ps-post__meta"><span>By:<a class="mr-5" href="blog.php">TV2H_team</a></span> -<span class="ml-5">Jun 10, 2017</span></p>
                             <p>Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further…</p><a class="ps-morelink" href="blog-detail.php">Read more<i class="fa fa-long-arrow-right"></i></a>
                           </div>
                         </div>
@@ -177,7 +177,7 @@
                         <div class="ps-post mb-30">
                           <div class="ps-post__thumbnail"><a class="ps-post__overlay" href="blog-detail.php"></a><img src="images/blog/1.jpg" alt=""></div>
                           <div class="ps-post__content"><a class="ps-post__title" href="blog-detail.php">An Inside Look at the Breaking2 Kit</a>
-                            <p class="ps-post__meta"><span>By:<a class="mr-5" href="blog.php">Alena Studio</a></span> -<span class="ml-5">Jun 10, 2017</span></p>
+                            <p class="ps-post__meta"><span>By:<a class="mr-5" href="blog.php">TV2H_team</a></span> -<span class="ml-5">Jun 10, 2017</span></p>
                             <p>Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further…</p><a class="ps-morelink" href="blog-detail.php">Read more<i class="fa fa-long-arrow-right"></i></a>
                           </div>
                         </div>
@@ -186,7 +186,7 @@
                         <div class="ps-post mb-30">
                           <div class="ps-post__thumbnail"><a class="ps-post__overlay" href="blog-detail.php"></a><img src="images/blog/2.jpg" alt=""></div>
                           <div class="ps-post__content"><a class="ps-post__title" href="blog-detail.php">Unpacking the Breaking2 Race Strategy</a>
-                            <p class="ps-post__meta"><span>By:<a class="mr-5" href="blog.php">Alena Studio</a></span> -<span class="ml-5">Jun 10, 2017</span></p>
+                            <p class="ps-post__meta"><span>By:<a class="mr-5" href="blog.php">TV2H_team</a></span> -<span class="ml-5">Jun 10, 2017</span></p>
                             <p>Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further…</p><a class="ps-morelink" href="blog-detail.php">Read more<i class="fa fa-long-arrow-right"></i></a>
                           </div>
                         </div>
@@ -195,7 +195,7 @@
                         <div class="ps-post mb-30">
                           <div class="ps-post__thumbnail"><a class="ps-post__overlay" href="blog-detail.php"></a><img src="images/blog/3.jpg" alt=""></div>
                           <div class="ps-post__content"><a class="ps-post__title" href="blog-detail.php">Nike’s Latest Football Cleat Breaks the Mold</a>
-                            <p class="ps-post__meta"><span>By:<a class="mr-5" href="blog.php">Alena Studio</a></span> -<span class="ml-5">Jun 10, 2017</span></p>
+                            <p class="ps-post__meta"><span>By:<a class="mr-5" href="blog.php">TV2H_team</a></span> -<span class="ml-5">Jun 10, 2017</span></p>
                             <p>Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further…</p><a class="ps-morelink" href="blog-detail.php">Read more<i class="fa fa-long-arrow-right"></i></a>
                           </div>
                         </div>
@@ -226,7 +226,7 @@
                     </div>
                     <div class="ps-widget__content">
                       <ul class="ps-list--arrow">
-                        <li class="current"><a href="product-listing.php">Sky(321)</a></li>
+                        <li class="current"><a href="product-listing.php">HUS(321)</a></li>
                         <li><a href="product-listing.php">Amazin’ Glazin’</a></li>
                         <li><a href="product-listing.php">The Crusty Croissant</a></li>
                         <li><a href="product-listing.php">The Rolling Pin</a></li>
@@ -268,7 +268,7 @@
                     <div class="ps-widget__content">
                       <div class="ps-shoe--sidebar">
                         <div class="ps-shoe__thumbnail"><a href="#"></a><img src="images/shoe/sidebar/1.jpg" alt=""></div>
-                        <div class="ps-shoe__content"><a class="ps-shoe__title" href="#">Men's Sky</a>
+                        <div class="ps-shoe__content"><a class="ps-shoe__title" href="#">Men's HUS</a>
                           <p><del> £253.00</del> £152.00</p><a class="ps-btn" href="#">PURCHASE</a>
                         </div>
                       </div>
@@ -335,7 +335,7 @@
                         <h3 class="ps-widget__title">Address Office 1</h3>
                       </header>
                       <footer>
-                        <p><strong>460 West 34th Street, 15th floor, New York</strong></p>
+                        <p><strong>334 Nguyễn Trãi, Thanh Xuân, Hà Nội</strong></p>
                         <p>Email: <a href='mailto:support@store.com'>support@store.com</a></p>
                         <p>Phone: +323 32434 5334</p>
                         <p>Fax: ++323 32434 5333</p>
@@ -348,7 +348,7 @@
                         <h3 class="ps-widget__title">Address Office 2</h3>
                       </header>
                       <footer>
-                        <p><strong>PO Box 16122 Collins  Victoria 3000 Australia</strong></p>
+                        <p><strong>144 Xuân Thủy, Cầu Giấy, Hà Nội</strong></p>
                         <p>Email: <a href='mailto:support@store.com'>support@store.com</a></p>
                         <p>Phone: +323 32434 5334</p>
                         <p>Fax: ++323 32434 5333</p>
@@ -408,7 +408,7 @@
           <div class="ps-container">
             <div class="row">
                   <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 ">
-                    <p>&copy; <a href="#">SKYTHEMES</a>, Inc. All rights Resevered. Design by <a href="#"> Alena Studio</a></p>
+                    <p>&copy; <a href="#">HUSTHEMES</a>, Inc. All rights Resevered. Design by <a href="#"> TV2H_team</a></p>
                   </div>
                   <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 ">
                     <ul class="ps-social">

@@ -1,3 +1,4 @@
+<link href="favicon.png" rel="icon">
 <?php
 require_once("backend/auth.php");
 require_once("repository/cartRepository.php");
@@ -38,6 +39,7 @@ $infoUser = Auth::loginWithCookie();
         }
         ?>
     </div>
+    
     <!-- <div class="ps-cart__total">
         <p>Number of items:<span><?php echo $cartList->num_rows ?></span></p>
         <p>Price Total:<span><?php echo $sumPrice ?> VND</span></p>
