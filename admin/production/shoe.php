@@ -4,6 +4,10 @@
     require_once("../../repository/categoryRepository.php");
     $shoeRepository = new ShoeRepository(); 
     $categoryRepository = new CategoryRepository();
+    include("../../connect.php");
+    $sql = "SELECT * FROM contacts LIMIT 5"; // Đổi your_table_name thành tên bảng chứa dữ liệu của bạn
+    $result = $conn->query($sql);
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,7 +19,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="icon" href="images/favicon.ico" type="image/ico" />
 
-    <title>Gentelella Alela! | </title>
+    <title>ADMIN Controler | </title>
 
     <!-- Bootstrap -->
     <link href="../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -44,7 +48,7 @@
         <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
-              <a href="../../index.php" class="site_title"><i class="fa fa-paw"></i> <span>HOME</span></a>
+              <a href="../../index.php" class="site_title"><i class="fa fa-home" aria-hidden="true"></i> <span>HOME</span></a>
             </div>
 
             <div class="clearfix"></div>
@@ -63,20 +67,38 @@
             <!-- sidebar menu -->
             <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
               <div class="menu_section">
-                <h3>General</h3>
+                <h3>HUS STORE - ADMIN</h3>
                 <ul class="nav side-menu">
-                  <li><a><i class="fa fa-home"></i> Quản Lý <span class="fa fa-chevron-down"></span></a>
+
+                  <li><a><i class="fa fa-paw"></i> Quản Lý <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                    <li><a href="shoe.php">Quản Lý Giày</a></li>
+                      <li><a href="shoe.php">Quản Lý Sản Phẩm</a></li>
                       <li><a href="order.php">Quản Lý Đơn Hàng</a></li>
                       <li><a href="user.php">Quản Lý User</a></li>
                     </ul>
                   </li>
-                 
-                </ul>
-              </div>
-              
+                
+                  <li><a><i class="fa fa-money"></i> Doanh Thu<span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="#">Theo Ngày</a></li>
+                      <li><a href="#">Theo Tuần</a></li>
+                      <li><a href="#">Theo Tháng</a></li>
+                      <li><a href="#">Theo Quý</a></li>
+                      <li><a href="#">Theo Năm</a></li>
+                    </ul>
+                  </li>
 
+                  <li><a><i class="fa fa-line-chart"></i> Biểu Đồ Phát Triển <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="#">Lượt truy cập</a></li>
+                      <li><a href="#">Doanh Thu</a></li>
+                      <li><a href="#">Lợi Nhuận</a></li>
+                    </ul>
+                  </li>
+
+                </ul>
+                
+              </div>
             </div>
             <!-- /sidebar menu -->
 
@@ -123,75 +145,58 @@
                 </li>
 
                 <li role="presentation" class="nav-item dropdown open">
-                  <a href="javascript:;" class="dropdown-toggle info-number" id="navbarDropdown1" data-toggle="dropdown" aria-expanded="false">
-                    <i class="fa fa-envelope-o"></i>
-                    <span class="badge bg-green">6</span>
-                  </a>
-                  <ul class="dropdown-menu list-unstyled msg_list" role="menu" aria-labelledby="navbarDropdown1">
-                    <li class="nav-item">
-                      <a class="dropdown-item">
-                        <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
-                        <span>
-                          <span>John Smith</span>
-                          <span class="time">3 mins ago</span>
+                    <a href="javascript:;" class="dropdown-toggle info-number" id="navbarDropdown1" data-toggle="dropdown" aria-expanded="false">
+                        <i class="fa fa-envelope-o"></i>
+                        <span class="badge bg-green">
+                            <?php
+                            if ($result->num_rows > 0) {
+                                echo $result->num_rows; // Hiển thị tổng số hàng
+                            } else {
+                                echo '0';
+                            }
+                            ?>
                         </span>
-                        <span class="message">
-                          Film festivals used to be do-or-die moments for movie makers. They were where...
-                        </span>
-                      </a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="dropdown-item">
-                        <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
-                        <span>
-                          <span>John Smith</span>
-                          <span class="time">3 mins ago</span>
-                        </span>
-                        <span class="message">
-                          Film festivals used to be do-or-die moments for movie makers. They were where...
-                        </span>
-                      </a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="dropdown-item">
-                        <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
-                        <span>
-                          <span>John Smith</span>
-                          <span class="time">3 mins ago</span>
-                        </span>
-                        <span class="message">
-                          Film festivals used to be do-or-die moments for movie makers. They were where...
-                        </span>
-                      </a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="dropdown-item">
-                        <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
-                        <span>
-                          <span>John Smith</span>
-                          <span class="time">3 mins ago</span>
-                        </span>
-                        <span class="message">
-                          Film festivals used to be do-or-die moments for movie makers. They were where...
-                        </span>
-                      </a>
-                    </li>
-                    <li class="nav-item">
-                      <div class="text-center">
-                        <a class="dropdown-item">
-                          <strong>See All Alerts</strong>
-                          <i class="fa fa-angle-right"></i>
-                        </a>
-                      </div>
-                    </li>
-                  </ul>
-                </li>
-              </ul>
-            </nav>
-          </div>
+                    </a>
+                    <ul class="dropdown-menu list-unstyled msg_list" role="menu" aria-labelledby="navbarDropdown1">
+                        <?php
+                        if ($result->num_rows > 0) {
+                            while ($row = $result->fetch_assoc()) {
+                        ?>
+                                <li class="nav-item">
+                                    <a class="dropdown-item">
+                                        <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span> 
+                                        <span>
+                                            <span><?php echo $row['NAME']; ?></span>
+                                            <span class="time"><?php echo $row['created_at']; ?></span>
+                                        </span>
+                                        <span class="message">
+                                            <?php echo $row['message']; ?>
+                                        </span>
+                                    </a>
+                                </li>
+                        <?php
+                            }
+                        } else {
+                            echo '<li class="nav-item"><a class="dropdown-item">No messages</a></li>';
+                        }
+                        ?>
+                        <li class="nav-item">
+                            <div class="text-center">
+                                <a class="dropdown-item" href="see_all_alerts.php"> <!-- Điều hướng đến trang hiển thị tất cả các thông báo -->
+                                    <strong>See All Alerts</strong>
+                                    <i class="fa fa-angle-right"></i>
+                                   </a>
+                                </div>
+                              </li>
+                          </ul>
+                     </li>
+
+                              </ul> 
+                            </nav>
+                          </div>
         </div>
         <div class="right_col" role="main">
-        <a class="btn btn-primary" href="addShoe.php" role="button">Thêm Giày</a>
+        <a class="btn btn-primary" href="addShoe.php" role="button">Thêm Sản Phẩm</a>
           <table id="tableShoe">
             <tr>
               <th class="text-center" style="min-width:50px">STT</th>
@@ -255,8 +260,8 @@
     <script src="../vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
     <!-- iCheck -->
     <script src="../vendors/iCheck/icheck.min.js"></script>
-    <!-- Skycons -->
-    <script src="../vendors/skycons/skycons.js"></script>
+    <!-- HUScons -->
+    <script src="../vendors/HUScons/HUScons.js"></script>
     <!-- Flot -->
     <script src="../vendors/Flot/jquery.flot.js"></script>
     <script src="../vendors/Flot/jquery.flot.pie.js"></script>
