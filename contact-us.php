@@ -171,8 +171,7 @@ if (isset($_POST['send_email'])) {
     $name = $_POST['name'];
     $email = $_POST['email'];
     $content = $_POST['content'];
-    $id=$infoUser['id'];
-    $sql = "UPDATE contacts SET name='$name', email='$email', message='$content' WHERE id=$id"; 
+    $sql = "INSERT contacts SET name='$name', email='$email', message='$content'"; 
 
     if ($conn->query($sql) === TRUE) {
         echo "Message saved to database successfully";
