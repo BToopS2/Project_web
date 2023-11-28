@@ -26,7 +26,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Check if the update was successful
     if ($result) {
         // Redirect to the profile page after updating
-        header("Location: index.php");
+        
+        header("Location: profile_1.php");
         exit();
     } else {
         // Handle the error, e.g., display an error message
@@ -34,4 +35,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "Error updating user information: " . $errorMessage;
     }
 }
+
 ?>

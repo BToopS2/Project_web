@@ -1,5 +1,3 @@
-
-   
                
 <div class="btn-group ps-dropdown">
     <a class="dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

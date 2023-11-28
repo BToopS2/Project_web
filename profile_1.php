@@ -24,7 +24,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <link href="apple-touch-icon.png" rel="apple-touch-icon">
     <link href="favicon.png" rel="icon">
-    <meta name="author" content="Nghia Minh Luong">
+    <meta name="author" content="TV2H">
     <meta name="keywords" content="Default Description">
     <meta name="description" content="Default keyword">
     <title>HUS - Info</title>
@@ -33,7 +33,7 @@
     <link rel="stylesheet" href="plugins/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="plugins/ps-icon/style.css">
     <!-- CSS Library-->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"> -->
 
     <link rel="stylesheet" href="plugins/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="plugins/owl-carousel/assets/owl.carousel.css">
@@ -202,45 +202,52 @@
                                         
                                         <!-- Các trường nhập liệu và thông tin cá nhân -->
                                         
-
+                                  <div style= " display: none;"class="form-group form-group--inline">
+                                  <label>ID<span>*</span></label>
+                                      <input readonly value="<?php echo $infoUser['id'] ?>" class="form-control" type="text" name="id">
+                                  </div>
                                         <div class="form-group form-group--inline">
                                             <label><i class="fa-regular fa-user"></i>  Họ tên đầy đủ:<span> </label>
                                             <input value="<?php echo $infoUser['fullname'] ?>" class="form-control" type="text" name="name">
                                         </div>
                                         <div class="form-group form-group--inline">
-                <label> <i class="fa-solid fa-mars-and-venus"></i>  Giới tính:</label>
-                <select class="form-control" name="gender">
-                    <option value="1" <?php echo ($infoUser['gender'] == 1) ? 'selected' : ''; ?>>Nam</option>
-                    <option value="0" <?php echo ($infoUser['gender'] == 0) ? 'selected' : ''; ?>>Nữ</option>
-                </select>
-            </div>
+                                        <label> <i class="fa-solid fa-mars-and-venus"></i>  Giới tính:</label>
+                                        <select class="form-control" name="gender">
+                                            <option value="1" <?php echo ($infoUser['gender'] == 1) ? 'selected' : ''; ?>>Nam</option>
+                                            <option value="0" <?php echo ($infoUser['gender'] == 0) ? 'selected' : ''; ?>>Nữ</option>
+                                        </select>
+                                    </div>
 
-            
-            <div class="form-group form-group--inline">
-                <label><i class="fa-regular fa-calendar-days"></i>  Ngày sinh: <span></span></label>
-                <input value="<?php echo $infoUser['dob'] ?>" class="form-control" type="date" name="date">
-            </div>
-            
-            <div class="form-group form-group--inline">
-                <label><i class="fa-solid fa-address-card"></i>  Địa chỉ Email: <span> </span></label>
-                <input value="<?php echo $infoUser['email'] ?>" class="form-control" type="email" name="email">
-            </div>
-            
-            <div class="form-group form-group--inline">
-                <label><i class="fa-solid fa-phone"></i>  Số điện thoại: <span></span></label>
-                <input value="<?php echo $infoUser['phone'] ?>" class="form-control" type="text" name="Phone">
-            </div>
-            
-            <div class="form-group form-group--inline">
-                <label><i class="fa-solid fa-map-location"></i>  Địa chỉ nhà: </label>
-                <input value="<?php echo $infoUser['address'] ?>" class="form-control" type="text" name="adr">
-            </div>
-            
-            
+                                    
+                                    <div class="form-group form-group--inline">
+                                        <label><i class="fa-regular fa-calendar-days"></i>  Ngày sinh: <span></span></label>
+                                        <input value="<?php echo $infoUser['dob'] ?>" class="form-control" type="date" name="date">
+                                    </div>
+                                    
+                                    <div class="form-group form-group--inline">
+                                        <label><i class="fa-solid fa-address-card"></i>  Địa chỉ Email: <span> </span></label>
+                                        <input value="<?php echo $infoUser['email'] ?>" class="form-control" type="email" name="email">
+                                    </div>
+                                    
+                                    <div class="form-group form-group--inline">
+                                        <label><i class="fa-solid fa-phone"></i>  Số điện thoại: <span></span></label>
+                                        <input value="<?php echo $infoUser['phone'] ?>" class="form-control" type="text" name="Phone">
+                                    </div>
+                                    
+                                    <div class="form-group form-group--inline">
+                                        <label><i class="fa-solid fa-map-location"></i>  Địa chỉ nhà: </label>
+                                        <input value="<?php echo $infoUser['address'] ?>" class="form-control" type="text" name="adr">
+                                    </div>
+                                    <script>
+                                      function showSuccessMessage() {
+                                          alert("Cập nhật thông tin thành công!");
+                                      }
+                                    </script>
+                                    <button onclick="showSuccessMessage()" type="submit" class="btn btn-primary">Cập nhật</button>
 
                                         <!-- ... (Các trường nhập liệu khác) ... -->
 
-                                        <button type="submit" class="btn btn-primary">Cập nhật</button>
+                                        
                                     </div>
                                 </div>
                             </div>

@@ -43,7 +43,7 @@
                         
                         echo '<div>';
                         echo '<a href="your_php_page.php?id=' . $row['id'] . '" style="color: gray;">';
-                        echo '<strong>' . $row['NAME']  .' đã bình luận :' .'</strong> '. $row['message'];
+                        echo '<strong>' . $row['NAME'] .' ('. $row['email'] .')' .' đã gửi lời nhắn :' .'</strong> '. $row['message'];
                         echo '</div>';
                         echo '<span class="badge badge-info">' . $row['created_at'] . '</span>';
                         echo '</li>';

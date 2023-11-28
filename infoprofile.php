@@ -24,7 +24,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <link href="apple-touch-icon.png" rel="apple-touch-icon">
     <link href="favicon.png" rel="icon">
-    <meta name="author" content="Nghia Minh Luong">
+    <meta name="author" content="TV2H">
     <meta name="keywords" content="Default Description">
     <meta name="description" content="Default keyword">
     <title>HUS - Info</title>
@@ -51,6 +51,63 @@
     <!--WARNING: Respond.js doesn't work if you view the page via file://-->
     <!--[if lt IE 9]><script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script><script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script><![endif]-->
   </head>
+ 
+
+<style>
+  /* Điều chỉnh thanh task */
+  .nav.child_menu>li>a
+  /* .profile_info h2  */
+  {
+    margin-left: 15px; /* Cách lề trái 10px */
+    font-size: 16px; /* Kích thước chữ */
+  }
+  .navbar.nav_title {
+    background-color: #fff; /* Màu nền của thanh task */
+    color: #fff; /* Màu chữ của thanh task */
+  }
+
+  /* Chỉnh màu chữ của các menu */
+  .nav.side-menu a {
+    color: black; /* Màu chữ của các menu */
+    font-size: 16px;
+  }
+
+  /* Điều chỉnh màu chữ của menu con khi hover */
+  .nav.child_menu a:hover {
+    color: green; /* Màu chữ của menu con khi hover */
+  }
+
+  /* Điều chỉnh màu nền và chữ của menu được chọn */
+  .nav.child_menu>li.current-page,
+  .nav.child_menu>li.current-page a {
+    background-color: #3498db; /* Màu nền của menu được chọn */
+    color: #fff; /* Màu chữ của menu được chọn */
+  }
+
+  /* Chỉnh màu của icon fa */
+  .fa {
+    font-size: 20px;
+    color: green ; /* Màu của icon fa */
+  }
+
+  /* Chỉnh màu chữ và background của hồ sơ và đơn mua */
+  .profile_info h2,
+  .nav.child_menu>li>a {
+    color: black; /* Màu chữ của hồ sơ và đơn mua */
+  }
+
+  /* Điều chỉnh màu nền và chữ của footer */
+  .ps-footer {
+    background-color: #2c3e50; /* Màu nền của footer */
+    color: #ecf0f1; /* Màu chữ của footer */
+  }
+
+  /* Chỉnh màu của icon xã hội */
+  .ps-social a {
+    color: #ecf0f1; /* Màu của icon xã hội */
+  }
+</style>
+
   <body class="ps-loading">
     <div class="header--sidebar"></div>
     <header class="header">
@@ -132,11 +189,11 @@
 
                                 <!-- menu profile quick info -->
                                 <div class="profile clearfix">
-                                  <div class="profile_pic">
-                                    <img src="admin\production\images\img.jpg" alt="..." class="img-circle profile_img">
+                                  <div style="text-align:center" class="profile_pic">
+                                    <img  src="admin\production\images\img.jpg" alt="..." class="img-circle profile_img">
                                   </div>
                                   <div class="profile_info">
-                                    <span>Welcome,</span>
+                                    <span>Xin chào,</span>
                                     <h2> <?php echo $infoUser['fullname'] ?></h2>
                                   </div>
                                 </div>
@@ -149,7 +206,8 @@
                                   <div class="menu_section">
                                     <h3></h3>
                                     <ul class="nav side-menu">
-                                      <li><a><i class="fa fa-user"></i> Tài Khoản Của Tôi <span class="fa fa-chevron-down"></span></a>
+                                      
+                                      <li><a><i class="fa fa-user"></i>Tài Khoản Của Tôi <span class="fa fa-chevron-down fa-fade"></span></a>
                                         <ul class="nav child_menu">
                                           <li><a href="profile_1.php">Hồ Sơ</a></li>
                                           <li><a href="index2.html">Phương Thức Thanh Toán</a></li>
@@ -157,7 +215,7 @@
                                           <li><a href="index4.html">Đổi Mật Khẩu</a></li>
                                         </ul>
                                       </li>
-                                      <li><a><i class="fa fa-store"></i> Đơn Mua <span class="fa fa-chevron-down"></span></a>
+                                      <li><a><i class="fa fa-bag-shopping"></i>Đơn Mua <span class="fa fa-chevron-down fa-fade"></span></a>
                                         <ul class="nav child_menu">
                                           <li><a href="form_validation.html">Chờ Thanh Toán</a></li>
                                           <li><a href="form_wizards.html">Chờ Vận Chuyển</a></li>
@@ -328,6 +386,7 @@
         </div>
       </div>
     </main>
+  
     <!-- JS Library-->
     <script type="text/javascript" src="plugins/jquery/dist/jquery.min.js"></script>
     <script type="text/javascript" src="plugins/bootstrap/dist/js/bootstrap.min.js"></script>
@@ -343,13 +402,13 @@
     <script type="text/javascript" src="plugins/Magnific-Popup/dist/jquery.magnific-popup.min.js"></script>
     <script type="text/javascript" src="plugins/jquery-ui/jquery-ui.min.js"></script>
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAx39JFH5nhxze1ZydH-Kl8xXM3OK4fvcg&amp;region=GB"></script><script type="text/javascript" src="plugins/revolution/js/jquery.themepunch.tools.min.js"></script>
-<script type="text/javascript" src="plugins/revolution/js/jquery.themepunch.revolution.min.js"></script>
-<script type="text/javascript" src="plugins/revolution/js/extensions/revolution.extension.video.min.js"></script>
-<script type="text/javascript" src="plugins/revolution/js/extensions/revolution.extension.slideanims.min.js"></script>
-<script type="text/javascript" src="plugins/revolution/js/extensions/revolution.extension.layeranimation.min.js"></script>
-<script type="text/javascript" src="plugins/revolution/js/extensions/revolution.extension.navigation.min.js"></script>
-<script type="text/javascript" src="plugins/revolution/js/extensions/revolution.extension.parallax.min.js"></script>
-<script type="text/javascript" src="plugins/revolution/js/extensions/revolution.extension.actions.min.js"></script>
+    <script type="text/javascript" src="plugins/revolution/js/jquery.themepunch.revolution.min.js"></script>
+    <script type="text/javascript" src="plugins/revolution/js/extensions/revolution.extension.video.min.js"></script>
+    <script type="text/javascript" src="plugins/revolution/js/extensions/revolution.extension.slideanims.min.js"></script>
+    <script type="text/javascript" src="plugins/revolution/js/extensions/revolution.extension.layeranimation.min.js"></script>
+    <script type="text/javascript" src="plugins/revolution/js/extensions/revolution.extension.navigation.min.js"></script>
+    <script type="text/javascript" src="plugins/revolution/js/extensions/revolution.extension.parallax.min.js"></script>
+    <script type="text/javascript" src="plugins/revolution/js/extensions/revolution.extension.actions.min.js"></script>
     <!-- Custom scripts-->
     <script type="text/javascript" src="js/main.js"></script>
   </body>

@@ -5,7 +5,9 @@
     $shoeRepository = new ShoeRepository(); 
     $categoryRepository = new CategoryRepository();
     include("../../connect.php");
-    $sql = "SELECT * FROM contacts LIMIT 5"; 
+    $sql = "SELECT * FROM contacts ORDER BY id DESC LIMIT 5";
+
+
     $result = $conn->query($sql);
 
 ?>
@@ -158,37 +160,41 @@
                         </span>
                     </a>
                     <ul class="dropdown-menu list-unstyled msg_list" role="menu" aria-labelledby="navbarDropdown1">
-                        <?php
-                        if ($result->num_rows > 0) {
-                            while ($row = $result->fetch_assoc()) {
-                        ?>
-                                <li class="nav-item">
-                                    <a class="dropdown-item">
-                                        <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span> 
-                                        <span>
-                                            <span><?php echo $row['NAME']; ?></span>
-                                            <span class="time"><?php echo date('H:i', strtotime($row['created_at'])); ?></span>
-                                        </span>
-                                        <span class="message">
-                                            <?php echo $row['message']; ?>
-                                        </span>
-                                    </a>
-                                </li>
-                        <?php
-                            }
-                        } else {
-                            echo '<li class="nav-item"><a class="dropdown-item">No messages</a></li>';
-                        }
-                        ?>
-                        <li class="nav-item">
-                            <div class="text-center">
-                                <a class="dropdown-item" href="see_all_alerts.php"> <!-- Điều hướng đến trang hiển thị tất cả các thông báo -->
-                                    <strong>See All Alerts</strong>
-                                    <i class="fa fa-angle-right"></i>
-                                   </a>
-                                </div>
-                              </li>
-                          </ul>
+    <?php
+    // Sắp xếp kết quả theo thời gian giảm dần
+    $sortedResults = array_reverse($result->fetch_all(MYSQLI_ASSOC));
+
+    if (!empty($sortedResults)) {
+        foreach ($sortedResults as $row) {
+    ?>
+            <li class="nav-item">
+                <a class="dropdown-item">
+                    <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span> 
+                    <span>
+                        <span><?php echo $row['NAME']; ?></span>
+                        <span class="time"><?php echo date('H:i', strtotime($row['created_at'])); ?></span>
+                    </span>
+                    <span class="message">
+                        <?php echo $row['message']; ?>
+                    </span>
+                </a>
+            </li>
+    <?php
+        }
+    } else {
+        echo '<li class="nav-item"><a class="dropdown-item">No messages</a></li>';
+    }
+    ?>
+    <li class="nav-item">
+        <div class="text-center">
+            <a class="dropdown-item" href="see_all_alerts.php">
+                <strong>See All Alerts</strong>
+                <i class="fa fa-angle-right"></i>
+            </a>
+        </div>
+    </li>
+</ul>
+
                      </li>
 
                               </ul> 
