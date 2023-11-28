@@ -217,8 +217,8 @@
                                       </li>
                                       <li><a><i class="fa fa-bag-shopping"></i>Đơn Mua <span class="fa fa-chevron-down fa-fade"></span></a>
                                         <ul class="nav child_menu">
-                                          <li><a href="form_validation.html">Chờ Thanh Toán</a></li>
-                                          <li><a href="form_wizards.html">Chờ Vận Chuyển</a></li>
+                                          <li><a href="cart_2.php">Chờ Thanh Toán</a></li>
+                                          <li><a href="cart_3.php">Chờ Vận Chuyển</a></li>
                                           <li><a href="form_upload.html">Chờ Giao Hàng</a></li>
                                           <li><a href="form_buttons.html">Đã Hoàn Thành</a></li>
                                         </ul>

@@ -1,21 +1,14 @@
 <?php
-  require_once("formCart2.php");
-  require_once("backend/authWithCookie.php");
-  require_once("backend/auth.php");
-  require_once("repository/cartRepository.php");
-  require_once("repository/shoeRepository.php");
+require_once("backend/filterUser.php");
+require_once("repository/orderRepository.php");
 
-  $cartRepository = new CartRepository();
-  $shoeRepository = new ShoeRepository();
- 
-  $infoUser = Auth::loginWithCookie();
-  $cartList = $cartList = $cartRepository->findByUserIdAndStatus($infoUser['id'],1);
-
+$orderRepository = new OrderRepository();
+$infoUser = Auth::loginWithCookie();
+$id=$infoUser['id'];
+$orderList = $orderRepository->getAll2($id);
 ?>
 <!DOCTYPE html>
-<!--[if IE 7]><html class="ie ie7"><![endif]-->
-<!--[if IE 8]><html class="ie ie8"><![endif]-->
-<!--[if IE 9]><html class="ie ie9"><![endif]-->
+
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -25,10 +18,10 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <link href="apple-touch-icon.png" rel="apple-touch-icon">
     <link href="favicon.png" rel="icon">
-    <meta name="author" content="TV2H">
+    <meta name="author" content="Nghia Minh Luong">
     <meta name="keywords" content="Default Description">
     <meta name="description" content="Default keyword">
-    <title>HUS - Cart</title>
+    <title>HUS - Info</title>
     <!-- Fonts-->
     <link href="https://fonts.googleapis.com/css?family=Archivo+Narrow:300,400,700%7CMontserrat:300,400,500,600,700,800,900" rel="stylesheet">
     <link rel="stylesheet" href="plugins/font-awesome/css/font-awesome.min.css">
@@ -44,15 +37,14 @@
     <link rel="stylesheet" href="plugins/revolution/css/settings.css">
     <link rel="stylesheet" href="plugins/revolution/css/layers.css">
     <link rel="stylesheet" href="plugins/revolution/css/navigation.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- Custom-->
     <link rel="stylesheet" href="css/style.css">
+    
     <!--HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries-->
     <!--WARNING: Respond.js doesn't work if you view the page via file://-->
     <!--[if lt IE 9]><script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script><script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script><![endif]-->
   </head>
-  <!--[if IE 7]><body class="ie7 lt-ie8 lt-ie9 lt-ie10"><![endif]-->
-  <!--[if IE 8]><body class="ie8 lt-ie9 lt-ie10"><![endif]-->
-  <!--[if IE 9]><body class="ie9 lt-ie10"><![endif]-->
   <body class="ps-loading">
     <div class="header--sidebar"></div>
     <header class="header">
@@ -60,20 +52,13 @@
         <div class="container-fluid">
         <div class="row">
                 <div class="col-lg-6 col-md-8 col-sm-6 col-xs-12 ">
-                  <p>334 Nguyễn Trãi, Thanh Xuân, Hà Nội - Hotline: +84123456789 - 0123456789</p>
+                  <p>460 West 34th Street, 15th floor, New York  -  Hotline: 804-377-3580 - 804-399-3580</p>
                 </div>
                 <div class="col-lg-6 col-md-4 col-sm-6 col-xs-12 ">
                   <div class="header__actions">
                     <?php
                       require_once("backend/filterWithCookie.php");
                     ?>
-                    <!-- <div class="btn-group ps-dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Language<i class="fa fa-angle-down"></i></a>
-                      <ul class="dropdown-menu">
-                        <li><a href="#">English</a></li>
-                        <li><a href="#">Japanese</a></li>
-                        <li><a href="#">Chinese</a></li>
-                      </ul>
-                    </div> -->
                   </div>
                 </div>
           </div>
@@ -111,8 +96,8 @@
               <input class="form-control" type="text" placeholder="Search Product…">
               <button><i class="ps-icon-search"></i></button>
             </form>
-            <div class="ps-cart"><a class="ps-cart__toggle" href="#"><span><i><?php echo $cartList->num_rows ?></i></span><i class="ps-icon-shopping-cart"></i></a>
-              <?php require_once("formCart.php") ?>
+            <div class="ps-cart"><a class="ps-cart__toggle" href="#"><span><i></i></span><i class="ps-icon-shopping-cart"></i></a>
+            <?php require_once("formCart.php") ?>
             </div>
             <div class="menu-toggle"><span></span></div>
           </div>
@@ -121,101 +106,186 @@
     </header>
     <div class="header-services">
       <div class="ps-services owl-slider" data-owl-auto="true" data-owl-loop="true" data-owl-speed="7000" data-owl-gap="0" data-owl-nav="true" data-owl-dots="false" data-owl-item="1" data-owl-item-xs="1" data-owl-item-sm="1" data-owl-item-md="1" data-owl-item-lg="1" data-owl-duration="1000" data-owl-mousedrag="on">
-        <p class="ps-service"><i class="ps-icon-delivery"></i><strong>Free delivery</strong>: Get free standard delivery on every order with HUS Store</p>
-        <p class="ps-service"><i class="ps-icon-delivery"></i><strong>Free delivery</strong>: Get free standard delivery on every order with HUS Store</p>
-        <p class="ps-service"><i class="ps-icon-delivery"></i><strong>Free delivery</strong>: Get free standard delivery on every order with HUS Store</p>
+        <p class="ps-service"><i class="ps-icon-delivery"></i><strong>Free delivery</strong>: Get free standard delivery on every order with Sky Store</p>
+        <p class="ps-service"><i class="ps-icon-delivery"></i><strong>Free delivery</strong>: Get free standard delivery on every order with Sky Store</p>
+        <p class="ps-service"><i class="ps-icon-delivery"></i><strong>Free delivery</strong>: Get free standard delivery on every order with Sky Store</p>
       </div>
     </div>
+    
     <main class="ps-main">
-      <div class="ps-content pt-80 pb-80">
-        <div class="ps-container">
-          <div class="ps-cart-listing">
-            <form method="post">
-            <table class="table ps-cart__table">
-              <thead>
-                <tr>
-                <th>All Products</th>
-                  <th>Price<th>
-                  <th>Sale<th>
-                  <th>Size<th>
-                  <th>Color<th>
-                  <!-- <th>Quantity</th> -->
-                  <th>Total</th>
-                </tr>
-              </thead>
-              <tbody>
-                <input id="cartSize" style="display: none;" value="<?php echo $cartList->num_rows ?>" type="number">
-                <?php
-                  $count = 0;
-                  foreach($cartList as $cart){
-                    $shoe = $shoeRepository->getById($cart['shoe_id'])->fetch_assoc();
-                    $arrLinkImage = $shoeRepository->getImage($shoe['shoe_id']);
-                    if($arrLinkImage->num_rows > 0){
-                        $shoe_image= $arrLinkImage->fetch_assoc()['link_image'];
-                    }
-                    else{
-                        $shoe_image= "images/product/cart-preview/1.jpg";
-                    }
-                ?>
-                <tr>
-                  <td><a class="ps-product__preview" href="product-detail.php?id=<?php echo $cart['shoe_id'] ?>"><img width="100" class="mr-15" src="<?php echo $shoe_image ?>" alt=""> <?php echo $shoe['shoe_name'] ?></a></td>
-                  <td><span><?php echo $shoe['price'] ?></span> VND</td>
-                  <td> </td>
-                  <td><span id="price<?php echo $count ?>"><?php echo $shoe['price'] - $shoe['price']*$shoe['sale']*0.01 ?></span> VND <span><?php echo "(-".$shoe['sale']."%) "; ?></span></td>
-                  <td> </td>
-                  <td><span><?php echo $cart['shoe_size'] ?></span></td>
-                  <td> </td>
-                  <td><span><?php echo $cart['shoe_color'] ?></span></td>
-                  <td> </td>
-                  <!-- <td>
-                    <div class="form-group--number">
-                      <button id="minus<?php echo $count ?>" class="minus"><span>-</span></button>
-                      <input name="quantity[]" id="quantity<?php echo $count ?>" class="form-control" type="text" value="1">
-                      <button id="plus<?php echo $count ?>" class="plus"><span>+</span></button>
-                    </div>
-                  </td> -->
-                  <td><span id="total<?php echo $count ?>"><?php echo $shoe['price'] - $shoe['price']*$shoe['sale']*0.01 ?></span> VND</td>
-                  <td>
-                    <a href="deleteCart.php?userId=<?php echo $infoUser['id'] ?>&shoeId=<?php echo $shoe['shoe_id'] ?>"><div class="ps-remove"></div></a>
-                  </td>
-                </tr>
-                <?php
-                    $count++;
-                  }
-                ?>
-              </tbody>
-            </table>
-            <div class="ps-cart__actions">
-              <div class="ps-cart__promotion">
+    <style>
+        /* Thêm CSS để tùy chỉnh giao diện */
+        #tableShoe {
+            background-color: #f8f9fa; /* Màu xám nhạt */
+            color: #495057; /* Màu chữ in đẹp */
+            text-align: center;
+            
+        }
+
+        #tableShoe th, #tableShoe td {
+            border-color: #e9ecef; /* Màu đường viền */
+        }
+
+        #tableShoe thead th {
+            background-color: #343a40; /* Màu nền đen cho phần đầu bảng */
+            color: #ffffff; /* Màu chữ in đẹp cho tiêu đề */
+            text-align: center;
+        }
+        .btn-back:hover {
+            background-color: #0056b3; /* Màu nền xanh dương đậm khi di chuột qua */
+        }
+
+        .badge-status {
+            font-size: 12px;
+            padding: 8px 12px;
+        }
+        .btn-back {
+            margin-top: 20px;
+            display: inline-block;
+            padding: 10px 15px;
+            background-color: #007bff; /* Màu nền xanh dương cho nút Back */
+            color: #fff; /* Màu chữ in trắng */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            
+        }
+        .btn-container {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+<main class="ps-main">
+  
+  <body class="nav-md">
+    <div class="container body">
+      <div class="main_container">
+        <div class="col-md-3 left_col">
+          <div class="left_col scroll-view">
+            <div class="navbar nav_title" style="border: 0;">
+          
+            </div>
+
+            <div class="clearfix"></div>
+
+            <!-- menu profile quick info -->
+            <div class="profile clearfix">
+              <div class="profile_pic">
+                <img src="admin\production\images\img.jpg" alt="..." class="img-circle profile_img">
               </div>
-              <div class="ps-cart__total">
-                <h3>Total Price: <span id="totalPrice"></span></h3>
-                <a href="checkout.php" class="ps-btn">Process to checkout<i class="ps-icon-next"></i></a>
+              <div class="profile_info">
+                <span>Welcome,</span>
+                <h2> <?php echo $infoUser['fullname'] ?></h2>
               </div>
             </div>
-          </form>
-          </div>
+            <!-- /menu profile quick info -->
+
+            <br />
+
+            <!-- sidebar menu -->
+            <div class="container mt-5">
+    <div class="row">
+        <!-- Sidebar menu (left side) -->
+        <div id="sidebar-menu" class="main_menu_side hidden-print main_menu col-md-3">
+            <div class="menu_section">
+                <h3></h3>
+                <ul class="nav side-menu">
+                    <li>
+                        <a><i class="fa fa-user"></i> Tài Khoản Của Tôi <span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                            <li><a href="profile_1.php">Hồ Sơ</a></li>
+                            <li><a href="index2.html">Phương Thức Thanh Toán</a></li>
+                            <li><a href="index3.html">Địa Chỉ Nhận Hàng</a></li>
+                            <li><a href="index4.html">Đổi Mật Khẩu</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a><i class="fa fa-store"></i> Đơn Mua <span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                            <li><a href="cart_2.php">Chờ Thanh Toán</a></li>
+                            <li><a href="cart_3.php">Chờ Vận Chuyển</a></li>
+                            <li><a href="cart_4.php">Chờ Giao Hàng</a></li>
+                            <li><a href="form_buttons.html">Đã Hoàn Thành</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
         </div>
-      </div>
-      <div class="ps-subscribe">
-        <div class="ps-container">
-          <div class="row">
-                <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12 ">
-                  <h3><i class="fa fa-envelope"></i>Sign up to Newsletter</h3>
+        <div class="col-md-9" style="margin-top: -250px;">
+            <div class="col-md-12">
+           
+                <h2 class="text-center mb-4" style="margin-bottom: 20px;">Đơn Đã Đặt <i class="fa-solid fa-cart-shopping fa-bounce"></i></h2>
+                <div class="table-responsive">
+                    <table class="table table-bordered table-hover" id="tableShoe">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th class="text-center" style="min-width:50px">STT</th>
+                                <th class="text-center" style="min-width:150px">Tên Khách Hàng</th>
+                                <th class="text-center" style="min-width:150px">Địa Chỉ</th>
+                                <th class="text-center" style="min-width:150px">Tên Giày</th>
+                                <th class="text-center" style="min-width:50px">Giá Giày</th>
+                                <th class="text-center" style="min-width:100px">Kích Cỡ</th>
+                                <th class="text-center" style="min-width:100px">Màu</th>
+                                <th class="text-center" style="min-width:100px">Ngày Đặt Hàng</th>
+                                <th class="text-center" style="min-width:100px">Trạng Thái</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            $i = 1;
+                            foreach ($orderList as $order) {
+                              if ($order['status'] == 4) {
+                            ?>
+                                <tr>
+                                    <td class="text-center"><?php echo $i++; ?></td>
+                                    <td class="text-center"><?php echo $order['fullname'] ?></td>
+                                    <td class="text-center"><?php echo $order['address'] ?></td>
+                                    <td class="text-center"><?php echo $order['name'] ?></td>
+                                    <td class="text-center"><?php echo ($order['price'] - $order['price'] * $order['sale'] * 0.01) . " VND" ?></td>
+                                    <td class="text-center"><?php echo $order['shoe_size'] ?></td>
+                                    <td class="text-center"><?php echo $order['shoe_color'] ?></td>
+                                    <td class="text-center"><?php echo $order['date'] ?></td>
+                                    <td class="text-center">
+                                        <?php if ($order['status'] == 4) { ?>
+                                            <span class="badge badge-success badge-status">Giao hàng thành công<i class="fa-solid fa-truck"></i></span>
+                                        <?php } ?>
+                                        
+                                    </td>
+                                </tr>
+                            <?php
+                            }}
+                          
+                            ?>
+                        </tbody>
+                    </table>
                 </div>
-                <div class="col-lg-5 col-md-7 col-sm-12 col-xs-12 ">
-                  <form class="ps-subscribe__form" action="do_action" method="post">
-                    <input class="form-control" type="text" placeholder="">
-                    <button>Sign up now</button>
-                  </form>
-                </div>
-                <div class="col-lg-4 col-md-5 col-sm-12 col-xs-12 ">
-                  <p>...and receive  <span>$20</span>  coupon for first shopping.</p>
-                </div>
-          </div>
+                <a href="index.php" class="btn btn-back" style="margin-left:500px;">BACK</a> 
+            </div>
         </div>
-      </div>
-      <div class="ps-footer bg--cover" data-background="images/background/parallax.jpg">
+    </div>
+</main>
+
+<!-- Thêm JavaScript Bootstrap -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+    function cancelOrder(event, currentPage) {
+        if (confirm('Bạn có muốn hủy đơn không?')) {
+            const link = event.currentTarget.getAttribute('href');
+            window.location.href = link;
+        } else {
+            event.preventDefault();
+        }
+    }
+</script>
+
+
+
+      <div class="ps-footer bg--cover" data-background="images/background/parallax.jpg" style="margin-top: 300px;">
+      
         <div class="ps-footer__content">
           <div class="ps-container">
             <div class="row">
@@ -225,7 +295,7 @@
                         <h3 class="ps-widget__title">Address Office 1</h3>
                       </header>
                       <footer>
-                        <p><strong>334 Nguyễn Trãi, Thanh Xuân, Hà Nội</strong></p>
+                        <p><strong>460 West 34th Street, 15th floor, New York</strong></p>
                         <p>Email: <a href='mailto:support@store.com'>support@store.com</a></p>
                         <p>Phone: +323 32434 5334</p>
                         <p>Fax: ++323 32434 5333</p>
@@ -238,7 +308,7 @@
                         <h3 class="ps-widget__title">Address Office 2</h3>
                       </header>
                       <footer>
-                        <p><strong>144 Xuân Thủy, Cầu Giấy, Hà Nội</strong></p>
+                        <p><strong>PO Box 16122 Collins  Victoria 3000 Australia</strong></p>
                         <p>Email: <a href='mailto:support@store.com'>support@store.com</a></p>
                         <p>Phone: +323 32434 5334</p>
                         <p>Fax: ++323 32434 5333</p>
@@ -298,7 +368,7 @@
           <div class="ps-container">
             <div class="row">
                   <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 ">
-                    <p>&copy; <a href="#">HUSTHEMES</a>, Inc. All rights Resevered. Design by <a href="#"> TV2H_team</a></p>
+                    <p>&copy; <a href="#">SKYTHEMES</a>, Inc. All rights Resevered. Design by <a href="#"> Alena Studio</a></p>
                   </div>
                   <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 ">
                     <ul class="ps-social">
@@ -337,57 +407,5 @@
 <script type="text/javascript" src="plugins/revolution/js/extensions/revolution.extension.actions.min.js"></script>
     <!-- Custom scripts-->
     <script type="text/javascript" src="js/main.js"></script>
-    <script>
-      function eventMinus(i){
-        var price = document.getElementById("price"+i.toString()).innerText;
-        // var quantity = document.getElementById("quantity"+i.toString());
-        if(parseInt(quantity.value)>1){
-          quantity.value = parseInt(quantity.value)-1;
-          // document.getElementById("total"+i.toString()).innerText = parseFloat(price)*parseInt(quantity.value);
-          document.getElementById("total"+i.toString()).innerText = parseFloat(price);
-          totalPrice();
-        }
-          
-          
-      }
-      function plusMinus(i){
-        var price = document.getElementById("price"+i.toString()).innerText;
-        // var quantity = document.getElementById("quantity"+i.toString());
-        if(parseInt(quantity.value)<100){
-          quantity.value = parseInt(quantity.value)+1;
-          // document.getElementById("total"+i.toString()).innerText = parseFloat(price)*parseInt(quantity.value);
-          document.getElementById("total"+i.toString()).innerText = parseFloat(price);
-          totalPrice();
-        }
-          
-      }
-      function totalPrice(){
-        var cartSize = document.getElementById("cartSize").value;
-        var sum = 0;
-        for(var i=0;i<cartSize;i++){
-          var price = document.getElementById("total"+i.toString()).innerText;
-          sum+= parseInt(price);
-        }
-        document.getElementById("totalPrice").innerText = <?php echo $sumPrice ?> + " VND";
-      }
-
-
-      function calculator(i){
-        document.getElementById("minus"+i.toString()).onclick = ()=>{
-          eventMinus(i);
-        }
-        document.getElementById("plus"+i.toString()).onclick = ()=>{
-          plusMinus(i);
-        }
-      }
-
-      // var cartSize = document.getElementById("cartSize").value;
-      // for(var i=0;i<cartSize;i++){
-      //   calculator(i);
-      // }
-
-      totalPrice();
-      
-    </script>
   </body>
 </html>
