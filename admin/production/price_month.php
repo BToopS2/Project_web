@@ -1,15 +1,13 @@
 <?php
     require_once("../../backend/filterAdmin.php");
-    require_once("../../repository/shoeRepository.php");
-    require_once("../../repository/categoryRepository.php");
-    $shoeRepository = new ShoeRepository(); 
-    $categoryRepository = new CategoryRepository();
+    require_once("../../repository/orderRepository.php");
+
+    $orderRepository = new OrderRepository();
+
+    $orderList = $orderRepository->getAll();
     include("../../connect.php");
-    $sql = "SELECT * FROM contacts ORDER BY id DESC LIMIT 5";
-
-
+    $sql = "SELECT * FROM contacts LIMIT 5"; 
     $result = $conn->query($sql);
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -59,7 +57,7 @@
             <div class="profile clearfix">
               <div class="profile_info">
                 <span>Welcome,</span>
-                <h2><?php require_once("../../backend/filterWithCookieAdmin.php") ?></h2>
+                <h2> <?php require_once("../../backend/filterWithCookieAdmin.php") ?></h2>
               </div>
             </div>
             <!-- /menu profile quick info -->
@@ -81,9 +79,9 @@
                 
                   <li><a><i class="fa fa-money"></i> Doanh Thu<span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="#">Theo Ngày</a></li>
+                      <li><a href="price.php">Theo Ngày</a></li>
                       <li><a href="#">Theo Tuần</a></li>
-                      <li><a href="#">Theo Tháng</a></li>
+                      <li><a href="price_month.php">Theo Tháng</a></li>
                       <li><a href="#">Theo Quý</a></li>
                       <li><a href="#">Theo Năm</a></li>
                     </ul>
@@ -93,7 +91,7 @@
                     <ul class="nav child_menu">
                       <li><a href="#">Lượt truy cập</a></li>
                       <li><a href="price.php">Doanh Thu</a></li>
-                 
+                    
                     </ul>
                   </li>
 
@@ -132,7 +130,7 @@
               <ul class=" navbar-right">
                 <li class="nav-item dropdown open" style="padding-left: 15px;">
                   <a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
-                  <?php require_once("../../backend/filterWithCookieAdmin.php") ?>
+                    <?php require_once("../../backend/filterWithCookieAdmin.php") ?>
                   </a>
                   <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item"  href="javascript:;"> Profile</a>
@@ -159,82 +157,133 @@
                         </span>
                     </a>
                     <ul class="dropdown-menu list-unstyled msg_list" role="menu" aria-labelledby="navbarDropdown1">
-    <?php
-    // Sắp xếp kết quả theo thời gian giảm dần
-    $sortedResults = array_reverse($result->fetch_all(MYSQLI_ASSOC));
-
-    if (!empty($sortedResults)) {
-        foreach ($sortedResults as $row) {
-    ?>
-            <li class="nav-item">
-                <a class="dropdown-item">
-                    <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span> 
-                    <span>
-                        <span><?php echo $row['NAME']; ?></span>
-                        <span class="time"><?php echo date('H:i', strtotime($row['created_at'])); ?></span>
-                    </span>
-                    <span class="message">
-                        <?php echo $row['message']; ?>
-                    </span>
-                </a>
-            </li>
-    <?php
-        }
-    } else {
-        echo '<li class="nav-item"><a class="dropdown-item">No messages</a></li>';
-    }
-    ?>
-    <li class="nav-item">
-        <div class="text-center">
-            <a class="dropdown-item" href="see_all_alerts.php">
-                <strong>See All Alerts</strong>
-                <i class="fa fa-angle-right"></i>
-            </a>
-        </div>
-    </li>
-</ul>
-
+                        <?php
+                        if ($result->num_rows > 0) {
+                            while ($row = $result->fetch_assoc()) {
+                        ?>
+                                <li class="nav-item">
+                                    <a class="dropdown-item">
+                                        <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span> 
+                                        <span>
+                                            <span><?php echo $row['NAME']; ?></span>
+                                            <span class="time"><?php echo date('H:i', strtotime($row['created_at'])); ?></span>
+                                        </span>
+                                        <span class="message">
+                                            <?php echo $row['message']; ?>
+                                        </span>
+                                    </a>
+                                </li>
+                        <?php
+                            }
+                        } else {
+                            echo '<li class="nav-item"><a class="dropdown-item">No messages</a></li>';
+                        }
+                        ?>
+                        <li class="nav-item">
+                            <div class="text-center">
+                                <a class="dropdown-item" href="see_all_alerts.php"> <!-- Điều hướng đến trang hiển thị tất cả các thông báo -->
+                                    <strong>See All Alerts</strong>
+                                    <i class="fa fa-angle-right"></i>
+                                   </a>
+                                </div>
+                              </li>
+                          </ul>
                      </li>
-
-                              </ul> 
-                            </nav>
-                          </div>
+              </ul>
+            </nav>
+          </div>
         </div>
-        <div class="right_col" role="main">
-        <a class="btn btn-primary" href="addShoe.php" role="button">Thêm Sản Phẩm</a>
-          <table id="tableShoe">
-            <tr>
-              <th class="text-center" style="min-width:50px">STT</th>
-              <th class="text-center" style="min-width:50px">ID</th>
-              <th class="text-center" style="min-width:150px">Tên Giày</th>
-              <th class="text-center" style="min-width:150px">Giá Giày</th>
-              <th class="text-center" style="min-width:50px">Giảm Giá</th>
-              <th class="text-center" style="min-width:100px">Kích Cỡ</th>
-              <th class="text-center" style="min-width:100px">Màu</th>
-              <th class="text-center" style="min-width:100px">Thể Loại</th>
-              <th class="text-center" style="min-width:200px">Giới Thiệu</th>
-              <th class="text-center" style="min-width:100px"> </th>
-              <th class="text-center" style="min-width:100px"> </th>
-            </tr>
-            <?php
-                  $listShoe = $shoeRepository->getAll(null);
-                  $i=1;
-                  foreach($listShoe as $shoe){
-              ?>
-            <tr>
-                <td><?php echo $i++; ?></td>
-                <td><?php echo $shoe['shoe_id']?></td>
-                <td><?php echo $shoe['shoe_name']?></td>
-                <td><?php echo $shoe['price']." VND"?></td>
-                <td><?php echo $shoe['sale']."%"?></td>
-                <td><?php echo $shoe['size']?></td>
-                <td><?php echo $shoe['color']?></td>
-                <td><?php echo $shoe['name']?></td>
-                <td><?php echo $shoe['review']?></td>
-                <td><a class="btn btn-warning" href="updateShoe.php?id=<?php echo $shoe['shoe_id']?>" role="button">Sửa</a></td>
-                <td><a class="btn btn-danger" href="deleteShoe.php?id=<?php echo $shoe['shoe_id']?>" role="button" onclick="return confirm('Bạn có muốn xóa không?');">Xóa</a></td>
-            </tr>
-            <?php
+        <!-- Thư viện Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<div class="right_col" role="main">
+    <table id="tableShoe">
+        <tr>
+            <th class="text-center" style="min-width:50px">ID</th>
+            <th class="text-center" style="min-width:50px">Giá Giày</th>
+            <th class="text-center" style="min-width:100px">Ngày Đặt Hàng</th>
+        </tr>
+        <?php
+        $i = 1;
+        $uniqueMonths = array(); // Initialize an array to store unique months
+        $revenueData = array(); // Initialize an array to store revenue data
+
+        foreach ($orderList as $order) {
+            if ($order['status'] == 3) { // Only consider approved orders
+                $date = $order['date'];
+                $revenue = $order['price'] - $order['price'] * $order['sale'] * 0.01;
+
+                // Extract month from the date
+                $month = date('Y-m', strtotime($date));
+
+                // Check if the month is already processed
+                if (!in_array($month, $uniqueMonths)) {
+                    $uniqueMonths[] = $month; // Store the unique month
+                    $revenueData[$month] = $revenue; // Store the revenue for the month
+                    ?>
+                    <tr>
+                        <td><?php echo $i++; ?></td>
+                        <td><?php echo $revenue . " VND" ?></td>
+                        <td><?php echo $date ?></td>
+                        <td>
+                            <?php
+                            if ($order['status'] == 2) {
+                                ?>
+                                <a class="btn btn-warning" href="acceptOrder.php?id=<?php echo $order['cart_id'] ?>"
+                                   role="button">Duyệt Đơn</a>
+                                <?php
+                            }
+                            ?>
+                            <?php
+                            if ($order['status'] == 3) {
+                                ?>
+                                <a class="btn btn-success" href="#" role="button">Đã Duyệt</a>
+                                <?php
+                            }
+                            ?>
+                        </td>
+                    </tr>
+                    <?php
+                }
+            }
+        }
+        ?>
+    </table>
+
+    <!-- Add a canvas element for the revenue chart -->
+    <canvas id="revenueChart" width="400" height="200"></canvas>
+
+    <script>
+        var revenueData = <?php echo json_encode($revenueData); ?>;
+        var months = Object.keys(revenueData);
+        var values = Object.values(revenueData);
+
+        var ctx = document.getElementById('revenueChart').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'bar', // Use 'bar' for a bar chart
+            data: {
+                labels: months,
+                datasets: [{
+                    label: 'Doanh Thu',
+                    data: values,
+                    backgroundColor: 'rgba(54, 162, 235, 0.7)', // Adjust the color here
+                    borderColor: 'rgba(54, 162, 235, 1)', // Adjust the color here
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+</div>
+
+
+
+    
                   }
             ?>
         </table>
