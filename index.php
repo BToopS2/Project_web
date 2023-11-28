@@ -99,24 +99,100 @@
           </div>
           <div class="navigation__column center">
                 <ul class="main-menu menu">
-                  <li class="menu-item menu-item-has-children dropdown"><a href="index.php">Home</a>
+                  <li class="menu-item menu-item-has-children dropdown"><a href="index.php">Trang Chủ</a>
                   </li>
-                  <li class="menu-item menu-item-has-children has-mega-menu"><a href="#">Men</a>
-                  </li>
-                  <li class="menu-item"><a href="#">Women</a></li>
-                  <li class="menu-item"><a href="#">Kids</a></li>
-                  <li class="menu-item menu-item-has-children dropdown"><a href="#">News</a>
-                        <ul class="sub-menu">
-                          <li class="menu-item menu-item-has-children dropdown"><a href="blog-grid.php">Blog-grid</a>
+                  <li class="menu-item menu-item-has-children dropdown"><a href="#">Nam</a>
+                      <ul class="sub-menu">
+                          <li class="menu-item menu-item-has-children dropdown"><a href="blog-grid.php">Nổi Bật</a>
                                 <ul class="sub-menu">
-                                  <li class="menu-item"><a href="blog-grid.php">Blog Grid 1</a></li>
-                                  <li class="menu-item"><a href="blog-grid-2.php">Blog Grid 2</a></li>
+                                  <li class="menu-item"><a href="#">Hàng Mới Về</a></li>
+                                  <li class="menu-item"><a href="#">Mặt Hàng Bán Chạy Nhất Tuần</a></li>
                                 </ul>
                           </li>
-                          <li class="menu-item"><a href="blog-list.php">Blog List</a></li>
+                          <li class="menu-item menu-item-has-children dropdown"><a href="blog-list.php">Giày</a>
+                          <ul class="sub-menu">
+                                  <li class="menu-item"><a href="#">Đá Bóng</a></li>
+                                  <li class="menu-item"><a href="#">Chạy</a></li>
+                                  <li class="menu-item"><a href="#">Đi Chơi</a></li>
+                                </ul>
+                          </li>
+                        <li class="menu-item menu-item-has-children dropdown"><a href="blog-list.php">Quần Áo</a>
+                          <ul class="sub-menu">
+                                  <li class="menu-item"><a href="#">Áo polo & Áo Khoác</a></li>
+                                  <li class="menu-item"><a href="#">Áo Hoodie</a></li>
+                                  <li class="menu-item"><a href="#">Quần</a></li>
+                                </ul>
+                          </li>
+                      </ul>
+                  </li>
+                  <li class="menu-item menu-item-has-children dropdown"><a href="#">Nữ</a>
+                      <ul class="sub-menu">
+                          <li class="menu-item menu-item-has-children dropdown"><a href="blog-grid.php">Nổi Bật</a>
+                                <ul class="sub-menu">
+                                  <li class="menu-item"><a href="#">Hàng Mới Về</a></li>
+                                  <li class="menu-item"><a href="#">Mặt Hàng Bán Chạy Nhất Tuần</a></li>
+                                </ul>
+                          </li>
+                          <li class="menu-item menu-item-has-children dropdown"><a href="blog-list.php">Giày</a>
+                                <ul class="sub-menu">
+                                  <li class="menu-item"><a href="#">Quần Vợt</a></li>
+                                  <li class="menu-item"><a href="#">Chạy</a></li>
+                                  <li class="menu-item"><a href="#">Đi Chơi</a></li>
+                                </ul>
+                          </li>
+                        <li class="menu-item menu-item-has-children dropdown"><a href="blog-list.php">Quần Áo</a>
+                          <ul class="sub-menu">
+                                  <li class="menu-item"><a href="#">Áo polo & Áo Khoác</a></li>
+                                  <li class="menu-item"><a href="#">Áo Hoodie</a></li>
+                                  <li class="menu-item"><a href="#">Quần</a></li>
+                                  <li class="menu-item"><a href="#">Váy</a></li>
+                                </ul>
+                          </li>
+                      </ul> 
+                  </li>
+                  <li class="menu-item menu-item-has-children dropdown"><a href="#">Trẻ Em</a>
+                        <ul class="sub-menu">
+                          <li class="menu-item menu-item-has-children dropdown"><a href="blog-grid.php">Trẻ Em(4-8)</a>
+                                <ul class="sub-menu">
+                                  <li class="menu-item"><a href="#">Quần Áo Bé Trai</a></li>
+                                  <li class="menu-item"><a href="#">Quần Áo Bé Gái</a></li>
+                                  <li class="menu-item"><a href="#">Giày Bé Trai</a></li>
+                                  <li class="menu-item"><a href="#">Giày Bé Gái</a></li>
+                                </ul>
+                          </li>
+                          <li class="menu-item menu-item-has-children dropdown"><a href="blog-list.php">Thanh Thiếu Niên(8-16)</a>
+                                <ul class="sub-menu">
+                                  <li class="menu-item"><a href="#">Quần Áo Bé Trai</a></li>
+                                  <li class="menu-item"><a href="#">Quần Áo Bé Gái</a></li>
+                                  <li class="menu-item"><a href="#">Giày Bé Trai</a></li>
+                                  <li class="menu-item"><a href="#">Giày Bé Gái</a></li>
+                                </ul>
+                          </li>
+                          <li class="menu-item menu-item-has-children dropdown"><a href="#">Trẻ Nhỏ & Trẻ Mới Biết Đi(1-4)</a>
+                                <ul class="sub-menu">
+                                  <li class="menu-item"><a href="#">Quần Áo</a></li>
+                                  <li class="menu-item"><a href="#">Giày</a></li>
+                                </ul>
+                          </li>
+                      </ul>
+                  </li>
+                  <li class="menu-item menu-item-has-children dropdown"><a href="#">Tin Tức</a>
+                        <ul class="sub-menu">
+                          <li class="menu-item menu-item-has-children dropdown"><a href="blog-grid.php">Mặt Hàng Bán Chạy</a>
+                                <ul class="sub-menu">
+                                  <li class="menu-item"><a href="blog-grid.php">Giày</a></li>
+                                  <li class="menu-item"><a href="blog-grid-2.php">Quần Áo</a></li>
+                                </ul>
+                          </li>
+                          <li class="menu-item menu-item-has-children dropdown"><a href="blog-list.php">Đánh Giá</a>
+                                <ul class="sub-menu">
+                                  <li class="menu-item"><a href="blog-grid.php">Mặt Hàng Được Đánh Giá Nhiều Nhất</a></li>
+                                  <li class="menu-item"><a href="blog-grid-2.php">Mặt Hàng Được Đánh Giá Ít</a></li>
+                                </ul>
+                          </li>
                         </ul>
                   </li>
-                  <li class="menu-item menu-item-has-children dropdown"><a href="contact-us.php">Contact</a>
+                  <li class="menu-item menu-item-has-children dropdown"><a href="contact-us.php">Liên Hệ</a>
                   </li>
                 </ul>
           </div>
@@ -191,7 +267,7 @@
       <div class="ps-section--features-product ps-section masonry-root pt-100 pb-100">
         <div class="ps-container">
           <div class="ps-section__header mb-50">
-            <h3 class="ps-section__title" data-mask="">- Danh mục sản phẩm </h3>
+            <h3 class="ps-section__title" data-mask="SPNB">- Sản Phẩm Nổi Bật </h3>
             <ul class="ps-masonry__filter">
               <li class="current"><a href="#" data-filter="*">All <sup><?php  echo $shoeRepository->countShoeByCategoryName('');?></sup></a></li>
               <li><a href="#" data-filter=".nike">Nike <sup><?php  echo $shoeRepository->countShoeByCategoryName('nike');?></sup></a></li>
@@ -214,7 +290,7 @@
                 <!-- <div class="grid-sizer"></div> -->
                 <?php
                     $checkNew = false;
-                    $listShoe = $shoeRepository->getAll(0);
+                    $listShoe = $shoeRepository->getAll(12);
                     foreach($listShoe as $shoe){
                 ?>
                 <div class="grid-item ">

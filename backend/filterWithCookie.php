@@ -24,7 +24,7 @@
             echo '<a style="color:red;font-size:16px" href="admin/production/shoe.php">TRUY CẬP TRANG ADMIN</a>';
         }
         echo '<a style="font-size:16px" href="infoprofile.php">'.$checkCookie['fullname'].'</a>
-        <a style="font-size:16px" href="/Project_web/backend/logoutCookie.php">Đăng Xuất</a>';
+        <a style="font-size:16px" href="/shoe/backend/logoutCookie.php">Đăng Xuất</a>';
     }
     else{
         echo '<a style="font-size:16px" href="auth/login/index.php">Đăng ký & Đăng nhập</a>';
