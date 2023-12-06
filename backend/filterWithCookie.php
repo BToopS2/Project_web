@@ -23,11 +23,40 @@
         if($checkCookie['role']==1){
             echo '<a style="color:red;font-size:16px" href="admin/production/shoe.php">TRUY CẬP TRANG ADMIN</a>';
         }
-        echo '<a style="font-size:16px" href="infoprofile.php">'.$checkCookie['fullname'].'</a>
-        <a style="font-size:16px" href="/Project_web/backend/logoutCookie.php">Đăng Xuất</a>';
+        echo '<a class="profile-link" href="profile_1.php">';
+        echo '<img src="' . $checkCookie['img'] . '" alt="Avatar" style="width: 32px; height: 32px; border-radius: 50%; margin-right: 5px;">';
+        echo $checkCookie['fullname'];
+        echo '</a>';
+        
+        echo'<a style="font-size: 16px" href="/Project_web/backend/logoutCookie.php">
+        <i class="fa fa-sign-out"></i> Đăng Xuất
+      </a>';
     }
     else{
         echo '<a style="font-size:16px" href="auth/login/index.php">Đăng ký & Đăng nhập</a>';
     }
 ?>
+<style>
+  .profile-link {
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: black; /* Change the color as needed */
+    transition: color 0.3s ease-in-out; /* Add a smooth transition effect on color change */
+  }
+
+  .profile-link:hover {
+    color: blue; /* Change the color you want on hover */
+  }
+
+  .profile-link img {
+    transition: transform 0.3s ease-in-out; /* Add a smooth transition effect on transform */
+  }
+
+  .profile-link:hover img {
+    transform: scale(1.2); /* Change the scale factor for the zoom effect on hover */
+  }
+</style>
+
 
