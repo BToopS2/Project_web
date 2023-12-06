@@ -202,6 +202,7 @@
               <th class="text-center" style="min-width:150px">Tên Giày</th>
               <th class="text-center" style="min-width:50px">Giá Giày</th>
               <th class="text-center" style="min-width:100px">Kích Cỡ</th>
+              <th class="text-center" style="min-width:100px">Số Lượng</th>
               <th class="text-center" style="min-width:100px">Màu</th>
               <th class="text-center" style="min-width:100px">Ngày Đặt Hàng</th>
               <th class="text-center" style="min-width:100px"> </th>
@@ -217,7 +218,8 @@
                 <td><?php echo $order['address']?></td>
                 <td><?php echo $order['name']?></td>
                 <td><?php echo ($order['price'] - $order['price']*$order['sale']*0.01)." VND" ?></td>
-                <td><?php echo $order['shoe_size']?></td>
+                <td><?php echo $order['shoe_size']?></td>          
+                <td><?php echo $order['quantity']?></td>
                 <td><?php echo $order['shoe_color']?></td>
                 <td><?php echo $order['date']?></td>
                 <td><?php

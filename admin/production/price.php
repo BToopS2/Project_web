@@ -271,7 +271,7 @@
                 datasets: [{
                     label: 'Doanh Thu',
                     data: barValues,
-                    backgroundColor: 'rgba(75, 192, 192, 0.7)', // Adjust the color here
+                    backgroundColor: 'gray', // Adjust the color here
                     borderColor: 'rgba(75, 192, 192, 1)', // Adjust the color here
                     borderWidth: 1
                 }]
