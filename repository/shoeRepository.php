@@ -51,5 +51,14 @@
             $sql = "delete from shoe_image where id=$id";
             mysqli_query($conn,$sql);
         }
+
+  public function updateTotal($shoeId, $soluong) {
+            global $conn;
+            $shoeId = mysqli_real_escape_string($conn, $shoeId);
+            $soluong = mysqli_real_escape_string($conn, $soluong);
+        
+            $sql = "UPDATE shoe SET soluong = $soluong WHERE id = $shoeId";
+            mysqli_query($conn, $sql);
+        }
     }
 ?>
