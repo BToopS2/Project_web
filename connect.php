@@ -3,7 +3,7 @@ $server = "localhost:3306";
 $user="root";
 $pass="";
 
-$database="hus2"; //husstoredata
+$database="hus1"; //husstoredata
 
 
 $conn=mysqli_connect($server,$user,$pass,$database);
