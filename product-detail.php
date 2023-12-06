@@ -153,7 +153,7 @@
               <button><i class="ps-icon-search"></i></button>
             </form>
             <div class="ps-cart"><a class="ps-cart__toggle" href="cart.php"><span><i><?php echo $cartList->num_rows ?></i></span><i class="ps-icon-shopping-cart"></i></a>
-            <?php require_once("formCart.php") ?>
+           
             </div>
             <div class="menu-toggle"><span></span></div>
           </div>
@@ -208,14 +208,49 @@
               </div>
               <div class="ps-product__info">
                 <div class="ps-product__rating">
-                  <select class="ps-rating">
-                    <option value="1">1</option>
-                    <option value="1">2</option>
-                    <option value="1">3</option>
-                    <option value="1">4</option>
-                    <option value="1">5</option>
-                  </select><a href="#">(Read all 8 reviews)</a>
-                </div>
+  <div class="ps-product__rating">
+  <select class="ps-rating" id="userRating">
+    <option value="1">1 Star</option>
+    <option value="2">2 Stars</option>
+    <option value="3">3 Stars</option>
+    <option value="4">4 Stars</option>
+    <option value="5">5 Stars</option>
+  </select>
+  <span id="averageRating">(<span id="displayAverage">Đánh Giá</span>)</span>
+  <a href="#" id="readReviews">(Read all 8 reviews)</a>
+</div>
+
+<script>
+  // JavaScript code for handling star rating
+  document.addEventListener("DOMContentLoaded", function() {
+    // Sample reviews data
+    const reviews = [
+      { rating: 4 },
+      { rating: 5 },
+    ];
+
+    document.getElementById("userRating").addEventListener("change", function() {
+      const userRating = document.getElementById("userRating").value;
+
+      // Add the user's rating to the reviews array
+      reviews.push({ rating: parseInt(userRating) });
+
+      const totalRating = reviews.reduce((sum, review) => sum + review.rating, 0);
+      const averageRating = totalRating / reviews.length;
+      document.getElementById("displayAverage").textContent = averageRating.toFixed(1);
+    });
+
+    document.getElementById("readReviews").addEventListener("click", function(event) {
+      event.preventDefault();
+
+      for (const review of reviews) {
+        console.log(`Rating: ${review.rating}`);
+      }
+    });
+  });
+</script>
+
+
                 <h1><?php echo $shoe['shoe_name'] ?></h1>
                 <p class="ps-product__category"><a href="#"><?php echo $shoe['name'] ?></a></p>
                 <h3 class="ps-product__price">
@@ -228,6 +263,7 @@
                 </div>
                 <form action="" method="POST">
                 <div class="ps-product__block ps-product__size">
+                  
                   <h4>CHOOSE YOUR COLOR</h4>
                   <select name="choose_color" class="ps-select selectpicker">
                   <?php

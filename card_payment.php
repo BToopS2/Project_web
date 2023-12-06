@@ -240,11 +240,11 @@ $orderList = $orderRepository->getAll2($id);
 
             <!-- menu profile quick info -->
             <div class="profile clearfix">
-              <div class="profile_pic">
-                <img src="admin\production\images\img.jpg" alt="..." class="img-circle profile_img">
+            <div class="profile_pic">
+              <img id="profileImage" src="<?php echo $infoUser['img']; ?>" alt="Profile Picture" class="img-circle profile_img" style="width: 128px;height: 128px;">
               </div>
               <div class="profile_info">
-                <span>Welcome,</span>
+                <span>Xin chào,</span>
                 <h2> <?php echo $infoUser['fullname'] ?></h2>
               </div>
             </div>

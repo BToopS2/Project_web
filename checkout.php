@@ -122,24 +122,24 @@
             <div class="row">
                   <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 ">
                     <div class="ps-checkout__billing">
-                      <h3>Billing Detail</h3>
+                      <h3>Chi Tiết Thanh Toán</h3>
                             <div class="form-group form-group--inline">
-                              <label>Full Name<span>*</span>
+                              <label>Họ Tên<span>*</span>
                               </label>
                               <input readonly value="<?php echo $infoUser['fullname'] ?>" class="form-control" type="text">
                             </div>
                             <div class="form-group form-group--inline">
-                              <label>Email Address<span>*</span>
+                              <label>Email<span>*</span>
                               </label>
                               <input readonly value="<?php echo $infoUser['email'] ?>" class="form-control" type="email">
                             </div>
                             <div class="form-group form-group--inline">
-                              <label>Phone<span>*</span>
+                              <label>Số Điện Thoại<span>*</span>
                               </label>
                               <input readonly value="<?php echo $infoUser['phone'] ?>" class="form-control" type="text">
                             </div>
                             <div class="form-group form-group--inline">
-                              <label>Address<span>*</span>
+                              <label>Địa chỉ<span>*</span>
                               </label>
                               <input readonly value="<?php echo $infoUser['address'] ?>" class="form-control" type="text">
                             </div>
@@ -148,46 +148,58 @@
                   <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 ">
                     <div class="ps-checkout__order">
                       <header>
-                        <h3>Your Order</h3>
+                        <h3>Đơn Hàng</h3>
                       </header>
                       <div class="content">
                         <table class="table ps-checkout__products">
                           <thead>
                             <tr>
-                              <th class="text-uppercase">Product</th>
-                              <th class="text-uppercase">Price</th>
+                              <th class="text-uppercase">Sản Phẩm</th>
+                              <th class="text-uppercase">Giá</th>
                               
                             </tr>
                           </thead>
                           <tbody>
-                            <?php
-                              $cartList = $cartRepository->findByUserIdAndStatus($infoUser['id'],1);
-                              foreach($cartList as $cart){
-                              $shoe = $shoeRepository->getById($cart['shoe_id'])->fetch_assoc();
-                            ?>
-                            <tr>
-                              <td><?php echo $shoe['shoe_name'] ?> </td>
-                              <td><?php echo $shoe['price'] - $shoe['price']*$shoe['sale']*0.01 ?> VND</td>
-                            </tr>
-                            <?php
-                              }
-                            ?>
-                            
-                          </tbody>
+                          <?php
+$cartList = $cartRepository->findByUserIdAndStatus($infoUser['id'], 1);
+$sumPrice = 0;
 
-                        </table>
-                        <hr width="100%" text-align="center">
-                        <h4 style="color: aliceblue; padding-left: 2%;">Total Price: <span style="color: aqua; float: right; padding-right: 1%;"><?php echo $sumPrice ?> VND</span></h4>
+foreach ($cartList as $cart) {
+  
+    $shoe = $shoeRepository->getById($cart['shoe_id'])->fetch_assoc();
+    $orderQuantity = $orderRepository->getQuantityByCartId($cart['id']);
+
+    // Tính giá của mỗi sản phẩm
+    $totalPrice = $orderQuantity * ($shoe['price'] - $shoe['price'] * $shoe['sale'] * 0.01);
+
+    // Cộng giá vào tổng giá
+    $sumPrice += $totalPrice;
+    ?>
+    <tr>
+        <td><?php echo $shoe['shoe_name'] ?> X <?php echo $orderQuantity ?></td>
+        <td><?php echo $totalPrice ?> VND</td>
+    </tr>
+    <tr>
+        <!-- <td><?php echo $totalPrice ?> VND</td> -->
+    </tr>
+    <?php
+}
+?>
+</tbody>
+</table>
+<hr width="100%" text-align="center">
+<h4 style="color: aliceblue; padding-left: 2%;">Thành tiền: <span style="color: aqua; float: right; padding-right: 1%;"><?php echo $sumPrice ?> VND</span></h4>
+
 
                       </div>
                      
                       <footer>
-                        <h3>Payment Method </h3>  
+                        <h3>Phương thức thanh toán</h3>  
                         <div class="form-group cheque">
                           <div class="ps-radio">
                             <input class="form-control" type="radio" id="rdo01" name="payment" checked>
-                            <label for="rdo01">Cheque Payment</label>
-                            <p>Please send your cheque to Store Name, Store Street, Store Town, Store State / County, Store Postcode.</p>
+                            <label for="rdo01">Thanh toán khi nhận hàng</label>
+                            <p>Vui lòng gửi thông tin của bạn về nơi nhận hàng</p>
                           </div>
                         </div>
                         <div class="form-group paypal">
@@ -200,12 +212,12 @@
                             <li><a href="#"><img src="images/payment/2.png" alt=""></a></li>
                             <li><a href="#"><img src="images/payment/3.png" alt=""></a></li>
                           </ul>
-                            <button name="submit_payment" class="ps-btn ps-btn--fullwidth">Place Order<i class="ps-icon-next"></i></button>
+                            <button name="submit_payment" class="ps-btn ps-btn--fullwidth">Đặt Hàng<i class="ps-icon-next"></i></button>
                           <?php
                             if(isset($_POST['submit_payment'])){
                               foreach($cartList as $cart){
                                 $shoe = $shoeRepository->getById($cart['shoe_id'])->fetch_assoc();
-                                $orderRepository->insert($cart['id']);
+                                // $orderRepository->insert($cart['id']);
                                 $cartRepository->updateStatusByUserIdAndShoeId($infoUser['id'],$shoe['shoe_id'],2);
                               }
                               echo "<script>alert('Đặt hàng thành công');

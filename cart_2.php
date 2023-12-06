@@ -231,10 +231,10 @@ $orderList = $orderRepository->getAll2($id);
             <!-- menu profile quick info -->
             <div class="profile clearfix">
               <div class="profile_pic">
-                <img src="admin\production\images\img.jpg" alt="..." class="img-circle profile_img">
+              <img id="profileImage" src="<?php echo $infoUser['img']; ?>" alt="Profile Picture" class="img-circle profile_img" style="width: 128px;height: 128px;">
               </div>
               <div class="profile_info">
-                <span>Welcome,</span>
+                <span>Xin Chào,</span>
                 <h2> <?php echo $infoUser['fullname'] ?></h2>
               </div>
             </div>
@@ -271,6 +271,9 @@ $orderList = $orderRepository->getAll2($id);
                 </ul>
             </div>
         </div>
+<<<<<<< HEAD
+        
+=======
         <script src="admin/vendors/jquery/dist/jquery.min.js"></script>
                         <!-- Bootstrap -->
                       <script src="admin/vendors/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
@@ -300,20 +303,31 @@ $orderList = $orderRepository->getAll2($id);
                         
                         <!-- Custom Theme Scripts -->
                         <script src="admin/build/js/custom.min.js"></script>
+>>>>>>> 29b4f415f0222ac8dca538d65c2d2baabade472e
         <div class="col-md-9" style="margin-top: -250px;">
             <div class="col-md-12">
            
                 <h2 class="text-center mb-4" style="margin-bottom: 20px;">Đơn Đã Đặt <i class="fa-solid fa-cart-shopping fa-bounce"></i></h2>
-                <div class="table-responsive">
+                <div class="table-responsive" style="width: 850px; overflow-x: auto;" id="scrollableTable">
+                <script>
+                        var scrollableTable = document.getElementById("scrollableTable");
+                        function autoScrollToEnd() {
+                          scrollableTable.scrollLeft = scrollableTable.scrollWidth;
+                        }
+
+                        
+                        window.addEventListener("load", autoScrollToEnd);
+                      </script>
                     <table class="table table-bordered table-hover" id="tableShoe">
                         <thead class="thead-dark">
                             <tr>
-                                <th class="text-center" style="min-width:50px">STT</th>
-                                <th class="text-center" style="min-width:150px">Tên Khách Hàng</th>
-                                <th class="text-center" style="min-width:150px">Địa Chỉ</th>
-                                <th class="text-center" style="min-width:150px">Tên Giày</th>
-                                <th class="text-center" style="min-width:50px">Giá Giày</th>
+                                <th class="text-center" style="min-width:100px">STT</th>
+                                <th class="text-center" style="min-width:100px">Tên Khách Hàng</th>
+                                <th class="text-center" style="min-width:100px">Địa Chỉ</th>
+                                <th class="text-center" style="min-width:100px">Tên Giày</th>
+                                <th class="text-center" style="min-width:100px">Tổng Tiền</th>
                                 <th class="text-center" style="min-width:100px">Kích Cỡ</th>
+                                <th class="text-center" style="min-width:100px">Số Lượng</th>
                                 <th class="text-center" style="min-width:100px">Màu</th>
                                 <th class="text-center" style="min-width:100px">Ngày Đặt Hàng</th>
                                 <th class="text-center" style="min-width:100px">Trạng Thái</th>
@@ -331,8 +345,14 @@ $orderList = $orderRepository->getAll2($id);
                                     <td class="text-center"><?php echo $order['fullname'] ?></td>
                                     <td class="text-center"><?php echo $order['address'] ?></td>
                                     <td class="text-center"><?php echo $order['name'] ?></td>
-                                    <td class="text-center"><?php echo ($order['price'] - $order['price'] * $order['sale'] * 0.01) . " VND" ?></td>
+                                    <td class="text-center">
+                                        <?php
+                                        $subtotal = ($order['price'] - $order['price'] * $order['sale'] * 0.01) * $order['quantity'];
+                                        echo $subtotal . " VND (" . ($order['price'] - $order['price'] * $order['sale'] * 0.01) . "x" . $order['quantity'] . ")";
+                                        ?>
+                                    </td>
                                     <td class="text-center"><?php echo $order['shoe_size'] ?></td>
+                                    <td class="text-center"><?php echo $order['quantity'] ?></td>
                                     <td class="text-center"><?php echo $order['shoe_color'] ?></td>
                                     <td class="text-center"><?php echo $order['date'] ?></td>
                                     <td class="text-center">
@@ -359,7 +379,7 @@ $orderList = $orderRepository->getAll2($id);
                 <style>
             .table-responsive {
                 overflow-x: auto;
-                max-height: 400px; /* Set the desired height */
+                max-height: 800px; /* Set the desired height */
         overflow-y: auto;  
             }
         </style>

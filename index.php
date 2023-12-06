@@ -70,15 +70,40 @@
         object-fit: cover;
       }
   </style>
+  <style>
+        .moving-container {
+            overflow: hidden;
+            white-space: nowrap;
+            
+        }
+
+        .moving-content {
+            font-weight: bold;
+            display: inline-block;
+            animation: moveLeft 20s linear infinite, blink 1s infinite; 
+        }
+        @keyframes moveLeft {
+            from {
+                transform: translateX(100%);
+            }
+            to {
+                transform: translateX(-100%);
+            }
+        }
+    
+          
+    </style>
   <body class="ps-loading">
     <div class="header--sidebar"></div>
     <header class="header">
       <div class="header__top">
         <div class="container-fluid">
           <div class="row">
-                <div class="col-lg-6 col-md-8 col-sm-6 col-xs-12 ">
-                  <p>334 Nguyễn Trãi, Thanh Xuân, Hà Nội  -  Hotline: +84123456789 - 804-399-3580</p>
-                </div>
+          <div class="col-lg-6 col-md-8 col-sm-6 col-xs-12 moving-container">
+        <p class="moving-content">
+            334 Nguyễn Trãi, Thanh Xuân, Hà Nội - Hotline: +84123456789 - 804-399-3580
+        </p>
+    </div>
                 <div class="col-lg-6 col-md-4 col-sm-6 col-xs-12 ">
                   <div class="header__actions">
                     <?php
@@ -201,11 +226,94 @@
           </style>
 
           <div class="navigation__column right">
-            <form class="ps-search--header" action="do_action" method="post">
-              <input class="form-control" type="text" placeholder="Search Product…">
-              <button><i class="ps-icon-search"></i></button>
-            </form>
-            
+          <form class="ps-search--header" id="searchForm" action="#" method="post">
+          <input class="form-control" type="text" id="searchQuery" placeholder="Search Product…" onkeyup="searchProducts()">
+
+  <!-- Container for search results -->
+  <div id="searchResultsContainer"></div>
+</form>
+
+<!-- Modal -->
+<div class="modal fade" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Search Results</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" id="searchResults">
+        <!-- Kết quả tìm kiếm sẽ được hiển thị ở đây -->
+      </div>
+    </div>
+  </div>
+</div>
+<style>
+  #searchResultsContainer {
+    position: absolute;
+    right: 0; /* Position to the right of the screen */
+    width: 150%;
+    max-width: 600px;
+    background-color: white;
+    z-index: 1000;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+ 
+  }
+
+  .searchResult {
+    display: flex;
+    padding: 10px;
+    transition: background-color 0.3s; /* Add transition for a smooth effect */
+  }
+
+  .searchResult:hover {
+    background-color: #f0f0f0; /* Change background color on hover */
+  }
+
+  .searchResult img {
+    margin-right: 10px;
+    max-width: 100px;
+  }
+
+  #searchResultsContent {
+    width: 200%;
+  }
+</style>
+
+
+<script>
+  
+  function searchProducts() {
+    var searchQuery = $('#searchQuery').val();
+    var firstLetter = searchQuery.charAt(0); // Extract the first letter
+
+    if (searchQuery === '') {
+      // If search query is empty, hide the container
+      $('#searchResultsContainer').hide();
+    } else {
+      // If search query is not empty, show and update the container
+      $.ajax({
+        type: 'POST',
+        url: 'search.php',
+        data: { search_query: searchQuery, first_letter: firstLetter },
+        success: function(response) {
+          $('#searchResultsContent').html(response);
+          $('#searchResultsContainer').html(response).show();
+        },
+        error: function(error) {
+          console.error('Search error:', error);
+        }
+      });
+    }
+  }
+
+  // Bind the searchProducts function to the keyup event
+  $('#searchQuery').on('keyup', searchProducts);
+</script>     
             <div class="ps-cart"><a class="ps-cart__toggle" href="#"><span><i><?php echo $cartList->num_rows ?></i></span><i class="ps-icon-shopping-cart"></i></a>
               <?php require_once("formCart.php") ?>
             </div>

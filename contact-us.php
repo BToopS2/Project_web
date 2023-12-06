@@ -19,7 +19,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <link href="apple-touch-icon.png" rel="apple-touch-icon">
-    <link href="apple-touch-icon.png" rel="icon">
+    <link href="favicon.png" rel="icon">
     <meta name="author" content="TV2H">
     <meta name="keywords" content="Default Description">
     <meta name="description" content="Default keyword">
@@ -45,16 +45,44 @@
     <!--WARNING: Respond.js doesn't work if you view the page via file://-->
     <!--[if lt IE 9]><script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script><script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script><![endif]-->
   </head>
-   
+  <!--[if IE 7]><body class="ie7 lt-ie8 lt-ie9 lt-ie10"><![endif]-->
+  <!--[if IE 8]><body class="ie8 lt-ie9 lt-ie10"><![endif]-->
+  <!--[if IE 9]><body class="ie9 lt-ie10"><![endif]-->
+  
   <body class="ps-loading">
     <div class="header--sidebar"></div>
     <header class="header">
       <div class="header__top">
         <div class="container-fluid">
         <div class="row">
-                <div class="col-lg-6 col-md-8 col-sm-6 col-xs-12 ">
-                  <p>334 Nguyễn Trãi, Thanh Xuân, Hà Nội - Hotline: +84123456789 - 0123456789</p>
-                </div>
+        <style>
+        .moving-container {
+            overflow: hidden;
+            white-space: nowrap;
+            
+        }
+
+        .moving-content {
+            font-weight: bold;
+            display: inline-block;
+            animation: moveLeft 20s linear infinite, blink 1s infinite; 
+        }
+        @keyframes moveLeft {
+            from {
+                transform: translateX(100%);
+            }
+            to {
+                transform: translateX(-100%);
+            }
+        }
+    
+          
+    </style>
+                <div class="col-lg-6 col-md-8 col-sm-6 col-xs-12 moving-container">
+        <p class="moving-content">
+            334 Nguyễn Trãi, Thanh Xuân, Hà Nội - Hotline: +84123456789 - 804-399-3580
+        </p>
+    </div>
                 <div class="col-lg-6 col-md-4 col-sm-6 col-xs-12 ">
                   <div class="header__actions">
                     <?php
@@ -218,26 +246,6 @@
                   <div class="ps-section__header mb-50">
                     
                     <h2 class="ps-section__title" data-mask="Contact">- Get in touch</h2>
-                    <?php
-                                            
-                                            if (isset($_POST['send_email'])) {
-                                              $name = $_POST['name'];
-                                              $email = $_POST['email'];
-                                              $content = $_POST['content'];
-                                              $sql = "INSERT INTO contacts (name, email, message) VALUES ('$name', '$email', '$content')";
-                                          
-                                              if ($conn->query($sql) === TRUE) {
-                                                  echo '<div style="background-color: #dff0d8; font-size:17px; border-radius:5px; color: #3c763d; border: 1px solid #d6e9c6; padding: 15px; margin-bottom: 20px;">';
-                                                  echo '<i class="fa fa-check-circle"></i> Cảm ơn bạn đã quan tâm! Chúng tôi sẽ phản hồi trong thời gian sớm nhất!';
-                                                  echo '</div>';
-                                              } else {
-                                                  echo '<div style="background-color: #f2dede; color: #a94442; border: 1px solid #ebccd1; padding: 15px; margin-bottom: 20px;">';
-                                                  echo 'Error: ' . $sql . '<br>' . $conn->error;
-                                                  echo '</div>';
-                                              }
-                                          }
-                      
-                    ?>
                     <form class="ps-contact__form" action="" method="post">
                       <div class="row">   
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 ">
@@ -257,20 +265,41 @@
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
                               <div class="form-group mb-25">
                                 <label>Your Message <sub>*</sub></label>
-                                <textarea name="content" class="form-control" rows="6" required style=" height: 139px;"> </textarea>
+                                <textarea name="content" class="form-control" rows="6" required> </textarea>
                               </div>
                               <div class="form-group">
                              
                               <button name="send_email"  class="ps-btn">Send Message<i class="ps-icon-next"></i></button>
-                              
                               </div>
-
-                            </div>
-                            
-                            
-
+                            </div>                                    
                       </div>
-                    
+                    <?php
+                                            
+                                            if (isset($_POST['send_email'])) {
+                                              $name = $_POST['name'];
+                                              $email = $_POST['email'];
+                                              $content = $_POST['content'];
+                                              $sql = "INSERT INTO contacts (name, email, message) VALUES ('$name', '$email', '$content')";
+                                          
+                                              if ($conn->query($sql) === TRUE) {
+                                                  echo '<div style="background-color: #dff0d8; font-size:15px; border-radius:5px; color: #3c763d; border: 1px solid #d6e9c6; padding: 15px; margin-bottom: 20px;">';
+                                                  echo '<i class="fa fa-check-circle"></i>Cảm ơn bạn đã quan tâm! Chúng tôi sẽ phản hồi trong thời gian sớm nhất !';
+                                                  echo '</div>';
+                                              } else {
+                                                  echo '<div style="background-color: #f2dede; color: #a94442; border: 1px solid #ebccd1; padding: 15px; margin-bottom: 20px;">';
+                                                  echo 'Error: ' . $sql . '<br>' . $conn->error;
+                                                  echo '</div>';
+                                              }
+                                          }
+                      // Hiển thị thông báo cảm ơn hoặc lỗi (nếu có)
+                    //   if (isset($success_message)) {
+                    //       echo '<p class="success-message">' . $success_message . '</p>';
+                    //     }
+
+                    //     if (isset($error_message)) {
+                    //       echo '<p class="error-message">' . $error_message . '</p>';
+                    //   }
+                    // ?>
 
                     </form>
                   </div>
@@ -281,11 +310,11 @@
                           <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 ">
                             <div class="ps-contact__block" data-mh="contact-block">
                               <header>
-                                <h3>USA <span> San Francisco</span></h3>
+                                <h3>Hoàng Hữu Hiếu<span>Admin</span></h3>
                               </header>
                               <footer>
-                                <p><i class="fa fa-map-marker"></i> 19C Trolley Square  Wilmington, DE 19806</p>
-                                <p><i class="fa fa-envelope-o"></i><a href="mailto@supportShoes@shoes.net">supportShoes@shoes.net</a></p>
+                                <p><i class="fa fa-map-marker"></i>Thanh Xuân ,Hà Nội</p>
+                                <p><i class="fa fa-envelope-o"></i><a href="mailto@supportShoes@shoes.net">hoanghuuhieu_t65@gmail.com</a></p>
                                 <p><i class="fa fa-phone"></i> ( +84 ) 9892 2324  -  9401 123 003</p>
                               </footer>
                             </div>
@@ -293,11 +322,13 @@
                           <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 ">
                             <div class="ps-contact__block" data-mh="contact-block">
                               <header>
-                                <h3>Ireland  <span> Dublin</span></h3>
+                                <h3>Nguyễn Anh Tuấn <span>Admin</span>
+
                               </header>
+                              
                               <footer>
-                                <p><i class="fa fa-map-marker"></i> 19C Trolley Square  Wilmington, DE 19806</p>
-                                <p><i class="fa fa-envelope-o"></i><a href="mailto@supportShoes@shoes.net">supportShoes@shoes.net</a></p>
+                                <p><i class="fa fa-map-marker"></i> Thanh Xuân ,Hà Nội</p>
+                                <p><i class="fa fa-envelope-o"></i><a href="mailto@supportShoes@shoes.net">nguyenanhtuan3_t65@hus.edu.vn</a></p>
                                 <p><i class="fa fa-phone"></i> ( +84 ) 9892 2324  -  9401 123 003</p>
                               </footer>
                             </div>
@@ -305,11 +336,11 @@
                           <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 ">
                             <div class="ps-contact__block" data-mh="contact-block">
                               <header>
-                                <h3>Brazil <span> São Paulo</span></h3>
+                                <h3>Nguyễn Triệu Vương<span>Admin</span></h3>
                               </header>
                               <footer>
-                                <p><i class="fa fa-map-marker"></i> 19C Trolley Square  Wilmington, DE 19806</p>
-                                <p><i class="fa fa-envelope-o"></i><a href="mailto@supportShoes@shoes.net">supportShoes@shoes.net</a></p>
+                                <p><i class="fa fa-map-marker"></i> Thanh Xuân ,Hà Nội</p>
+                                <p><i class="fa fa-envelope-o"></i><a href="mailto@supportShoes@shoes.net">nguyentrieuvuong@gmail.com</a></p>
                                 <p><i class="fa fa-phone"></i> ( +84 ) 9892 2324  -  9401 123 003</p>
                               </footer>
                             </div>
@@ -317,11 +348,11 @@
                           <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 ">
                             <div class="ps-contact__block" data-mh="contact-block">
                               <header>
-                                <h3>Philippines <span> Quezon City</span></h3>
+                                <h3>Trần Bỉnh Hướng<span>Admin</span></h3>
                               </header>
                               <footer>
-                                <p><i class="fa fa-map-marker"></i> 19C Trolley Square  Wilmington, DE 19806</p>
-                                <p><i class="fa fa-envelope-o"></i><a href="mailto@supportShoes@shoes.net">supportShoes@shoes.net</a></p>
+                                <p><i class="fa fa-map-marker"></i> Thanh Xuân ,Hà Nội</p>
+                                <p><i class="fa fa-envelope-o"></i><a href="mailto@supportShoes@shoes.net">tranbinhhuong@gmail.com</a></p>
                                 <p><i class="fa fa-phone"></i> ( +84 ) 9892 2324  -  9401 123 003</p>
                               </footer>
                             </div>
@@ -350,34 +381,7 @@
           </div>
         </div>
       </div>
-      <div class="ps-footer bg--cover" data-background="images/background/parallax.jpg"><div>
-          <!-- <h3 class="ps-section__title" data-mask="Payment"> - Các Đối Tác Thanh Toán Trực Tuyến </h3> -->
-                <style>
-                .payment-method{float:left;width:100%}
-                .payment-method ul{display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-align-items:center;-ms-flex-align:center;align-items:center;margin:0;padding:0;list-style:none;white-space:nowrap;overflow-x:auto}
-                .payment-method li{background:#f0f4f7;float:left;padding:10px;border-radius:3px}
-                .payment-method li:not(:last-child){margin-right:10px}
-                .payment-method img{width:116px;height:55px}
-                </style>
-                    <div class="payment-method">
-                        <marquee onmouseover="this.stop()" onmouseout="this.start()" scrollamount="4">
-                          <ul>
-                            <!-- <li><img alt='Agribank' height='55' loading='normal' src='https://www.phanmemninja.com/wp-content/uploads/2019/04/Agribank-logo.png' width='116'/></li> -->
-                            <li><img alt='MBbank' height='55' loading='normal' src='https://upload.wikimedia.org/wikipedia/commons/2/25/Logo_MB_new.png' width='116'/></li>
-                            <li><img alt='zalo pay' height='55' loading='normal' src='https://cdn.jsdelivr.net/gh/thietkeblogspot/images/zalo_pay.png' width='116'/></li>
-                            <li><img alt='visa' height='55' loading='normal' src='https://cdn.jsdelivr.net/gh/thietkeblogspot/images/visa.png' width='116'/></li>
-                            <li><img alt='master card' height='55' loading='normal' src='https://cdn.jsdelivr.net/gh/thietkeblogspot/images/master_card.png' width='116'/></li>
-                            <li><img alt='vietcombank' height='55' loading='normal' src='https://cdn.jsdelivr.net/gh/thietkeblogspot/images/vietcom_bank.png' width='116'/></li>
-                            <li><img alt='vietinbank' height='55' loading='normal' src='https://cdn.jsdelivr.net/gh/thietkeblogspot/images/vietin_bank.png' width='116'/></li>
-                            <li><img alt='bidvbank' height='55' loading='normal' src='https://cdn.jsdelivr.net/gh/thietkeblogspot/images/bidv_bank.png' width='116'/></li>
-                            <li><img alt='sacombank' height='55' loading='normal' src='https://cdn.jsdelivr.net/gh/thietkeblogspot/images/sacom_bank.png' width='116'/></li>
-                            <li><img alt='eximbank' height='55' loading='normal' src='https://cdn.jsdelivr.net/gh/thietkeblogspot/images/exim_bank.png' width='116'/></li>
-                            <li><img alt='scbbank' height='55' loading='normal' src='https://cdn.jsdelivr.net/gh/thietkeblogspot/images/scb_bank.png' width='116'/></li>
-                            <li><img alt='vietcapitalbank' loading='normal' src='https://cdn.jsdelivr.net/gh/thietkeblogspot/images/vietcapital_bank.png' width='116'/></li>
-                          </ul>
-                        </marquee>
-                    </div>
-          </div>
+      <div class="ps-footer bg--cover" data-background="images/background/parallax.jpg">
         <div class="ps-footer__content">
           <div class="ps-container">
             <div class="row">

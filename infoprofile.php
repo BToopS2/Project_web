@@ -5,12 +5,14 @@
   require_once("repository/cartRepository.php");
   require_once("repository/shoeRepository.php");
   require_once("repository/orderRepository.php");
+  require_once("repository/UserRepository.php"); 
   $cartRepository = new CartRepository();
   $shoeRepository = new ShoeRepository();
   $orderRepository = new OrderRepository();
 
   $infoUser = Auth::loginWithCookie();
-  
+  $userRepo = new UserRepository();
+  $imagePath = $infoUser['img'];
   
 ?>
 <!DOCTYPE html>
@@ -190,18 +192,15 @@
 
                                 <!-- menu profile quick info -->
                                 <div class="profile clearfix">
-                                  <div style="text-align:center" class="profile_pic">
-                                    <img  src="admin\production\images\img.jpg" alt="..." class="img-circle profile_img">
-                                  </div>
+                                <div  class="profile_pic">
+                                <img id="profileImage" src="<?php echo $infoUser['img']; ?>" alt="Profile Picture" class="img-circle profile_img" style="width: 130px;height: 130px;margin-left: 50px;">
+                                </div>
                                   <div class="profile_info">
                                     <span>Xin chào,</span>
                                     <h2> <?php echo $infoUser['fullname'] ?></h2>
                                   </div>
                                 </div>
                                 <!-- /menu profile quick info -->
-
-                                <br />
-
                                 <!-- sidebar menu -->
                                 <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
                                   <div class="menu_section">
@@ -441,5 +440,7 @@
     <script type="text/javascript" src="plugins/revolution/js/extensions/revolution.extension.actions.min.js"></script>
     <!-- Custom scripts-->
     <script type="text/javascript" src="js/main.js"></script>
+
+  
   </body>
 </html>

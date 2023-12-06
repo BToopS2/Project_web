@@ -24,7 +24,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <link href="apple-touch-icon.png" rel="apple-touch-icon">
-    <link href="apple-touch-icon.png" rel="icon">
+    <link href="favicon.png" rel="icon">
     <meta name="author" content="TV2H">
     <meta name="keywords" content="Default Description">
     <meta name="description" content="Default keyword">
@@ -50,7 +50,9 @@
     <!--WARNING: Respond.js doesn't work if you view the page via file://-->
     <!--[if lt IE 9]><script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script><script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script><![endif]-->
   </head>
-   
+  <!--[if IE 7]><body class="ie7 lt-ie8 lt-ie9 lt-ie10"><![endif]-->
+  <!--[if IE 8]><body class="ie8 lt-ie9 lt-ie10"><![endif]-->
+  <!--[if IE 9]><body class="ie9 lt-ie10"><![endif]-->
   <body class="ps-loading">
     <div class="header--sidebar"></div>
     <header class="header">
@@ -149,7 +151,6 @@
                    
                     $shoe = $shoeRepository->getById($cart['shoe_id'])->fetch_assoc();
                     $arrLinkImage = $shoeRepository->getImage($shoe['shoe_id']);
-                    
                     if($arrLinkImage->num_rows > 0){
                         $shoe_image= $arrLinkImage->fetch_assoc()['link_image'];
                     }
@@ -158,133 +159,33 @@
                     }
                 ?>
                 <tr>
-                
+      
                   <td><a class="ps-product__preview" href="product-detail.php?id=<?php echo $cart['shoe_id'] ?>"><img width="100" class="mr-15" src="<?php echo $shoe_image ?>" alt=""> <?php echo $shoe['shoe_name'] ?></a></td>
                   <td><span><?php echo $shoe['price'] ?></span> VND</td>
                   <td> </td>
                   <td><span id="price<?php echo $count ?>"><?php echo $shoe['price'] - $shoe['price']*$shoe['sale']*0.01 ?></span> VND <span><?php echo "(-".$shoe['sale']."%) "; ?></span></td>
                   <td> </td>
-                  <td><span><?php echo $shoe['size'] ?></span></td>
-                  <script>
-    var cartIds = cartIds || [];
-    cartIds.push(<?php echo $cart['id']; ?>);
-</script>
-
-<td> </td>
-<td><span><?php echo $cart['shoe_color'] ?></span></td>
-<td> </td>
-<td>
-
-    <div class="form-group--number">
-        <button id="minus<?php echo $count ?>" class="minus" onclick="eventMinus(<?php echo $count ?>)"><span>-</span></button>
-        <input name="quantity[]" id="quantity<?php echo $count ?>" class="form-control" type="text" value="1">
-        <button id="plus<?php echo $count ?>" class="plus" onclick="plusMinus(<?php echo $count ?>)"><span>+</span></button>
-    </div>
-</td>
-<td>
-    <span id="total<?php echo $count ?>"><?php echo $shoe['price'] - $shoe['price']*$shoe['sale']*0.01 ?></span> VND
-    <input type="hidden" name="newTotal[]" id="newTotal<?php echo $count ?>" value="<?php echo $shoe['price'] - $shoe['price']*$shoe['sale']*0.01 ?>">
-</td>
-<td>
-    <a href="deleteCart.php?userId=<?php echo $infoUser['id'] ?>&shoeId=<?php echo $shoe['shoe_id'] ?>"><div class="ps-remove"></div></a>
-</td>
-<?php $orderRepository->insert2($cart['id'],1); ?>
-<script>
-    function eventMinus(i) {
-        var quantityElement = document.getElementById("quantity" + i.toString());
-        console.log('Received cartId:', cartIds[i]);
-        if (parseInt(quantityElement.value) > 1) {
-            quantityElement.value = parseInt(quantityElement.value) - 1;
-            updateTotal(i);
-            saveQuantityToDatabase(cartIds[i], quantityElement.value);
-        }
-    }
-
-    function plusMinus(i) {
-        var quantityElement = document.getElementById("quantity" + i.toString());
-        if (parseInt(quantityElement.value) < 100) {
-            quantityElement.value = parseInt(quantityElement.value) + 1;
-            updateTotal(i);
-            saveQuantityToDatabase(cartIds[i], quantityElement.value);
-        }
-    }
-
-    function updateTotal(count) {
-        var price = parseFloat(document.getElementById("price" + count).innerText);
-        var quantityElement = document.getElementById("quantity" + count);
-        var quantity = parseInt(quantityElement.value);
-        var newTotal = price * quantity;
-
-        document.getElementById("total" + count).innerText = newTotal.toFixed(2) + " VND";
-        document.getElementById("newTotal" + count).value = newTotal.toFixed(2);
-        totalPrice();
-    }
-
-    function calculator(i) {
-        var minusButton = document.getElementById("minus" + i.toString());
-        var plusButton = document.getElementById("plus" + i.toString());
-
-        minusButton.onclick = function (event) {
-            eventMinus(i);
-            event.preventDefault();
-        };
-
-        plusButton.onclick = function (event) {
-            plusMinus(i);
-            event.preventDefault();
-        };
-
-        var quantityInput = document.getElementById("quantity" + i);
-        quantityInput.addEventListener("change", function () {
-            updateTotal(i);
-        });
-    }
-
-    function totalPrice() {
-        var cartSize = document.getElementById("cartSize").value;
-        var sum = 0;
-        for (var i = 0; i < cartSize; i++) {
-            var totalElement = document.getElementById("total" + i.toString());
-            sum += parseFloat(totalElement.innerText);
-        }
-        document.getElementById("totalPrice").innerText = sum.toFixed(2) + " VND";
-    }
-
-    var cartSize = document.getElementById("cartSize").value;
-    for (var i = 0; i < cartSize; i++) {
-        calculator(i);
-    }
-
-    totalPrice();
-    
-    // cart.js
-
-    function saveQuantityToDatabase(productId, quantity) {
-        // Make a fetch request to your server
-        fetch('test.php', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                productId: productId,
-                quantity: quantity,
-            }),
-        })
-        .then(response => response.json())
-        .then(data => {
-            // Handle the response from the server if needed
-            console.log('Quantity saved to database:', data);
-        })
-        .catch(error => {
-            console.error('Error:', error);
-        });
-    }
-
-    // Other functions from your cart.js file
-</script>
-
-  
+                  <td><span><?php echo $cart['shoe_size'] ?></span></td>
+                  <td> </td>
+                  <td><span><?php echo $cart['shoe_color'] ?></span></td>
+                  <td> </td>
+                   <td>
+                    <div class="form-group--number">
+                      <button id="minus<?php echo $count ?>" class="minus"><span>-</span></button>
+                      <input name="quantity[]" id="quantity<?php echo $count ?>" class="form-control" type="text" value="1">
+                      <button id="plus<?php echo $count ?>" class="plus"><span>+</span></button>
+                    </div>
+                  </td> 
+                  <td>
+                    <span id="total<?php echo $count ?>"><?php echo $shoe['price'] - $shoe['price']*$shoe['sale']*0.01 ?></span> VND
+                    <input type="hidden" name="newTotal[]" id="newTotal<?php echo $count ?>" value="<?php echo $shoe['price'] - $shoe['price']*$shoe['sale']*0.01 ?>">
+                </td>
+               
+                  
+                  <td>
+                    <a href="deleteCart.php?userId=<?php echo $infoUser['id'] ?>&shoeId=<?php echo $shoe['shoe_id'] ?>"><div class="ps-remove"></div></a>
+                  </td>
+                </tr>
                 <?php
                     $count++;
                     
@@ -324,34 +225,7 @@
           </div>
         </div>
       </div>
-      <div class="ps-footer bg--cover" data-background="images/background/parallax.jpg"><div>
-          <!-- <h3 class="ps-section__title" data-mask="Payment"> - Các Đối Tác Thanh Toán Trực Tuyến </h3> -->
-                <style>
-                .payment-method{float:left;width:100%}
-                .payment-method ul{display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-align-items:center;-ms-flex-align:center;align-items:center;margin:0;padding:0;list-style:none;white-space:nowrap;overflow-x:auto}
-                .payment-method li{background:#f0f4f7;float:left;padding:10px;border-radius:3px}
-                .payment-method li:not(:last-child){margin-right:10px}
-                .payment-method img{width:116px;height:55px}
-                </style>
-                    <div class="payment-method">
-                        <marquee onmouseover="this.stop()" onmouseout="this.start()" scrollamount="4">
-                          <ul>
-                            <!-- <li><img alt='Agribank' height='55' loading='normal' src='https://www.phanmemninja.com/wp-content/uploads/2019/04/Agribank-logo.png' width='116'/></li> -->
-                            <li><img alt='MBbank' height='55' loading='normal' src='https://upload.wikimedia.org/wikipedia/commons/2/25/Logo_MB_new.png' width='116'/></li>
-                            <li><img alt='zalo pay' height='55' loading='normal' src='https://cdn.jsdelivr.net/gh/thietkeblogspot/images/zalo_pay.png' width='116'/></li>
-                            <li><img alt='visa' height='55' loading='normal' src='https://cdn.jsdelivr.net/gh/thietkeblogspot/images/visa.png' width='116'/></li>
-                            <li><img alt='master card' height='55' loading='normal' src='https://cdn.jsdelivr.net/gh/thietkeblogspot/images/master_card.png' width='116'/></li>
-                            <li><img alt='vietcombank' height='55' loading='normal' src='https://cdn.jsdelivr.net/gh/thietkeblogspot/images/vietcom_bank.png' width='116'/></li>
-                            <li><img alt='vietinbank' height='55' loading='normal' src='https://cdn.jsdelivr.net/gh/thietkeblogspot/images/vietin_bank.png' width='116'/></li>
-                            <li><img alt='bidvbank' height='55' loading='normal' src='https://cdn.jsdelivr.net/gh/thietkeblogspot/images/bidv_bank.png' width='116'/></li>
-                            <li><img alt='sacombank' height='55' loading='normal' src='https://cdn.jsdelivr.net/gh/thietkeblogspot/images/sacom_bank.png' width='116'/></li>
-                            <li><img alt='eximbank' height='55' loading='normal' src='https://cdn.jsdelivr.net/gh/thietkeblogspot/images/exim_bank.png' width='116'/></li>
-                            <li><img alt='scbbank' height='55' loading='normal' src='https://cdn.jsdelivr.net/gh/thietkeblogspot/images/scb_bank.png' width='116'/></li>
-                            <li><img alt='vietcapitalbank' loading='normal' src='https://cdn.jsdelivr.net/gh/thietkeblogspot/images/vietcapital_bank.png' width='116'/></li>
-                          </ul>
-                        </marquee>
-                    </div>
-          </div>
+      <div class="ps-footer bg--cover" data-background="images/background/parallax.jpg">
         <div class="ps-footer__content">
           <div class="ps-container">
             <div class="row">
@@ -449,7 +323,6 @@
         </div>
       </div>
     </main>
-  
     <!-- JS Library-->
     <script type="text/javascript" src="plugins/jquery/dist/jquery.min.js"></script>
     <script type="text/javascript" src="plugins/bootstrap/dist/js/bootstrap.min.js"></script>
@@ -474,8 +347,90 @@
 <script type="text/javascript" src="plugins/revolution/js/extensions/revolution.extension.actions.min.js"></script>
     <!-- Custom scripts-->
     <script type="text/javascript" src="js/main.js"></script>
+  
+
+    <script>
+    function eventMinus(i) {
+    var quantityElement = document.getElementById("quantity" + i.toString());
+
+    if (parseInt(quantityElement.value) > 1) {
+        quantityElement.value = parseInt(quantityElement.value) - 1;
+        updateTotal(i);
+    }
+}
+
+function plusMinus(i) {
+    var quantityElement = document.getElementById("quantity" + i.toString());
+
+    if (parseInt(quantityElement.value) < 100) {
+        quantityElement.value = parseInt(quantityElement.value) + 1;
+        updateTotal(i);
+    }
+}
+function updateTotal(count) {
+    var price = parseFloat(document.getElementById("price" + count).innerText);
+    var quantityElement = document.getElementById("quantity" + count);
+    var quantity = parseInt(quantityElement.value);
+    var newTotal = price * quantity;
+
+    document.getElementById("total" + count).innerText = newTotal.toFixed(2) + " VND";
+    document.getElementById("newTotal" + count).value = newTotal.toFixed(2);
+
+    totalPrice();
+
+    // Call the insert2 function with the updated quantity
+    function updateTotal(count) {
+    var price = parseFloat(document.getElementById("price" + count).innerText);
+    var quantity = parseInt(document.getElementById("quantity" + count).value);
+    var newTotal = price * quantity;
+    document.getElementById("total" + count).innerText = newTotal.toFixed(2) + " VND";
+    document.getElementById("newTotal" + count).value = newTotal.toFixed(2);
+
+    totalPrice();
+}
+
+}
 
 
+function calculator(i) {
+    var minusButton = document.getElementById("minus" + i.toString());
+    var plusButton = document.getElementById("plus" + i.toString());
+
+    minusButton.onclick = function (event) {
+        eventMinus(i);
+        event.preventDefault();
+    };
+
+    plusButton.onclick = function (event) {
+        plusMinus(i);
+        event.preventDefault();
+        
+    };
+
+    var quantityInput = document.getElementById("quantity" + i);
+    quantityInput.addEventListener("change", function () {
+        updateTotal(i);
+    });
+}
+
+function totalPrice() {
+    var cartSize = document.getElementById("cartSize").value;
+    var sum = 0;
+    for (var i = 0; i < cartSize; i++) {
+        var totalElement = document.getElementById("total" + i.toString());
+        sum += parseFloat(totalElement.innerText);
+    }
+    document.getElementById("totalPrice").innerText = sum.toFixed(2) + " VND";
+}
+
+var cartSize = document.getElementById("cartSize").value;
+for (var i = 0; i < cartSize; i++) {
+    calculator(i);
+}
+
+totalPrice();
+
+</script>
 
 
   </body>
