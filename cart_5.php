@@ -17,8 +17,8 @@ $orderList = $orderRepository->getAll2($id);
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <link href="apple-touch-icon.png" rel="apple-touch-icon">
-    <link href="favicon.png" rel="icon">
-    <meta name="author" content="Nghia Minh Luong">
+    <link href="apple-touch-icon.png" rel="icon">
+    <meta name="author" content="TV2H">
     <meta name="keywords" content="Default Description">
     <meta name="description" content="Default keyword">
     <title>HUS - Info</title>
@@ -45,6 +45,61 @@ $orderList = $orderRepository->getAll2($id);
     <!--WARNING: Respond.js doesn't work if you view the page via file://-->
     <!--[if lt IE 9]><script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script><script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script><![endif]-->
   </head>
+  <style>
+  /* Điều chỉnh thanh task */
+  .nav.child_menu>li>a
+  /* .profile_info h2  */
+  {
+    margin-left: 15px; /* Cách lề trái 10px */
+    font-size: 16px; /* Kích thước chữ */
+  }
+  .navbar.nav_title {
+    background-color: #fff; /* Màu nền của thanh task */
+    color: #fff; /* Màu chữ của thanh task */
+  }
+
+  /* Chỉnh màu chữ của các menu */
+  .nav.side-menu a {
+    color: black; /* Màu chữ của các menu */
+    font-size: 16px;
+  }
+
+  /* Điều chỉnh màu chữ của menu con khi hover */
+  .nav.child_menu a:hover {
+    color: green; /* Màu chữ của menu con khi hover */
+  }
+
+  /* Điều chỉnh màu nền và chữ của menu được chọn */
+  .nav.child_menu>li.current-page,
+  .nav.child_menu>li.current-page a {
+    margin-left: 15px;
+    background-color: #3498db; /* Màu nền của menu được chọn */
+    color: #fff; /* Màu chữ của menu được chọn */
+  }
+
+  /* Chỉnh màu của icon fa */
+  .fa {
+    font-size: 20px;
+    color: green ; /* Màu của icon fa */
+  }
+
+  /* Chỉnh màu chữ và background của hồ sơ và đơn mua */
+  .profile_info h2,
+  .nav.child_menu>li>a {
+    color: black; /* Màu chữ của hồ sơ và đơn mua */
+  }
+
+  /* Điều chỉnh màu nền và chữ của footer */
+  .ps-footer {
+    background-color: #2c3e50; /* Màu nền của footer */
+    color: #ecf0f1; /* Màu chữ của footer */
+  }
+
+  /* Chỉnh màu của icon xã hội */
+  .ps-social a {
+    color: #ecf0f1; /* Màu của icon xã hội */
+  }
+</style>
   <body class="ps-loading">
     <div class="header--sidebar"></div>
     <header class="header">
@@ -197,7 +252,7 @@ $orderList = $orderRepository->getAll2($id);
                         <a><i class="fa fa-user"></i> Tài Khoản Của Tôi <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
                             <li><a href="profile_1.php">Hồ Sơ</a></li>
-                            <li><a href="index2.html">Phương Thức Thanh Toán</a></li>
+                            <li><a href="card_payment.php">Phương Thức Thanh Toán</a></li>
                             <li><a href="index3.html">Địa Chỉ Nhận Hàng</a></li>
                             <li><a href="index4.html">Đổi Mật Khẩu</a></li>
                         </ul>
@@ -205,15 +260,44 @@ $orderList = $orderRepository->getAll2($id);
                     <li>
                         <a><i class="fa fa-store"></i> Đơn Mua <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
-                            <li><a href="cart_2.php">Chờ Thanh Toán</a></li>
+                            <li><a href="cart_2.php">Chờ Xác Nhận</a></li>
                             <li><a href="cart_3.php">Chờ Vận Chuyển</a></li>
                             <li><a href="cart_4.php">Chờ Giao Hàng</a></li>
-                            <li><a href="form_buttons.html">Đã Hoàn Thành</a></li>
+                            <li><a href="cart_5.php">Đã Hoàn Thành</a></li>
                         </ul>
                     </li>
                 </ul>
             </div>
         </div>
+        <script src="admin/vendors/jquery/dist/jquery.min.js"></script>
+                        <!-- Bootstrap -->
+                      <script src="admin/vendors/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+                        <!-- FastClick -->
+                        <script src="admin/vendors/fastclick/lib/fastclick.js"></script>
+                        <!-- NProgress -->
+                        <script src="admin/vendors/nprogress/nprogress.js"></script>
+                        <!-- Chart.js -->
+                        <script src="admin/vendors/Chart.js/dist/Chart.min.js"></script>
+                        <!-- jQuery Sparklines -->
+                        <script src="admin/vendors/jquery-sparkline/dist/jquery.sparkline.min.js"></script>
+                        <!-- Flot -->
+                        <script src="admin/vendors/Flot/jquery.flot.js"></script>
+                        <script src="admin/vendors/Flot/jquery.flot.pie.js"></script>
+                        <script src="admin/vendors/Flot/jquery.flot.time.js"></script>
+                        <script src="admin/vendors/Flot/jquery.flot.stack.js"></script>
+                        <script src="admin/vendors/Flot/jquery.flot.resize.js"></script>
+                        <!-- Flot plugins -->
+                        <script src="admin/vendors/flot.orderbars/js/jquery.flot.orderBars.js"></script>
+                        <script src="admin/vendors/flot-spline/js/jquery.flot.spline.min.js"></script>
+                        <script src="admin/vendors/flot.curvedlines/curvedLines.js"></script>
+                        <!-- DateJS -->
+                        <script src="admin/vendors/DateJS/build/date.js"></script>
+                        <!-- bootstrap-daterangepicker -->
+                        <script src="admin/vendors/moment/min/moment.min.js"></script>
+                        <script src="adminvendors/bootstrap-daterangepicker/daterangepicker.js"></script>
+                        
+                        <!-- Custom Theme Scripts -->
+                        <script src="admin/build/js/custom.min.js"></script>
         <div class="col-md-9" style="margin-top: -250px;">
             <div class="col-md-12">
            

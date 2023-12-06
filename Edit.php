@@ -23,7 +23,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <link href="apple-touch-icon.png" rel="apple-touch-icon">
-    <link href="favicon.png" rel="icon">
+    <link href="apple-touch-icon.png" rel="icon">
     <meta name="author" content="TV2H">
     <meta name="keywords" content="Default Description">
     <meta name="description" content="Default keyword">
@@ -119,47 +119,39 @@
     <main class="ps-main">
       <div class="ps-checkout pt-80 pb-80">
         <div class="ps-container">
-        <form class="ps-checkout__form" action="Update_Profile.php" method="post">
+        <form class="ps-checkout__form" action="Update_cardpayment.php" method="post">
         <div class="row">
         <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 ">
         <div class="ps-checkout__billing">
-            <h3><i class="fa-regular fa-user"></i> PROFILE</h3>
+            <h3><i class="fa-regular fa-user"></i> PaymentCard</h3>
             <div class="form-group form-group--inline">
                 <label>ID<span>*</span></label>
                 <input readonly value="<?php echo $infoUser['id'] ?>" class="form-control" type="text" name="id">
             </div>
             <div class="form-group form-group--inline">
-                <label>Họ tên đầy đủ<span> <i class="fa-regular fa-user"></i></label>
-                <input value="<?php echo $infoUser['fullname'] ?>" class="form-control" type="text" name="name">
+                <label>Tên Thẻ<span> <i class="fa-regular fa-user"></i></label>
+                <input value="<?php echo $infoUser['cardName'] ?>" class="form-control" type="text" name="cardname">
             </div>
             
             <div class="form-group form-group--inline">
-                <label>Giới tính <i class="fa-solid fa-mars-and-venus"></i></label>
-                <select class="form-control" name="gender">
-                    <option value="1" <?php echo ($infoUser['gender'] == 1) ? 'selected' : ''; ?>>Nam</option>
-                    <option value="0" <?php echo ($infoUser['gender'] == 0) ? 'selected' : ''; ?>>Nữ</option>
-                </select>
+                <label>Loại thẻ <i class="fa-solid fa-address-card"></i><span> *</span></label>
+                <input value="<?php echo $infoUser['cardType'] ?>" class="form-control" type="text" name="cardtype">
+            </div>
+            
+            <div class="form-group form-group--inline">
+                <label>Số Thẻ <i class="fa-solid fa-phone"></i><span></span></label>
+                <input value="<?php echo $infoUser['cardNumber'] ?>" class="form-control" type="text" name="cardnumber">
+            </div>
+            
+            <div class="form-group form-group--inline">
+                <label>Tên Chủ Thẻ<i class="fa-solid fa-map-location"></i></label>
+                <input value="<?php echo $infoUser['cardHolder'] ?>" class="form-control" type="text" name="cardholder">
             </div>
 
-            
             <div class="form-group form-group--inline">
-                <label>Ngày sinh <i class="fa-regular fa-calendar-days"></i><span></span></label>
-                <input value="<?php echo $infoUser['dob'] ?>" class="form-control" type="date" name="date">
-            </div>
-            
-            <div class="form-group form-group--inline">
-                <label>Địa chỉ Email <i class="fa-solid fa-address-card"></i><span> *</span></label>
-                <input value="<?php echo $infoUser['email'] ?>" class="form-control" type="email" name="email">
-            </div>
-            
-            <div class="form-group form-group--inline">
-                <label>Số điện thoại <i class="fa-solid fa-phone"></i><span></span></label>
-                <input value="<?php echo $infoUser['phone'] ?>" class="form-control" type="text" name="Phone">
-            </div>
-            
-            <div class="form-group form-group--inline">
-                <label>Địa chỉ nhà <i class="fa-solid fa-map-location"></i></label>
-                <input value="<?php echo $infoUser['address'] ?>" class="form-control" type="text" name="adr">
+                <label>Ngày Hết Hạn<i class="fa-solid fa-map-location"></i></label>
+                <input value="<?php echo $infoUser['expireDate'] ?>" class="form-control" type="text" name="expiredate">
+                
             </div>
             
             <button type="submit" class="btn btn-primary" style="margin-bottom: 100px;margin-left: 200px;">Cập nhật</button>
@@ -187,7 +179,34 @@
           </div>
         </div>
       </div>
-      <div class="ps-footer bg--cover" data-background="images/background/parallax.jpg">
+      <div class="ps-footer bg--cover" data-background="images/background/parallax.jpg"><div>
+          <!-- <h3 class="ps-section__title" data-mask="Payment"> - Các Đối Tác Thanh Toán Trực Tuyến </h3> -->
+                <style>
+                .payment-method{float:left;width:100%}
+                .payment-method ul{display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-align-items:center;-ms-flex-align:center;align-items:center;margin:0;padding:0;list-style:none;white-space:nowrap;overflow-x:auto}
+                .payment-method li{background:#f0f4f7;float:left;padding:10px;border-radius:3px}
+                .payment-method li:not(:last-child){margin-right:10px}
+                .payment-method img{width:116px;height:55px}
+                </style>
+                    <div class="payment-method">
+                        <marquee onmouseover="this.stop()" onmouseout="this.start()" scrollamount="4">
+                          <ul>
+                            <!-- <li><img alt='Agribank' height='55' loading='normal' src='https://www.phanmemninja.com/wp-content/uploads/2019/04/Agribank-logo.png' width='116'/></li> -->
+                            <li><img alt='MBbank' height='55' loading='normal' src='https://upload.wikimedia.org/wikipedia/commons/2/25/Logo_MB_new.png' width='116'/></li>
+                            <li><img alt='zalo pay' height='55' loading='normal' src='https://cdn.jsdelivr.net/gh/thietkeblogspot/images/zalo_pay.png' width='116'/></li>
+                            <li><img alt='visa' height='55' loading='normal' src='https://cdn.jsdelivr.net/gh/thietkeblogspot/images/visa.png' width='116'/></li>
+                            <li><img alt='master card' height='55' loading='normal' src='https://cdn.jsdelivr.net/gh/thietkeblogspot/images/master_card.png' width='116'/></li>
+                            <li><img alt='vietcombank' height='55' loading='normal' src='https://cdn.jsdelivr.net/gh/thietkeblogspot/images/vietcom_bank.png' width='116'/></li>
+                            <li><img alt='vietinbank' height='55' loading='normal' src='https://cdn.jsdelivr.net/gh/thietkeblogspot/images/vietin_bank.png' width='116'/></li>
+                            <li><img alt='bidvbank' height='55' loading='normal' src='https://cdn.jsdelivr.net/gh/thietkeblogspot/images/bidv_bank.png' width='116'/></li>
+                            <li><img alt='sacombank' height='55' loading='normal' src='https://cdn.jsdelivr.net/gh/thietkeblogspot/images/sacom_bank.png' width='116'/></li>
+                            <li><img alt='eximbank' height='55' loading='normal' src='https://cdn.jsdelivr.net/gh/thietkeblogspot/images/exim_bank.png' width='116'/></li>
+                            <li><img alt='scbbank' height='55' loading='normal' src='https://cdn.jsdelivr.net/gh/thietkeblogspot/images/scb_bank.png' width='116'/></li>
+                            <li><img alt='vietcapitalbank' loading='normal' src='https://cdn.jsdelivr.net/gh/thietkeblogspot/images/vietcapital_bank.png' width='116'/></li>
+                          </ul>
+                        </marquee>
+                    </div>
+          </div>
         <div class="ps-footer__content">
           <div class="ps-container">
             <div class="row">

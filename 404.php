@@ -10,7 +10,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <link href="apple-touch-icon.png" rel="apple-touch-icon">
-    <link href="favicon.png" rel="icon">
+    <link href="apple-touch-icon.png" rel="icon">
     <meta name="author" content="TV2H">
     <meta name="keywords" content="Default Description">
     <meta name="description" content="Default keyword">
@@ -36,9 +36,7 @@
     <!--WARNING: Respond.js doesn't work if you view the page via file://-->
     <!--[if lt IE 9]><script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script><script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script><![endif]-->
   </head>
-  <!--[if IE 7]><body class="ie7 lt-ie8 lt-ie9 lt-ie10"><![endif]-->
-  <!--[if IE 8]><body class="ie8 lt-ie9 lt-ie10"><![endif]-->
-  <!--[if IE 9]><body class="ie9 lt-ie10"><![endif]-->
+   
   <body class="ps-loading">
     <div class="ps-404 bg--cover" data-background="images/background/404.jpg">
       <div class="ps-404__content">

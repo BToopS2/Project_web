@@ -23,7 +23,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <link href="apple-touch-icon.png" rel="apple-touch-icon">
-    <link href="favicon.png" rel="icon">
+    <link href="apple-touch-icon.png" rel="icon">
     <meta name="author" content="TV2H">
     <meta name="keywords" content="Default Description">
     <meta name="description" content="Default keyword">
@@ -104,7 +104,7 @@
 
   /* Chỉnh màu của icon xã hội */
   .ps-social a {
-    color: #ecf0f1; /* Màu của icon xã hội */
+    color: #ecf0f1; /*Màu của icon xã hội*/
   }
 </style>
 
@@ -163,6 +163,7 @@
             <?php require_once("formCart.php") ?>
             </div>
             <div class="menu-toggle"><span></span></div>
+            
           </div>
         </div>
       </nav>
@@ -210,19 +211,20 @@
                                       <li><a><i class="fa fa-user"></i>Tài Khoản Của Tôi <span class="fa fa-chevron-down fa-fade"></span></a>
                                         <ul class="nav child_menu">
                                           <li><a href="profile_1.php">Hồ Sơ</a></li>
-                                          <li><a href="index2.html">Phương Thức Thanh Toán</a></li>
+                                          <li><a href="card_payment.php">Phương Thức Thanh Toán</a></li>
                                           <li><a href="index3.html">Địa Chỉ Nhận Hàng</a></li>
                                           <li><a href="index4.html">Đổi Mật Khẩu</a></li>
                                         </ul>
                                       </li>
                                       <li><a><i class="fa fa-bag-shopping"></i>Đơn Mua <span class="fa fa-chevron-down fa-fade"></span></a>
                                         <ul class="nav child_menu">
-                                          <li><a href="cart_2.php">Chờ Thanh Toán</a></li>
+                                          <li><a href="cart_2.php">Chờ Xác Nhận</a></li>
                                           <li><a href="cart_3.php">Chờ Vận Chuyển</a></li>
                                           <li><a href="cart_4.php">Chờ Giao Hàng</a></li>
                                           <li><a href="cart_5.php">Đã Hoàn Thành</a></li>
                                         </ul>
                                       </li>
+                                    </ul>
                                       
                             <!-- /page content -->
 
@@ -230,6 +232,7 @@
                             
                           </div>
                         </div>
+                        
 
                         <!-- jQuery -->
                         <script src="admin/vendors/jquery/dist/jquery.min.js"></script>
@@ -288,7 +291,34 @@
           </div>
         </div>
       </div>
-      <div class="ps-footer bg--cover" data-background="images/background/parallax.jpg">
+      <div class="ps-footer bg--cover" data-background="images/background/parallax.jpg"><div>
+          <!-- <h3 class="ps-section__title" data-mask="Payment"> - Các Đối Tác Thanh Toán Trực Tuyến </h3> -->
+                <style>
+                .payment-method{float:left;width:100%}
+                .payment-method ul{display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-align-items:center;-ms-flex-align:center;align-items:center;margin:0;padding:0;list-style:none;white-space:nowrap;overflow-x:auto}
+                .payment-method li{background:#f0f4f7;float:left;padding:10px;border-radius:3px}
+                .payment-method li:not(:last-child){margin-right:10px}
+                .payment-method img{width:116px;height:55px}
+                </style>
+                    <div class="payment-method">
+                        <marquee onmouseover="this.stop()" onmouseout="this.start()" scrollamount="4">
+                          <ul>
+                            <!-- <li><img alt='Agribank' height='55' loading='normal' src='https://www.phanmemninja.com/wp-content/uploads/2019/04/Agribank-logo.png' width='116'/></li> -->
+                            <li><img alt='MBbank' height='55' loading='normal' src='https://upload.wikimedia.org/wikipedia/commons/2/25/Logo_MB_new.png' width='116'/></li>
+                            <li><img alt='zalo pay' height='55' loading='normal' src='https://cdn.jsdelivr.net/gh/thietkeblogspot/images/zalo_pay.png' width='116'/></li>
+                            <li><img alt='visa' height='55' loading='normal' src='https://cdn.jsdelivr.net/gh/thietkeblogspot/images/visa.png' width='116'/></li>
+                            <li><img alt='master card' height='55' loading='normal' src='https://cdn.jsdelivr.net/gh/thietkeblogspot/images/master_card.png' width='116'/></li>
+                            <li><img alt='vietcombank' height='55' loading='normal' src='https://cdn.jsdelivr.net/gh/thietkeblogspot/images/vietcom_bank.png' width='116'/></li>
+                            <li><img alt='vietinbank' height='55' loading='normal' src='https://cdn.jsdelivr.net/gh/thietkeblogspot/images/vietin_bank.png' width='116'/></li>
+                            <li><img alt='bidvbank' height='55' loading='normal' src='https://cdn.jsdelivr.net/gh/thietkeblogspot/images/bidv_bank.png' width='116'/></li>
+                            <li><img alt='sacombank' height='55' loading='normal' src='https://cdn.jsdelivr.net/gh/thietkeblogspot/images/sacom_bank.png' width='116'/></li>
+                            <li><img alt='eximbank' height='55' loading='normal' src='https://cdn.jsdelivr.net/gh/thietkeblogspot/images/exim_bank.png' width='116'/></li>
+                            <li><img alt='scbbank' height='55' loading='normal' src='https://cdn.jsdelivr.net/gh/thietkeblogspot/images/scb_bank.png' width='116'/></li>
+                            <li><img alt='vietcapitalbank' loading='normal' src='https://cdn.jsdelivr.net/gh/thietkeblogspot/images/vietcapital_bank.png' width='116'/></li>
+                          </ul>
+                        </marquee>
+                    </div>
+          </div>
         <div class="ps-footer__content">
           <div class="ps-container">
             <div class="row">

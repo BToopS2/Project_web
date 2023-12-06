@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khoảng Cách Giữa Cụm 4 Chữ Số</title>
+    <style>
+        #maHoaSo {
+            letter-spacing: 5px; /* Khoảng cách giữa mỗi chữ cái */
+            font-family: monospace; /* Đảm bảo rằng các ký tự có độ rộng giống nhau */
+            white-space: nowrap; /* Ngăn chặn xuống dòng */
+        }
+    </style>
+</head>
+<body>
+    <p id="maHoaSo"></p>
+
+    <script>
+        // Hàm để mã hóa số trong dãy
+        function maHoaSo(so) {
+            // Chuyển số thành chuỗi để có thể truy cập từng ký tự
+            let chuoiSo = so.toString();
+            
+            // Số ký tự cuối cùng sẽ không bị mã hóa
+            let soKyTuKhongMaHoa = Math.floor(chuoiSo.length / 2);
+            
+            // Tạo chuỗi mới với '*' thay thế cho một số ký tự
+            let chuoiMoi = chuoiSo.substring(0, soKyTuKhongMaHoa) + '*'.repeat(chuoiSo.length - soKyTuKhongMaHoa);
+
+            // Thêm khoảng cách sau mỗi cụm 4 chữ số
+            chuoiMoi = chuoiMoi.replace(/(\d{4})/g, '$1 ');
+
+            return chuoiMoi;
+        }
+
+        // Sử dụng hàm để mã hóa số
+        let soGoc = 12345678901234;
+        let soDaMaHoa = maHoaSo(soGoc);
+
+        // Hiển thị số đã mã hóa
+        document.getElementById('maHoaSo').innerText = soDaMaHoa;
+    </script>
+</body>
+</html>

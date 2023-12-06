@@ -1,4 +1,4 @@
-<link href="favicon.png" rel="icon">
+<link href="apple-touch-icon.png" rel="icon">
 <?php
 require_once("backend/auth.php");
 require_once("repository/cartRepository.php");
