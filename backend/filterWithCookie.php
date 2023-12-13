@@ -23,8 +23,9 @@
         if($checkCookie['role']==1){
             echo '<a style="color:red;font-size:16px" href="admin/production/shoe.php">TRUY CẬP TRANG ADMIN</a>';
         }
-        echo '<a class="profile-link" href="profile_1.php">';
-        echo '<img src="' . $checkCookie['img'] . '" alt="Avatar" style="width: 32px; height: 32px; border-radius: 50%; margin-right: 5px;">';
+        
+        echo '<a style="color:#2AC37D;font-size:16px"  class="profile-link" href="profile_1.php">';
+        echo '<img src="' . $checkCookie['img'] . '" alt="" style="width: 32px; height: 32px; border-radius: 50%; margin-right: 5px;">';
         echo $checkCookie['fullname'];
         echo '</a>';
         

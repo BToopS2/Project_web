@@ -377,11 +377,11 @@
             <h3 class="ps-section__title" data-mask="SPNB">- Sản Phẩm Nổi Bật </h3>
             <ul class="ps-masonry__filter">
               <li class="current"><a href="#" data-filter="*">All <sup><?php  echo $shoeRepository->countShoeByCategoryName('');?></sup></a></li>
-              <li><a href="#" data-filter=".nike">Nike <sup><?php  echo $shoeRepository->countShoeByCategoryName('nike');?></sup></a></li>
-              <li><a href="#" data-filter=".adidas">Adidas <sup><?php  echo $shoeRepository->countShoeByCategoryName('adidas');?></sup></a></li>
-              <li><a href="#" data-filter=".men">Men <sup><?php  echo $shoeRepository->countShoeByCategoryName('men');?></sup></a></li>
-              <li><a href="#" data-filter=".women">Women <sup><?php  echo $shoeRepository->countShoeByCategoryName('women');?></sup></a></li>
-              <li><a href="#" data-filter=".kids">Kids <sup><?php  echo $shoeRepository->countShoeByCategoryName('kids');?></sup></a></li>
+              <li class="current"><a href="#" data-filter=".nike">Nike <sup><?php  echo $shoeRepository->countShoeByCategoryName('nike');?></sup></a></li>
+              <li class="current"><a href="#" data-filter=".adidas">Adidas <sup><?php  echo $shoeRepository->countShoeByCategoryName('adidas');?></sup></a></li>
+              <li class="current"><a href="#" data-filter=".men">Men <sup><?php  echo $shoeRepository->countShoeByCategoryName('men');?></sup></a></li>
+              <li class="current"><a href="#" data-filter=".women">Women <sup><?php  echo $shoeRepository->countShoeByCategoryName('women');?></sup></a></li>
+              <li class="current"><a href="#" data-filter=".kids">Kids <sup><?php  echo $shoeRepository->countShoeByCategoryName('kids');?></sup></a></li>
             </ul>
           </div>
         </div>  
@@ -655,9 +655,9 @@
                   <h3><i class="fa fa-envelope"></i>Sign up to Newsletter</h3>
                 </div>
                 <div class="col-lg-5 col-md-7 col-sm-12 col-xs-12 ">
-                  <form class="ps-subscribe__form" action="do_action" method="post">
+                  <form class="ps-subscribe__form" action="http://localhost/Project_web/auth/login/index.php" method="post">
                     <input class="form-control" type="text" placeholder="">
-                    <button>Sign up now</button>
+                    <button >SIGN UP NOW</button>
                   </form>
                 </div>
                 <div class="col-lg-4 col-md-5 col-sm-12 col-xs-12 ">
@@ -816,6 +816,14 @@
     <script type="text/javascript" src="plugins/revolution/js/extensions/revolution.extension.actions.min.js"></script>
     <!-- Custom scripts-->
     <script type="text/javascript" src="js/main.js"></script>
-    
+
+    <!-- ChatbotAI -->
+    <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+    <df-messenger
+      intent="WELCOME"
+      chat-title="HusStore_ChatbotAI"
+      agent-id="e20112ca-0f51-4f0c-9437-884e1a3b67e0"
+      language-code="vi"
+    ></df-messenger>
   </body>
 </html>

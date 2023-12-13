@@ -1435,10 +1435,10 @@ textarea.form-control {
     display: inline-block; }
   .form-group--number input.form-control {
     position: relative;
-    top: -2px;
+    top: -1px;
     margin-right: -4px;
     display: inline-block;
-    width: 130px;
+    width: 60px;
     height: 40px;
     text-align: center;
     -webkit-border-radius: 0;
@@ -1452,9 +1452,9 @@ textarea.form-control {
     height: 40px;
     width: 40px;
     border: none;
-    background-color: #000;
+    background-color: #fcf8f8;
     font-family: "Montserrat", sans-serif;
-    color: #fff;
+    color: #070707;
     font-size: 20px;
     -webkit-transition: all 0.4s ease;
     -moz-transition: all 0.4s ease;
@@ -4656,6 +4656,7 @@ textarea.form-control {
 .ps-checkout .ps-checkout__billing {
   padding-right: 100px; }
   .ps-checkout .ps-checkout__billing > h3 {
+    margin-top: 60px !important;
     margin-bottom: 30px;
     font-family: "Archivo Narrow", sans-serif;
     font-size: 30px;

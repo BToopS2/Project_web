@@ -203,7 +203,8 @@
                                 <!-- /menu profile quick info -->
                                 <!-- sidebar menu -->
                                 <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
-                                  <div class="menu_section">
+                                  <hr>
+            <div class="menu_section">
                                     <h3></h3>
                                     <ul class="nav side-menu">
                                       
@@ -281,7 +282,7 @@
                 <div class="col-lg-5 col-md-7 col-sm-12 col-xs-12 ">
                   <form class="ps-subscribe__form" action="do_action" method="post">
                     <input class="form-control" type="text" placeholder="">
-                    <button>Sign up now</button>
+                    <button>WELCOME</button>
                   </form>
                 </div>
                 <div class="col-lg-4 col-md-5 col-sm-12 col-xs-12 ">

@@ -66,7 +66,8 @@
 
             <!-- sidebar menu -->
             <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
-              <div class="menu_section">
+              <hr>
+            <div class="menu_section">
                 <h3>HUS STORE - ADMIN</h3>
                 <ul class="nav side-menu">
                   <li><a><i class="fa fa-paw"></i> Quản Lý <span class="fa fa-chevron-down"></span></a>
@@ -199,7 +200,7 @@
     <table id="tableShoe">
         <tr>
             <th class="text-center" style="min-width:50px">ID</th>
-            <th class="text-center" style="min-width:50px">Giá Giày</th>
+            <th class="text-center" style="min-width:50px">Giá Tiền</th>
             <th class="text-center" style="min-width:100px">Ngày Đặt Hàng</th>
         </tr>
         <?php

@@ -68,7 +68,8 @@
 
             <!-- sidebar menu -->
             <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
-              <div class="menu_section">
+              <hr>
+            <div class="menu_section">
                 <h3>HUS STORE - ADMIN</h3>
                 <ul class="nav side-menu">
                   <li><a><i class="fa fa-paw"></i> Quản Lý <span class="fa fa-chevron-down"></span></a>
@@ -206,8 +207,8 @@
             <tr>
               <th class="text-center" style="min-width:50px">STT</th>
               <th class="text-center" style="min-width:50px">ID</th>
-              <th class="text-center" style="min-width:150px">Tên Giày</th>
-              <th class="text-center" style="min-width:150px">Giá Giày</th>
+              <th class="text-center" style="min-width:150px">Tên Sản Phẩm</th>
+              <th class="text-center" style="min-width:150px">Giá Tiền</th>
               <th class="text-center" style="min-width:50px">Giảm Giá</th>
               <th class="text-center" style="min-width:100px">Kích Cỡ</th>
               <th class="text-center" style="min-width:100px">Màu</th>

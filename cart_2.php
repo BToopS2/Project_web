@@ -247,6 +247,7 @@ $orderList = $orderRepository->getAll2($id);
     <div class="row">
         <!-- Sidebar menu (left side) -->
         <div id="sidebar-menu" class="main_menu_side hidden-print main_menu col-md-3">
+            <hr>
             <div class="menu_section">
                 <h3></h3>
                 <ul class="nav side-menu">
@@ -271,9 +272,6 @@ $orderList = $orderRepository->getAll2($id);
                 </ul>
             </div>
         </div>
-<<<<<<< HEAD
-        
-=======
         <script src="admin/vendors/jquery/dist/jquery.min.js"></script>
                         <!-- Bootstrap -->
                       <script src="admin/vendors/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
@@ -303,7 +301,6 @@ $orderList = $orderRepository->getAll2($id);
                         
                         <!-- Custom Theme Scripts -->
                         <script src="admin/build/js/custom.min.js"></script>
->>>>>>> 29b4f415f0222ac8dca538d65c2d2baabade472e
         <div class="col-md-9" style="margin-top: -250px;">
             <div class="col-md-12">
            
@@ -324,7 +321,7 @@ $orderList = $orderRepository->getAll2($id);
                                 <th class="text-center" style="min-width:100px">STT</th>
                                 <th class="text-center" style="min-width:100px">Tên Khách Hàng</th>
                                 <th class="text-center" style="min-width:100px">Địa Chỉ</th>
-                                <th class="text-center" style="min-width:100px">Tên Giày</th>
+                                <th class="text-center" style="min-width:100px">Tên Sản Phẩm</th>
                                 <th class="text-center" style="min-width:100px">Tổng Tiền</th>
                                 <th class="text-center" style="min-width:100px">Kích Cỡ</th>
                                 <th class="text-center" style="min-width:100px">Số Lượng</th>
@@ -383,7 +380,7 @@ $orderList = $orderRepository->getAll2($id);
         overflow-y: auto;  
             }
         </style>
-                <a href="index.php" class="btn btn-back" style="margin-left:500px;">BACK</a> 
+                <a href="index.php" class="btn btn-back" style="margin-left:780px;">HOME</a> 
             </div>
         </div>
     </div>

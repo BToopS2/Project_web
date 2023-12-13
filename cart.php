@@ -132,7 +132,7 @@
             <table class="table ps-cart__table">
               <thead>
                 <tr>
-                <th>All Products</th>
+                  <th>All Products</th>
                   <th>Price<th>
                   <th>Sale<th>
                   <th>Size<th>
@@ -164,7 +164,7 @@
                   <td> </td>
                   <td><span id="price<?php echo $count ?>"><?php echo $shoe['price'] - $shoe['price']*$shoe['sale']*0.01 ?></span> VND <span><?php echo "(-".$shoe['sale']."%) "; ?></span></td>
                   <td> </td>
-                  <td><span><?php echo $shoe['size'] ?></span></td>
+                  <td><span><?php echo $cart['shoe_size'] ?></span></td>
                   <script>
     var cartIds = cartIds || [];
     cartIds.push(<?php echo $cart['id']; ?>);
@@ -190,6 +190,7 @@
 </td>
 <?php $orderRepository->insert2($cart['id'],1); ?>
 <script>
+    
     function eventMinus(i) {
         var quantityElement = document.getElementById("quantity" + i.toString());
         console.log('Received cartId:', cartIds[i]);
@@ -298,7 +299,7 @@
               <div class="ps-cart__promotion">
               </div>
               <div class="ps-cart__total">
-                <h3>Total Price: <span id="totalPrice"></span></h3>
+                <h3>Total Price: <span id="totalPrice"> </span></h3>
                 <a href="checkout.php" class="ps-btn">Process to checkout<i class="ps-icon-next"></i></a>
               </div>
             </div>
@@ -315,7 +316,7 @@
                 <div class="col-lg-5 col-md-7 col-sm-12 col-xs-12 ">
                   <form class="ps-subscribe__form" action="do_action" method="post">
                     <input class="form-control" type="text" placeholder="">
-                    <button>Sign up now</button>
+                    <button>WELCOME</button>
                   </form>
                 </div>
                 <div class="col-lg-4 col-md-5 col-sm-12 col-xs-12 ">

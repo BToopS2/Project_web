@@ -231,8 +231,9 @@
         <!-- <div id="contact-map" data-address="New York, NY" data-title="HUS Store!" data-zoom="17"></div> -->
         
         <div class="ps-container">
-        <h2>Địa chỉ trên Google Maps</h2>
-        <h3><li>Contact us: 0123456789</li></h3>
+        <h2>Địa chỉ: 334 Nguyễn Trãi, Thanh Xuân, Hà Nội </h2>
+        <h3><li>Phone Number: +84 123 456 789</li></h3>
+        <h3><li><a href='https://maps.app.goo.gl/hfktGXMpHjWZUhVX9' target="_blank">Google Maps:</a></li></h3>
         <hr>
         <p></p>
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.9192897099383!2d105.805402275962!3d20.995872180645204!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135acbf0df2c0e5%3A0xd740a66998e1a0ed!2zVHLGsOG7nW5nIMSQ4bqhaSBo4buNYyBLaG9hIGjhu41jIFThu7Egbmhpw6puLCDEkOG6oWkgaOG7jWMgUXXhu5FjIGdpYSBIw6AgTuG7mWk!5e0!3m2!1svi!2s!4v1700935491140!5m2!1svi!2s" 
@@ -251,13 +252,13 @@
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 ">
                               <div class="form-group">
                                 <label>Name <sub>*</sub></label>
-                                <input name="name" class="form-control" type="text" placeholder="" required>
+                                <input value="<?php echo $infoUser['fullname'] ?>" name="name" class="form-control" type="text" placeholder="" required>
                               </div>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 ">
                               <div class="form-group">
                                 <label>Email <sub>*</sub></label>
-                                <input name="email" class="form-control" type="email" placeholder="" required>
+                                <input value="<?php echo $infoUser['email'] ?>"  name="email" class="form-control" type="email" placeholder="" required>
                               </div>
                             </div>
 
@@ -265,7 +266,7 @@
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
                               <div class="form-group mb-25">
                                 <label>Your Message <sub>*</sub></label>
-                                <textarea name="content" class="form-control" rows="6" required> </textarea>
+                                <textarea name="content" class="form-control" rows="6" required></textarea>
                               </div>
                               <div class="form-group">
                              
@@ -275,14 +276,14 @@
                       </div>
                     <?php
                                             
-                                            if (isset($_POST['send_email'])) {
+                                           if (isset($_POST['send_email'])) {
                                               $name = $_POST['name'];
                                               $email = $_POST['email'];
                                               $content = $_POST['content'];
                                               $sql = "INSERT INTO contacts (name, email, message) VALUES ('$name', '$email', '$content')";
                                           
                                               if ($conn->query($sql) === TRUE) {
-                                                  echo '<div style="background-color: #dff0d8; font-size:15px; border-radius:5px; color: #3c763d; border: 1px solid #d6e9c6; padding: 15px; margin-bottom: 20px;">';
+                                                   echo '<div style="background-color: #dff0d8; font-size:15px; border-radius:5px; color: #3c763d; border: 1px solid #d6e9c6; padding: 15px; margin-bottom: 20px;">';
                                                   echo '<i class="fa fa-check-circle"></i>Cảm ơn bạn đã quan tâm! Chúng tôi sẽ phản hồi trong thời gian sớm nhất !';
                                                   echo '</div>';
                                               } else {
@@ -372,7 +373,7 @@
                 <div class="col-lg-5 col-md-7 col-sm-12 col-xs-12 ">
                   <form class="ps-subscribe__form" action="do_action" method="post">
                     <input class="form-control" type="text" placeholder="">
-                    <button>Sign up now</button>
+                    <button>WELCOME</button>
                   </form>
                 </div>
                 <div class="col-lg-4 col-md-5 col-sm-12 col-xs-12 ">

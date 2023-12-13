@@ -1,5 +1,6 @@
 
 <?php
+require_once("formCart2.php");
 require_once("backend/authWithCookie.php");
 require_once("backend/auth.php");
 require_once("repository/cartRepository.php");
@@ -163,8 +164,8 @@ $orderList = $orderRepository->getAll2($id);
               <input class="form-control" type="text" placeholder="Search Product…">
               <button><i class="ps-icon-search"></i></button>
             </form>
-            <div class="ps-cart"><a class="ps-cart__toggle" href="#"><span><i></i></span><i class="ps-icon-shopping-cart"></i></a>
-            <?php require_once("formCart.php") ?>
+            <div class="ps-cart"><a class="ps-cart__toggle" href="#"><span><i><?php echo $cartList->num_rows ?></i></span><i class="ps-icon-shopping-cart"></i></a>
+
             </div>
             <div class="menu-toggle"><span></span></div>
           </div>
@@ -229,12 +230,12 @@ $orderList = $orderRepository->getAll2($id);
   
   <body class="nav-md">
     <div class="container body">
-      <div class="main_container">
+      <div style="margin-top:70px" class="main_container">
         <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
-            <div class="navbar nav_title" style="border: 0;">
+            <!-- <div class="navbar nav_title" style="border: 0;">
           
-            </div>
+            </div> -->
 
             <div class="clearfix"></div>
 
@@ -257,6 +258,7 @@ $orderList = $orderRepository->getAll2($id);
     <div class="row">
         <!-- Sidebar menu (left side) -->
         <div style="padding-left: 0" id="sidebar-menu" class="main_menu_side hidden-print main_menu col-md-3">
+            <hr>
             <div class="menu_section">
                 <h3></h3>
                 <ul class="nav side-menu">
@@ -366,8 +368,9 @@ $orderList = $orderRepository->getAll2($id);
     </style>
         </head>
         <body>
+        <p></p>
 
-        <div class="col-md-12">
+        <div  class="col-md-12">
             <h2> <i class="fa-regular fa-credit-card"></i> Liên Kết Thẻ Thanh Toán Ngân Hàng</h2>
                         
             <h3> <i class="fa-solid fa-user-shield"></i> Hãy Bảo Mật Thông Tin Thẻ Của Bạn(<code>chỉ được liên kết 01 thẻ</code>)</h3>
@@ -413,6 +416,7 @@ $orderList = $orderRepository->getAll2($id);
             }
         body.no-scroll {
                 overflow: hidden;
+                background-color:#eee;
             }
             
         .ps-checkout__billing {
@@ -627,7 +631,7 @@ $orderList = $orderRepository->getAll2($id);
 
           </style>
         <div id="collapseOne" class="hope-accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-            <div class="hope-accordion-body">
+            <div class="hope-accordion-body" style="background-color:#eee">
             
 
             <div class="p-4 border border-white rounded primary-gradient-card">

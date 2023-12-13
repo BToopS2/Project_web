@@ -148,47 +148,71 @@
                   <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 ">
                     <div class="ps-checkout__order">
                       <header>
-                        <h3>Đơn Hàng</h3>
+                      <?php
+                          date_default_timezone_set('Asia/Ho_Chi_Minh');
+                          // Lấy thời gian hiện tại
+                          $currentDate = date("d/m/Y H:i:s");
+                      ?>
+                        <h3>Hóa Đơn Của Bạn </h3>
+                        <span style="color:white" class="date">(Thời Gian Tạo: <?php echo $currentDate; ?>)</span>
                       </header>
+                      <style>
+                      .table {
+                        border-collapse: collapse;
+                        width: 100%;
+                        margin-top: 20px;
+                      }
+
+                      .table th, .table td {
+                        border: 1px solid #ddd;
+                        padding: 8px;
+                        text-align: left;
+                      }
+
+                      .table th {
+                        background-color: ;
+                      }
+                    </style>
                       <div class="content">
                         <table class="table ps-checkout__products">
                           <thead>
                             <tr>
                               <th class="text-uppercase">Sản Phẩm</th>
+                              <th style="text-align: center;" class="text-uppercase">SL</th>
                               <th class="text-uppercase">Giá</th>
-                              
                             </tr>
                           </thead>
-                          <tbody>
+                        <tbody>
                           <?php
-$cartList = $cartRepository->findByUserIdAndStatus($infoUser['id'], 1);
-$sumPrice = 0;
+                            $cartList = $cartRepository->findByUserIdAndStatus($infoUser['id'], 1);
+                            $sumPrice = 0;
 
-foreach ($cartList as $cart) {
-  
-    $shoe = $shoeRepository->getById($cart['shoe_id'])->fetch_assoc();
-    $orderQuantity = $orderRepository->getQuantityByCartId($cart['id']);
+                            foreach ($cartList as $cart) {
+                              
+                                $shoe = $shoeRepository->getById($cart['shoe_id'])->fetch_assoc();
+                                $orderQuantity = $orderRepository->getQuantityByCartId($cart['id']);
 
-    // Tính giá của mỗi sản phẩm
-    $totalPrice = $orderQuantity * ($shoe['price'] - $shoe['price'] * $shoe['sale'] * 0.01);
+                                // Tính giá của mỗi sản phẩm
+                                $totalPrice = $orderQuantity * ($shoe['price'] - $shoe['price'] * $shoe['sale'] * 0.01);
 
-    // Cộng giá vào tổng giá
-    $sumPrice += $totalPrice;
-    ?>
-    <tr>
-        <td><?php echo $shoe['shoe_name'] ?> X <?php echo $orderQuantity ?></td>
-        <td><?php echo $totalPrice ?> VND</td>
-    </tr>
-    <tr>
-        <!-- <td><?php echo $totalPrice ?> VND</td> -->
-    </tr>
-    <?php
-}
-?>
-</tbody>
-</table>
-<hr width="100%" text-align="center">
-<h4 style="color: aliceblue; padding-left: 2%;">Thành tiền: <span style="color: aqua; float: right; padding-right: 1%;"><?php echo $sumPrice ?> VND</span></h4>
+                                // Cộng giá vào tổng giá
+                                $sumPrice += $totalPrice;
+                                ?>
+                                <tr>
+                                    <td><?php echo $shoe['shoe_name'] ?> </td>
+                                    <td style="color:; text-align: center !important; "><span > <?php echo $orderQuantity ?> </span> </td>
+                                    <td><?php echo $totalPrice ?> <span style="font-size: 10px;">VND</span> </td>
+                                </tr>
+                                <tr>
+                                    <!-- <td><?php echo $totalPrice ?> VND</td> -->
+                                </tr>
+                            <?php
+                            }
+                            ?>
+                          </tbody>
+                        </table>
+                  <hr width="100%" text-align="center">
+                  <h4 style="color: aliceblue; padding-left: 2%;">Thành tiền: <span style="color: aqua; float: right; padding-right: 1%;"><?php echo $sumPrice ?> <span style="font-size: 12px;">VND</span> </span></h4>
 
 
                       </div>
@@ -212,6 +236,121 @@ foreach ($cartList as $cart) {
                             <li><a href="#"><img src="images/payment/2.png" alt=""></a></li>
                             <li><a href="#"><img src="images/payment/3.png" alt=""></a></li>
                           </ul>
+                          <span>
+                          <div class="hope-accordion" id="accordionExample">
+                                <div style="color: #ddd; text-align:; display:none" class="hope-accordion-item">
+                                <hr></hr>
+                                <div class="hope-accordion" id="accordionExample">
+                            <div class="hope-accordion-item">
+                                
+                                  <style>
+                                    /* Thêm các kiểu chung cho thẻ div */
+                                    .primary-gradient-card {
+                                    background: linear-gradient(45deg, #4CAF50, #2196F3);
+                                    color: rgba(255, 255, 255, 1.00);
+                                    padding: 10px;
+                                    width: 390px;
+                                    height: 225px;
+                                    border-radius: 20px;
+                                    }
+                            /* box-shadow: 9px 5px 10px 5px rgb(0 0 0 / 30%);
+                                    
+                                    /* Căn lề và khoảng cách cho các phần tử trong thẻ div */
+                                    .primary-gradient-card .d-flex {
+                                        margin-bottom: 15px; /* Khoảng cách giữa các phần tử dạng flex */
+                                    }
+
+                                    /* Kiểu chữ cho các tiêu đề */
+                                    .primary-gradient-card h5 {
+                                        font-size: 25px;
+                                        font-weight: bold;
+                                        margin-bottom: 5px; /* Khoảng cách giữa tiêu đề và nội dung dưới đó */
+                                    }
+
+                                    /* Hiệu ứng hover cho tiêu đề */
+                                    .primary-gradient-card h5:hover {
+                                        /* text-decoration: underline; Gạch chân khi hover */
+                                    }
+
+                                    /* Kiểu chữ cho các số thẻ */
+                                    .primary-gradient-card .card-number {
+                                      
+                                        font-size: 1.8em; /* Kích thước chữ số thẻ */
+                                    }
+
+                                    /* Định dạng các phần tử trong phần expire date */
+                                    .primary-gradient-card .mb-2 p,
+                                    .primary-gradient-card .d-flex h6 {
+                                        color:#e0d0d0;
+                                        font-size: 0.9em; /* Kích thước chữ cho thông tin nhỏ */
+                                    }
+
+                                    /* Hiệu ứng hover cho Expire Date */
+                                    .primary-gradient-card .mb-2 p:hover,
+                                    .primary-gradient-card .d-flex h6:hover {
+                                        color: #ffcc00; /* Đổi màu chữ khi hover */
+                                    }
+
+
+                                  </style>
+                                <div id="collapseOne" class="hope-accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample" style="">
+                                    <div class="hope-accordion-body" style="background-color:#eee">
+                                    
+
+                                    <div class="p-4 border border-white rounded primary-gradient-card">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div>
+                                                <h5 class="font-weight-bold"><?php echo $infoUser['cardName']; ?><span style="padding-left: 100px; "> <?php echo $infoUser['cardType']; ?>  <span> </span></span></h5>
+                                            
+                                            </div>
+                                            <div class="master-card-content">
+                                            <img src="iconsimcard.png">
+                                                <!-- Icons for card -->
+                                            </div>
+                                        </div>
+                                        <div class="my-4">
+                                            <div class="card-number">
+                                                <span class="fs-5 me-2"><?php echo $infoUser['cardNumber']; ?></span>
+                                            </div>
+                                        </div>
+                                        <div class="mb-2 d-flex align-items-center justify-content-between">
+                                            <p class="mb-0" style="font-size:20px"><?php echo $infoUser['cardHolder']; ?></p>
+                                            <p style="padding-left:200px; font-size:16px" class="mb-0"> Expire Date: <?php echo $infoUser['expireDate']; ?></p>
+                                        </div>
+                                    </div>
+                                    
+                                      <!-- <button style="border-radius :3px; background-color: #1d93d5; " class="link-button" > Sửa Thẻ </button> -->
+                                      <!-- <td><a class="btn btn-danger" href="delete_cardpayment.php" role="button" onclick="return confirm('Bạn có muốn xóa không?');">Xóa</a></td> -->
+
+                                      <!-- <span style="padding-left:335px"> <button style="border-radius :3px; background-color: #ec412c;  " class="link-button"> Xóa thẻ </button></span> -->
+                                </div>
+                                
+                            </div>
+                            <!-- Add more accordion items as needed -->
+                        </div>
+
+                            
+                            
+                        </div>
+                                     <!-- Thẻ Ngân Hàng Đã Liên Kết  -->
+                        </div>   
+
+                            <script>
+                                // Lắng nghe sự kiện khi radio button thay đổi
+                                document.querySelectorAll('input[name="payment"]').forEach(function (radio) {
+                                    radio.addEventListener('change', function () {
+                                        // Ẩn/hiện thông tin thẻ ngân hàng dựa trên lựa chọn của người dùng
+                                        var accordionItem = document.querySelector('.hope-accordion-item');
+                                        if (radio.id === 'rdo02' && radio.checked) {
+                                            accordionItem.style.display = 'block';
+                                        } else {
+                                            accordionItem.style.display = 'none';
+                                        }
+                                    });
+                                });
+                            </script>
+                            </span>                       
+                          
                             <button name="submit_payment" class="ps-btn ps-btn--fullwidth">Đặt Hàng<i class="ps-icon-next"></i></button>
                           <?php
                             if(isset($_POST['submit_payment'])){
@@ -220,9 +359,18 @@ foreach ($cartList as $cart) {
                                 // $orderRepository->insert($cart['id']);
                                 $cartRepository->updateStatusByUserIdAndShoeId($infoUser['id'],$shoe['shoe_id'],2);
                               }
-                              echo "<script>alert('Đặt hàng thành công');
-                                window.location.href='index.php';
-                                </script>";
+                              // echo "<script>alert('Đặt hàng thành công, Xin Cảm Ơn !');
+                              //   window.location.href='index.php';
+                              //   </script>";
+                              if ($sumPrice == 0) {
+                                echo "<script>alert('Bạn chưa mua sản phẩm !!');
+                                      window.location.href='index.php';
+                                      </script>";
+                              } else {
+                                  echo "<script>alert('Đặt hàng thành công, Xin Cảm Ơn !');
+                                        window.location.href='index.php';
+                                        </script>";
+                              }
                             }
                           ?>
                         </div>
@@ -246,7 +394,7 @@ foreach ($cartList as $cart) {
                 <div class="col-lg-5 col-md-7 col-sm-12 col-xs-12 ">
                   <form class="ps-subscribe__form" action="do_action" method="post">
                     <input class="form-control" type="text" placeholder="">
-                    <button>Sign up now</button>
+                    <button>WELCOME</button>
                   </form>
                 </div>
                 <div class="col-lg-4 col-md-5 col-sm-12 col-xs-12 ">

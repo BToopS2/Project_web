@@ -11,6 +11,7 @@ class Auth{
         }
         return true;
     }
+
     public static function register($username,$password,$fullname,$dob,$address,$gender,$email,$phone){
         global $conn;
         if(Auth::checkExist("username",$username) && Auth::checkExist("email",$email) && Auth::checkExist("phone",$username)){ 
@@ -21,6 +22,7 @@ class Auth{
             window.location.href="../login/index.php";</script>';
         }
     }
+    
     public static function login($username,$password){
         $run = Auth::findOneByUsernameAndPassword($username,md5($password));
         if($run){

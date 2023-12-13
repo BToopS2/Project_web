@@ -1,16 +1,19 @@
 <?php
   require_once("formCart2.php");
   require_once("backend/auth.php");
+  require_once("backend/authWithCookie.php");
   require_once("repository/shoeRepository.php");
   require_once("repository/cartRepository.php");
   
   $cartRepository = new CartRepository();
   $shoeRepository = new ShoeRepository();
+  $infoUser = Auth::loginWithCookie();
 
   $shoe = $shoeRepository->getById($_GET['id'])->fetch_assoc();
   $listShoe = $shoeRepository->getAll(12);
   $arrLinkImage = $shoeRepository->getImage($_GET['id']);
 
+  
 
   if(isset($_POST['submit_cart'])){
     $user_id = Auth::loginWithCookie()['id'];
@@ -30,11 +33,64 @@
         header("Location: cart.php");
         // hoặc
         // echo '<script>window.location = "cart.php";</script>';
-    // } else {
-    //     // Nếu sản phẩm đã tồn tại trong giỏ hàng, bạn có thể hiển thị một thông báo khác
-    //     echo "Sản phẩm đã có trong giỏ hàng!";
+    } else {
+        // Nếu sản phẩm đã tồn tại trong giỏ hàng, bạn có thể hiển thị một thông báo khác
+        echo "<script>alert('Trong Giỏ Hàng đã có sản phẩm này !!!');
+                                window.location.href='cart.php';
+                                </script>";
      }
   }
+//   if (isset($_POST['send_rev'])) {
+//     $name = $_POST['name_rev'];
+//     $email = $_POST['email_rev'];
+//     $rating = $_POST['rating_rev'];
+//     $review = $_POST['content_rev'];
+//     $shoe_id = $_POST['shoe_id'];
+//     $avatar= $_POST['avatar_rev'];
+
+
+//     // Chuẩn bị câu lệnh SQL để chèn dữ liệu vào bảng
+//     $sql = "INSERT INTO reviews (name, email, rating, review,shoe_id) VALUES ('$name', '$email', '$rating', '$review','$shoe_id','$avatar')";
+
+//     if ($conn->query($sql) === TRUE) {
+//         echo "<script>alert('Cảm ơn bạn đã đánh giá cho sản phẩm   !');</script>";
+//     } else {
+//         echo "Error: " . $sql . "<br>" . $conn->error;
+//     }
+// }   
+if (isset($_POST['send_rev'])) {
+  $name = $_POST['name_rev'];
+  $email = $_POST['email_rev'];
+  $rating = $_POST['rating_rev'];
+  $review = $_POST['content_rev'];
+  $shoe_id = $_POST['shoe_id'];
+
+  // Xử lý tệp tin đã tải lên
+  $avatar_dir = "uploads/"; // Thư mục lưu trữ ảnh đại diện
+  $avatar_path = $avatar_dir . basename($_FILES["avatar_rev"]["name"]);
+
+  if (move_uploaded_file($_FILES["avatar_rev"]["tmp_name"], $avatar_path)) {
+      echo "";
+  } else {
+      echo "";
+  }
+
+  // Lưu đường dẫn ảnh đại diện vào biến để thêm vào cơ sở dữ liệu
+  $avatar_url = $avatar_path;
+
+  // Chuẩn bị câu lệnh SQL để chèn dữ liệu vào bản
+  $sql = "INSERT INTO reviews (name, email, rating, review, shoe_id, avatar) VALUES ('$name', '$email', '$rating', '$review', '$shoe_id', '$avatar_url')";
+
+  if ($conn->query($sql) === TRUE) {
+    echo "<script>alert('Cảm ơn bạn đã đánh giá cho sản phẩm: " . $shoe['shoe_name'] . "');</script>"; // \\n: ngắt dòng
+      
+  } else {
+      echo "Error: " . $sql . "<br>" . $conn->error;
+  }
+}
+
+    
+// Đóng kết nối
 
 
 ?>
@@ -152,7 +208,7 @@
               <input class="form-control" type="text" placeholder="Search Product…">
               <button><i class="ps-icon-search"></i></button>
             </form>
-            <div class="ps-cart"><a class="ps-cart__toggle" href="cart.php"><span><i><?php echo $cartList->num_rows ?></i></span><i class="ps-icon-shopping-cart"></i></a>
+            <div class="ps-cart"><a class="ps-cart__toggle" href="cart.php"><span><i><?php  echo $cartList->num_rows ?></i></span><i class="ps-icon-shopping-cart"></i></a>
            
             </div>
             <div class="menu-toggle"><span></span></div>
@@ -214,10 +270,18 @@
     <option value="2">2 Stars</option>
     <option value="3">3 Stars</option>
     <option value="4">4 Stars</option>
-    <option value="5">5 Stars</option>
+    <option value="1">5 Stars</option>
   </select>
   <span id="averageRating">(<span id="displayAverage">Đánh Giá</span>)</span>
-  <a href="#" id="readReviews">(Read all 8 reviews)</a>
+   <a href="#tab_02" aria-controls="tab_02" role="tab" data-toggle="tab">(Đã có 
+      <?php $shoe_id = $shoe['shoe_id'];
+      $sql = "SELECT * FROM reviews WHERE shoe_id = $shoe_id ORDER BY created_at DESC"; 
+      $result = $conn->query($sql);  echo $result->num_rows 
+      ?> 
+      lượt đánh giá)
+   </a>
+  
+
 </div>
 
 <script>
@@ -259,7 +323,7 @@
                   ?> VND<del><br><?php echo $shoe['price'] ?> VND</del></h3>
                 <div class="ps-product__block ps-product__quickview">
                   <h4>QUICK REVIEW</h4>
-                  <p><?php echo substr($shoe['review'],0,100); ?></p>
+                  <p><?php echo substr($shoe['review'],0,10); ?></p>
                 </div>
                 <form action="" method="POST">
                 <div class="ps-product__block ps-product__size">
@@ -295,7 +359,7 @@
                   <div class="ps-product__actions"><a class="mr-10" href="whishlist.php"><i class="ps-icon-heart"></i></a><a href="compare.php"><i class="ps-icon-share"></i></a></div>
                 </div>
                 </form>
-                
+                </div>
               </div>
               <div class="clearfix"></div>
               <div class="ps-product__content mt-50">
@@ -304,15 +368,19 @@
                   <li><a href="#tab_02" aria-controls="tab_02" role="tab" data-toggle="tab">Review</a></li>
                 </ul>
               </div>
+              <!-- </div> -->
               <div class="tab-content mb-60">
                 <div class="tab-pane active" role="tabpanel" id="tab_01">
                   <p><?php echo $shoe['review']; ?></p>
                 </div>
                 <div class="tab-pane" role="tabpanel" id="tab_02">
-                  <p class="mb-20">1 review for <strong>Shoes Air Jordan</strong></p>
+                  <p style="font-size:20px" class="mb-20"><span style="font-size:18px !important;">Đánh Giá Về Sản Phẩm </span><strong><?php echo $shoe['shoe_name'] ?><sapn> :</sapn></strong></p>
+                  
+                  
                   <div class="ps-review">
-                    <div class="ps-review__thumbnail"><img src="images/user/1.jpg" alt=""></div>
-                    <div class="ps-review__content">
+                    <!-- <div class="ps-review__thumbnail"><?php echo '<img src="' . $checkCookie['img'] . '" alt="" style=" height: 77px; border-radius: 50%;">';?> </div> -->
+                    <!-- <img src="images/user/1.jpg" alt=""></div> -->
+                    <!-- <div class="ps-review__content">
                       <header>
                         <select class="ps-rating">
                           <option value="1">1</option>
@@ -324,41 +392,95 @@
                         <p>By<a href=""> TV2H_team</a> - November 25, 2017</p>
                       </header>
                       <p>Soufflé danish gummi bears tart. Pie wafer icing. Gummies jelly beans powder. Chocolate bar pudding macaroon candy canes chocolate apple pie chocolate cake. Sweet caramels sesame snaps halvah bear claw wafer. Sweet roll soufflé muffin topping muffin brownie. Tart bear claw cake tiramisu chocolate bar gummies dragée lemon drops brownie.</p>
-                    </div>
+                    </div> -->
+                    <?php
+                    $shoe_id = $shoe['shoe_id'];
+                    $sql = "SELECT * FROM reviews WHERE shoe_id = $shoe_id ORDER BY created_at DESC";
+                    $result = $conn->query($sql);
+
+                    // Kiểm tra xem có dữ liệu hay không
+                    if ($result->num_rows > 0) {
+                        // Lặp qua các dòng dữ liệu
+                        while ($row = $result->fetch_assoc()) {
+                            // Hiển thị thông tin đánh giá trong mã HTML
+                            echo '<div class="ps-review">';
+                            // Kiểm tra xem avatar có tồn tại không
+                          
+                            if (isset($row['avatar']) && file_exists($row['avatar']) && $row['avatar'] !== 'uploads/') {
+                              echo '<div class="ps-review__thumbnail"><img src="' . $row['avatar'] . '" alt="" style="height: 77px; border-radius: 50%;"></div>';
+                            } else {
+                                // Nếu không có ảnh hoặc giá trị là "uploads/", hiển thị ảnh mặc định từ $checkCookie['img']
+                                echo '<div class="ps-review__thumbnail"><img src="' . $checkCookie['img'] . '" alt="Default Avatar" style="height: 77px; border-radius: 50%;"></div>';
+                            }
+                            echo '<div class="ps-review__content">';
+                            echo '<header>';
+                            echo '<select class="ps-rating">';
+                            for ($i = 1; $i <= 5; $i++) {
+                                // Đánh dấu ô rating có điểm tương ứng với đánh giá từ cơ sở dữ liệu
+                                $selected = ($i == $row['rating']) ? 'selected' : '';
+                                echo '<option value="' . $i . '" ' . $selected . '>' . $i . '</option>';
+                            }
+                            echo '</select>';
+                            echo '<p>By <a href="">' . $row['name'] . '</a> | '.'<span>' . $row['created_at'] .'</span>'. '</p>';
+                            echo '</header>';
+                            echo '<p style="color:black; font-weight: 500;">' . $row['review'] . '</p>';
+                            // echo  $row['avatar'] ;
+                            echo '</div>';
+                            echo '</div>';
+                        }
+                    } else {
+                        echo "Không có đánh giá nào cho sản phẩm này.";
+                    }
+                    ?>
+
+                    
                   </div>
-                  <form class="ps-product__review" action="_action" method="post">
-                    <h4>ADD YOUR REVIEW</h4>
+                  <form class="ps-product__review" action="" method="post" enctype="multipart/form-data">
+                    <hr>
+                    <h3>ADD YOUR REVIEW</h3>
+                    <p></p>
                     <div class="row">
+                        
+
+                        <input style="display:none" readonly name="shoe_id" class="form-control" type="text" value="<?php echo $shoe['shoe_id']; ?>" required>
+
                           <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 ">
                             <div class="form-group">
-                              <label>Name:<span>*</span></label>
-                              <input class="form-control" type="text" placeholder="">
+                              <label>Name<span style="color:red">*</span> :</label>
+                              <input value="<?php echo $infoUser['fullname'] ?>" name="name_rev" class="form-control" type="text" placeholder="" required>
                             </div>
                             <div class="form-group">
-                              <label>Email:<span>*</span></label>
-                              <input class="form-control" type="email" placeholder="">
+                              <label>Email<span style="color:red">*</span> :</label>
+                              <input value="<?php echo $infoUser['email'] ?>" name="email_rev" class="form-control" type="email" placeholder="" required>
                             </div>
                             <div class="form-group">
-                              <label>Your rating<span></span></label>
-                              <select class="ps-rating">
+                              <label>Your rating<span style="color:red">*</span> :</label>
+                              <select class="ps-rating" name="rating_rev">
                                 <option value="1">1</option>
-                                <option value="1">2</option>
-                                <option value="1">3</option>
-                                <option value="1">4</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
                                 <option value="5">5</option>
                               </select>
                             </div>
                           </div>
-                          <div class="col-lg-8 col-md-8 col-sm-6 col-xs-12 ">
+                          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 ">
                             <div class="form-group">
-                              <label>Your Review:</label>
-                              <textarea class="form-control" rows="6"></textarea>
+                              <label>Your Review<span style="color:red">*</span> :</label>
+                              <textarea name="content_rev" class="form-control" rows="6" required></textarea>
                             </div>
                             <div class="form-group">
-                              <button class="ps-btn ps-btn--sm">Submit<i class="ps-icon-next"></i></button>
+                                <label>Avatar review:</label>
+                                <input type="file" name="avatar_rev" accept="image/*">
+                            </div>
+                            <div class="form-group">
+                              <button  name="send_rev" class="ps-btn ps-btn--sm">Submit<i class="ps-icon-next"></i></button>
                             </div>
                           </div>
                     </div>
+                    
+
+                   
                   </form>
                 </div>
 
@@ -450,7 +572,7 @@
                 <div class="col-lg-5 col-md-7 col-sm-12 col-xs-12 ">
                   <form class="ps-subscribe__form" action="do_action" method="post">
                     <input class="form-control" type="text" placeholder="">
-                    <button>Sign up now</button>
+                    <button>WELCOME</button>
                   </form>
                 </div>
                 <div class="col-lg-4 col-md-5 col-sm-12 col-xs-12 ">
