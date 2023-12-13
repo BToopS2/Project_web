@@ -1,5 +1,59 @@
 <?php
-    require_once("../../backend/auth.php");
+session_start();
+require_once("../../backend/auth.php");
+require_once("../../utils/checkEmpty.php");
+require("D:/DowLoad/Xampp/htdocs/Project_web/PHPMailer/PHPMailer-master/src/PHPMailer.php");
+require("D:/DowLoad/Xampp/htdocs/Project_web/PHPMailer/PHPMailer-master/src/SMTP.php");
+
+// Bao gồm các lớp PHPMailer
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
+
+// Hàm gửi email đăng ký
+function sendRegistrationEmail($email, $otp) {
+    $mail = new PHPMailer(true);
+
+    try {
+        $mail->IsSMTP(); // enable SMTP
+        $mail->SMTPAuth = true; // authentication enabled
+        $mail->SMTPSecure = 'ssl'; // secure transfer enabled REQUIRED for Gmail
+        $mail->Host = "smtp.gmail.com";
+        $mail->Port = 465; // or 587
+        $mail->IsHTML(true);
+        $mail->Username = "storetvh105@gmail.com";
+        $mail->Password = "urcrunhh biqyebvs";
+        $mail->SetFrom("storetvh105@gmail.com");
+        $mail->Subject = "T2VH STORE";
+        $mail->Body = "Cảm ơn bạn đã đăng ký tài khoản! <br>Vui lòng nhập mã OTP sau đây để hoàn tất quá trình đăng ký :<strong>$otp</strong><img src='https://i.pinimg.com/originals/6f/39/35/6f393516f4f2876c5ff1b8ddcf57c638.jpg' alt='Ảnh mô tả'>";
+        $mail->AddAddress($email);
+
+        // Gửi email
+        $mail->send();
+    } catch (Exception $e) {
+        echo "Không thể gửi tin nhắn. Lỗi Mailer: {$mail->ErrorInfo}";
+    }
+}
+
+// Kiểm tra xem biểu mẫu đăng ký đã được gửi chưa
+
+// Kiểm tra xem biểu mẫu đăng ký đã được gửi chưa
+if (isset($_POST['submit'])) {
+    if(CheckEmpty::checkEmpty(['username', 'password', 'fullname', 'address', 'dob', 'email', 'phone'])) {
+        // Generate and store OTP
+        if (Auth::checkExist('username', $_POST['username']) && Auth::checkExist('email', $_POST['email'])){
+        $otp = mt_rand(100000, 999999);
+        $_SESSION['otp'] = $otp;
+        $_SESSION['registration_data'] = $_POST; // Save registration data to session
+
+        // Send OTP via email
+        sendRegistrationEmail($_POST['email'], $otp);
+
+        // Redirect to OTP verification page
+        header('Location: otp.php');
+        exit();
+    }
+}}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -127,19 +181,7 @@
         </div>
     </div>
 
-    <?php
-        require_once("../../utils/checkEmpty.php");
-        if(isset($_POST['submit'])){
-            if(CheckEmpty::checkEmpty(['username','password','fullname','address','dob','email','phone'])){
-                $date = explode('/', $_POST['dob']);
-                $dob = $date[2].'-'.$date[1].'-'.$date[0];
 
-                Auth::register($_POST['username'],$_POST['password'],
-                $_POST['fullname'],$dob,$_POST['address'],
-                $_POST['gender'],$_POST['email'],$_POST['phone']);
-            }
-        }
-    ?>
 
     <!-- Jquery JS-->
     <script src="vendor/jquery/jquery.min.js"></script>
