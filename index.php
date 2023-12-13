@@ -123,7 +123,7 @@
                 <ul class="main-menu menu">
                   <li class="menu-item menu-item-has-children dropdown"><a href="index.php">Trang Chủ</a>
                   </li>
-                  <li class="menu-item menu-item-has-children dropdown"><a href="#">Nam</a>
+                  <li class="menu-item menu-item-has-children dropdown"><a href="nam.php">Nam</a>
                       <ul class="sub-menu">
                           <li class="menu-item menu-item-has-children dropdown"><a href="blog-grid.php">Nổi Bật</a>
                                 <ul class="sub-menu">
