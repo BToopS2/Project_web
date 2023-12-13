@@ -62,8 +62,7 @@
 
             <!-- sidebar menu -->
             <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
-              <hr>
-            <div class="menu_section">
+              <div class="menu_section">
                 <h3>General</h3>
                 <ul class="nav side-menu">
                   <li><a><i class="fa fa-home"></i> Home <span class="fa fa-chevron-down"></span></a>
@@ -196,7 +195,7 @@
         <form method="POST" action="">
         <div class="form-group">
           <label for="exampleInputEmail1">Họ Tên</label>
-          <input required value="<?php echo $userInfo['fullname']?>" minlength="5" maxlength="50" name="fullname" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nhập Tên Sản Phẩm">
+          <input required value="<?php echo $userInfo['fullname']?>" minlength="5" maxlength="50" name="fullname" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nhập tên giày">
         </div>
         <div class="form-group">
           <label for="exampleInputPassword1">Email</label>

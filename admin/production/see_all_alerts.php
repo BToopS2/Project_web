@@ -13,7 +13,6 @@
 
 <body>
     <div class="container mt-5">
-    <h3 ><a style="color: salmon " href='http://localhost/Project_web/admin/production/shoe.php'>Trở Về Trang ADMIN</a></h3>
         <div class="row">
             <div class="col-md-12 text-center mb-4">
                 <!-- Thanh banner bên trái -->
@@ -21,10 +20,8 @@
                     
                     <h3 class="text-white">
                     <i class="fa-regular fa-bell fa-shake fa-2xl"></i>  <br><br>
-                        Thông báo
-                    </h3>
+                        Thông báo</h3>
                 </div>
-                
             </div>
 
             <div class="col-md-12" id="mainContent">

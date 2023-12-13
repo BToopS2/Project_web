@@ -77,19 +77,18 @@
                     </ul>
                   </li>
                 
-                  <li><a><i class="fa fa-money"></i> Doanh Thu<span class="fa fa-chevron-down"></span></a>
+                  <li><a><i class="fa fa-money"></i> Sản phẩm bán chạy<span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                    <li><a href="banchay.php">Biểu đồ bán chạy</a></li>                    
-                      <li><a href="#">Theo Tuần</a></li>
+                    <li><a href="banchay.php">Biểu đồ bán chạy</a></li>
+                     
                     </ul>
                   </li>
 
-                  <li><a><i class="fa fa-line-chart"></i> Biểu Đồ Phát Triển <span class="fa fa-chevron-down"></span></a>
+                  <li><a><i class="fa fa-line-chart"></i> Biểu Đồ Doanh Thu <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="#">Lượt truy cập</a></li>
                       <li><a href="price.php">Doanh Thu</a></li>
-                      <li><a href="price_month.php">Theo Tháng</a></li>
-                    
+                 
                     </ul>
                   </li>
 
@@ -191,100 +190,105 @@
             </nav>
           </div>
         </div>
-        <!-- Thư viện Chart.js -->
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<div class="right_col" role="main">
-    <table id="tableShoe">
-        <tr>
-            <th class="text-center" style="min-width:50px">ID</th>
-            <th class="text-center" style="min-width:50px">Giá Giày</th>
-            <th class="text-center" style="min-width:100px">Ngày Đặt Hàng</th>
-        </tr>
-        <?php
-        $i = 1;
-        $uniqueMonths = array(); // Initialize an array to store unique months
-        $revenueData = array(); // Initialize an array to store revenue data
-
-        foreach ($orderList as $order) {
-            if ($order['status'] == 3) { // Only consider approved orders
-                $date = $order['date'];
-                $revenue = $order['price'] - $order['price'] * $order['sale'] * 0.01;
-
-                // Extract month from the date
-                $month = date('Y-m', strtotime($date));
-
-                // Check if the month is already processed
-                if (!in_array($month, $uniqueMonths)) {
-                    $uniqueMonths[] = $month; // Store the unique month
-                    $revenueData[$month] = $revenue; // Store the revenue for the month
-                    ?>
-                    <tr>
-                        <td><?php echo $i++; ?></td>
-                        <td><?php echo $revenue . " VND" ?></td>
-                        <td><?php echo $date ?></td>
-                        <td>
-                            <?php
-                            if ($order['status'] == 2) {
-                                ?>
-                                <a class="btn btn-warning" href="acceptOrder.php?id=<?php echo $order['cart_id'] ?>"
-                                   role="button">Duyệt Đơn</a>
-                                <?php
-                            }
-                            ?>
-                            <?php
-                            if ($order['status'] == 3) {
-                                ?>
-                                <a class="btn btn-success" href="#" role="button">Đã Duyệt</a>
-                                <?php
-                            }
-                            ?>
-                        </td>
-                    </tr>
-                    <?php
-                }
-            }
-        }
-        ?>
-    </table>
-
-    <!-- Add a canvas element for the revenue chart -->
-    <canvas id="revenueChart" width="400" height="200"></canvas>
-
-    <script>
-        var revenueData = <?php echo json_encode($revenueData); ?>;
-        var months = Object.keys(revenueData);
-        var values = Object.values(revenueData);
-
-        var ctx = document.getElementById('revenueChart').getContext('2d');
-        var myChart = new Chart(ctx, {
-            type: 'bar', // Use 'bar' for a bar chart
-            data: {
-                labels: months,
-                datasets: [{
-                    label: 'Doanh Thu',
-                    data: values,
-                    backgroundColor: 'rgba(54, 162, 235, 0.7)', // Adjust the color here
-                    borderColor: 'rgba(54, 162, 235, 1)', // Adjust the color here
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true
-                    }
-                }
-            }
-        });
-    </script>
-</div>
 
 
-
-    
+        <div class="right_col" role="main">
+            <p style="font-size: 30px; text-align: center;">Sản Phẩm Bán Chạy</p>
+          <table id="tableShoe">
+            <tr>  
+         <!-- <th class="text-center" style="min-width:150px">Tên Giày</th>
+              <th class="text-center" style="min-width:100px">Số Lượng</th> -->
+            </tr>
+            <?php
+                  $i=1;
+                  foreach($orderList as $order){
+              ?>
+            <tr>
+                <!-- <td><?php echo $order['name']?></td>        
+                <td><?php echo $order['quantity']?></td> -->
+                   
+            </tr>
+            <?php
                   }
             ?>
         </table>
+                <!-- Thêm thư viện Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<!-- Thẻ canvas cho biểu đồ số lượng -->
+<canvas id="quantityBarChart" width="400" height="200"></canvas>
+
+<?php
+        // ... (previous PHP code)
+
+        $orderList = $orderRepository->getAll();
+
+        // Khởi tạo mảng để lưu trữ dữ liệu số lượng của từng sản phẩm
+        $quantityData = array();
+
+        foreach ($orderList as $order) {
+            $productName = $order['name'];
+            $quantity = $order['quantity'];
+
+            // Nếu sản phẩm đã tồn tại trong mảng, thì cộng dồn số lượng
+            if (array_key_exists($productName, $quantityData)) {
+                $quantityData[$productName] += $quantity;
+            } else {
+                // Nếu sản phẩm chưa tồn tại, thêm mới vào mảng
+                $quantityData[$productName] = $quantity;
+            }
+        }
+
+        // Chuyển mảng thành JSON để sử dụng trong mã JavaScript
+        $quantityDataJson = json_encode($quantityData);
+    ?>
+    <!-- Mã JavaScript để vẽ biểu đồ số lượng -->
+    <script>
+    var quantityData = <?php echo $quantityDataJson; ?>;
+
+    // Trích xuất tên sản phẩm và số lượng từ mảng dữ liệu
+    var productNames = Object.keys(quantityData);
+    var quantities = Object.values(quantityData);
+
+    // Tạo biểu đồ cột
+    var ctxBar = document.getElementById('quantityBarChart').getContext('2d');
+    var barColors = quantities.map(function(quantity) {
+        // Nếu số lượng lớn hơn 20, trả về màu đỏ, ngược lại là màu mặc định
+        return quantity > 19 ? 'red' : 'rgba(75, 192, 192, 0.7)';
+    });
+
+    var barChart = new Chart(ctxBar, {
+        type: 'bar',
+        data: {
+            labels: productNames,
+            datasets: [{
+                label: 'Số Lượng',
+                data: quantities,
+                backgroundColor: barColors,
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    title: {
+                        display: true,
+                        text: 'Số Lượng' // Mô tả trục tung
+                    }
+                },
+                x: {
+                    title: {
+                        display: true,
+                        text: 'Tên Sản Phẩm' // Mô tả trục hành
+                    }
+                    
+                }
+                
+            }
+        }
+    });
+</script>
+
         </div>
         <footer>
           <div class="pull-right">

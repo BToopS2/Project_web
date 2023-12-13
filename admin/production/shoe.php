@@ -68,8 +68,7 @@
 
             <!-- sidebar menu -->
             <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
-              <hr>
-            <div class="menu_section">
+              <div class="menu_section">
                 <h3>HUS STORE - ADMIN</h3>
                 <ul class="nav side-menu">
                   <li><a><i class="fa fa-paw"></i> Quản Lý <span class="fa fa-chevron-down"></span></a>
@@ -80,13 +79,9 @@
                     </ul>
                   </li>
                 
-                  <li><a><i class="fa fa-money"></i> Doanh Thu<span class="fa fa-chevron-down"></span></a>
+                  <li><a><i class="fa fa-money"></i>Sản Phẩm Bán Chạy<span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="#">Theo Ngày</a></li>
-                      <li><a href="#">Theo Tuần</a></li>
-                      <li><a href="#">Theo Tháng</a></li>
-                      <li><a href="#">Theo Quý</a></li>
-                      <li><a href="#">Theo Năm</a></li>
+                    <li><a href="banchay.php">Biểu đồ bán chạy</a></li>
                     </ul>
                   </li>
 
@@ -207,8 +202,8 @@
             <tr>
               <th class="text-center" style="min-width:50px">STT</th>
               <th class="text-center" style="min-width:50px">ID</th>
-              <th class="text-center" style="min-width:150px">Tên Sản Phẩm</th>
-              <th class="text-center" style="min-width:150px">Giá Tiền</th>
+              <th class="text-center" style="min-width:150px">Tên Giày</th>
+              <th class="text-center" style="min-width:150px">Giá Giày</th>
               <th class="text-center" style="min-width:50px">Giảm Giá</th>
               <th class="text-center" style="min-width:100px">Kích Cỡ</th>
               <th class="text-center" style="min-width:100px">Màu</th>
