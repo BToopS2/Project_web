@@ -247,7 +247,6 @@ $orderList = $orderRepository->getAll2($id);
     <div class="row">
         <!-- Sidebar menu (left side) -->
         <div id="sidebar-menu" class="main_menu_side hidden-print main_menu col-md-3">
-            <hr>
             <div class="menu_section">
                 <h3></h3>
                 <ul class="nav side-menu">
@@ -272,6 +271,7 @@ $orderList = $orderRepository->getAll2($id);
                 </ul>
             </div>
         </div>
+        
         <script src="admin/vendors/jquery/dist/jquery.min.js"></script>
                         <!-- Bootstrap -->
                       <script src="admin/vendors/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
@@ -321,7 +321,7 @@ $orderList = $orderRepository->getAll2($id);
                                 <th class="text-center" style="min-width:100px">STT</th>
                                 <th class="text-center" style="min-width:100px">Tên Khách Hàng</th>
                                 <th class="text-center" style="min-width:100px">Địa Chỉ</th>
-                                <th class="text-center" style="min-width:100px">Tên Sản Phẩm</th>
+                                <th class="text-center" style="min-width:100px">Tên Giày</th>
                                 <th class="text-center" style="min-width:100px">Tổng Tiền</th>
                                 <th class="text-center" style="min-width:100px">Kích Cỡ</th>
                                 <th class="text-center" style="min-width:100px">Số Lượng</th>
@@ -380,7 +380,7 @@ $orderList = $orderRepository->getAll2($id);
         overflow-y: auto;  
             }
         </style>
-                <a href="index.php" class="btn btn-back" style="margin-left:780px;">HOME</a> 
+                <a href="index.php" class="btn btn-back" style="margin-left:500px;">BACK</a> 
             </div>
         </div>
     </div>

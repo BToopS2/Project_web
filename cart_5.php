@@ -1,5 +1,4 @@
 <?php
-require_once("formCart.php");
 require_once("backend/filterUser.php");
 require_once("repository/orderRepository.php");
 
@@ -152,8 +151,8 @@ $orderList = $orderRepository->getAll2($id);
               <input class="form-control" type="text" placeholder="Search Product…">
               <button><i class="ps-icon-search"></i></button>
             </form>
-            <div class="ps-cart"><a class="ps-cart__toggle" href="cart.php"><span><i><?php echo $cartList->num_rows ?></i></span><i class="ps-icon-shopping-cart"></i></a>
-            
+            <div class="ps-cart"><a class="ps-cart__toggle" href="#"><span><i></i></span><i class="ps-icon-shopping-cart"></i></a>
+            <?php require_once("formCart.php") ?>
             </div>
             <div class="menu-toggle"><span></span></div>
           </div>
@@ -246,7 +245,6 @@ $orderList = $orderRepository->getAll2($id);
     <div class="row">
         <!-- Sidebar menu (left side) -->
         <div id="sidebar-menu" class="main_menu_side hidden-print main_menu col-md-3">
-            <hr>
             <div class="menu_section">
                 <h3></h3>
                 <ul class="nav side-menu">
@@ -256,7 +254,7 @@ $orderList = $orderRepository->getAll2($id);
                             <li><a href="profile_1.php">Hồ Sơ</a></li>
                             <li><a href="card_payment.php">Phương Thức Thanh Toán</a></li>
                             <li><a href="index3.html">Địa Chỉ Nhận Hàng</a></li>
-                            <li><a href="index4.html">Đổi Mật Khẩu</a></li>
+                            <li><a href="change_password.php">Đổi Mật Khẩu</a></li>
                         </ul>
                     </li>
                     <li>
@@ -320,15 +318,13 @@ $orderList = $orderRepository->getAll2($id);
                             <th class="text-center" style="min-width:100px">STT</th>
                                 <th class="text-center" style="min-width:100px">Tên Khách Hàng</th>
                                 <th class="text-center" style="min-width:100px">Địa Chỉ</th>
-                                <th class="text-center" style="min-width:100px">Tên Sản Phẩm</th>
+                                <th class="text-center" style="min-width:100px">Tên Giày</th>
                                 <th class="text-center" style="min-width:100px">Tổng Tiền</th>
                                 <th class="text-center" style="min-width:100px">Kích Cỡ</th>
                                 <th class="text-center" style="min-width:100px">Số Lượng</th>
                                 <th class="text-center" style="min-width:100px">Màu</th>
                                 <th class="text-center" style="min-width:100px">Ngày Đặt Hàng</th>
                                 <th class="text-center" style="min-width:100px">Trạng Thái</th>
-                                <!-- <th class="text-center" style="min-width:100px">Đánh Giá Sản Phẩm</th> -->
-
                    
                             </tr>
                         </thead>
@@ -353,11 +349,10 @@ $orderList = $orderRepository->getAll2($id);
                                     <td class="text-center"><?php echo $order['date'] ?></td>
                                     <td class="text-center">
                                         <?php if ($order['status'] == 4) { ?>
-                                            <span style="background-color: chartreuse;" class="badge badge-success badge-status">Giao hàng thành công <i class="fa-solid fa-check"></i></span>
+                                            <span class="badge badge-success badge-status">Giao hàng thành công<i class="fa-solid fa-truck"></i></span>
                                         <?php } ?>
                                         
                                     </td>
-                                    <!-- <td><a class="ps-shoe__overlay" href="product-detail.php?id=<?php echo $shoe['shoe_id'] ?>">s</a></td> -->
                                 </tr>
                             <?php
                             }}
@@ -366,7 +361,7 @@ $orderList = $orderRepository->getAll2($id);
                         </tbody>
                     </table>
                 </div>
-                <a href="index.php" class="btn btn-back" style="margin-left:780px;">HOME</a> 
+                <a href="index.php" class="btn btn-back" style="margin-left:500px;">BACK</a> 
             </div>
         </div>
     </div>

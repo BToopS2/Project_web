@@ -246,7 +246,6 @@ $orderList = $orderRepository->getAll2($id);
     <div class="row">
         <!-- Sidebar menu (left side) -->
         <div id="sidebar-menu" class="main_menu_side hidden-print main_menu col-md-3">
-            <hr>
             <div class="menu_section">
                 <h3></h3>
                 <ul class="nav side-menu">
@@ -256,7 +255,7 @@ $orderList = $orderRepository->getAll2($id);
                             <li><a href="profile_1.php">Hồ Sơ</a></li>
                             <li><a href="card_payment.php">Phương Thức Thanh Toán</a></li>
                             <li><a href="index3.html">Địa Chỉ Nhận Hàng</a></li>
-                            <li><a href="index4.html">Đổi Mật Khẩu</a></li>
+                            <li><a href="change_password.php">Đổi Mật Khẩu</a></li>
                         </ul>
                     </li>
                     <li>
@@ -320,7 +319,7 @@ $orderList = $orderRepository->getAll2($id);
                             <th class="text-center" style="min-width:100px">STT</th>
                                 <th class="text-center" style="min-width:100px">Tên Khách Hàng</th>
                                 <th class="text-center" style="min-width:100px">Địa Chỉ</th>
-                                <th class="text-center" style="min-width:100px">Tên Sản Phẩm</th>
+                                <th class="text-center" style="min-width:100px">Tên Giày</th>
                                 <th class="text-center" style="min-width:100px">Tổng Tiền</th>
                                 <th class="text-center" style="min-width:100px">Kích Cỡ</th>
                                 <th class="text-center" style="min-width:100px">Số Lượng</th>
@@ -364,7 +363,7 @@ $orderList = $orderRepository->getAll2($id);
                         </tbody>
                     </table>
                 </div>
-                <a href="index.php" class="btn btn-back" style="margin-left:780px;">HOME</a> 
+                <a href="index.php" class="btn btn-back" style="margin-left:500px;">BACK</a> 
             </div>
         </div>
     </div>
