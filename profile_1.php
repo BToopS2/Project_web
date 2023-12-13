@@ -1,5 +1,5 @@
 <?php
-  require_once("formCart2.php");
+  
   require_once("backend/authWithCookie.php");
   require_once("backend/auth.php");
   require_once("repository/cartRepository.php");
@@ -50,61 +50,6 @@
     <!--WARNING: Respond.js doesn't work if you view the page via file://-->
     <!--[if lt IE 9]><script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script><script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script><![endif]-->
   </head>
-  <style>
-  /* Điều chỉnh thanh task */
-  .nav.child_menu>li>a
-  /* .profile_info h2  */
-  {
-    margin-left: 15px; /* Cách lề trái 10px */
-    font-size: 16px; /* Kích thước chữ */
-  }
-  .navbar.nav_title {
-    background-color: #fff; /* Màu nền của thanh task */
-    color: #fff; /* Màu chữ của thanh task */
-  }
-
-  /* Chỉnh màu chữ của các menu */
-  .nav.side-menu a {
-    color: black; /* Màu chữ của các menu */
-    font-size: 16px;
-  }
-
-  /* Điều chỉnh màu chữ của menu con khi hover */
-  .nav.child_menu a:hover {
-    color: green; /* Màu chữ của menu con khi hover */
-  }
-
-  /* Điều chỉnh màu nền và chữ của menu được chọn */
-  .nav.child_menu>li.current-page,
-  .nav.child_menu>li.current-page a {
-    margin-left: 15px;
-    background-color: #3498db; /* Màu nền của menu được chọn */
-    color: #fff; /* Màu chữ của menu được chọn */
-  }
-
-  /* Chỉnh màu của icon fa */
-  .fa {
-    font-size: 20px;
-    color: green ; /* Màu của icon fa */
-  }
-
-  /* Chỉnh màu chữ và background của hồ sơ và đơn mua */
-  .profile_info h2,
-  .nav.child_menu>li>a {
-    color: black; /* Màu chữ của hồ sơ và đơn mua */
-  }
-
-  /* Điều chỉnh màu nền và chữ của footer */
-  .ps-footer {
-    background-color: #2c3e50; /* Màu nền của footer */
-    color: #ecf0f1; /* Màu chữ của footer */
-  }
-
-  /* Chỉnh màu của icon xã hội */
-  .ps-social a {
-    color: #ecf0f1; /* Màu của icon xã hội */
-  }
-</style>
   <body class="ps-loading">
     <div class="header--sidebar"></div>
     <header class="header">
@@ -156,7 +101,7 @@
               <input class="form-control" type="text" placeholder="Search Product…">
               <button><i class="ps-icon-search"></i></button>
             </form>
-            <div class="ps-cart"><a class="ps-cart__toggle" href="#"><span><i><?php echo $cartList->num_rows ?></i></span><i class="ps-icon-shopping-cart"></i></a>
+            <div class="ps-cart"><a class="ps-cart__toggle" href="#"><span><i></i></span><i class="ps-icon-shopping-cart"></i></a>
             <?php require_once("formCart.php") ?>
             </div>
             <div class="menu-toggle"><span></span></div>
@@ -234,15 +179,15 @@
             <!-- menu profile quick info -->
             <div class="profile clearfix">
               <div class="profile_pic">
-              <img id="profileImage" src="<?php echo $infoUser['img']; ?>" alt="No Avatar" class="img-circle profile_img" style="width: 128px;height: 128px;">
+              <img id="profileImage" src="<?php echo $infoUser['img']; ?>" alt="Profile Picture" class="img-circle profile_img" style="width: 128px;height: 128px;">
               </div>
               <div class="profile_pic">
                           <form id="updateForm" enctype="multipart/form-data">
-                              <label for="profile_image" style="font-size: 13px;">Avatar của bạn:</label>
-                              <input type="file" accept=".png, .jpg, .jpeg"  name="profile_image" id="profile_image" style="font-size: 10px;" title="Chọn avatar">
-                              <input style="color:green" type="button" value="Update Your Avatar" onclick="updateProfilePicture()"  style="font-size: 10px;">
+                              <label for="profile_image" style="font-size: 10px;">Select a new profile picture:</label>
+                              <input type="file" name="profile_image" id="profile_image" style="font-size: 10px;">
+                              <input type="button" value="Update Profile Picture" onclick="updateProfilePicture()"  style="font-size: 10px;">
                           </form>
-              </div>
+                                </div>
             </div>
             <!-- /menu profile quick info -->
 
@@ -251,26 +196,24 @@
             <!-- sidebar menu -->
             <div class="container mt-5">
     <div class="row">
-      
         <!-- Sidebar menu (left side) -->
         <div id="sidebar-menu" class="main_menu_side hidden-print main_menu col-md-3">
-            <hr>
             <div class="menu_section">
                 <h3></h3>
                 <ul class="nav side-menu">
                     <li>
                         <a><i class="fa fa-user"></i> Tài Khoản Của Tôi <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
-                            <li><a style="background-color: #3498db;color: #fff;" href="profile_1.php">Hồ Sơ</a></li>
+                            <li><a href="profile_1.php">Hồ Sơ</a></li>
                             <li><a href="card_payment.php">Phương Thức Thanh Toán</a></li>
                             <li><a href="index3.html">Địa Chỉ Nhận Hàng</a></li>
-                            <li><a href="index4.html">Đổi Mật Khẩu</a></li>
+                            <li><a href="change_password.php">Đổi Mật Khẩu</a></li>
                         </ul>
                     </li>
                     <li>
                         <a><i class="fa fa-store"></i> Đơn Mua <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
-                            <li><a href="cart_2.php">Chờ Xác Nhận</a></li>
+                            <li><a href="cart_2.php">Chờ Thanh Toán</a></li>
                             <li><a href="cart_3.php">Chờ Vận Chuyển</a></li>
                             <li><a href="cart_4.php">Chờ Giao Hàng</a></li>
                             <li><a href="cart_5.php">Đã Hoàn Thành</a></li>
@@ -288,12 +231,13 @@
                       <form class="ps-checkout__form" action="Update_Profile.php" method="post">
                           <!-- Nội dung form -->
                           <div class="row">
-                              
+                            
                               <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
                                   <!-- Nội dung form - bên trái -->
                                   
+                                  
                                   <div class="ps-checkout__billing">
-                                      <h3 ><i class=""></i> Hồ sơ của tôi</h3>
+                                      <h3><i class=""></i> Hồ sơ của tôi</h3>
                                       <h4>Quản lý thông tin hồ sơ để bảo mật tài khoản</h4>
                                       <p><hr></p>
                                       
@@ -340,7 +284,7 @@
                                         alert("Cập nhật thông tin thành công!");
                                     }
                                   </script>
-                                  <button onclick="showSuccessMessage()" type="submit" class="btn btn-primary" style="margin-left: 740px;" >Cập nhật</button>
+                                  <button onclick="showSuccessMessage()" type="submit" class="btn btn-primary">Cập nhật</button>
 
                                       <!-- ... (Các trường nhập liệu khác) ... -->
 
