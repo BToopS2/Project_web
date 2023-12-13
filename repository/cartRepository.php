@@ -3,7 +3,7 @@
     class CartRepository{
         public function insert($user_id,$shoe_id,$shoe_color,$shoe_size,$status){
             global $conn;
-            $sql = "insert into cart(user_id,shoe_id,shoe_color,shoe_size,status) values($user_id,$shoe_id,'$shoe_color',$shoe_size,$status)"; 
+            $sql = "insert into cart(user_id,shoe_id,shoe_color,shoe_size,status) values($user_id,$shoe_id,'$shoe_color','$shoe_size',$status)"; 
             mysqli_query($conn,$sql);
             return mysqli_insert_id($conn); 
         }

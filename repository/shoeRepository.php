@@ -19,6 +19,15 @@
             $sql = "select s.id as shoe_id, s.name as shoe_name, s.*, c.* from shoe s join category c on c.id=s.category_id and s.id=$id"; 
             return mysqli_query($conn,$sql);
         }
+        public function getShoesByCategoryId($id){
+            global $conn;
+            $id = mysqli_real_escape_string($conn, $id); // Sanitize the input
+            
+            $sql = "SELECT s.id as shoe_id, s.name as shoe_name, s.*, c.* FROM shoe s JOIN category c ON c.id = s.category_id WHERE c.id = $id"; 
+            
+            return mysqli_query($conn, $sql);
+        }
+        
         public function deleteById($id){
             global $conn;
             $sql = "delete from shoe where id=$id"; 
