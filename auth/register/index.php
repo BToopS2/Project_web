@@ -24,8 +24,8 @@ function sendRegistrationEmail($email, $otp) {
         $mail->Username = "storetvh105@gmail.com";
         $mail->Password = "urcrunhh biqyebvs";
         $mail->SetFrom("storetvh105@gmail.com");
-        $mail->Subject = "T2VH STORE";
-        $mail->Body = "Cảm ơn bạn đã đăng ký tài khoản! <br>Vui lòng nhập mã OTP sau đây để hoàn tất quá trình đăng ký :<strong>$otp</strong><img src='https://i.pinimg.com/originals/6f/39/35/6f393516f4f2876c5ff1b8ddcf57c638.jpg' alt='Ảnh mô tả'>";
+        $mail->Subject = "HUS STORE";
+        $mail->Body = "Cảm ơn bạn đã đăng ký tài khoản! <br>Vui lòng nhập mã OTP sau đây để hoàn tất quá trình đăng ký :<strong>$otp</strong><p></p><img src='https://i.pinimg.com/originals/6f/39/35/6f393516f4f2876c5ff1b8ddcf57c638.jpg' alt='Ảnh mô tả'>";
         $mail->AddAddress($email);
 
         // Gửi email

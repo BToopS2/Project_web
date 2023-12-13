@@ -147,7 +147,7 @@
                           </li>
                       </ul>
                   </li>
-                  <li class="menu-item menu-item-has-children dropdown"><a href="#">Nữ</a>
+                  <li class="menu-item menu-item-has-children dropdown"><a href="nu.php">Nữ</a>
                       <ul class="sub-menu">
                           <li class="menu-item menu-item-has-children dropdown"><a href="blog-grid.php">Nổi Bật</a>
                                 <ul class="sub-menu">
@@ -172,7 +172,7 @@
                           </li>
                       </ul> 
                   </li>
-                  <li class="menu-item menu-item-has-children dropdown"><a href="#">Trẻ Em</a>
+                  <li class="menu-item menu-item-has-children dropdown"><a href="tre_em.php">Trẻ Em</a>
                         <ul class="sub-menu">
                           <li class="menu-item menu-item-has-children dropdown"><a href="blog-grid.php">Trẻ Em(4-8)</a>
                                 <ul class="sub-menu">
@@ -397,7 +397,7 @@
                 <!-- <div class="grid-sizer"></div> -->
                 <?php
                     $checkNew = false;
-                    $listShoe = $shoeRepository->getAll(12);
+                    $listShoe = $shoeRepository->getAll(0);
                     foreach($listShoe as $shoe){
                 ?>
                 <div class="grid-item ">
