@@ -397,7 +397,7 @@
                 <!-- <div class="grid-sizer"></div> -->
                 <?php
                     $checkNew = false;
-                    $listShoe = $shoeRepository->getAll(0);
+                    $listShoe = $shoeRepository->getAll(12);
                     foreach($listShoe as $shoe){
                 ?>
                 <div class="grid-item ">

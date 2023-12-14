@@ -37,7 +37,7 @@ if (isset($_POST['verify'])) {
         exit(); // Make sure to exit after calling header() or displaying a success message
     } else {
         // Invalid OTP, set the error message
-        $errorMsg = 'Invalid OTP. Please enter the correct OTP.';
+        $errorMsg = 'Mã OTP không đúng. Vui lòng kiểm tra lại !';
     }
 }
 ?>
