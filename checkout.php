@@ -199,7 +199,7 @@
                                 $sumPrice += $totalPrice;
                                 ?>
                                 <tr>
-                                    <td><?php echo $shoe['shoe_name'] ?> </td>
+                                    <td><?php echo $shoe['shoe_name'] ?> (sz: <span style="color:#ffcc00"><?php echo $cart['shoe_size']?></span>) </td>
                                     <td style="color:; text-align: center !important; "><span > <?php echo $orderQuantity ?> </span> </td>
                                     <td><?php echo $totalPrice ?> <span style="font-size: 10px;">VND</span> </td>
                                 </tr>

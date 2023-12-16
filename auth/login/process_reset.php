@@ -50,7 +50,7 @@
 <body>
     <div class="container">
         <?php
-        require 'D:/DowLoad/Xampp/htdocs/Project_web/connect.php';
+        require 'D:/xampp/htdocs/Project_web/connect.php';
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['email']) && isset($_POST['code']) && isset($_POST['new_password'])) {
             // Lấy thông tin từ form

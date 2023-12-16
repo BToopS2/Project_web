@@ -1,8 +1,8 @@
 <?php
-require 'D:/DowLoad/Xampp/htdocs/Project_web/connect.php';
-require 'D:/DowLoad/Xampp/htdocs/Project_web/PHPMailer/src/PHPMailer.php';
-require 'D:/DowLoad/Xampp/htdocs/Project_web/PHPMailer/src/SMTP.php';
-require 'D:/DowLoad/Xampp/htdocs/Project_web/PHPMailer/src/Exception.php';
+require 'D:/xampp/htdocs/Project_web/connect.php';
+require 'D:/xampp/htdocs/Project_web/PHPMailer/src/Exception.php';
+require("D:/xampp/htdocs/Project_web/PHPMailer/src/PHPMailer.php");
+require("D:/xampp/htdocs/Project_web/PHPMailer/src/SMTP.php");
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;

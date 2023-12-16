@@ -1,5 +1,5 @@
 <?php
-require 'D:/DowLoad/Xampp/htdocs/Project_web/connect.php';
+require 'D:/xampp/htdocs/Project_web/connect.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['email']) && isset($_GET['code'])) {
     // Lấy thông tin từ tham số trên URL

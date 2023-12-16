@@ -55,7 +55,7 @@
 
             <!-- menu profile quick info -->
             <div class="profile clearfix">
-              <div class="profile_info">
+              <div class="profile_info" style="text-align: center;">
                 <span>Welcome,</span>
                 <h2> <?php require_once("../../backend/filterWithCookieAdmin.php") ?></h2>
               </div>

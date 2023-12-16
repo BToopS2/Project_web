@@ -228,10 +228,10 @@ $orderList = $orderRepository->getAll2($id);
 
             <!-- menu profile quick info -->
             <div class="profile clearfix">
-              <div class="profile_pic">
+              <div class="profile_pic" style="text-align:center">
               <img id="profileImage" src="<?php echo $infoUser['img']; ?>" alt="Profile Picture" class="img-circle profile_img" style="width: 128px;height: 128px;">
               </div>
-              <div class="profile_info">
+              <div class="profile_info" style="text-align: center;">
                 <span>Welcome,</span>
                 <h2> <?php echo $infoUser['fullname'] ?></h2>
               </div>
@@ -253,7 +253,7 @@ $orderList = $orderRepository->getAll2($id);
                         <ul class="nav child_menu">
                             <li><a href="profile_1.php">Hồ Sơ</a></li>
                             <li><a href="card_payment.php">Phương Thức Thanh Toán</a></li>
-                            <li><a href="index3.html">Địa Chỉ Nhận Hàng</a></li>
+                            <!-- <li><a href="index3.html">Địa Chỉ Nhận Hàng</a></li> -->
                             <li><a href="change_password.php">Đổi Mật Khẩu</a></li>
                         </ul>
                     </li>
@@ -318,7 +318,7 @@ $orderList = $orderRepository->getAll2($id);
                             <th class="text-center" style="min-width:100px">STT</th>
                                 <th class="text-center" style="min-width:100px">Tên Khách Hàng</th>
                                 <th class="text-center" style="min-width:100px">Địa Chỉ</th>
-                                <th class="text-center" style="min-width:100px">Tên Giày</th>
+                                <th class="text-center" style="min-width:100px">Tên Sản Phẩm</th>
                                 <th class="text-center" style="min-width:100px">Tổng Tiền</th>
                                 <th class="text-center" style="min-width:100px">Kích Cỡ</th>
                                 <th class="text-center" style="min-width:100px">Số Lượng</th>
@@ -349,7 +349,7 @@ $orderList = $orderRepository->getAll2($id);
                                     <td class="text-center"><?php echo $order['date'] ?></td>
                                     <td class="text-center">
                                         <?php if ($order['status'] == 4) { ?>
-                                            <span class="badge badge-success badge-status">Giao hàng thành công<i class="fa-solid fa-truck"></i></span>
+                                            <span style="background-color: #2ac37d" class="badge badge-success badge-status"> <i class="fa-solid fa-user-check"></i> Giao hàng thành công</span>
                                         <?php } ?>
                                         
                                     </td>
@@ -361,7 +361,7 @@ $orderList = $orderRepository->getAll2($id);
                         </tbody>
                     </table>
                 </div>
-                <a href="index.php" class="btn btn-back" style="margin-left:500px;">BACK</a> 
+                <!-- <a href="index.php" class="btn btn-back" style="margin-left:500px;">BACK</a>  --> 
             </div>
         </div>
     </div>

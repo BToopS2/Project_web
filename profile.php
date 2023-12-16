@@ -148,10 +148,10 @@
 
                                 <!-- menu profile quick info -->
                                 <div class="profile clearfix">
-                                  <div style="text-align:center" class="profile_pic">
+                                  <div style="text-align:center" class="profile_pic" style="text-align:center">
                                     <img  src="admin\production\images\img.jpg" alt="..." class="img-circle profile_img">
                                   </div>
-                                  <div class="profile_info">
+                                  <div class="profile_info" style="text-align: center;">
                                     <span>Xin chào,</span>
                                     <h2> <?php echo $infoUser['fullname'] ?></h2>
                                   </div>

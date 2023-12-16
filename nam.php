@@ -320,7 +320,7 @@
             </div>
           </aside> -->
         </div>
-        <!--aside.ps-widget--sidebar-->
+        <!-- aside.ps-widget--sidebar-->
         <!--    .ps-widget__header: h3 Ads Banner-->
         <!--    .ps-widget__content-->
         <!--        a(href='product-listing'): img(src="images/offer/sidebar.jpg" alt="")-->
@@ -341,7 +341,7 @@
         <!--                    else-->
         <!--                        a(href='#').ps-shoe__title Men's HUS-->
         <!--                    p <del> £253.00</del> £152.00-->
-        <!--                    a(href='#').ps-btn PURCHASE-->
+        <!--                    a(href='#').ps-btn PURCHASE -->
       </div>
     </div>
     <div class="ps-subscribe">

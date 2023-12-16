@@ -55,7 +55,7 @@
 
             <!-- menu profile quick info -->
             <div class="profile clearfix">
-              <div class="profile_info">
+              <div class="profile_info" style="text-align: center;">
                 <span>Welcome,</span>
                 <h2> <?php require_once("../../backend/filterWithCookieAdmin.php") ?></h2>
               </div>
@@ -196,7 +196,7 @@
               <th class="text-center" style="min-width:50px">STT</th>
               <th class="text-center" style="min-width:150px">Tên Khách Hàng</th>
               <th class="text-center" style="min-width:150px">Địa Chỉ</th>
-              <th class="text-center" style="min-width:150px">Tên Giày</th>
+              <th class="text-center" style="min-width:150px">Tên Sản Phẩm</th>
               <th class="text-center" style="min-width:50px">Giá Giày</th>
               <th class="text-center" style="min-width:100px">Kích Cỡ</th>
               <th class="text-center" style="min-width:100px">Số Lượng</th>

@@ -50,6 +50,61 @@
     <!--WARNING: Respond.js doesn't work if you view the page via file://-->
     <!--[if lt IE 9]><script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script><script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script><![endif]-->
   </head>
+  <style>
+  /* Điều chỉnh thanh task */
+  .nav.child_menu>li>a
+  /* .profile_info h2  */
+  {
+    margin-left: 15px; /* Cách lề trái 10px */
+    font-size: 16px; /* Kích thước chữ */
+  }
+  .navbar.nav_title {
+    background-color: #fff; /* Màu nền của thanh task */
+    color: #fff; /* Màu chữ của thanh task */
+  }
+
+  /* Chỉnh màu chữ của các menu */
+  .nav.side-menu a {
+    color: black; /* Màu chữ của các menu */
+    font-size: 16px;
+  }
+
+  /* Điều chỉnh màu chữ của menu con khi hover */
+  .nav.child_menu a:hover {
+    color: green; /* Màu chữ của menu con khi hover */
+  }
+
+  /* Điều chỉnh màu nền và chữ của menu được chọn */
+  .nav.child_menu>li.current-page,
+  .nav.child_menu>li.current-page a {
+    margin-left: 15px;
+    background-color: #3498db; /* Màu nền của menu được chọn */
+    color: #fff; /* Màu chữ của menu được chọn */
+  }
+
+  /* Chỉnh màu của icon fa */
+  .fa {
+    font-size: 20px;
+    color: green ; /* Màu của icon fa */
+  }
+
+  /* Chỉnh màu chữ và background của hồ sơ và đơn mua */
+  .profile_info h2,
+  .nav.child_menu>li>a {
+    color: black; /* Màu chữ của hồ sơ và đơn mua */
+  }
+
+  /* Điều chỉnh màu nền và chữ của footer */
+  .ps-footer {
+    background-color: #2c3e50; /* Màu nền của footer */
+    color: #ecf0f1; /* Màu chữ của footer */
+  }
+
+  /* Chỉnh màu của icon xã hội */
+  .ps-social a {
+    color: #ecf0f1; /* Màu của icon xã hội */
+  }
+</style>
   <body class="ps-loading">
     <div class="header--sidebar"></div>
     <header class="header">
@@ -178,16 +233,20 @@
 
             <!-- menu profile quick info -->
             <div class="profile clearfix">
-              <div class="profile_pic">
+              <div class="profile_pic" style="text-align:center">
               <img id="profileImage" src="<?php echo $infoUser['img']; ?>" alt="Profile Picture" class="img-circle profile_img" style="width: 128px;height: 128px;">
               </div>
-              <div class="profile_pic">
+              <!-- <div class="profile_pic" style="text-align:center">
                           <form id="updateForm" enctype="multipart/form-data">
-                              <label for="profile_image" style="font-size: 10px;">Select a new profile picture:</label>
+                              <label for="profile_image" style="font-size: 10px;">Avatar của bạn:</label>
                               <input type="file" name="profile_image" id="profile_image" style="font-size: 10px;">
                               <input type="button" value="Update Profile Picture" onclick="updatepassword()"  style="font-size: 10px;">
                           </form>
-                                </div>
+                                </div> -->
+              <div class="profile_info" style="text-align: center;">
+                <span>Xin chào,</span>
+                <h2> <?php echo $infoUser['fullname'] ?></h2>
+              </div>
             </div>
             <!-- /menu profile quick info -->
 
@@ -206,8 +265,8 @@
                         <ul class="nav child_menu">
                             <li><a href="profile_1.php">Hồ Sơ</a></li>
                             <li><a href="card_payment.php">Phương Thức Thanh Toán</a></li>
-                            <li><a href="index3.html">Địa Chỉ Nhận Hàng</a></li>
-                            <li><a href="change_password.php">Đổi Mật Khẩu</a></li>
+                            <!-- <li><a href="index3.html">Địa Chỉ Nhận Hàng</a></li> -->
+                            <li style="margin-left: 15px !important; background-color: #3498db !important;color: #fff !important;"><a href="change_password.php">Đổi Mật Khẩu</a></li>
                         </ul>
                     </li>
                     <li>
@@ -244,23 +303,23 @@
                
 
                     <div class="form-group form-group--inline">
-                        <label>Mật khẩu hiện tại<span>*</span></label>
+                        <label>Mật khẩu hiện tại<span style= "color:red">*</span></label>
                         <input class="form-control" type="password" name="current_password" required>
                     </div>
 
                     <div class="form-group form-group--inline">
-                        <label>Mật khẩu mới<span>*</span></label>
+                        <label>Mật khẩu mới<span style= "color:red">*</span></label>
                         <!-- <input id="new_password" class="form-control" type="password" name="new_password" required> -->
                         <input class="form-control" type="password" name="new_password" required minlength="8">
                     </div>
 
                     <div class="form-group form-group--inline">
-                        <label>Xác nhận mật khẩu mới<span>*</span></label>
-                        <input class="form-control" type="password" name="confirm_password" required>
+                        <label>Xác nhận mật khẩu<span style= "color:red">* </span></label>
+                        <input  class="form-control" type="password" name="confirm_password" required>
                     </div>
-
-                    <button id="updateButton" type="button" class="btn btn-primary" onclick="validatePassword();">Đổi Mật Khẩu</button>
-
+                    <div class="form-group form-group--inline">
+                    <button style="text-align:right;" id="updateButton" type="button" class="btn btn-primary" onclick="validatePassword();">Đổi Mật Khẩu</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -449,7 +508,7 @@
 
     // Validate passwords
     if (newPassword !== confirmPassword) {
-        alert("New password and confirm password do not match.");
+        alert("Mật khẩu mới và xác nhận mật khẩu không khớp.");
         return;
     }
     function validatePassword() {
@@ -478,7 +537,7 @@
         if (xhr.status == 200) {
             alert(xhr.responseText);
         } else {
-            alert("Update failed. Please try again.");
+            alert("Không thành công! Vui lòng kiểm tra lại.");
         }
     };
 

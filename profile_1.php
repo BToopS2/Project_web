@@ -50,6 +50,61 @@
     <!--WARNING: Respond.js doesn't work if you view the page via file://-->
     <!--[if lt IE 9]><script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script><script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script><![endif]-->
   </head>
+  <style>
+  /* Điều chỉnh thanh task */
+  .nav.child_menu>li>a
+  /* .profile_info h2  */
+  {
+    margin-left: 15px; /* Cách lề trái 10px */
+    font-size: 16px; /* Kích thước chữ */
+  }
+  .navbar.nav_title {
+    background-color: #fff; /* Màu nền của thanh task */
+    color: #fff; /* Màu chữ của thanh task */
+  }
+
+  /* Chỉnh màu chữ của các menu */
+  .nav.side-menu a {
+    color: black; /* Màu chữ của các menu */
+    font-size: 16px;
+  }
+
+  /* Điều chỉnh màu chữ của menu con khi hover */
+  .nav.child_menu a:hover {
+    color: green; /* Màu chữ của menu con khi hover */
+  }
+
+  /* Điều chỉnh màu nền và chữ của menu được chọn */
+  .nav.child_menu>li.current-page,
+  .nav.child_menu>li.current-page a {
+    margin-left: 15px;
+    background-color: #3498db; /* Màu nền của menu được chọn */
+    color: #fff; /* Màu chữ của menu được chọn */
+  }
+
+  /* Chỉnh màu của icon fa */
+  .fa {
+    font-size: 20px;
+    color: green ; /* Màu của icon fa */
+  }
+
+  /* Chỉnh màu chữ và background của hồ sơ và đơn mua */
+  .profile_info h2,
+  .nav.child_menu>li>a {
+    color: black; /* Màu chữ của hồ sơ và đơn mua */
+  }
+
+  /* Điều chỉnh màu nền và chữ của footer */
+  .ps-footer {
+    background-color: #2c3e50; /* Màu nền của footer */
+    color: #ecf0f1; /* Màu chữ của footer */
+  }
+
+  /* Chỉnh màu của icon xã hội */
+  .ps-social a {
+    color: #ecf0f1; /* Màu của icon xã hội */
+  }
+</style>
   <body class="ps-loading">
     <div class="header--sidebar"></div>
     <header class="header">
@@ -178,16 +233,17 @@
 
             <!-- menu profile quick info -->
             <div class="profile clearfix">
-              <div class="profile_pic">
+              <div class="profile_pic" style="text-align:center">
               <img id="profileImage" src="<?php echo $infoUser['img']; ?>" alt="Profile Picture" class="img-circle profile_img" style="width: 128px;height: 128px;">
               </div>
-              <div class="profile_pic">
-                          <form id="updateForm" enctype="multipart/form-data">
-                              <label for="profile_image" style="font-size: 10px;">Select a new profile picture:</label>
-                              <input type="file" name="profile_image" id="profile_image" style="font-size: 10px;">
-                              <input type="button" value="Update Profile Picture" onclick="updateProfilePicture()"  style="font-size: 10px;">
-                          </form>
-                                </div>
+              <div class="profile_pic" style="text-align: center;" >
+                  <form id="updateForm" enctype="multipart/form-data" style="text-align: center;">
+                      <label for="profile_image" style="font-size: 14px; display: flex;  text-align: center !important;">Chọn ảnh Avatar:</label>
+                      <input type="file" name="profile_image" id="profile_image" style="font-size: 12px; margin-bottom: 16px; padding: 8px; border: none; border-radius: 4px;">
+                      <input type="button" value="Cập Nhật Avatar" onclick="updateProfilePicture()" style=" padding: 10px 20px; background-color: #c4bb1b; color: #fff; border: none; border-radius: 4px; cursor: pointer; transition: background-color 1.5s;">
+                  </form>
+              </div>
+
             </div>
             <!-- /menu profile quick info -->
 
@@ -204,9 +260,9 @@
                     <li>
                         <a><i class="fa fa-user"></i> Tài Khoản Của Tôi <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
-                            <li><a href="profile_1.php">Hồ Sơ</a></li>
+                            <li style="margin-left: 15px !important; background-color: #3498db !important;color: #fff !important;"><a style href="profile_1.php" >Hồ Sơ</a></li>
                             <li><a href="card_payment.php">Phương Thức Thanh Toán</a></li>
-                            <li><a href="index3.html">Địa Chỉ Nhận Hàng</a></li>
+                            <!-- <li><a href="index3.html">Địa Chỉ Nhận Hàng</a></li> -->
                             <li><a href="change_password.php">Đổi Mật Khẩu</a></li>
                         </ul>
                     </li>
@@ -276,7 +332,7 @@
                                   </div>
                                   
                                   <div class="form-group form-group--inline">
-                                      <label><i class="fa-solid fa-map-location"></i>  Địa chỉ nhà: </label>
+                                      <label><i class="fa-solid fa-map-location"></i>  Địa Chỉ: </label>
                                       <input value="<?php echo $infoUser['address'] ?>" class="form-control" type="text" name="adr">
                                   </div>
                                   <script>
@@ -284,8 +340,9 @@
                                         alert("Cập nhật thông tin thành công!");
                                     }
                                   </script>
+                                  <div style="text-align: right;" class="form-group form-group--inline">
                                   <button onclick="showSuccessMessage()" type="submit" class="btn btn-primary">Cập nhật</button>
-
+                                  </div>
                                       <!-- ... (Các trường nhập liệu khác) ... -->
 
                                       
