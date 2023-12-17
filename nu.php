@@ -40,7 +40,47 @@
 <!--[if IE 7]><body class="ie7 lt-ie8 lt-ie9 lt-ie10"><![endif]-->
 <!--[if IE 8]><body class="ie8 lt-ie9 lt-ie10"><![endif]-->
 <!--[if IE 9]><body class="ie9 lt-ie10"><![endif]-->
+<style>
+      .ps-shoe__thumbnail img {
+    width: 100%;
+    height: 330px; /* Adjust the height as needed */
+    object-fit: cover;
+  }
 
+  .ps-shoe__variants .ps-shoe__variant img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    margin-right: 5px; /* Adding some space between mini images */
+  }
+
+  .ps-shoe__content #imageShoeBanner {
+    width: 98%;
+    height: 400px; /* Adjust the height as needed */
+    object-fit: cover;
+  }
+  </style>
+  <style>
+        .moving-container {
+            overflow: hidden;
+            white-space: nowrap;
+            
+        }
+
+        .moving-content {
+            font-weight: bold;
+            display: inline-block;
+            animation: moveLeft 20s linear infinite, blink 1s infinite; 
+        }
+        @keyframes moveLeft {
+            from {
+                transform: translateX(100%);
+            }
+            to {
+                transform: translateX(-100%);
+            }
+        }
+    </style>
 <body class="ps-loading">
   <div class="header--sidebar"></div>
   <header class="header">

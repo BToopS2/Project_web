@@ -1,3 +1,5 @@
+
+
 <?php
   error_reporting(0);
   require_once("formCart2.php");
@@ -124,10 +126,79 @@
                   <li class="menu-item menu-item-has-children dropdown"><a href="index.php">Trang Chủ</a>
                   </li>
                   <li class="menu-item menu-item-has-children dropdown"><a href="nam.php">Nam</a>
+                      <ul class="sub-menu">
+                          <li class="menu-item menu-item-has-children dropdown"><a href="blog-grid.php">Nổi Bật</a>
+                                <ul class="sub-menu">
+                                  <li class="menu-item"><a href="#">Hàng Mới Về</a></li>
+                                  <li class="menu-item"><a href="#">Mặt Hàng Bán Chạy Nhất Tuần</a></li>
+                                </ul>
+                          </li>
+                          <li class="menu-item menu-item-has-children dropdown"><a href="blog-list.php">Giày</a>
+                          <ul class="sub-menu">
+                                  <li class="menu-item"><a href="#">Đá Bóng</a></li>
+                                  <li class="menu-item"><a href="#">Chạy</a></li>
+                                  <li class="menu-item"><a href="#">Đi Chơi</a></li>
+                                </ul>
+                          </li>
+                        <li class="menu-item menu-item-has-children dropdown"><a href="blog-list.php">Quần Áo</a>
+                          <ul class="sub-menu">
+                                  <li class="menu-item"><a href="#">Áo polo & Áo Khoác</a></li>
+                                  <li class="menu-item"><a href="#">Áo Hoodie</a></li>
+                                  <li class="menu-item"><a href="#">Quần</a></li>
+                                </ul>
+                          </li>
+                      </ul>
                   </li>
                   <li class="menu-item menu-item-has-children dropdown"><a href="nu.php">Nữ</a>
+                      <ul class="sub-menu">
+                          <li class="menu-item menu-item-has-children dropdown"><a href="blog-grid.php">Nổi Bật</a>
+                                <ul class="sub-menu">
+                                  <li class="menu-item"><a href="#">Hàng Mới Về</a></li>
+                                  <li class="menu-item"><a href="#">Mặt Hàng Bán Chạy Nhất Tuần</a></li>
+                                </ul>
+                          </li>
+                          <li class="menu-item menu-item-has-children dropdown"><a href="blog-list.php">Giày</a>
+                                <ul class="sub-menu">
+                                  <li class="menu-item"><a href="#">Quần Vợt</a></li>
+                                  <li class="menu-item"><a href="#">Chạy</a></li>
+                                  <li class="menu-item"><a href="#">Đi Chơi</a></li>
+                                </ul>
+                          </li>
+                        <li class="menu-item menu-item-has-children dropdown"><a href="blog-list.php">Quần Áo</a>
+                          <ul class="sub-menu">
+                                  <li class="menu-item"><a href="#">Áo polo & Áo Khoác</a></li>
+                                  <li class="menu-item"><a href="#">Áo Hoodie</a></li>
+                                  <li class="menu-item"><a href="#">Quần</a></li>
+                                  <li class="menu-item"><a href="#">Váy</a></li>
+                                </ul>
+                          </li>
+                      </ul> 
                   </li>
                   <li class="menu-item menu-item-has-children dropdown"><a href="tre_em.php">Trẻ Em</a>
+                        <ul class="sub-menu">
+                          <li class="menu-item menu-item-has-children dropdown"><a href="blog-grid.php">Trẻ Em(4-8)</a>
+                                <ul class="sub-menu">
+                                  <li class="menu-item"><a href="#">Quần Áo Bé Trai</a></li>
+                                  <li class="menu-item"><a href="#">Quần Áo Bé Gái</a></li>
+                                  <li class="menu-item"><a href="#">Giày Bé Trai</a></li>
+                                  <li class="menu-item"><a href="#">Giày Bé Gái</a></li>
+                                </ul>
+                          </li>
+                          <li class="menu-item menu-item-has-children dropdown"><a href="blog-list.php">Thanh Thiếu Niên(8-16)</a>
+                                <ul class="sub-menu">
+                                  <li class="menu-item"><a href="#">Quần Áo Bé Trai</a></li>
+                                  <li class="menu-item"><a href="#">Quần Áo Bé Gái</a></li>
+                                  <li class="menu-item"><a href="#">Giày Bé Trai</a></li>
+                                  <li class="menu-item"><a href="#">Giày Bé Gái</a></li>
+                                </ul>
+                          </li>
+                          <li class="menu-item menu-item-has-children dropdown"><a href="#">Trẻ Nhỏ & Trẻ Mới Biết Đi(1-4)</a>
+                                <ul class="sub-menu">
+                                  <li class="menu-item"><a href="#">Quần Áo</a></li>
+                                  <li class="menu-item"><a href="#">Giày</a></li>
+                                </ul>
+                          </li>
+                      </ul>
                   </li>
                   <li class="menu-item menu-item-has-children dropdown"><a href="#">Tin Tức</a>
                         <ul class="sub-menu">
@@ -255,9 +326,9 @@
     </header>
     <div class="header-services">
       <div class="ps-services owl-slider" data-owl-auto="true" data-owl-loop="true" data-owl-speed="5000" data-owl-gap="0" data-owl-nav="true" data-owl-dots="false" data-owl-item="1" data-owl-item-xs="1" data-owl-item-sm="1" data-owl-item-md="1" data-owl-item-lg="1" data-owl-duration="1000" data-owl-mousedrag="on">
-      <p class="ps-service"><i class="ps-icon-delivery"></i><strong>Miễn phí vận chuyển</strong>: Vận chuyển miễn phí khi đặt hàng ở Hus Store</p>
-        <p class="ps-service"><i class="ps-icon-delivery"></i><strong>Vận chuyển 0VND</strong>:Miễn phí vận chuyển khi đặt hàng ở Hus Store</p>
-        <p class="ps-service"><i class="ps-icon-delivery"></i><strong>Free delivery</strong>: Vận chuyển miễn phí khi đặt hàng ở Hus Store</p>
+        <p class="ps-service"><i class="ps-icon-delivery"></i><strong>Miễn phí vận chuyển</strong>: Get free standard delivery on every order with Sky Store</p>
+        <p class="ps-service"><i class="ps-icon-delivery"></i><strong>Vận chuyển 0VND</strong>: Get free standard delivery on every order with Sky Store</p>
+        <p class="ps-service"><i class="ps-icon-delivery"></i><strong>Free delivery</strong>: Get free standard delivery on every order with Sky Store</p>
       </div>
     </div>
     <main class="ps-main">
@@ -307,12 +378,12 @@
           <div class="ps-section__header mb-50">
             <h3 class="ps-section__title" data-mask="SPNB">- Sản Phẩm Nổi Bật </h3>
             <ul class="ps-masonry__filter">
-              <li class="current"><a href="#" data-filter="*">Tất cả <sup><?php  echo $shoeRepository->countShoeByCategoryName('');?></sup></a></li>
+              <li class="current"><a href="#" data-filter="*">All <sup><?php  echo $shoeRepository->countShoeByCategoryName('');?></sup></a></li>
               <li class="current"><a href="#" data-filter=".nike">Nike <sup><?php  echo $shoeRepository->countShoeByCategoryName('nike');?></sup></a></li>
               <li class="current"><a href="#" data-filter=".adidas">Adidas <sup><?php  echo $shoeRepository->countShoeByCategoryName('adidas');?></sup></a></li>
-              <li class="current"><a href="#" data-filter=".men">Nam <sup><?php  echo $shoeRepository->countShoeByCategoryName('men');?></sup></a></li>
-              <li class="current"><a href="#" data-filter=".women">Nữ <sup><?php  echo $shoeRepository->countShoeByCategoryName('women');?></sup></a></li>
-              <li class="current"><a href="#" data-filter=".kids">Trẻ em <sup><?php  echo $shoeRepository->countShoeByCategoryName('kids');?></sup></a></li>
+              <li class="current"><a href="#" data-filter=".men">Men <sup><?php  echo $shoeRepository->countShoeByCategoryName('men');?></sup></a></li>
+              <li class="current"><a href="#" data-filter=".women">Women <sup><?php  echo $shoeRepository->countShoeByCategoryName('women');?></sup></a></li>
+              <li class="current"><a href="#" data-filter=".kids">Kids <sup><?php  echo $shoeRepository->countShoeByCategoryName('kids');?></sup></a></li>
             </ul>
           </div>
         </div>  
@@ -328,7 +399,7 @@
                 <!-- <div class="grid-sizer"></div> -->
                 <?php
                     $checkNew = false;
-                    $listShoe = $shoeRepository->getAll(12);
+                    $listShoe = $shoeRepository->getAll(0);
                     foreach($listShoe as $shoe){
                 ?>
                 <div class="grid-item ">
@@ -538,7 +609,7 @@
                 <p>Logan May - CEO & Founder Invision</p>
               </header>
               <footer>
-                <p>“Đây là một đôi giày tuyệt vời, không chỉ về mặt thiết kế mà còn về hiệu suất và thoải mái. Chúng có kiểu dáng hiện đại và đẹp mắt, phản ánh sự sang trọng và đẳng cấp. Bạn sẽ tự tin khi diện chúng trong mọi dịp từ công việc đến các sự kiện quan trọng. “</p>
+                <p>“Dessert pudding dessert jelly beans cupcake sweet caramels gingerbread. Fruitcake biscuit cheesecake. Cookie topping sweet muffin pudding tart bear claw sugar plum croissant. “</p>
               </footer>
             </div>
             <div class="ps-testimonial">
@@ -554,7 +625,7 @@
                 <p>Logan May - CEO & Founder Invision</p>
               </header>
               <footer>
-                <p>“Đây là một đôi giày tuyệt vời, không chỉ về mặt thiết kế mà còn về hiệu suất và thoải mái. Chúng có kiểu dáng hiện đại và đẹp mắt, phản ánh sự sang trọng và đẳng cấp. Bạn sẽ tự tin khi diện chúng trong mọi dịp từ công việc đến các sự kiện quan trọng. “</p>
+                <p>“Dessert pudding dessert jelly beans cupcake sweet caramels gingerbread. Fruitcake biscuit cheesecake. Cookie topping sweet muffin pudding tart bear claw sugar plum croissant. “</p>
               </footer>
             </div>
             <div class="ps-testimonial">
@@ -570,7 +641,8 @@
                 <p>Logan May - CEO & Founder Invision</p>
               </header>
               <footer>
-                <p>“Đây là một đôi giày tuyệt vời, không chỉ về mặt thiết kế mà còn về hiệu suất và thoải mái. Chúng có kiểu dáng hiện đại và đẹp mắt, phản ánh sự sang trọng và đẳng cấp. Bạn sẽ tự tin khi diện chúng trong mọi dịp từ công việc đến các sự kiện quan trọng. “</p>
+                <p>“Dessert pudding dessert jelly beans cupcake sweet caramels gingerbread. Fruitcake biscuit cheesecake. Cookie topping sweet muffin pudding tart bear claw sugar plum croissant. “</p>
+              </footer>
             </div>
           </div>
         </div>
@@ -582,16 +654,16 @@
         <div class="ps-container">
           <div class="row">
                 <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12 ">
-                  <h3><i class="fa fa-envelope"></i>Đăng nhập hộp thư mới</h3>
+                  <h3><i class="fa fa-envelope"></i>Sign up to Newsletter</h3>
                 </div>
                 <div class="col-lg-5 col-md-7 col-sm-12 col-xs-12 ">
                   <form class="ps-subscribe__form" action="http://localhost/Project_web/auth/login/index.php" method="post">
                     <input class="form-control" type="text" placeholder="">
-                    <button >ĐĂNG NHẬP NGAY</button>
+                    <button >SIGN UP NOW</button>
                   </form>
                 </div>
                 <div class="col-lg-4 col-md-5 col-sm-12 col-xs-12 ">
-                  <p>...và nhận  <span>100000 vnđ</span> cho lần mua đầu tiên.</p>
+                  <p>...and receive  <span>$20</span>  coupon for first shopping.</p>
                 </div>
           </div>
         </div>
@@ -631,7 +703,7 @@
                   <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 ">
                     <aside class="ps-widget--footer ps-widget--info">
                       <header><a class="ps-logo" href="index.php"><img src="images/logo-white.png" alt=""></a>
-                        <h3 class="ps-widget__title">Cơ Sở 1</h3>
+                        <h3 class="ps-widget__title">Address Office 1</h3>
                       </header>
                       <footer>
                         <p><strong>334 Nguyễn Trãi, Thanh Xuân, Hà Nội</strong></p>
@@ -644,7 +716,7 @@
                   <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 ">
                     <aside class="ps-widget--footer ps-widget--info second">
                       <header>
-                        <h3 class="ps-widget__title">Cơ Sở 2</h3>
+                        <h3 class="ps-widget__title">Address Office 2</h3>
                       </header>
                       <footer>
                         <p><strong>144 Xuân Thủy, Cầu Giấy, Hà Nội</strong></p>
@@ -657,29 +729,14 @@
                   <div class="col-lg-2 col-md-2 col-sm-4 col-xs-12 ">
                     <aside class="ps-widget--footer ps-widget--link">
                       <header>
-                        <h3 class="ps-widget__title">Tìm trong cửa hàng</h3>
+                        <h3 class="ps-widget__title">Find Our store</h3>
                       </header>
                       <footer>
                         <ul class="ps-list--link">
-                        <li><a href="#">Mã Giảm Giá</a></li>
-                          <li><a href="#">Đăng nhập bằng email</a></li>
-                          <li><a href="#">Phản Hồi</a></li>
-                          <li><a href="#">Nghê Nghiệp</a></li>
-                      </footer>
-                    </aside>
-                  </div>
-                  <div class="col-lg-2 col-md-2 col-sm-4 col-xs-12 ">
-                    <aside class="ps-widget--footer ps-widget--link">
-                      <header>
-                        <h3 class="ps-widget__title">Giúp Đỡ</h3>
-                      </header>
-                      <footer>
-                        <ul class="ps-list--line">
-                          <li><a href="#">Trạng thái Đơn Hàng</a></li>
-                          <li><a href="#">Giao và Nhận Hàng</a></li>
-                          <li><a href="#">Quay Lại</a></li>
-                          <li><a href="#">Lựa Chọn Thanh Toán</a></li>
-                          <li><a href="#">Liên hệ</a></li>
+                          <li><a href="#">Coupon Code</a></li>
+                          <li><a href="#">SignUp For Email</a></li>
+                          <li><a href="#">Site Feedback</a></li>
+                          <li><a href="#">Careers</a></li>
                         </ul>
                       </footer>
                     </aside>
@@ -687,14 +744,30 @@
                   <div class="col-lg-2 col-md-2 col-sm-4 col-xs-12 ">
                     <aside class="ps-widget--footer ps-widget--link">
                       <header>
-                        <h3 class="ps-widget__title">Sản Phẩm</h3>
+                        <h3 class="ps-widget__title">Get Help</h3>
                       </header>
                       <footer>
                         <ul class="ps-list--line">
-                          <li><a href="#">Giày</a></li>
-                          <li><a href="#">Quần Áo</a></li>
-                          <li><a href="#">Phụ Kiện</a></li>
-                          <li><a href="#">Giày Bóng Đá</a></li>
+                          <li><a href="#">Order Status</a></li>
+                          <li><a href="#">Shipping and Delivery</a></li>
+                          <li><a href="#">Returns</a></li>
+                          <li><a href="#">Payment Options</a></li>
+                          <li><a href="#">Contact Us</a></li>
+                        </ul>
+                      </footer>
+                    </aside>
+                  </div>
+                  <div class="col-lg-2 col-md-2 col-sm-4 col-xs-12 ">
+                    <aside class="ps-widget--footer ps-widget--link">
+                      <header>
+                        <h3 class="ps-widget__title">Products</h3>
+                      </header>
+                      <footer>
+                        <ul class="ps-list--line">
+                          <li><a href="#">Shoes</a></li>
+                          <li><a href="#">Clothing</a></li>
+                          <li><a href="#">Accessries</a></li>
+                          <li><a href="#">Football Boots</a></li>
                         </ul>
                       </footer>
                     </aside>
@@ -706,7 +779,7 @@
           <div class="ps-container">
             <div class="row">
                   <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 ">
-                    <p>&copy; <a href="#">HUS_DEGINER</a>, Inc. All rights Resevered. Thiết kế bởi <a href="#"> TV2H_team</a></p>
+                    <p>&copy; <a href="#">HUS_DEGINER</a>, Inc. All rights Resevered. Design by <a href="#"> TV2H_team</a></p>
                   </div>
                   <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 ">
                     <ul class="ps-social">
