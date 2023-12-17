@@ -755,4 +755,43 @@
       language-code="vi"
     ></df-messenger>
   </body>
+
 </html>
+<?php
+// Đường dẫn đến file log
+$logFile = 'log.txt';
+
+// Hàm để đọc dữ liệu lượt truy cập từ file log
+function getVisitData($logFile)
+{
+    if (file_exists($logFile)) {
+        $logContent = file_get_contents($logFile);
+        $visitData = json_decode($logContent, true);
+    } else {
+        $visitData = array();
+    }
+
+    return $visitData;
+}
+
+// Hàm để tăng số lượt truy cập cho ngày hiện tại
+function increaseVisitCount($logFile)
+{
+    $visitData = getVisitData($logFile);
+    $today = date('Y-m-d');
+
+    if (isset($visitData[$today])) {
+        $visitData[$today]++;
+    } else {
+        $visitData[$today] = 1;
+    }
+
+    file_put_contents($logFile, json_encode($visitData));
+}
+
+// Gọi hàm để tăng số lượt truy cập
+increaseVisitCount($logFile);
+
+// Lấy dữ liệu lượt truy cập
+$visitData = getVisitData($logFile);
+?>
