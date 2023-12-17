@@ -222,8 +222,8 @@
           </div>
           <div class="ps-widget__content">
             <ul class="ps-list--checked" id="categoryList">
-              <li class="filter" data-brand="polo"><a href="#">Áo polo/khoác (<span id="countPolo"></span>)</a></li>
-              <li class="filter" data-brand="hoodie"><a href="#">Áo hoodie (<span id="countHoodie"></span>)</a></li>
+              <li class="filter" data-brand="polo"><a href="#">Áo polo/khoác/ (<span id="countPolo"></span>)</a></li>
+              <li class="filter" data-brand="hoodie"><a href="#">Áo phông/hoodie (<span id="countHoodie"></span>)</a></li>
               <li class="filter" data-brand="quần"><a href="#">Quần (<span id="countQuan"></span>)</a></li>
               <li class="filter" data-brand="giày"><a href="#">Giày (<span id="countGiay"></span>)</a></li>
               <!-- <li class="filter" data-brand="other"><a href="#">Khác</a></li> -->
