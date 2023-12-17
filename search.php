@@ -21,6 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             echo "Query error: " . $conn->error;
             exit;
         }
+        echo '<div style="overflow-y: auto; max-height: 400px;"> <!-- Adjust max-height as needed -->';
         while ($row = $result->fetch_assoc()) {
             $price = $row["price"] - $row["price"] * $row["sale"] * 0.01;
         
@@ -43,8 +44,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             echo '</div>';
         
             echo '</div>';
+            
         }
-        
+        echo '</div>';
         
         if ($result->num_rows == 0) {
             echo "Không có kết quả tìm kiếm.";
