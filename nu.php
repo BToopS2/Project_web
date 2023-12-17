@@ -487,6 +487,7 @@
   <!-- Custom scripts-->
   <script type="text/javascript" src="js/main.js"></script>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!--  Front end effect in checkboxes  -->
   <script>
     $(document).ready(function() {
       $('#categoryList li').on('click', function(e) {
@@ -511,6 +512,7 @@
       });
     });
   </script>
+  <!-- Filter the type of clothing associated with the brand and the price -->
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       const typeFilterLinks = document.querySelectorAll('.ps-widget--category')[0].querySelectorAll('.filter');
@@ -602,6 +604,7 @@
       });
     });
   </script>
+<!--   sort by name, increase/decrease price -->
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       const selectFilter = document.querySelector('.ps-product__filter select');
@@ -635,6 +638,7 @@
       });
     });
   </script>
+<!-- Filter number of all types of cloth -->
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       const filterLinks = document.querySelectorAll('.filter');
@@ -680,7 +684,7 @@
       });
     });
   </script>
-
+<!-- Pagination -->
   <script>
     // JavaScript code to handle pagination
     document.addEventListener("DOMContentLoaded", function() {
