@@ -124,25 +124,86 @@
                     <div class="ps-checkout__billing">
                       <h3>Chi Tiết Thanh Toán</h3>
                             <div class="form-group form-group--inline">
-                              <label>Họ Tên<span>*</span>
+                              <label><strong>Họ Tên</strong><span>*</span>
                               </label>
                               <input readonly value="<?php echo $infoUser['fullname'] ?>" class="form-control" type="text">
                             </div>
                             <div class="form-group form-group--inline">
-                              <label>Email<span>*</span>
+                              <label><strong>Email</strong><span>*</span>
                               </label>
                               <input readonly value="<?php echo $infoUser['email'] ?>" class="form-control" type="email">
                             </div>
                             <div class="form-group form-group--inline">
-                              <label>Số Điện Thoại<span>*</span>
+                              <label><strong>Số Điện Thoại</strong><span>*</span>
                               </label>
                               <input readonly value="<?php echo $infoUser['phone'] ?>" class="form-control" type="text">
                             </div>
-                            <div class="form-group form-group--inline">
-                              <label>Địa chỉ<span>*</span>
-                              </label>
-                              <input readonly value="<?php echo $infoUser['address'] ?>" class="form-control" type="text">
-                            </div>
+                            <div class="form-group form-group--inline" id="addressContainer">         
+                  <label><strong>Địa chỉ</strong><span>*</span></label>
+                  <input id="addressInput" readonly value="<?php echo $infoUser['address'] ?>" class="form-control" type="text">
+           
+              </div>
+              
+              <div class="form-group form-group--inline">
+    <button type="button" class="btn btn-secondary btn-with-icon" onclick="toggleAddressEdit()">
+        <i class="bi bi-pencil"></i> <!-- Bootstrap Icons pencil icon -->
+        Chỉnh sửa địa chỉ
+    </button>
+    <button type="button" class="btn btn-primary" onclick="saveAddress()" style="display: none;">Lưu thay đổi</button>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</div>
+
+<script>
+    // Store the initial address value when the page loads
+    var initialAddressValue = '<?php echo $infoUser['address']; ?>';
+
+    function toggleAddressEdit() {
+        var addressInput = $('#addressInput');
+        var saveButton = $('[onclick="saveAddress()"]');
+
+        // Toggle readonly attribute
+        addressInput.prop('readonly', function (_, value) {
+            return !value;
+        });
+
+        // Toggle buttons
+        $('[onclick="toggleAddressEdit()"]').toggle();
+        saveButton.toggle();
+
+        // If not in edit mode, reset the address input to its initial value
+        if (!addressInput.prop('readonly')) {
+            addressInput.val(initialAddressValue);
+        }
+
+        // Focus on the address input
+        addressInput.focus();
+    }
+
+    function saveAddress() {
+        var userId = <?php echo $infoUser['id']; ?>; // Retrieve the user ID
+
+        var updatedAddress = $('#addressInput').val();
+
+        // Perform AJAX request to update the address
+        $.ajax({
+            type: 'POST',
+            url: 'update_address.php',
+            data: { id: userId, address: updatedAddress }, // Include user ID in the data
+            success: function(response) {
+                alert('Address saved: ' + updatedAddress);
+                // If you need to perform additional actions upon successful save, do them here.
+            },
+            error: function(error) {
+                alert('Error saving address: ' + error.responseText);
+            }
+        });
+
+        // Toggle back to readonly mode after saving
+        toggleAddressEdit();
+    }
+</script>
+
+
                     </div>
                   </div>
                   <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 ">
@@ -153,6 +214,18 @@
                           // Lấy thời gian hiện tại
                           $currentDate = date("d/m/Y H:i:s");
                       ?>
+                       <style>
+        /* Custom CSS for positioning the image */
+        #top-right-image {
+          position: relative;
+            top: 10px;
+            margin-left:300px;
+            max-width: 80px; /* Adjust the maximum width as needed */
+            max-height: 80px; /* Adjust the maximum height as needed */
+            color: #2196F3;
+        }
+    </style>
+                       <img id="top-right-image" src='images/logo.png' alt="Top Right Image">
                         <h3>Hóa Đơn Của Bạn </h3>
                         <span style="color:white" class="date">(Thời Gian Tạo: <?php echo $currentDate; ?>)</span>
                       </header>
@@ -199,7 +272,7 @@
                                 $sumPrice += $totalPrice;
                                 ?>
                                 <tr>
-                                    <td><?php echo $shoe['shoe_name'] ?> (sz: <span style="color:#ffcc00"><?php echo $cart['shoe_size']?></span>) </td>
+                                    <td><?php echo $shoe['shoe_name'] ?> </td>
                                     <td style="color:; text-align: center !important; "><span > <?php echo $orderQuantity ?> </span> </td>
                                     <td><?php echo $totalPrice ?> <span style="font-size: 10px;">VND</span> </td>
                                 </tr>

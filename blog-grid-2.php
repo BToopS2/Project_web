@@ -10,11 +10,11 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <link href="apple-touch-icon.png" rel="apple-touch-icon">
-    <link href="apple-touch-icon.png" rel="icon">
+    <link href="favicon.png" rel="icon">
     <meta name="author" content="TV2H">
     <meta name="keywords" content="Default Description">
     <meta name="description" content="Default keyword">
-    <title>HUS - Blog Grid 2</title>
+    <title>HUS - Tin Tức 2</title>
     <!-- Fonts-->
     <link href="https://fonts.googleapis.com/css?family=Archivo+Narrow:300,400,700%7CMontserrat:300,400,500,600,700,800,900" rel="stylesheet">
     <link rel="stylesheet" href="plugins/font-awesome/css/font-awesome.min.css">
@@ -36,7 +36,9 @@
     <!--WARNING: Respond.js doesn't work if you view the page via file://-->
     <!--[if lt IE 9]><script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script><script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script><![endif]-->
   </head>
-   
+  <!--[if IE 7]><body class="ie7 lt-ie8 lt-ie9 lt-ie10"><![endif]-->
+  <!--[if IE 8]><body class="ie8 lt-ie9 lt-ie10"><![endif]-->
+  <!--[if IE 9]><body class="ie9 lt-ie10"><![endif]-->
   <body class="ps-loading">
     <div class="header--sidebar"></div>
     <header class="header">
@@ -69,26 +71,35 @@
             <div class="header__logo"><a class="ps-logo" href="index.php"><img src="images/logo.png" alt=""></a></div>
           </div>
           <div class="navigation__column center">
-                <ul class="main-menu menu">
-                  <li class="menu-item menu-item-has-children dropdown"><a href="index.php">Home</a>
+          <ul class="main-menu menu">
+                  <li class="menu-item menu-item-has-children dropdown"><a href="index.php">Trang Chủ</a>
                   </li>
-                  <li class="menu-item menu-item-has-children has-mega-menu"><a href="#">Men</a>
-                    
+                  <li class="menu-item menu-item-has-children dropdown"><a href="#">Nam</a>
+                      
                   </li>
-                  <li class="menu-item"><a href="#">Women</a></li>
-                  <li class="menu-item"><a href="#">Kids</a></li>
-                  <li class="menu-item menu-item-has-children dropdown"><a href="#">News</a>
+                  <li class="menu-item menu-item-has-children dropdown"><a href="#">Nữ</a>
+                      
+                  </li>
+                  <li class="menu-item menu-item-has-children dropdown"><a href="#">Trẻ Em</a>
+                        
+                  </li>
+                  <li class="menu-item menu-item-has-children dropdown"><a href="#">Tin Tức</a>
                         <ul class="sub-menu">
-                          <li class="menu-item menu-item-has-children dropdown"><a href="blog-grid.php">Blog-grid</a>
+                          <li class="menu-item menu-item-has-children dropdown"><a href="blog-grid.php">Mặt Hàng Bán Chạy</a>
                                 <ul class="sub-menu">
-                                  <li class="menu-item"><a href="blog-grid.php">Blog Grid 1</a></li>
-                                  <li class="menu-item"><a href="blog-grid-2.php">Blog Grid 2</a></li>
+                                  <li class="menu-item"><a href="blog-grid.php">Giày</a></li>
+                                  <li class="menu-item"><a href="blog-grid-2.php">Quần Áo</a></li>
                                 </ul>
                           </li>
-                          <li class="menu-item"><a href="blog-list.php">Blog List</a></li>
+                          <li class="menu-item menu-item-has-children dropdown"><a href="blog-list.php">Đánh Giá</a>
+                                <ul class="sub-menu">
+                                  <li class="menu-item"><a href="blog-grid.php">Mặt Hàng Được Đánh Giá Nhiều Nhất</a></li>
+                                  <li class="menu-item"><a href="blog-grid-2.php">Mặt Hàng Được Đánh Giá Ít</a></li>
+                                </ul>
+                          </li>
                         </ul>
                   </li>
-                  <li class="menu-item menu-item-has-children dropdown"><a href="contact-us.php">Contact</a>
+                  <li class="menu-item menu-item-has-children dropdown"><a href="contact-us.php">Liên Hệ</a>
                   </li>
                 </ul>
           </div>
@@ -107,9 +118,9 @@
     </header>
     <div class="header-services">
       <div class="ps-services owl-slider" data-owl-auto="true" data-owl-loop="true" data-owl-speed="7000" data-owl-gap="0" data-owl-nav="true" data-owl-dots="false" data-owl-item="1" data-owl-item-xs="1" data-owl-item-sm="1" data-owl-item-md="1" data-owl-item-lg="1" data-owl-duration="1000" data-owl-mousedrag="on">
-        <p class="ps-service"><i class="ps-icon-delivery"></i><strong>Free delivery</strong>: Get free standard delivery on every order with HUS Store</p>
-        <p class="ps-service"><i class="ps-icon-delivery"></i><strong>Free delivery</strong>: Get free standard delivery on every order with HUS Store</p>
-        <p class="ps-service"><i class="ps-icon-delivery"></i><strong>Free delivery</strong>: Get free standard delivery on every order with HUS Store</p>
+      <p class="ps-service"><i class="ps-icon-delivery"></i><strong>Miễn phí vận chuyển</strong>: Miễn phí vận chuyển khi đặt hàng ở Hus Store</p>
+        <p class="ps-service"><i class="ps-icon-delivery"></i><strong>Vận chuyển 0VND</strong>: Miễn phí vận chuyển khi đặt hàng ở Hus Store</p>
+        <p class="ps-service"><i class="ps-icon-delivery"></i><strong>Vận chuyển miễn phí</strong>: Miễn phí vận chuyển khi đặt hàng ở Hus Store</p>
       </div>
     </div>
     <main class="ps-main">
@@ -118,84 +129,78 @@
           <div class="row">
                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 ">
                   <div class="ps-post mb-30">
-                    <div class="ps-post__thumbnail"><a class="ps-post__overlay" href="blog-detail.php"></a><img src="images/blog/1.jpg" alt=""></div>
-                    <div class="ps-post__content"><a class="ps-post__title" href="blog-detail.php">An Inside Look at the Breaking2 Kit</a>
-                      <p class="ps-post__meta"><span>By:<a class="mr-5" href="blog.php">TV2H_team</a></span> -<span class="ml-5">Jun 10, 2017</span></p>
-                      <p>Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further…</p><a class="ps-morelink" href="blog-detail.php">Read more<i class="fa fa-long-arrow-right"></i></a>
+                  <div class="ps-post__thumbnail"><a class="ps-post__overlay" href="blog-detail.php"></a><img src="images/blog/a1.jpg" alt=""></div>
+                      <div class="ps-post__content"><a class="ps-post__title" href="blog-detail.php">Một cái nhìn chi tiết vào Bộ Kit Breaking2</a>
+                        <p class="ps-post__meta"><span>By:<a class="mr-5" href="blog.php">TV2H_team</a></span> -<span class="ml-5">Jun 10, 2023</span></p>
+                        <p>Tận dụng các khung công việc linh hoạt để cung cấp một tóm tắt mạnh mẽ cho cái nhìn tổng quan ở cấp độ cao. Các phương pháp lặp lại trong chiến lược doanh nghiệp khuyến khích tư duy cộng tác để thúc đẩy thêm.</p><a class="ps-morelink" href="blog-detail.php">Đọc thêm<i class="fa fa-long-arrow-right"></i></a>
+                      </div>
                     </div>
-                  </div>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 ">
                   <div class="ps-post mb-30">
-                    <div class="ps-post__thumbnail"><a class="ps-post__overlay" href="blog-detail.php"></a><img src="images/blog/2.jpg" alt=""></div>
-                    <div class="ps-post__content"><a class="ps-post__title" href="blog-detail.php">Unpacking the Breaking2 Race Strategy</a>
-                      <p class="ps-post__meta"><span>By:<a class="mr-5" href="blog.php">TV2H_team</a></span> -<span class="ml-5">Jun 10, 2017</span></p>
-                      <p>Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further…</p><a class="ps-morelink" href="blog-detail.php">Read more<i class="fa fa-long-arrow-right"></i></a>
+                  <div class="ps-post__thumbnail"><a class="ps-post__overlay" href="blog-detail.php"></a><img src="images/blog/a2.jpg" alt=""></div>
+                      <div class="ps-post__content"><a class="ps-post__title" href="blog-detail.php">Mở gói Chiến lược Đua Breaking2</a>
+                          <p class="ps-post__meta"><span>By:<a class="mr-5" href="blog.php">TV2H_team</a></span> -<span class="ml-5">Jun 10, 2023</span></p>
+                          <p>Tận dụng các khung công việc linh hoạt để cung cấp một tóm tắt mạnh mẽ cho cái nhìn tổng quan ở cấp độ cao. Các phương pháp lặp lại trong chiến lược doanh nghiệp khuyến khích tư duy cộng tác để thúc đẩy thêm.</p><a class="ps-morelink" href="blog-detail.php">Đọc thêm<i class="fa fa-long-arrow-right"></i></a>
+                      </div>
                     </div>
-                  </div>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 ">
                   <div class="ps-post mb-30">
-                    <div class="ps-post__thumbnail"><a class="ps-post__overlay" href="blog-detail.php"></a><img src="images/blog/3.jpg" alt=""></div>
-                    <div class="ps-post__content"><a class="ps-post__title" href="blog-detail.php">Nike’s Latest Football Cleat Breaks the Mold</a>
-                      <p class="ps-post__meta"><span>By:<a class="mr-5" href="blog.php">TV2H_team</a></span> -<span class="ml-5">Jun 10, 2017</span></p>
-                      <p>Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further…</p><a class="ps-morelink" href="blog-detail.php">Read more<i class="fa fa-long-arrow-right"></i></a>
+                  <div class="ps-post__thumbnail"><a class="ps-post__overlay" href="blog-detail.php"></a><img src="images/blog/a3.jpg" alt=""></div>
+                      <div class="ps-post__content"><a class="ps-post__title" href="blog-detail.php">Đôi giày đá bóng mới nhất của Nike Phá vỡ khuôn mẫu</a>
+                          <p class="ps-post__meta"><span>By:<a class="mr-5" href="blog.php">TV2H_team</a></span> -<span class="ml-5">Jun 10, 2023</span></p>
+                          <p>Tận dụng các khung công việc linh hoạt để cung cấp một tóm tắt mạnh mẽ cho cái nhìn tổng quan ở cấp độ cao. Các phương pháp lặp lại trong chiến lược doanh nghiệp khuyến khích tư duy cộng tác để thúc đẩy thêm.</p><a class="ps-morelink" href="blog-detail.php">Đọc thêm<i class="fa fa-long-arrow-right"></i></a>
+                      </div>
                     </div>
-                  </div>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 ">
                   <div class="ps-post mb-30">
-                    <div class="ps-post__thumbnail"><a class="ps-post__overlay" href="blog-detail.php"></a><img src="images/blog/1.jpg" alt=""></div>
-                    <div class="ps-post__content"><a class="ps-post__title" href="blog-detail.php">An Inside Look at the Breaking2 Kit</a>
-                      <p class="ps-post__meta"><span>By:<a class="mr-5" href="blog.php">TV2H_team</a></span> -<span class="ml-5">Jun 10, 2017</span></p>
-                      <p>Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further…</p><a class="ps-morelink" href="blog-detail.php">Read more<i class="fa fa-long-arrow-right"></i></a>
+                  <div class="ps-post__content"><a class="ps-post__title" href="blog-detail.php">Một cái nhìn chi tiết vào Bộ Kit Breaking2</a>
+                        <p class="ps-post__meta"><span>By:<a class="mr-5" href="blog.php">TV2H_team</a></span> -<span class="ml-5">Jun 10, 2023</span></p>
+                        <p>Tận dụng các khung công việc linh hoạt để cung cấp một tóm tắt mạnh mẽ cho cái nhìn tổng quan ở cấp độ cao. Các phương pháp lặp lại trong chiến lược doanh nghiệp khuyến khích tư duy cộng tác để thúc đẩy thêm.</p><a class="ps-morelink" href="blog-detail.php">Đọc thêm<i class="fa fa-long-arrow-right"></i></a>
+                      </div>
                     </div>
-                  </div>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 ">
                   <div class="ps-post mb-30">
-                    <div class="ps-post__thumbnail"><a class="ps-post__overlay" href="blog-detail.php"></a><img src="images/blog/2.jpg" alt=""></div>
-                    <div class="ps-post__content"><a class="ps-post__title" href="blog-detail.php">Unpacking the Breaking2 Race Strategy</a>
-                      <p class="ps-post__meta"><span>By:<a class="mr-5" href="blog.php">TV2H_team</a></span> -<span class="ml-5">Jun 10, 2017</span></p>
-                      <p>Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further…</p><a class="ps-morelink" href="blog-detail.php">Read more<i class="fa fa-long-arrow-right"></i></a>
+                  <div class="ps-post__content"><a class="ps-post__title" href="blog-detail.php">Mở gói Chiến lược Đua Breaking2</a>
+                        <p class="ps-post__meta"><span>By:<a class="mr-5" href="blog.php">TV2H_team</a></span> -<span class="ml-5">Jun 10, 2023</span></p>
+                        <p>Tận dụng các khung công việc linh hoạt để cung cấp một tóm tắt mạnh mẽ cho cái nhìn tổng quan ở cấp độ cao. Các phương pháp lặp lại trong chiến lược doanh nghiệp khuyến khích tư duy cộng tác để thúc đẩy thêm.</p><a class="ps-morelink" href="blog-detail.php">Đọc thêm<i class="fa fa-long-arrow-right"></i></a>
+                      </div>
                     </div>
-                  </div>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 ">
                   <div class="ps-post mb-30">
-                    <div class="ps-post__thumbnail"><a class="ps-post__overlay" href="blog-detail.php"></a><img src="images/blog/3.jpg" alt=""></div>
-                    <div class="ps-post__content"><a class="ps-post__title" href="blog-detail.php">Nike’s Latest Football Cleat Breaks the Mold</a>
-                      <p class="ps-post__meta"><span>By:<a class="mr-5" href="blog.php">TV2H_team</a></span> -<span class="ml-5">Jun 10, 2017</span></p>
-                      <p>Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further…</p><a class="ps-morelink" href="blog-detail.php">Read more<i class="fa fa-long-arrow-right"></i></a>
+                  <div class="ps-post__content"><a class="ps-post__title" href="blog-detail.php">Đôi giày đá bóng mới nhất của Nike Phá vỡ khuôn mẫu</a>
+                        <p class="ps-post__meta"><span>By:<a class="mr-5" href="blog.php">TV2H_team</a></span> -<span class="ml-5">Jun 10, 2023</span></p>
+                        <p>Tận dụng các khung công việc linh hoạt để cung cấp một tóm tắt mạnh mẽ cho cái nhìn tổng quan ở cấp độ cao. Các phương pháp lặp lại trong chiến lược doanh nghiệp khuyến khích tư duy cộng tác để thúc đẩy thêm.</p><a class="ps-morelink" href="blog-detail.php">Đọc thêm<i class="fa fa-long-arrow-right"></i></a>
+                      </div>
                     </div>
-                  </div>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 ">
                   <div class="ps-post mb-30">
-                    <div class="ps-post__thumbnail"><a class="ps-post__overlay" href="blog-detail.php"></a><img src="images/blog/1.jpg" alt=""></div>
-                    <div class="ps-post__content"><a class="ps-post__title" href="blog-detail.php">An Inside Look at the Breaking2 Kit</a>
-                      <p class="ps-post__meta"><span>By:<a class="mr-5" href="blog.php">TV2H_team</a></span> -<span class="ml-5">Jun 10, 2017</span></p>
-                      <p>Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further…</p><a class="ps-morelink" href="blog-detail.php">Read more<i class="fa fa-long-arrow-right"></i></a>
+                  <div class="ps-post__content"><a class="ps-post__title" href="blog-detail.php">Một cái nhìn chi tiết vào Bộ Kit Breaking2</a>
+                        <p class="ps-post__meta"><span>By:<a class="mr-5" href="blog.php">TV2H_team</a></span> -<span class="ml-5">Jun 10, 2023</span></p>
+                        <p>Tận dụng các khung công việc linh hoạt để cung cấp một tóm tắt mạnh mẽ cho cái nhìn tổng quan ở cấp độ cao. Các phương pháp lặp lại trong chiến lược doanh nghiệp khuyến khích tư duy cộng tác để thúc đẩy thêm.</p><a class="ps-morelink" href="blog-detail.php">Đọc thêm<i class="fa fa-long-arrow-right"></i></a>
+                      </div>
                     </div>
-                  </div>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 ">
                   <div class="ps-post mb-30">
-                    <div class="ps-post__thumbnail"><a class="ps-post__overlay" href="blog-detail.php"></a><img src="images/blog/2.jpg" alt=""></div>
-                    <div class="ps-post__content"><a class="ps-post__title" href="blog-detail.php">Unpacking the Breaking2 Race Strategy</a>
-                      <p class="ps-post__meta"><span>By:<a class="mr-5" href="blog.php">TV2H_team</a></span> -<span class="ml-5">Jun 10, 2017</span></p>
-                      <p>Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further…</p><a class="ps-morelink" href="blog-detail.php">Read more<i class="fa fa-long-arrow-right"></i></a>
+                  <div class="ps-post__content"><a class="ps-post__title" href="blog-detail.php">Mở gói Chiến lược Đua Breaking2</a>
+                        <p class="ps-post__meta"><span>By:<a class="mr-5" href="blog.php">TV2H_team</a></span> -<span class="ml-5">Jun 10, 2023</span></p>
+                        <p>Tận dụng các khung công việc linh hoạt để cung cấp một tóm tắt mạnh mẽ cho cái nhìn tổng quan ở cấp độ cao. Các phương pháp lặp lại trong chiến lược doanh nghiệp khuyến khích tư duy cộng tác để thúc đẩy thêm.</p><a class="ps-morelink" href="blog-detail.php">Đọc thêm<i class="fa fa-long-arrow-right"></i></a>
+                      </div>
                     </div>
-                  </div>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 ">
                   <div class="ps-post mb-30">
-                    <div class="ps-post__thumbnail"><a class="ps-post__overlay" href="blog-detail.php"></a><img src="images/blog/3.jpg" alt=""></div>
-                    <div class="ps-post__content"><a class="ps-post__title" href="blog-detail.php">Nike’s Latest Football Cleat Breaks the Mold</a>
-                      <p class="ps-post__meta"><span>By:<a class="mr-5" href="blog.php">TV2H_team</a></span> -<span class="ml-5">Jun 10, 2017</span></p>
-                      <p>Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further…</p><a class="ps-morelink" href="blog-detail.php">Read more<i class="fa fa-long-arrow-right"></i></a>
+                  <div class="ps-post__content"><a class="ps-post__title" href="blog-detail.php">Đôi giày đá bóng mới nhất của Nike Phá vỡ khuôn mẫu</a>
+                        <p class="ps-post__meta"><span>By:<a class="mr-5" href="blog.php">TV2H_team</a></span> -<span class="ml-5">Jun 10, 2023</span></p>
+                        <p>Tận dụng các khung công việc linh hoạt để cung cấp một tóm tắt mạnh mẽ cho cái nhìn tổng quan ở cấp độ cao. Các phương pháp lặp lại trong chiến lược doanh nghiệp khuyến khích tư duy cộng tác để thúc đẩy thêm.</p><a class="ps-morelink" href="blog-detail.php">Đọc thêm<i class="fa fa-long-arrow-right"></i></a>
+                      </div>
                     </div>
-                  </div>
                 </div>
           </div>
           <div class="mt-30">
@@ -216,55 +221,28 @@
         <div class="ps-container">
           <div class="row">
                 <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12 ">
-                  <h3><i class="fa fa-envelope"></i>Sign up to Newsletter</h3>
+                  <h3><i class="fa fa-envelope"></i>Đăng nhập hộp thư</h3>
                 </div>
                 <div class="col-lg-5 col-md-7 col-sm-12 col-xs-12 ">
                   <form class="ps-subscribe__form" action="do_action" method="post">
                     <input class="form-control" type="text" placeholder="">
-                    <button>WELCOME</button>
+                    <button>Đăng nhập bây giờ</button>
                   </form>
                 </div>
                 <div class="col-lg-4 col-md-5 col-sm-12 col-xs-12 ">
-                  <p>...and receive  <span>$20</span>  coupon for first shopping.</p>
+                  <p>...và nhận  <span>100.000 vnđ</span>  cho lần mua sắm đầu tiên.</p>
                 </div>
           </div>
         </div>
       </div>
-      <div class="ps-footer bg--cover" data-background="images/background/parallax.jpg"><div>
-          <!-- <h3 class="ps-section__title" data-mask="Payment"> - Các Đối Tác Thanh Toán Trực Tuyến </h3> -->
-                <style>
-                .payment-method{float:left;width:100%}
-                .payment-method ul{display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-align-items:center;-ms-flex-align:center;align-items:center;margin:0;padding:0;list-style:none;white-space:nowrap;overflow-x:auto}
-                .payment-method li{background:#f0f4f7;float:left;padding:10px;border-radius:3px}
-                .payment-method li:not(:last-child){margin-right:10px}
-                .payment-method img{width:116px;height:55px}
-                </style>
-                    <div class="payment-method">
-                        <marquee onmouseover="this.stop()" onmouseout="this.start()" scrollamount="4">
-                          <ul>
-                            <!-- <li><img alt='Agribank' height='55' loading='normal' src='https://www.phanmemninja.com/wp-content/uploads/2019/04/Agribank-logo.png' width='116'/></li> -->
-                            <li><img alt='MBbank' height='55' loading='normal' src='https://upload.wikimedia.org/wikipedia/commons/2/25/Logo_MB_new.png' width='116'/></li>
-                            <li><img alt='zalo pay' height='55' loading='normal' src='https://cdn.jsdelivr.net/gh/thietkeblogspot/images/zalo_pay.png' width='116'/></li>
-                            <li><img alt='visa' height='55' loading='normal' src='https://cdn.jsdelivr.net/gh/thietkeblogspot/images/visa.png' width='116'/></li>
-                            <li><img alt='master card' height='55' loading='normal' src='https://cdn.jsdelivr.net/gh/thietkeblogspot/images/master_card.png' width='116'/></li>
-                            <li><img alt='vietcombank' height='55' loading='normal' src='https://cdn.jsdelivr.net/gh/thietkeblogspot/images/vietcom_bank.png' width='116'/></li>
-                            <li><img alt='vietinbank' height='55' loading='normal' src='https://cdn.jsdelivr.net/gh/thietkeblogspot/images/vietin_bank.png' width='116'/></li>
-                            <li><img alt='bidvbank' height='55' loading='normal' src='https://cdn.jsdelivr.net/gh/thietkeblogspot/images/bidv_bank.png' width='116'/></li>
-                            <li><img alt='sacombank' height='55' loading='normal' src='https://cdn.jsdelivr.net/gh/thietkeblogspot/images/sacom_bank.png' width='116'/></li>
-                            <li><img alt='eximbank' height='55' loading='normal' src='https://cdn.jsdelivr.net/gh/thietkeblogspot/images/exim_bank.png' width='116'/></li>
-                            <li><img alt='scbbank' height='55' loading='normal' src='https://cdn.jsdelivr.net/gh/thietkeblogspot/images/scb_bank.png' width='116'/></li>
-                            <li><img alt='vietcapitalbank' loading='normal' src='https://cdn.jsdelivr.net/gh/thietkeblogspot/images/vietcapital_bank.png' width='116'/></li>
-                          </ul>
-                        </marquee>
-                    </div>
-          </div>
+      <div class="ps-footer bg--cover" data-background="images/background/parallax.jpg">
         <div class="ps-footer__content">
           <div class="ps-container">
             <div class="row">
                   <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 ">
                     <aside class="ps-widget--footer ps-widget--info">
                       <header><a class="ps-logo" href="index.php"><img src="images/logo-white.png" alt=""></a>
-                        <h3 class="ps-widget__title">Address Office 1</h3>
+                        <h3 class="ps-widget__title">Cơ Sở 1</h3>
                       </header>
                       <footer>
                         <p><strong>334 Nguyễn Trãi, Thanh Xuân, Hà Nội</strong></p>
@@ -277,7 +255,7 @@
                   <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 ">
                     <aside class="ps-widget--footer ps-widget--info second">
                       <header>
-                        <h3 class="ps-widget__title">Address Office 2</h3>
+                        <h3 class="ps-widget__title">Cơ Sở 2</h3>
                       </header>
                       <footer>
                         <p><strong>144 Xuân Thủy, Cầu Giấy, Hà Nội</strong></p>
@@ -290,14 +268,14 @@
                   <div class="col-lg-2 col-md-2 col-sm-4 col-xs-12 ">
                     <aside class="ps-widget--footer ps-widget--link">
                       <header>
-                        <h3 class="ps-widget__title">Find Our store</h3>
+                        <h3 class="ps-widget__title">Tìm trong cửa hàng</h3>
                       </header>
                       <footer>
                         <ul class="ps-list--link">
-                          <li><a href="#">Coupon Code</a></li>
-                          <li><a href="#">SignUp For Email</a></li>
-                          <li><a href="#">Site Feedback</a></li>
-                          <li><a href="#">Careers</a></li>
+                          <li><a href="#">Mã Giảm Giá</a></li>
+                          <li><a href="#">Đăng Nhập Qua Email</a></li>
+                          <li><a href="#">Phản Hồi</a></li>
+                          <li><a href="#">Nghề Nghiệp</a></li>
                         </ul>
                       </footer>
                     </aside>
@@ -305,30 +283,30 @@
                   <div class="col-lg-2 col-md-2 col-sm-4 col-xs-12 ">
                     <aside class="ps-widget--footer ps-widget--link">
                       <header>
-                        <h3 class="ps-widget__title">Get Help</h3>
+                        <h3 class="ps-widget__title">Giúp Đỡ</h3>
                       </header>
                       <footer>
                         <ul class="ps-list--line">
-                          <li><a href="#">Order Status</a></li>
-                          <li><a href="#">Shipping and Delivery</a></li>
-                          <li><a href="#">Returns</a></li>
-                          <li><a href="#">Payment Options</a></li>
-                          <li><a href="#">Contact Us</a></li>
+                          <li><a href="#">Trạng thái Đơn Hàng</a></li>
+                          <li><a href="#">Giao và Nhận Hàng</a></li>
+                          <li><a href="#">Quay Lại</a></li>
+                          <li><a href="#">Lựa Chọn Thanh Toán</a></li>
+                          <li><a href="#">Liên hệ</a></li>
                         </ul>
                       </footer>
                     </aside>
                   </div>
                   <div class="col-lg-2 col-md-2 col-sm-4 col-xs-12 ">
                     <aside class="ps-widget--footer ps-widget--link">
-                      <header>
-                        <h3 class="ps-widget__title">Products</h3>
+                    <header>
+                        <h3 class="ps-widget__title">Sản Phẩm</h3>
                       </header>
                       <footer>
                         <ul class="ps-list--line">
-                          <li><a href="#">Shoes</a></li>
-                          <li><a href="#">Clothing</a></li>
-                          <li><a href="#">Accessries</a></li>
-                          <li><a href="#">Football Boots</a></li>
+                          <li><a href="#">Giày</a></li>
+                          <li><a href="#">Quần Áo</a></li>
+                          <li><a href="#">Phụ Kiện</a></li>
+                          <li><a href="#">Giày Bóng Đá</a></li>
                         </ul>
                       </footer>
                     </aside>

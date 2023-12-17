@@ -10,7 +10,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <link href="apple-touch-icon.png" rel="apple-touch-icon">
-    <link href="apple-touch-icon.png" rel="icon">
+    <link href="favicon.png" rel="icon">
     <meta name="author" content="TV2H">
     <meta name="keywords" content="Default Description">
     <meta name="description" content="Default keyword">
@@ -36,7 +36,9 @@
     <!--WARNING: Respond.js doesn't work if you view the page via file://-->
     <!--[if lt IE 9]><script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script><script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script><![endif]-->
   </head>
-   
+  <!--[if IE 7]><body class="ie7 lt-ie8 lt-ie9 lt-ie10"><![endif]-->
+  <!--[if IE 8]><body class="ie8 lt-ie9 lt-ie10"><![endif]-->
+  <!--[if IE 9]><body class="ie9 lt-ie10"><![endif]-->
   <body class="ps-loading">
     <div class="header--sidebar"></div>
     <header class="header">
@@ -69,26 +71,35 @@
             <div class="header__logo"><a class="ps-logo" href="index.php"><img src="images/logo.png" alt=""></a></div>
           </div>
           <div class="navigation__column center">
-                <ul class="main-menu menu">
-                  <li class="menu-item menu-item-has-children dropdown"><a href="index.php">Home</a>
+          <ul class="main-menu menu">
+                  <li class="menu-item menu-item-has-children dropdown"><a href="index.php">Trang Chủ</a>
                   </li>
-                  <li class="menu-item menu-item-has-children has-mega-menu"><a href="#">Men</a>
-                    
+                  <li class="menu-item menu-item-has-children dropdown"><a href="#">Nam</a>
+                      
                   </li>
-                  <li class="menu-item"><a href="#">Women</a></li>
-                  <li class="menu-item"><a href="#">Kids</a></li>
-                  <li class="menu-item menu-item-has-children dropdown"><a href="#">News</a>
+                  <li class="menu-item menu-item-has-children dropdown"><a href="#">Nữ</a>
+                     
+                  </li>
+                  <li class="menu-item menu-item-has-children dropdown"><a href="#">Trẻ Em</a>
+                        
+                  </li>
+                  <li class="menu-item menu-item-has-children dropdown"><a href="#">Tin Tức</a>
                         <ul class="sub-menu">
-                          <li class="menu-item menu-item-has-children dropdown"><a href="blog-grid.php">Blog-grid</a>
+                          <li class="menu-item menu-item-has-children dropdown"><a href="blog-grid.php">Mặt Hàng Bán Chạy</a>
                                 <ul class="sub-menu">
-                                  <li class="menu-item"><a href="blog-grid.php">Blog Grid 1</a></li>
-                                  <li class="menu-item"><a href="blog-grid-2.php">Blog Grid 2</a></li>
+                                  <li class="menu-item"><a href="blog-grid.php">Giày</a></li>
+                                  <li class="menu-item"><a href="blog-grid-2.php">Quần Áo</a></li>
                                 </ul>
                           </li>
-                          <li class="menu-item"><a href="blog-list.php">Blog List</a></li>
+                          <li class="menu-item menu-item-has-children dropdown"><a href="blog-list.php">Đánh Giá</a>
+                                <ul class="sub-menu">
+                                  <li class="menu-item"><a href="blog-grid.php">Mặt Hàng Được Đánh Giá Nhiều Nhất</a></li>
+                                  <li class="menu-item"><a href="blog-grid-2.php">Mặt Hàng Được Đánh Giá Ít</a></li>
+                                </ul>
+                          </li>
                         </ul>
                   </li>
-                  <li class="menu-item menu-item-has-children dropdown"><a href="contact-us.php">Contact</a>
+                  <li class="menu-item menu-item-has-children dropdown"><a href="contact-us.php">Liên Hệ</a>
                   </li>
                 </ul>
           </div>
@@ -107,9 +118,9 @@
     </header>
     <div class="header-services">
       <div class="ps-services owl-slider" data-owl-auto="true" data-owl-loop="true" data-owl-speed="7000" data-owl-gap="0" data-owl-nav="true" data-owl-dots="false" data-owl-item="1" data-owl-item-xs="1" data-owl-item-sm="1" data-owl-item-md="1" data-owl-item-lg="1" data-owl-duration="1000" data-owl-mousedrag="on">
-        <p class="ps-service"><i class="ps-icon-delivery"></i><strong>Free delivery</strong>: Get free standard delivery on every order with HUS Store</p>
-        <p class="ps-service"><i class="ps-icon-delivery"></i><strong>Free delivery</strong>: Get free standard delivery on every order with HUS Store</p>
-        <p class="ps-service"><i class="ps-icon-delivery"></i><strong>Free delivery</strong>: Get free standard delivery on every order with HUS Store</p>
+        <p class="ps-service"><i class="ps-icon-delivery"></i><strong>Miễn phí vận chuyển</strong>: Miễn phí vận chuyển khi đặt hàng ở Hus Store</p>
+        <p class="ps-service"><i class="ps-icon-delivery"></i><strong>Vận chuyển 0VND</strong>: Miễn phí vận chuyển khi đặt hàng ở Hus Store</p>
+        <p class="ps-service"><i class="ps-icon-delivery"></i><strong>Vận chuyển miễn phí</strong>: Miễn phí vận chuyển khi đặt hàng ở Hus Store</p>
       </div>
     </div>
     <main class="ps-main">
@@ -118,17 +129,17 @@
           <div class="row">
                 <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 ">
                   <div class="ps-post--2">
-                    <div class="ps-post__thumbnail"><a class="ps-post__overlay" href="#"></a><img src="images/blog/4.jpg" alt=""></div>
+                    <div class="ps-post__thumbnail"><a class="ps-post__overlay" href="#"></a><img src="images/blog/a1.jpg" alt=""></div>
                     <div class="ps-post__container">
-                      <header class="ps-post__header"><a class="ps-post__title" href="blog-detail.php">Unpacking the Breaking 2 Race Strategy</a>
-                        <p>Posted by <a href="blog-grid.php">TV2H_team</a> on August 17, 2016  in <a href="blog-grid.php">Men Shoes</a> , <a href="blog-grid.php">Stylish</a></p>
+                      <header class="ps-post__header"><a class="ps-post__title" href="blog-detail.php">Mở gói Chiến lược Đua Breaking2</a>
+                        <p>Đăng bởi <a href="blog-grid.php">TV2H_team</a> on August 17, 2023  in <a href="blog-grid.php">Giày Nam</a> , <a href="blog-grid.php">Phong cách</a></p>
                       </header>
                       <div class="ps-post__content">
-                        <p>Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further, Support Sports Bra has a compression fit and V-back straps that give you medium support and full range of motion during your workout….</p>
+                        <p>Chào mừng bạn đến với Nike Breaking2 - một chiến dịch đầy thách thức và khám phá giữa niềm đam mê thể thao và khả năng vượt qua giới hạn con người. Nike Breaking2 là một sáng kiến độc đáo của hãng thể thao nổi tiếng Nike, tập trung vào việc phá vỡ rào cản về tốc độ trong môn thể thao chạy marathon.</p>
                       </div>
-                      <footer class="ps-post__footer"><a class="ps-post__morelink" href="#">READ MORE<i class="ps-icon-arrow-left"></i></a>
-                        <div class="ps-post__actions"><span><i class="fa fa-comments"></i> 23 Comments</span><span><i class="fa fa-heart"></i>  likes</span>
-                          <div class="ps-post__social"><i class="fa fa-share-alt"></i><a href="#">Share</a>
+                      <footer class="ps-post__footer"><a class="ps-post__morelink" href="#">ĐỌC THÊM<i class="ps-icon-arrow-left"></i></a>
+                        <div class="ps-post__actions"><span><i class="fa fa-comments"></i> 23 Bình Luận</span><span><i class="fa fa-heart"></i>  Lượt Thích</span>
+                          <div class="ps-post__social"><i class="fa fa-share-alt"></i><a href="#">Chia Sẻ</a>
                             <ul>
                               <li><a href="#"><i class="fa fa-facebook"></i></a></li>
                               <li><a href="#"><i class="fa fa-twitter"></i></a></li>
@@ -140,17 +151,17 @@
                     </div>
                   </div>
                   <div class="ps-post--2">
-                    <div class="ps-post__thumbnail"><a class="ps-post__overlay" href="#"></a><img src="images/blog/5.jpg" alt=""></div>
+                    <div class="ps-post__thumbnail"><a class="ps-post__overlay" href="#"></a><img src="images/blog/a2.jpg" alt=""></div>
                     <div class="ps-post__container">
-                      <header class="ps-post__header"><a class="ps-post__title" href="blog-detail.php">Leverage agile frameworks to provide a robust synopsis</a>
-                        <p>Posted by <a href="blog-grid.php">TV2H_team</a> on August 17, 2016  in <a href="blog-grid.php">Men Shoes</a> , <a href="blog-grid.php">Stylish</a></p>
+                      <header class="ps-post__header"><a class="ps-post__title" href="blog-detail.php">Tận dụng các khung làm việc linh hoạt để cung cấp một tóm tắt mạnh mẽ.</a>
+                        <p>Posted by <a href="blog-grid.php">TV2H_team</a> on August 17, 2023  in <a href="blog-grid.php">Giày Nam</a> , <a href="blog-grid.php">Phong Cách</a></p>
                       </header>
                       <div class="ps-post__content">
-                        <p>Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further, Support Sports Bra has a compression fit and V-back straps that give you medium support and full range of motion during your workout….</p>
+                        <p>Tận dụng các khung làm việc linh hoạt để cung cấp một tóm tắt mạnh mẽ cho cái nhìn tổng quan ở cấp độ cao. Phương pháp lặp lại trong chiến lược doanh nghiệp khuyến khích tư duy cộng tác để đạt được kết quả cao hơn. Áo lót thể thao hỗ trợ có kiểu nén và dây đeo V ở phía sau, mang lại hỗ trợ trung bình và phạm vi chuyển động đầy đủ trong suốt buổi tập của bạn...</p>
                       </div>
-                      <footer class="ps-post__footer"><a class="ps-post__morelink" href="#">READ MORE<i class="ps-icon-arrow-left"></i></a>
-                        <div class="ps-post__actions"><span><i class="fa fa-comments"></i> 23 Comments</span><span><i class="fa fa-heart"></i>  likes</span>
-                          <div class="ps-post__social"><i class="fa fa-share-alt"></i><a href="#">Share</a>
+                      <footer class="ps-post__footer"><a class="ps-post__morelink" href="#">ĐỌC THÊM<i class="ps-icon-arrow-left"></i></a>
+                        <div class="ps-post__actions"><span><i class="fa fa-comments"></i> 23 Bình Luận</span><span><i class="fa fa-heart"></i>  Lượt Thích</span>
+                          <div class="ps-post__social"><i class="fa fa-share-alt"></i><a href="#">Chia Sẻ</a>
                             <ul>
                               <li><a href="#"><i class="fa fa-facebook"></i></a></li>
                               <li><a href="#"><i class="fa fa-twitter"></i></a></li>
@@ -162,17 +173,17 @@
                     </div>
                   </div>
                   <div class="ps-post--2">
-                    <div class="ps-post__thumbnail"><a class="ps-post__overlay" href="#"></a><img src="images/blog/3.jpg" alt=""></div>
+                    <div class="ps-post__thumbnail"><a class="ps-post__overlay" href="#"></a><img src="images/blog/a13.jpg" alt=""></div>
                     <div class="ps-post__container">
-                      <header class="ps-post__header"><a class="ps-post__title" href="blog-detail.php">Nike’s Latest Football Cleat Breaks the Mold</a>
-                        <p>Posted by <a href="blog-grid.php">TV2H_team</a> on August 17, 2016  in <a href="blog-grid.php">Men Shoes</a> , <a href="blog-grid.php">Stylish</a></p>
+                      <header class="ps-post__header"><a class="ps-post__title" href="blog-detail.php">Đôi giày đá bóng mới nhất của Nike phá vỡ kiểu mẫu</a>
+                        <p>Posted by <a href="blog-grid.php">TV2H_team</a> on August 17, 2023  in <a href="blog-grid.php">Giày Nam</a> , <a href="blog-grid.php">Phong Cách</a></p>
                       </header>
                       <div class="ps-post__content">
-                        <p>Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further, Support Sports Bra has a compression fit and V-back straps that give you medium support and full range of motion during your workout….</p>
+                        <p>Chào mừng các đam mê bóng đá và phong cách đến với thế giới mới của Nike, nơi mà đẳng cấp và hiệu suất kết hợp để tạo nên những đôi giày bóng đá đỉnh cao nhất. Hôm nay, chúng tôi tự hào giới thiệu đến bạn dòng sản phẩm mới nhất - những đôi giày bóng đá đầy ấn tượng và sáng tạo.</p>
                       </div>
-                      <footer class="ps-post__footer"><a class="ps-post__morelink" href="#">READ MORE<i class="ps-icon-arrow-left"></i></a>
-                        <div class="ps-post__actions"><span><i class="fa fa-comments"></i> 23 Comments</span><span><i class="fa fa-heart"></i>  likes</span>
-                          <div class="ps-post__social"><i class="fa fa-share-alt"></i><a href="#">Share</a>
+                      <footer class="ps-post__footer"><a class="ps-post__morelink" href="#">ĐỌC THÊM<i class="ps-icon-arrow-left"></i></a>
+                        <div class="ps-post__actions"><span><i class="fa fa-comments"></i> 23 Bình luận</span><span><i class="fa fa-heart"></i>  Lượt Thích</span>
+                          <div class="ps-post__social"><i class="fa fa-share-alt"></i><a href="#">Chia Sẻ</a>
                             <ul>
                               <li><a href="#"><i class="fa fa-facebook"></i></a></li>
                               <li><a href="#"><i class="fa fa-twitter"></i></a></li>
@@ -184,17 +195,17 @@
                     </div>
                   </div>
                   <div class="ps-post--2">
-                    <div class="ps-post__thumbnail"><a class="ps-post__overlay" href="#"></a><img src="images/blog/4.jpg" alt=""></div>
+                    <div class="ps-post__thumbnail"><a class="ps-post__overlay" href="#"></a><img src="images/blog/a12.jpg" alt=""></div>
                     <div class="ps-post__container">
-                      <header class="ps-post__header"><a class="ps-post__title" href="blog-detail.php">Breaking Down the Black Rose Tech Fleece Collection</a>
-                        <p>Posted by <a href="blog-grid.php">TV2H_team</a> on August 17, 2016  in <a href="blog-grid.php">Men Shoes</a> , <a href="blog-grid.php">Stylish</a></p>
+                      <header class="ps-post__header"><a class="ps-post__title" href="blog-detail.php">Phân Tích Bộ Sưu Tập Black Rose Tech Fleece</a>
+                        <p>Posted by <a href="blog-grid.php">TV2H_team</a> on August 17, 2023  in <a href="blog-grid.php">Giày Nam</a> , <a href="blog-grid.php">Phong Cách</a></p>
                       </header>
                       <div class="ps-post__content">
-                        <p>Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further, Support Sports Bra has a compression fit and V-back straps that give you medium support and full range of motion during your workout….</p>
+                        <p>Chào mừng đến với thế giới đầy phóng khoáng và tinh tế của Bộ Sưu Tập Black Rose Tech Fleece - nơi mà sự thoải mái và phong cách đỉnh cao kết hợp một cách hoàn hảo. Được tạo nên bởi sự sáng tạo của nhãn hiệu thời trang hàng đầu, bộ sưu tập này không chỉ là sản phẩm, mà là biểu tượng của sự đổi mới và cái mới mẻ trong thế giới thời trang.</p>
                       </div>
-                      <footer class="ps-post__footer"><a class="ps-post__morelink" href="#">READ MORE<i class="ps-icon-arrow-left"></i></a>
-                        <div class="ps-post__actions"><span><i class="fa fa-comments"></i> 23 Comments</span><span><i class="fa fa-heart"></i>  likes</span>
-                          <div class="ps-post__social"><i class="fa fa-share-alt"></i><a href="#">Share</a>
+                      <footer class="ps-post__footer"><a class="ps-post__morelink" href="#">ĐỌC THÊM<i class="ps-icon-arrow-left"></i></a>
+                        <div class="ps-post__actions"><span><i class="fa fa-comments"></i> 23 Bình Luận</span><span><i class="fa fa-heart"></i>  Lượt Thích</span>
+                          <div class="ps-post__social"><i class="fa fa-share-alt"></i><a href="#">Chia Sẻ</a>
                             <ul>
                               <li><a href="#"><i class="fa fa-facebook"></i></a></li>
                               <li><a href="#"><i class="fa fa-twitter"></i></a></li>
@@ -206,17 +217,17 @@
                     </div>
                   </div>
                   <div class="ps-post--2">
-                    <div class="ps-post__thumbnail"><a class="ps-post__overlay" href="#"></a><img src="images/blog/5.jpg" alt=""></div>
+                    <div class="ps-post__thumbnail"><a class="ps-post__overlay" href="#"></a><img src="images/blog/a3.jpg" alt=""></div>
                     <div class="ps-post__container">
-                      <header class="ps-post__header"><a class="ps-post__title" href="blog-detail.php">The Shoes Athletes Say Will Change the Future of Running</a>
-                        <p>Posted by <a href="blog-grid.php">TV2H_team</a> on August 17, 2016  in <a href="blog-grid.php">Men Shoes</a> , <a href="blog-grid.php">Stylish</a></p>
+                      <header class="ps-post__header"><a class="ps-post__title" href="blog-detail.php">Những Đôi Giày Mà Các Vận Động Viên Nói Sẽ Thay Đổi Tương Lai Của Chạy Bộ</a>
+                        <p>Posted by <a href="blog-grid.php">TV2H_team</a> on August 17, 2023  in <a href="blog-grid.php">Giày Nam</a> , <a href="blog-grid.php">Phong Cách</a></p>
                       </header>
                       <div class="ps-post__content">
-                        <p>Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further, Support Sports Bra has a compression fit and V-back straps that give you medium support and full range of motion during your workout….</p>
+                        <p>Tận dụng các khung làm việc linh hoạt để cung cấp một tóm tắt mạnh mẽ cho cái nhìn tổng quan ở cấp độ cao. Phương pháp lặp lại trong chiến lược doanh nghiệp khuyến khích tư duy cộng tác để đạt được kết quả cao hơn. Áo lót thể thao hỗ trợ có kiểu nén và dây đeo V ở phía sau, mang lại hỗ trợ trung bình và phạm vi chuyển động đầy đủ trong suốt buổi tập của bạn...</p>
                       </div>
-                      <footer class="ps-post__footer"><a class="ps-post__morelink" href="#">READ MORE<i class="ps-icon-arrow-left"></i></a>
-                        <div class="ps-post__actions"><span><i class="fa fa-comments"></i> 23 Comments</span><span><i class="fa fa-heart"></i>  likes</span>
-                          <div class="ps-post__social"><i class="fa fa-share-alt"></i><a href="#">Share</a>
+                      <footer class="ps-post__footer"><a class="ps-post__morelink" href="#">ĐỌC THÊM<i class="ps-icon-arrow-left"></i></a>
+                        <div class="ps-post__actions"><span><i class="fa fa-comments"></i> 23 Bình Luận</span><span><i class="fa fa-heart"></i>  Lượt Thích</span>
+                          <div class="ps-post__social"><i class="fa fa-share-alt"></i><a href="#">Chia Sẻ</a>
                             <ul>
                               <li><a href="#"><i class="fa fa-facebook"></i></a></li>
                               <li><a href="#"><i class="fa fa-twitter"></i></a></li>
@@ -254,73 +265,67 @@
                     <div class="ps-widget__content">
                       <ul class="ps-list--arrow">
                         <li class="current"><a href="product-listing.php">HUS(321)</a></li>
-                        <li><a href="product-listing.php">Amazin’ Glazin’</a></li>
+                        <li><a href="product-listing.php">Quá Tuyệt Vời</a></li>
                         <li><a href="product-listing.php">The Crusty Croissant</a></li>
                         <li><a href="product-listing.php">The Rolling Pin</a></li>
                         <li><a href="product-listing.php">Skippity Scones</a></li>
-                        <li><a href="product-listing.php">Mad Batter</a></li>
-                        <li><a href="product-listing.php">Confection Connection</a></li>
+                        <li><a href="product-listing.php">Người Trộn Bột Điên Đảo</a></li>
+                        <li><a href="product-listing.php">Liên Kết Sản Phẩm</a></li>
                       </ul>
                     </div>
                   </aside>
                   <aside class="ps-widget--sidebar">
-                    <div class="ps-widget__header">
-                      <h3>Ads Banner</h3>
-                    </div>
-                    <div class="ps-widget__content"><a href="product-listing"><img src="images/offer/sidebar.jpg" alt=""></a></div>
-                  </aside>
-                  <aside class="ps-widget--sidebar">
-                    <div class="ps-widget__header">
-                      <h3>Recent Posts</h3>
+                  <div class="ps-widget__header">
+                      <h3>Bài đánh giá gần đây</h3>
                     </div>
                     <div class="ps-widget__content">
                       <div class="ps-post--sidebar">
-                        <div class="ps-post__thumbnail"><a href="#"></a><img src="images/blog/sidebar/1.jpg" alt=""></div>
-                        <div class="ps-post__content"><a class="ps-post__title" href="#">Micenas Placerat Nibh Loreming Fentum</a><span>SEP 29, 2017</span></div>
+                        <div class="ps-post__thumbnail"><a href="#"></a><img src="images/blog/sidebar/d1.jpg" alt=""></div>
+                        <div class="ps-post__content"><a class="ps-post__title" href="#">Sản Phẩm Tuyệt Vời</a><span>SEP 29, 2023</span></div>
                       </div>
                       <div class="ps-post--sidebar">
-                        <div class="ps-post__thumbnail"><a href="#"></a><img src="images/blog/sidebar/2.jpg" alt=""></div>
-                        <div class="ps-post__content"><a class="ps-post__title" href="#">Micenas Placerat Nibh Loreming Fentum</a><span>SEP 29, 2017</span></div>
+                        <div class="ps-post__thumbnail"><a href="#"></a><img src="images/blog/sidebar/d2.jpg" alt=""></div>
+                        <div class="ps-post__content"><a class="ps-post__title" href="#">Sản Phẩm Tuyệt Vời</a><span>SEP 29, 2023</span></div>
                       </div>
                       <div class="ps-post--sidebar">
-                        <div class="ps-post__thumbnail"><a href="#"></a><img src="images/blog/sidebar/3.jpg" alt=""></div>
-                        <div class="ps-post__content"><a class="ps-post__title" href="#">Micenas Placerat Nibh Loreming Fentum</a><span>SEP 29, 2017</span></div>
+                        <div class="ps-post__thumbnail"><a href="#"></a><img src="images/blog/sidebar/d3.jpg" alt=""></div>
+                        <div class="ps-post__content"><a class="ps-post__title" href="#">Sản Phẩm Tuyệt Vời</a><span>SEP 29, 2023</span></div>
                       </div>
                     </div>
                   </aside>
                   <aside class="ps-widget--sidebar">
                     <div class="ps-widget__header">
-                      <h3>Best Seller</h3>
+                      <h3>Sản Phẩm Bạn Chạy Nhất</h3>
                     </div>
                     <div class="ps-widget__content">
                       <div class="ps-shoe--sidebar">
-                        <div class="ps-shoe__thumbnail"><a href="#"></a><img src="images/shoe/sidebar/1.jpg" alt=""></div>
+                        <div class="ps-shoe__thumbnail"><a href="#"></a><img src="images/shoe/sidebar/d1.jpg" alt=""></div>
                         <div class="ps-shoe__content"><a class="ps-shoe__title" href="#">Men's HUS</a>
-                          <p><del> £253.00</del> £152.00</p><a class="ps-btn" href="#">PURCHASE</a>
+                          <p><del> 400.000 vnđ</del> 350.000 vnđ</p><a class="ps-btn" href="#">MUA NGAY</a>
                         </div>
                       </div>
                       <div class="ps-shoe--sidebar">
-                        <div class="ps-shoe__thumbnail"><a href="#"></a><img src="images/shoe/sidebar/2.jpg" alt=""></div>
+                        <div class="ps-shoe__thumbnail"><a href="#"></a><img src="images/shoe/sidebar/d2.jpg" alt=""></div>
                         <div class="ps-shoe__content"><a class="ps-shoe__title" href="#">Nike Flight Bonafide</a>
-                          <p><del> £253.00</del> £152.00</p><a class="ps-btn" href="#">PURCHASE</a>
+                          <p><del> 600.000 vnđ</del> 500.000 vnđ</p><a class="ps-btn" href="#">MUA NGAY</a>
                         </div>
                       </div>
                       <div class="ps-shoe--sidebar">
-                        <div class="ps-shoe__thumbnail"><a href="#"></a><img src="images/shoe/sidebar/3.jpg" alt=""></div>
+                        <div class="ps-shoe__thumbnail"><a href="#"></a><img src="images/shoe/sidebar/d3.jpg" alt=""></div>
                         <div class="ps-shoe__content"><a class="ps-shoe__title" href="#">Nike Sock Dart QS</a>
-                          <p><del> £253.00</del> £152.00</p><a class="ps-btn" href="#">PURCHASE</a>
+                          <p><del> 400.000 vnđ</del> 350.000 vnđ</p><a class="ps-btn" href="#">MUA NGAY</a>
                         </div>
                       </div>
                     </div>
                   </aside>
                   <aside class="ps-widget--sidebar">
                     <div class="ps-widget__header">
-                      <h3>Tags</h3>
+                      <h3>Thẻ</h3>
                     </div>
                     <div class="ps-widget__content">
                       <ul class="ps-tags">
-                        <li><a href="product-listing.php">Men</a></li>
-                        <li><a href="product-listing.php">Female</a></li>
+                        <li><a href="product-listing.php">Nam</a></li>
+                        <li><a href="product-listing.php">Nữ</a></li>
                         <li><a href="product-listing.php">B&G</a></li>
                         <li><a href="product-listing.php">ugly fashion</a></li>
                         <li><a href="product-listing.php">Nike</a></li>
@@ -338,55 +343,28 @@
         <div class="ps-container">
           <div class="row">
                 <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12 ">
-                  <h3><i class="fa fa-envelope"></i>Sign up to Newsletter</h3>
+                  <h3><i class="fa fa-envelope"></i>Đăng nhập hộp thư</h3>
                 </div>
                 <div class="col-lg-5 col-md-7 col-sm-12 col-xs-12 ">
                   <form class="ps-subscribe__form" action="do_action" method="post">
                     <input class="form-control" type="text" placeholder="">
-                    <button>WELCOME</button>
+                    <button>Đăng nhập bây giờ</button>
                   </form>
                 </div>
                 <div class="col-lg-4 col-md-5 col-sm-12 col-xs-12 ">
-                  <p>...and receive  <span>$20</span>  coupon for first shopping.</p>
+                  <p>...và nhận  <span>100.000 vnđ</span>  cho lần mua sắm đầu tiên.</p>
                 </div>
           </div>
         </div>
       </div>
-      <div class="ps-footer bg--cover" data-background="images/background/parallax.jpg"><div>
-          <!-- <h3 class="ps-section__title" data-mask="Payment"> - Các Đối Tác Thanh Toán Trực Tuyến </h3> -->
-                <style>
-                .payment-method{float:left;width:100%}
-                .payment-method ul{display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-align-items:center;-ms-flex-align:center;align-items:center;margin:0;padding:0;list-style:none;white-space:nowrap;overflow-x:auto}
-                .payment-method li{background:#f0f4f7;float:left;padding:10px;border-radius:3px}
-                .payment-method li:not(:last-child){margin-right:10px}
-                .payment-method img{width:116px;height:55px}
-                </style>
-                    <div class="payment-method">
-                        <marquee onmouseover="this.stop()" onmouseout="this.start()" scrollamount="4">
-                          <ul>
-                            <!-- <li><img alt='Agribank' height='55' loading='normal' src='https://www.phanmemninja.com/wp-content/uploads/2019/04/Agribank-logo.png' width='116'/></li> -->
-                            <li><img alt='MBbank' height='55' loading='normal' src='https://upload.wikimedia.org/wikipedia/commons/2/25/Logo_MB_new.png' width='116'/></li>
-                            <li><img alt='zalo pay' height='55' loading='normal' src='https://cdn.jsdelivr.net/gh/thietkeblogspot/images/zalo_pay.png' width='116'/></li>
-                            <li><img alt='visa' height='55' loading='normal' src='https://cdn.jsdelivr.net/gh/thietkeblogspot/images/visa.png' width='116'/></li>
-                            <li><img alt='master card' height='55' loading='normal' src='https://cdn.jsdelivr.net/gh/thietkeblogspot/images/master_card.png' width='116'/></li>
-                            <li><img alt='vietcombank' height='55' loading='normal' src='https://cdn.jsdelivr.net/gh/thietkeblogspot/images/vietcom_bank.png' width='116'/></li>
-                            <li><img alt='vietinbank' height='55' loading='normal' src='https://cdn.jsdelivr.net/gh/thietkeblogspot/images/vietin_bank.png' width='116'/></li>
-                            <li><img alt='bidvbank' height='55' loading='normal' src='https://cdn.jsdelivr.net/gh/thietkeblogspot/images/bidv_bank.png' width='116'/></li>
-                            <li><img alt='sacombank' height='55' loading='normal' src='https://cdn.jsdelivr.net/gh/thietkeblogspot/images/sacom_bank.png' width='116'/></li>
-                            <li><img alt='eximbank' height='55' loading='normal' src='https://cdn.jsdelivr.net/gh/thietkeblogspot/images/exim_bank.png' width='116'/></li>
-                            <li><img alt='scbbank' height='55' loading='normal' src='https://cdn.jsdelivr.net/gh/thietkeblogspot/images/scb_bank.png' width='116'/></li>
-                            <li><img alt='vietcapitalbank' loading='normal' src='https://cdn.jsdelivr.net/gh/thietkeblogspot/images/vietcapital_bank.png' width='116'/></li>
-                          </ul>
-                        </marquee>
-                    </div>
-          </div>
+      <div class="ps-footer bg--cover" data-background="images/background/parallax.jpg">
         <div class="ps-footer__content">
           <div class="ps-container">
             <div class="row">
                   <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 ">
                     <aside class="ps-widget--footer ps-widget--info">
                       <header><a class="ps-logo" href="index.php"><img src="images/logo-white.png" alt=""></a>
-                        <h3 class="ps-widget__title">Address Office 1</h3>
+                        <h3 class="ps-widget__title">Cơ Sở 1</h3>
                       </header>
                       <footer>
                         <p><strong>334 Nguyễn Trãi, Thanh Xuân, Hà Nội</strong></p>
@@ -399,7 +377,7 @@
                   <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 ">
                     <aside class="ps-widget--footer ps-widget--info second">
                       <header>
-                        <h3 class="ps-widget__title">Address Office 2</h3>
+                        <h3 class="ps-widget__title">Cở Sở 2</h3>
                       </header>
                       <footer>
                         <p><strong>144 Xuân Thủy, Cầu Giấy, Hà Nội</strong></p>
@@ -411,15 +389,31 @@
                   </div>
                   <div class="col-lg-2 col-md-2 col-sm-4 col-xs-12 ">
                     <aside class="ps-widget--footer ps-widget--link">
-                      <header>
-                        <h3 class="ps-widget__title">Find Our store</h3>
+                    <header>
+                        <h3 class="ps-widget__title">Tìm trong cửa hàng</h3>
                       </header>
                       <footer>
                         <ul class="ps-list--link">
-                          <li><a href="#">Coupon Code</a></li>
-                          <li><a href="#">SignUp For Email</a></li>
-                          <li><a href="#">Site Feedback</a></li>
-                          <li><a href="#">Careers</a></li>
+                          <li><a href="#">Mã Giảm Giá</a></li>
+                          <li><a href="#">Đăng Nhập Qua Email</a></li>
+                          <li><a href="#">Phản Hồi</a></li>
+                          <li><a href="#">Nghề Nghiệp</a></li>
+                        </ul>
+                      </footer>
+                    </aside>
+                  </div>
+                  <div class="col-lg-2 col-md-2 col-sm-4 col-xs-12 ">
+                    <aside class="ps-widget--footer ps-widget--link">
+                    <header>
+                        <h3 class="ps-widget__title">Giúp Đỡ</h3>
+                      </header>
+                      <footer>
+                        <ul class="ps-list--line">
+                          <li><a href="#">Trạng thái Đơn Hàng</a></li>
+                          <li><a href="#">Giao và Nhận Hàng</a></li>
+                          <li><a href="#">Quay Lại</a></li>
+                          <li><a href="#">Lựa Chọn Thanh Toán</a></li>
+                          <li><a href="#">Liên hệ</a></li>
                         </ul>
                       </footer>
                     </aside>
@@ -427,32 +421,16 @@
                   <div class="col-lg-2 col-md-2 col-sm-4 col-xs-12 ">
                     <aside class="ps-widget--footer ps-widget--link">
                       <header>
-                        <h3 class="ps-widget__title">Get Help</h3>
+                        <h3 class="ps-widget__title">Sản Phẩm</h3>
                       </header>
                       <footer>
                         <ul class="ps-list--line">
-                          <li><a href="#">Order Status</a></li>
-                          <li><a href="#">Shipping and Delivery</a></li>
-                          <li><a href="#">Returns</a></li>
-                          <li><a href="#">Payment Options</a></li>
-                          <li><a href="#">Contact Us</a></li>
+                          <li><a href="#">Giày</a></li>
+                          <li><a href="#">Quần Áo</a></li>
+                          <li><a href="#">Phụ Kiện</a></li>
+                          <li><a href="#">Giày Bóng Đá</a></li>
                         </ul>
-                      </footer>
-                    </aside>
-                  </div>
-                  <div class="col-lg-2 col-md-2 col-sm-4 col-xs-12 ">
-                    <aside class="ps-widget--footer ps-widget--link">
-                      <header>
-                        <h3 class="ps-widget__title">Products</h3>
-                      </header>
-                      <footer>
-                        <ul class="ps-list--line">
-                          <li><a href="#">Shoes</a></li>
-                          <li><a href="#">Clothing</a></li>
-                          <li><a href="#">Accessries</a></li>
-                          <li><a href="#">Football Boots</a></li>
-                        </ul>
-                      </footer>
+                     </footer>  
                     </aside>
                   </div>
             </div>
