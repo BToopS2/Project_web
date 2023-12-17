@@ -55,7 +55,7 @@
 
             <!-- menu profile quick info -->
             <div class="profile clearfix">
-              <div class="profile_info" style="text-align: center;">
+              <div class="profile_info">
                 <span>Welcome,</span>
                 <h2> <?php require_once("../../backend/filterWithCookieAdmin.php") ?></h2>
               </div>
@@ -86,7 +86,7 @@
 
                   <li><a><i class="fa fa-line-chart"></i> Biểu Đồ Phát Triển <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="#">Lượt truy cập</a></li>
+                      <li><a href="truycap.php">Lượt truy cập</a></li>
                       <li><a href="price.php">Doanh Thu</a></li>
                       <li><a href="price_month.php">Theo Tháng</a></li>
                     
@@ -193,13 +193,7 @@
         </div>
         <!-- Thư viện Chart.js -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<div class="right_col" role="main">
-    <table id="tableShoe">
-        <tr>
-            <th class="text-center" style="min-width:50px">ID</th>
-            <th class="text-center" style="min-width:50px">Giá Giày</th>
-            <th class="text-center" style="min-width:100px">Ngày Đặt Hàng</th>
-        </tr>
+<div class="right_col" role="main"> 
         <?php
         $i = 1;
         $uniqueMonths = array(); // Initialize an array to store unique months
@@ -217,81 +211,82 @@
                 if (!in_array($month, $uniqueMonths)) {
                     $uniqueMonths[] = $month; // Store the unique month
                     $revenueData[$month] = $revenue; // Store the revenue for the month
-                    ?>
-                    <tr>
-                        <td><?php echo $i++; ?></td>
-                        <td><?php echo $revenue . " VND" ?></td>
-                        <td><?php echo $date ?></td>
-                        <td>
-                            <?php
-                            if ($order['status'] == 2) {
-                                ?>
-                                <a class="btn btn-warning" href="acceptOrder.php?id=<?php echo $order['cart_id'] ?>"
-                                   role="button">Duyệt Đơn</a>
-                                <?php
-                            }
-                            ?>
-                            <?php
-                            if ($order['status'] == 3) {
-                                ?>
-                                <a class="btn btn-success" href="#" role="button">Đã Duyệt</a>
-                                <?php
-                            }
-                            ?>
-                        </td>
-                    </tr>
-                    <?php
+                  
                 }
             }
         }
         ?>
-    </table>
-
     <!-- Add a canvas element for the revenue chart -->
-    <canvas id="revenueChart" width="400" height="200"></canvas>
 
-    <script>
-        var revenueData = <?php echo json_encode($revenueData); ?>;
-        var months = Object.keys(revenueData);
-        var values = Object.values(revenueData);
+    <div style="width: 60%;">
+        <?php
+        $uniqueMonths = array();
+        $revenueData = array();
 
-        var ctx = document.getElementById('revenueChart').getContext('2d');
-        var myChart = new Chart(ctx, {
-            type: 'bar', // Use 'bar' for a bar chart
-            data: {
-                labels: months,
-                datasets: [{
-                    label: 'Doanh Thu',
-                    data: values,
-                    backgroundColor: 'rgba(54, 162, 235, 0.7)', // Adjust the color here
-                    borderColor: 'rgba(54, 162, 235, 1)', // Adjust the color here
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true
-                    }
-                }
+        // Tạo một mảng chứa tất cả các tháng trong năm
+        $allMonths = array('01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12');
+
+        // Khởi tạo mảng $revenueData với giá trị 0 cho tất cả các tháng
+        foreach ($allMonths as $month) {
+            $revenueData[$month] = 0;
+        }
+
+        foreach ($orderList as $order) {
+            if ($order['status'] == 3) {
+                $date = $order['date'];
+                $revenue = $order['price'] - $order['price'] * $order['sale'] * 0.01;
+
+                $month = date('m', strtotime($date));
+
+                $uniqueMonths[] = $month;
+                $revenueData[$month] += $revenue;
             }
-        });
-    </script>
+        }
+        ?>
+
+        <?php if (!empty($revenueData)): ?>
+            <!-- Add a canvas element for the revenue chart -->
+            <canvas id="revenueChart" width="400" height="200"></canvas>
+
+            <script>
+                var revenueData = <?php echo json_encode(array_values($revenueData)); ?>;
+                var allMonths = <?php echo json_encode($allMonths); ?>;
+
+                var ctx = document.getElementById('revenueChart').getContext('2d');
+                var myChart = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: allMonths,
+                        datasets: [{
+                            label: 'Doanh Thu',
+                            data: revenueData,
+                            backgroundColor: 'rgba(54, 162, 235, 0.7)',
+                            borderColor: 'rgba(54, 162, 235, 1)',
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            y: {
+                                beginAtZero: true
+                            }
+                        }
+                    }
+                });
+            </script>
+        <?php else: ?>
+            <p>Không có dữ liệu doanh thu để hiển thị.</p>
+        <?php endif; ?>
+    </div>
 </div>
 
-
-
-    
+</div>
+ 
                   }
             ?>
         </table>
         </div>
-        <footer>
-          <div class="pull-right">
-            Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
-          </div>
-          <div class="clearfix"></div>
-        </footer>
+        
         <!-- /footer content -->
       </div>
     </div>
