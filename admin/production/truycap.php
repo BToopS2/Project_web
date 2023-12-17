@@ -1,3 +1,29 @@
+
+<?php
+// Đường dẫn đến file log
+$logFile = '../../log.txt';
+
+// Hàm để đọc dữ liệu lượt truy cập từ file log
+function getVisitData($logFile)
+{
+    if (file_exists($logFile)) {
+        $logContent = file_get_contents($logFile);
+        $visitData = json_decode($logContent, true);
+    } else {
+        $visitData = array();
+    }
+
+    return $visitData;
+}
+
+// Gọi hàm để lấy dữ liệu lượt truy cập
+$visitData = getVisitData($logFile);
+
+// Lấy số lượt truy cập cho ngày hiện tại (ví dụ: ngày hôm nay)
+$today = date('Y-m-d');
+$visitCountToday = isset($visitData[$today]) ? $visitData[$today] : 0;
+?>
+
 <?php
     require_once("../../backend/filterAdmin.php");
     require_once("../../repository/orderRepository.php");
@@ -77,19 +103,18 @@
                     </ul>
                   </li>
                 
-                  <li><a><i class="fa fa-money"></i> Sản Phẩm Bán Chạy<span class="fa fa-chevron-down"></span></a>
+                  <li><a><i class="fa fa-money"></i> Doanh Thu<span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="banchay.php">Biểu Đồ Bán Chạy</a></li>
-                      
+                    <li><a href="banchay.php">Biểu đồ bán chạy</a></li>                    
                     </ul>
                   </li>
 
-                  <li><a><i class="fa fa-line-chart"></i> Biểu Đồ Doanh Thu <span class="fa fa-chevron-down"></span></a>
+                  <li><a><i class="fa fa-line-chart"></i> Biểu Đồ Phát Triển <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="truycap.php">Lượt truy cập</a></li>
+                      <li><a href="#">Lượt truy cập</a></li>
                       <li><a href="price.php">Doanh Thu</a></li>
-                      <li><a href="price_month.php">Doanh Thu Theo Tháng</a></li>
-                 
+                      <li><a href="price_month.php">Theo Tháng</a></li>
+                    
                     </ul>
                   </li>
 
@@ -191,74 +216,131 @@
             </nav>
           </div>
         </div>
-        <div class="right_col" role="main">
-          <table id="tableShoe">
+        <!-- Thư viện Chart.js -->
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+            <div class="right_col" role="main"> 
+            <style>
+    .row {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .left-column {
+        width: 48%;
+    }
+
+    .right-column {
+        width: 48%;
+    }
+</style>
+
+<div class="row">
+<title>Số Lượt Truy Cập Theo Ngày</title>
+    <div class="left-column">
+        <table>
             <tr>
-              <th class="text-center" style="min-width:50px">STT</th>
-              <th class="text-center" style="min-width:150px">Tên Khách Hàng</th>
-              <th class="text-center" style="min-width:150px">Địa Chỉ</th>
-              <th class="text-center" style="min-width:150px">Tên Giày</th>
-              <th class="text-center" style="min-width:50px">Giá Giày</th>
-              <th class="text-center" style="min-width:100px">Kích Cỡ</th>
-              <th class="text-center" style="min-width:100px">Số Lượng</th>
-              <th class="text-center" style="min-width:100px">Màu</th>
-              <th class="text-center" style="min-width:100px">Ngày Đặt Hàng</th>
-              <th class="text-center" style="min-width:100px"> </th>
-              <th class="text-center" style="min-width:100px"> </th>
+                <th>Ngày</th>
+                <th>Số Lượt Truy Cập</th>
             </tr>
-            <?php
-                  $i=1;
-                  foreach($orderList as $order){
-              ?>
-            <tr>
-                <td><?php echo $i++; ?></td>
-                <td><?php echo $order['fullname']?></td>
-                <td><?php echo $order['address']?></td>
-                <td><?php echo $order['name']?></td>
-                <td><?php echo ($order['price'] - $order['price']*$order['sale']*0.01)." VND" ?></td>
-                <td><?php echo $order['shoe_size']?></td>          
-                <td><?php echo $order['quantity']?></td>
-                <td><?php echo $order['shoe_color']?></td>
-                <td><?php echo $order['date']?></td>
-                <td><?php
-                    if($order['status'] == 2){
-                 ?>
-                 <a class="btn btn-warning" href="acceptOrder.php?id=<?php echo $order['cart_id']?>" role="button">Duyệt Đơn</a>
-                 <?php 
-                    }
-                ?>
-                <?php
-                    if($order['status'] == 3){
-                 ?>
-                 <a class="btn btn-success" href="#" role="button">Đã Duyệt</a>
-                 <?php 
-                    }
-                ?>
-                 </td>
-                <td>
-                <?php
-                    if($order['status'] == 2){
-                 ?>
-                  <a class="btn btn-danger" href="deleteOrder.php?id=<?php echo $order['order_id']?>" role="button" onclick="return confirm('Bạn có muốn hủy đơn không?');">Hủy Đơn</a></td>
-                 <?php 
-                    }
-                ?>
-                   
-            </tr>
-            <?php
-                  }
-            ?>
+            <?php foreach ($visitData as $date => $count): ?>
+                <tr>
+                    <td><?php echo $date; ?></td>
+                    <td><?php echo $count; ?></td>
+                </tr>
+            <?php endforeach; ?>
         </table>
-        </div>
-        <footer>
-          <div class="pull-right">
-            Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
-          </div>
-          <div class="clearfix"></div>
-        </footer>
-        <!-- /footer content -->
-      </div>
+        <style>
+                    table {
+                        width: 80%;
+                        margin: auto;
+                        border-collapse: collapse;
+                        margin-top: 20px;
+                    }
+
+                    table, th, td {
+                        border: 1px solid #ddd;
+                        padding: 8px;
+                        text-align: left;
+                    }
+
+                    th {
+                        background-color: #f2f2f2;
+                    }
+                </style>
     </div>
+
+    <div class="right-column">
+        <canvas id="visitChart" width="400" height="200"></canvas>
+
+        <!-- Mã JavaScript để vẽ biểu đồ -->
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var visitData = <?php echo json_encode($visitData); ?>;
+        var days = Object.keys(visitData);
+        var counts = Object.values(visitData);
+
+        var backgroundColors = counts.map(function(count) {
+            if (count > 20) {
+                return 'rgba(255, 0, 0, 0.7)'; // Màu đỏ
+            } else if (count >= 10 && count <= 20) {
+                return 'rgba(255, 255, 0, 0.7)'; // Màu vàng
+            } else {
+                return 'rgba(169, 169, 169, 0.7)'; // Màu xám
+            }
+        });
+
+        var ctx = document.getElementById('visitChart').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: days,
+                datasets: [{
+                    label: 'Lượt Truy Cập',
+                    data: counts,
+                    backgroundColor: backgroundColors,
+                    borderColor: 'gray',
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                scales: {
+                    x: {
+                        type: 'time',
+                        time: {
+                            unit: 'day',
+                            displayFormats: {
+                                day: 'YYYY-MM-DD'
+                            }
+                        },
+                        title: {
+                            display: true,
+                            text: 'Ngày'
+                        }
+                    },
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Số Lượt Truy Cập'
+                        },
+                        ticks: {
+                            stepSize: 1
+                        }
+                    }
+                }
+            }
+        });
+    });
+</script>
+
+
+    </div>
+</div>
+
+          </div>              
+
+
 
     <!-- jQuery -->
     <script src="../vendors/jquery/dist/jquery.min.js"></script>

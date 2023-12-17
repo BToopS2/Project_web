@@ -57,7 +57,7 @@
 
             <!-- menu profile quick info -->
             <div class="profile clearfix">
-              <div class="profile_info" style="text-align: center;">
+              <div class="profile_info">
                 <span>Welcome,</span>
                 <h2><?php require_once("../../backend/filterWithCookieAdmin.php") ?></h2>
               </div>
@@ -87,8 +87,9 @@
 
                   <li><a><i class="fa fa-line-chart"></i> Biểu Đồ Phát Triển <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="#">Lượt truy cập</a></li>
+                      <li><a href="truycap.php">Lượt truy cập</a></li>
                       <li><a href="price.php">Doanh Thu</a></li>
+                      <li><a href="price_month.php">Doanh Thu Theo Tháng</a></li>
                  
                     </ul>
                   </li>
@@ -202,7 +203,7 @@
             <tr>
               <th class="text-center" style="min-width:50px">STT</th>
               <th class="text-center" style="min-width:50px">ID</th>
-              <th class="text-center" style="min-width:150px">Tên Sản Phẩm</th>
+              <th class="text-center" style="min-width:150px">Tên Giày</th>
               <th class="text-center" style="min-width:150px">Giá Giày</th>
               <th class="text-center" style="min-width:50px">Giảm Giá</th>
               <th class="text-center" style="min-width:100px">Kích Cỡ</th>

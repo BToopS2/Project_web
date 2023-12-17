@@ -486,6 +486,7 @@
   <!-- Custom scripts-->
   <script type="text/javascript" src="js/main.js"></script>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <!--  Front end effect in checkboxes  -->
   <script>
     $(document).ready(function() {
       $('#categoryList li').on('click', function(e) {
@@ -498,6 +499,7 @@
       });
     });
   </script>
+  <!-- Filter the type of clothing associated with the brand and the price -->
   <script>
     $(document).ready(function() {
       $('#categoryList1 td').on('click', function(e) {
@@ -601,6 +603,7 @@
       });
     });
   </script>
+  <!--   sort by name, increase/decrease price -->
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       const selectFilter = document.querySelector('.ps-product__filter select');
@@ -675,7 +678,7 @@
       });
     });
   </script>
-
+<!-- Pagination -->
   <script>
     // JavaScript code to handle pagination
     document.addEventListener("DOMContentLoaded", function() {
