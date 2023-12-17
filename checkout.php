@@ -145,7 +145,7 @@
               </div>
               
               <div class="form-group form-group--inline">
-    <button type="button" class="btn btn-secondary btn-with-icon" onclick="toggleAddressEdit()">
+    <button style="background-color:cadetblue" type="button" class="btn btn-secondary btn-with-icon" onclick="toggleAddressEdit()">
         <i class="bi bi-pencil"></i> <!-- Bootstrap Icons pencil icon -->
         Chỉnh sửa địa chỉ
     </button>
@@ -225,7 +225,7 @@
             color: #2196F3;
         }
     </style>
-                       <img id="top-right-image" src='images/logo.png' alt="Top Right Image">
+                       <img style="background-color: white;" id="top-right-image" src='images/logo.png' alt="Top Right Image">
                         <h3>Hóa Đơn Của Bạn </h3>
                         <span style="color:white" class="date">(Thời Gian Tạo: <?php echo $currentDate; ?>)</span>
                       </header>
@@ -272,7 +272,7 @@
                                 $sumPrice += $totalPrice;
                                 ?>
                                 <tr>
-                                    <td><?php echo $shoe['shoe_name'] ?> </td>
+                                    <td><?php echo $shoe['shoe_name'] ?> (sz: <span><?php echo $cart['shoe_size'] ?></span>) </td>
                                     <td style="color:; text-align: center !important; "><span > <?php echo $orderQuantity ?> </span> </td>
                                     <td><?php echo $totalPrice ?> <span style="font-size: 10px;">VND</span> </td>
                                 </tr>
