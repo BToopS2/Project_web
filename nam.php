@@ -740,6 +740,22 @@
       // Initially show the first page
       showPage(currentPage);
 
+      // Calculate the total number of pages based on total items
+      const totalItems = items.length;
+      const totalPages = Math.ceil(totalItems / itemsPerPage);
+
+      // Dynamically generate pagination based on total pages
+      const pagination = document.querySelector('.pagination');
+      let paginationHTML = '';
+
+      for (let i = 1; i <= totalPages; i++) {
+        paginationHTML += `<li class="page-item" data-page="${i}">
+                          <a href="#" class="page-link">${i}</a>
+                       </li>`;
+      }
+
+      pagination.innerHTML = paginationHTML;
+
       // Event listener for pagination clicks
       document.querySelectorAll('.pagination .page-item').forEach(item => {
         item.addEventListener('click', function(event) {
