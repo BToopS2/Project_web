@@ -1,13 +1,15 @@
 <?php
     require_once("../../backend/filterAdmin.php");
-    require_once("../../repository/orderRepository.php");
-
-    $orderRepository = new OrderRepository();
-
-    $orderList = $orderRepository->getAll();
+    require_once("../../repository/shoeRepository.php");
+    require_once("../../repository/categoryRepository.php");
+    $shoeRepository = new ShoeRepository(); 
+    $categoryRepository = new CategoryRepository();
     include("../../connect.php");
-    $sql = "SELECT * FROM contacts LIMIT 5"; 
+    $sql = "SELECT * FROM contacts ORDER BY id DESC LIMIT 5";
+
+
     $result = $conn->query($sql);
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -57,7 +59,7 @@
             <div class="profile clearfix">
               <div class="profile_info">
                 <span>Welcome,</span>
-                <h2> <?php require_once("../../backend/filterWithCookieAdmin.php") ?></h2>
+                <h2><?php require_once("../../backend/filterWithCookieAdmin.php") ?></h2>
               </div>
             </div>
             <!-- /menu profile quick info -->
@@ -77,11 +79,10 @@
                     </ul>
                   </li>
                 
-                  <li><a><i class="fa fa-money"></i> Doanh Thu<span class="fa fa-chevron-down"></span></a>
+                  <li><a><i class="fa fa-money"></i>Sản Phẩm Bán Chạy<span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                    <li><a href="banchay.php">Biểu đồ bán chạy</a></li>   
-                    <li><a href="Khovoucher.php">Thêm Voucher</a></li>                 
-                      
+                    <li><a href="banchay.php">Biểu đồ bán chạy</a></li>
+                    <li><a href="Khovoucher.php">Thêm Voucher</a></li>
                     </ul>
                   </li>
 
@@ -89,8 +90,8 @@
                     <ul class="nav child_menu">
                       <li><a href="truycap.php">Lượt truy cập</a></li>
                       <li><a href="price.php">Doanh Thu</a></li>
-                      <li><a href="price_month.php">Theo Tháng</a></li>
-                    
+                      <li><a href="price_month.php">Doanh Thu Theo Tháng</a></li>
+                 
                     </ul>
                   </li>
 
@@ -129,7 +130,7 @@
               <ul class=" navbar-right">
                 <li class="nav-item dropdown open" style="padding-left: 15px;">
                   <a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
-                    <?php require_once("../../backend/filterWithCookieAdmin.php") ?>
+                  <?php require_once("../../backend/filterWithCookieAdmin.php") ?>
                   </a>
                   <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item"  href="javascript:;"> Profile</a>
@@ -156,138 +157,107 @@
                         </span>
                     </a>
                     <ul class="dropdown-menu list-unstyled msg_list" role="menu" aria-labelledby="navbarDropdown1">
-                        <?php
-                        if ($result->num_rows > 0) {
-                            while ($row = $result->fetch_assoc()) {
-                        ?>
-                                <li class="nav-item">
-                                    <a class="dropdown-item">
-                                        <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span> 
-                                        <span>
-                                            <span><?php echo $row['NAME']; ?></span>
-                                            <span class="time"><?php echo date('H:i', strtotime($row['created_at'])); ?></span>
-                                        </span>
-                                        <span class="message">
-                                            <?php echo $row['message']; ?>
-                                        </span>
-                                    </a>
-                                </li>
-                        <?php
-                            }
-                        } else {
-                            echo '<li class="nav-item"><a class="dropdown-item">No messages</a></li>';
-                        }
-                        ?>
-                        <li class="nav-item">
-                            <div class="text-center">
-                                <a class="dropdown-item" href="see_all_alerts.php"> <!-- Điều hướng đến trang hiển thị tất cả các thông báo -->
-                                    <strong>See All Alerts</strong>
-                                    <i class="fa fa-angle-right"></i>
-                                   </a>
-                                </div>
-                              </li>
-                          </ul>
+    <?php
+    // Sắp xếp kết quả theo thời gian giảm dần
+    $sortedResults = array_reverse($result->fetch_all(MYSQLI_ASSOC));
+
+    if (!empty($sortedResults)) {
+        foreach ($sortedResults as $row) {
+    ?>
+            <li class="nav-item">
+                <a class="dropdown-item">
+                    <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span> 
+                    <span>
+                        <span><?php echo $row['NAME']; ?></span>
+                        <span class="time"><?php echo date('H:i', strtotime($row['created_at'])); ?></span>
+                    </span>
+                    <span class="message">
+                        <?php echo $row['message']; ?>
+                    </span>
+                </a>
+            </li>
+    <?php
+        }
+    } else {
+        echo '<li class="nav-item"><a class="dropdown-item">No messages</a></li>';
+    }
+    ?>
+    <li class="nav-item">
+        <div class="text-center">
+            <a class="dropdown-item" href="see_all_alerts.php">
+                <strong>See All Alerts</strong>
+                <i class="fa fa-angle-right"></i>
+            </a>
+        </div>
+    </li>
+</ul>
+
                      </li>
-              </ul>
-            </nav>
-          </div>
+
+                              </ul> 
+                            </nav>
+                          </div>
         </div>
-        <!-- Thư viện Chart.js -->
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<div class="right_col" role="main"> 
-        <?php
-        $i = 1;
-        $uniqueMonths = array(); // Initialize an array to store unique months
-        $revenueData = array(); // Initialize an array to store revenue data
+        <div class="right_col" role="main">
+        <a class="btn btn-primary" href="addVoucher.php" role="button">Thêm Voucher</a>
+        <table id="tableVoucher">
+    <tr>
+        <th class="text-center" style="min-width:50px">STT</th>
+        <th class="text-center" style="min-width:50px">ID</th>
+        <th class="text-center" style="min-width:150px">Tên Voucher</th>
+        <th class="text-center" style="min-width:150px">Giảm Giá</th>
+        <th class="text-center" style="min-width:100px">Ngày Bắt Đầu</th>
+        <th class="text-center" style="min-width:100px">Ngày Kết Thúc</th>
+        <th class="text-center" style="min-width:200px">Hình Ảnh</th>
+       
+    </tr>
+    <?php
+$i = 1;
 
-        foreach ($orderList as $order) {
-            if ($order['status'] == 3) { // Only consider approved orders
-                $date = $order['date'];
-                $revenue = $order['price'] - $order['price'] * $order['sale'] * 0.01;
+// Thực hiện truy vấn SQL để lấy danh sách voucher
+$sql = "SELECT * FROM voucher";
+$result = mysqli_query($conn, $sql);
 
-                // Extract month from the date
-                $month = date('Y-m', strtotime($date));
+// Kiểm tra xem biến $uploadDir có được khai báo hay không
+if (!isset($uploadDir)) {
+    $uploadDir = 'voucher/';  // Gán giá trị mặc định nếu chưa được khai báo
+}
 
-                // Check if the month is already processed
-                if (!in_array($month, $uniqueMonths)) {
-                    $uniqueMonths[] = $month; // Store the unique month
-                    $revenueData[$month] = $revenue; // Store the revenue for the month
-                  
-                }
-            }
-        }
+if ($result) {
+    while ($voucher = mysqli_fetch_assoc($result)) {
         ?>
-    <!-- Add a canvas element for the revenue chart -->
-
-    <div style="width: 60%;">
-        <?php
-        $uniqueMonths = array();
-        $revenueData = array();
-
-        // Tạo một mảng chứa tất cả các tháng trong năm
-        $allMonths = array('01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12');
-
-        // Khởi tạo mảng $revenueData với giá trị 0 cho tất cả các tháng
-        foreach ($allMonths as $month) {
-            $revenueData[$month] = 0;
-        }
-
-        foreach ($orderList as $order) {
-            if ($order['status'] == 3) {
-                $date = $order['date'];
-                $revenue = $order['price'] - $order['price'] * $order['sale'] * 0.01;
-
-                $month = date('m', strtotime($date));
-
-                $uniqueMonths[] = $month;
-                $revenueData[$month] += $revenue;
-            }
-        }
-        ?>
-
-        <?php if (!empty($revenueData)): ?>
-            <!-- Add a canvas element for the revenue chart -->
-            <canvas id="revenueChart" width="400" height="200"></canvas>
-
-            <script>
-                var revenueData = <?php echo json_encode(array_values($revenueData)); ?>;
-                var allMonths = <?php echo json_encode($allMonths); ?>;
-
-                var ctx = document.getElementById('revenueChart').getContext('2d');
-                var myChart = new Chart(ctx, {
-                    type: 'bar',
-                    data: {
-                        labels: allMonths,
-                        datasets: [{
-                            label: 'Doanh Thu',
-                            data: revenueData,
-                            backgroundColor: 'rgba(54, 162, 235, 0.7)',
-                            borderColor: 'rgba(54, 162, 235, 1)',
-                            borderWidth: 1
-                        }]
-                    },
-                    options: {
-                        scales: {
-                            y: {
-                                beginAtZero: true
-                            }
-                        }
-                    }
-                });
-            </script>
-        <?php else: ?>
-            <p>Không có dữ liệu doanh thu để hiển thị.</p>
-        <?php endif; ?>
-    </div>
-</div>
-
-</div>
- 
-                  }
+        <tr>
+            <td><?php echo $i++; ?></td>
+            <td><?php echo $voucher['id'] ?></td>
+            <td><?php echo $voucher['Name'] ?></td>
+            <td><?php echo $voucher['Sale'] . "%" ?></td>
+            <td><?php echo $voucher['start'] ?></td>
+            <td><?php echo $voucher['end'] ?></td>
+            <?php
+            // Kết hợp đường dẫn của thư mục chứa hình ảnh với tên file
+            $imagePath = $uploadDir . $voucher['image_path'];
             ?>
-        </table>
+            <td><img src="<?php echo $imagePath; ?>" alt="Voucher Image" style="width: 100px;"></td>
+            
+        </tr>
+        <?php
+    }
+} else {
+    echo "<tr><td colspan='7'>Không có voucher nào.</td></tr>";
+}
+?>
+
+
+
+</table>
+
         </div>
-        
+        <footer>
+          <div class="pull-right">
+            Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
+          </div>
+          <div class="clearfix"></div>
+        </footer>
         <!-- /footer content -->
       </div>
     </div>

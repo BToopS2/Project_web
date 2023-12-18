@@ -80,6 +80,7 @@
                   <li><a><i class="fa fa-money"></i> Sản Phẩm Bán Chạy<span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="banchay.php">Biểu Đồ Bán Chạy</a></li>
+                      <li><a href="Khovoucher.php">Thêm Voucher</a></li>
                       
                     </ul>
                   </li>
