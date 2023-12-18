@@ -114,14 +114,11 @@
         </div>
         <div class="navigation__column center">
           <ul class="main-menu menu">
-            <li class="menu-item menu-item-has-children dropdown"><a href="index.php">Home</a>
-            </li>
-            <li class="menu-item menu-item-has-children has-mega-menu"><a href="#">Men</a>
-
-            </li>
-            <li class="menu-item"><a href="#">Women</a></li>
-            <li class="menu-item"><a href="#">Kids</a></li>
-            <li class="menu-item menu-item-has-children dropdown"><a href="#">News</a>
+          <li class="menu-item menu-item-has-children dropdown"><a href="index.php">Trang Chủ</a></li>
+            <li class="menu-item menu-item-has-children dropdown"><a href="nam.php">Nam</a></li>
+            <li class="menu-item menu-item-has-children dropdown"><a href="nu.php">Nữ</a></li>
+            <li class="menu-item menu-item-has-children dropdown"><a href="tre_em.php">Trẻ Em</a></li>
+            <li class="menu-item menu-item-has-children dropdown"><a href="#">Tin Tức</a>
               <ul class="sub-menu">
                 <li class="menu-item menu-item-has-children dropdown"><a href="blog-grid.php">Blog-grid</a>
                   <ul class="sub-menu">
@@ -132,7 +129,7 @@
                 <li class="menu-item"><a href="blog-list.php">Blog List</a></li>
               </ul>
             </li>
-            <li class="menu-item menu-item-has-children dropdown"><a href="contact-us.php">Contact</a>
+            <li class="menu-item menu-item-has-children dropdown"><a href="contact-us.php">Liên Hệ</a>
             </li>
           </ul>
         </div>

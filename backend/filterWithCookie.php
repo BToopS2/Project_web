@@ -29,7 +29,7 @@
         echo $checkCookie['fullname'];
         echo '</a>';
         
-        echo'<a style="font-size: 16px" href="/Project_web/backend/logoutCookie.php">
+        echo'<a style="font-size: 16px" href="/backend/logoutCookie.php">
         <i class="fa fa-sign-out"></i> Đăng Xuất
       </a>';
     }
