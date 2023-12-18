@@ -1,16 +1,24 @@
-<?php
-  
-  require_once("backend/authWithCookie.php");
-  require_once("backend/auth.php");
-  require_once("repository/cartRepository.php");
-  require_once("repository/shoeRepository.php");
-  require_once("repository/orderRepository.php");
-  $cartRepository = new CartRepository();
-  $shoeRepository = new ShoeRepository();
-  $orderRepository = new OrderRepository();
 
-  $infoUser = Auth::loginWithCookie();
-  
+<?php
+require_once("formCart2.php");
+require_once("backend/authWithCookie.php");
+require_once("backend/auth.php");
+require_once("repository/cartRepository.php");
+require_once("repository/shoeRepository.php");
+
+$cartRepository = new CartRepository();
+$shoeRepository = new ShoeRepository();
+
+
+
+// 
+require_once("backend/filterUser.php");
+require_once("repository/orderRepository.php");
+
+$orderRepository = new OrderRepository();
+$infoUser = Auth::loginWithCookie();
+$id=$infoUser['id'];
+$orderList = $orderRepository->getAll2($id);
 ?>
 <!DOCTYPE html>
 
@@ -156,8 +164,8 @@
               <input class="form-control" type="text" placeholder="Search Product…">
               <button><i class="ps-icon-search"></i></button>
             </form>
-            <div class="ps-cart"><a class="ps-cart__toggle" href="#"><span><i></i></span><i class="ps-icon-shopping-cart"></i></a>
-            <?php require_once("formCart.php") ?>
+            <div class="ps-cart"><a class="ps-cart__toggle" href="#"><span><i><?php echo $cartList->num_rows ?></i></span><i class="ps-icon-shopping-cart"></i></a>
+
             </div>
             <div class="menu-toggle"><span></span></div>
           </div>
@@ -222,140 +230,195 @@
   
   <body class="nav-md">
     <div class="container body">
-      <div class="main_container">
+      <div style="margin-top:70px" class="main_container">
         <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
-            <div class="navbar nav_title" style="border: 0;">
+            <!-- <div class="navbar nav_title" style="border: 0;">
           
-            </div>
+            </div> -->
 
-            <div class="clearfix"></div>n
+            <div class="clearfix"></div>
 
             <!-- menu profile quick info -->
-            <div class="profile clearfix">
-              <div class="profile_pic" style="text-align:center">
-              <img id="profileImage" src="<?php echo $infoUser['img']; ?>" alt="Profile Picture" class="img-circle profile_img" style="width: 128px;height: 128px;">
-              </div>
-              <div class="profile_pic" style="text-align: center;" >
-                  <form id="updateForm" enctype="multipart/form-data" style="text-align: center;">
-                      <label for="profile_image" style="font-size: 14px; display: flex;  text-align: center !important;">Chọn ảnh Avatar:</label>
-                      <input type="file" name="profile_image" id="profile_image" style="font-size: 12px; margin-bottom: 16px; padding: 8px; border: none; border-radius: 4px;">
-                      <input type="button" value="Cập Nhật Avatar" onclick="updateProfilePicture()" style=" padding: 10px 20px; background-color: #c4bb1b; color: #fff; border: none; border-radius: 4px; cursor: pointer; transition: background-color 1.5s;">
-                  </form>
-              </div>
-
-            </div>
-            <!-- /menu profile quick info -->
-
-            <br />
+           
+         
 
             <!-- sidebar menu -->
             <div class="container mt-5">
-    <div class="row">
-        <!-- Sidebar menu (left side) -->
-        <div id="sidebar-menu" class="main_menu_side hidden-print main_menu col-md-3">
-            <div class="menu_section">
-                <h3></h3>
-                <ul class="nav side-menu">
-                    <li>
-                        <a><i class="fa fa-user"></i> Tài Khoản Của Tôi <span class="fa fa-chevron-down"></span></a>
-                        <ul class="nav child_menu">
-                            <li style="margin-left: 15px !important; background-color: #3498db !important;color: #fff !important;"><a style href="profile_1.php" >Hồ Sơ</a></li>
-                            <li><a href="card_payment.php">Phương Thức Thanh Toán</a></li>
-                            <li><a href="voucher.php">Kho Voucher</a></li>
-                            <!-- <li><a href="index3.html">Địa Chỉ Nhận Hàng</a></li> -->
-                            <li><a href="change_password.php">Đổi Mật Khẩu</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a><i class="fa fa-store"></i> Đơn Mua <span class="fa fa-chevron-down"></span></a>
-                        <ul class="nav child_menu">
-                            <li><a href="cart_2.php">Chờ Thanh Toán</a></li>
-                            <li><a href="cart_3.php">Chờ Vận Chuyển</a></li>
-                            <li><a href="cart_4.php">Chờ Giao Hàng</a></li>
-                            <li><a href="cart_5.php">Đã Hoàn Thành</a></li>
-                        </ul>
-                    </li>
-                </ul>
+    
+        <script src="admin/vendors/jquery/dist/jquery.min.js"></script>
+                        <!-- Bootstrap -->
+                      <script src="admin/vendors/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+                        <!-- FastClick -->
+                        <script src="admin/vendors/fastclick/lib/fastclick.js"></script>
+                        <!-- NProgress -->
+                        <script src="admin/vendors/nprogress/nprogress.js"></script>
+                        <!-- Chart.js -->
+                        <script src="admin/vendors/Chart.js/dist/Chart.min.js"></script>
+                        <!-- jQuery Sparklines -->
+                        <script src="admin/vendors/jquery-sparkline/dist/jquery.sparkline.min.js"></script>
+                        <!-- Flot -->
+                        <script src="admin/vendors/Flot/jquery.flot.js"></script>
+                        <script src="admin/vendors/Flot/jquery.flot.pie.js"></script>
+                        <script src="admin/vendors/Flot/jquery.flot.time.js"></script>
+                        <script src="admin/vendors/Flot/jquery.flot.stack.js"></script>
+                        <script src="admin/vendors/Flot/jquery.flot.resize.js"></script>
+                        <!-- Flot plugins -->
+                        <script src="admin/vendors/flot.orderbars/js/jquery.flot.orderBars.js"></script>
+                        <script src="admin/vendors/flot-spline/js/jquery.flot.spline.min.js"></script>
+                        <script src="admin/vendors/flot.curvedlines/curvedLines.js"></script>
+                        <!-- DateJS -->
+                        <script src="admin/vendors/DateJS/build/date.js"></script>
+                        <!-- bootstrap-daterangepicker -->
+                        <script src="admin/vendors/moment/min/moment.min.js"></script>
+                        <script src="adminvendors/bootstrap-daterangepicker/daterangepicker.js"></script>
+                        
+                        <!-- Custom Theme Scripts -->
+                        <script src="admin/build/js/custom.min.js"></script>
+        
+                        <h2 style="text-align: center;"> <i class="fa-regular fa-credit-card"></i> VOUCHER HOT</h2>
+        <div  class="col-md-12" style="background-color: red;">
+           
+                        
+            <h3> <i class="fa-solid fa-user-shield" style="margin-bottom: 10px;"></i> NHANH TAY VOUCHER LIỀN TAY(<code>Áp Dụng Ngay</code>)</h3>
+            <?php
+$i = 1;
+
+// Thực hiện truy vấn SQL để lấy danh sách voucher
+$sql = "SELECT * FROM voucher";
+$result = mysqli_query($conn, $sql);
+
+// Kiểm tra xem biến $uploadDir có được khai báo hay không
+if (!isset($uploadDir)) {
+    $uploadDir = 'admin/production/voucher/';  // Gán giá trị mặc định nếu chưa được khai báo
+}
+
+if ($result) {
+    ?>
+    <tr>
+        <?php
+        while ($voucher = mysqli_fetch_assoc($result)) {
+            ?>
+            <td><?php $i++; ?></td>
+
+            <?php
+            // Kết hợp đường dẫn của thư mục chứa hình ảnh với tên file
+            $imagePath = $uploadDir . $voucher['image_path'];
+            ?>
+
+            <td>
+                <div style="position: relative; text-align: center;">
+
+                    <div style="position: relative; display: inline-block; margin: 10px;">
+                        <img src="<?php echo $imagePath; ?>" alt="Voucher Image" style="width: 100%; border: none;">
+                        <button onclick="handleButtonClick(
+    <?php echo $id; ?>, 
+    <?php echo $voucher['Sale']; ?>, 
+    '<?php echo $voucher['image_path']; ?>')" 
+    style="border: none; 
+           margin-top: 10px; 
+           position: absolute; 
+           bottom: 10px; 
+           left: 50%; 
+           transform: translateX(-50%); 
+           background-color: #ff4444; /* Red background color */
+           color: #ffffff; /* White text color */
+           font-weight: bold; 
+           font-size: 20px; 
+           padding: 15px 30px; /* Increased padding */
+           border-radius: 8px; /* Rounded corners */
+           cursor: pointer;
+           transition: background-color 0.3s, color 0.3s;">
+
+    Lưu
+</button>
+
+
+
+                    </div>
+                </div>
+            </td>
+            <?php
+        }
+        ?>
+    </tr>
+    <?php
+} else {
+    echo "<tr><td colspan='7'>Không có voucher nào.</td></tr>";
+}
+?>
+
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
+    function handleButtonClick(id, saleValue, imagePath) {
+        console.log('ID:', id, 'Sale Value:', saleValue, 'Image Path:', imagePath);
+
+        $.ajax({
+            type: "GET",
+            url: "voucher_user.php",
+            data: { id: id, sale_value: saleValue, image_path: imagePath },
+            success: function(response) {
+                alert('Lấy Voucher thành công' + response);
+
+                // Redirect to checkout.php after successful AJAX request
+                window.location.href = 'checkout.php';
+            },
+            error: function() {
+                alert('Error executing PHP file.');
+            }
+        });
+    }
+</script>
+
+
+
+
+
+
+
+
+    <hr>
+    <style>
+    /* Thêm lớp chung cho accordion */
+    .hope-accordion {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Thiết lập font chữ */
+    }
+
+    /* Tùy chỉnh giao diện của accordion-item */
+    .hope-accordion-item {
+        background-color: #f4f4f4; /* Màu nền của mỗi item */
+        border: 1px solid #ddd; /* Viền của mỗi item */
+        border-radius: 8px; /* Bo tròn góc cho mỗi item */
+        margin-bottom: 10px; /* Phần cách giữa các item */
+    }
+
+    /* Tùy chỉnh giao diện của accordion-button */
+    .hope-accordion-button {
+        background-color: #3498db; /* Màu nền của nút */
+        color: #fff; /* Màu chữ của nút */
+        border: 1px solid #3498db; /* Viền của nút */
+        border-radius: 8px; /* Bo tròn góc cho nút */
+        padding: 10px; /* Phần padding của nút */
+        text-align: left; /* Căn lề chữ sang trái */
+    }
+
+    /* Tùy chỉnh giao diện của accordion-body */
+    .hope-accordion-body {
+        padding: 15px; /* Phần padding bên trong accordion-body */
+    }
+</style>
+
+
+
+
             </div>
         </div>
-       
-        <div class="col-md-9" style="margin-top: -300px;">
-     
-              <!-- Nội dung bên phải -->
-              <div class="ps-checkout pt-80 pb-80">
-                  <div class="ps-container">
-                      <form class="ps-checkout__form" action="Update_Profile.php" method="post">
-                          <!-- Nội dung form -->
-                          <div class="row">
-                            
-                              <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
-                                  <!-- Nội dung form - bên trái -->
-                                  
-                                  
-                                  <div class="ps-checkout__billing">
-                                      <h3><i class=""></i> Hồ sơ của tôi</h3>
-                                      <h4>Quản lý thông tin hồ sơ để bảo mật tài khoản</h4>
-                                      <p><hr></p>
-                                      
-                                      <!-- Các trường nhập liệu và thông tin cá nhân -->
-                                      
-                                <div style= " display: none;"class="form-group form-group--inline">
-                                <label>ID<span>*</span></label>
-                                    <input readonly value="<?php echo $infoUser['id'] ?>" class="form-control" type="text" name="id">
-                                </div>
-                                      <div class="form-group form-group--inline">
-                                          <label><i class="fa-regular fa-user"></i>  Họ tên đầy đủ:<span> </label>
-                                          <input value="<?php echo $infoUser['fullname'] ?>" class="form-control" type="text" name="name">
-                                      </div>
-                                      <div class="form-group form-group--inline">
-                                      <label> <i class="fa-solid fa-mars-and-venus"></i>  Giới tính:</label>
-                                      <select class="form-control" name="gender">
-                                          <option value="1" <?php echo ($infoUser['gender'] == 1) ? 'selected' : ''; ?>>Nam</option>
-                                          <option value="0" <?php echo ($infoUser['gender'] == 0) ? 'selected' : ''; ?>>Nữ</option>
-                                      </select>
-                                  </div>
-
-                                  
-                                  <div class="form-group form-group--inline">
-                                      <label><i class="fa-regular fa-calendar-days"></i>  Ngày sinh: <span></span></label>
-                                      <input value="<?php echo $infoUser['dob'] ?>" class="form-control" type="date" name="date">
-                                  </div>
-                                  
-                                  <div class="form-group form-group--inline">
-                                      <label><i class="fa-solid fa-address-card"></i>  Địa chỉ Email: <span> </span></label>
-                                      <input value="<?php echo $infoUser['email'] ?>" class="form-control" type="email" name="email">
-                                  </div>
-                                  
-                                  <div class="form-group form-group--inline">
-                                      <label><i class="fa-solid fa-phone"></i>  Số điện thoại: <span></span></label>
-                                      <input value="<?php echo $infoUser['phone'] ?>" class="form-control" type="text" name="Phone">
-                                  </div>
-                                  
-                                  <div class="form-group form-group--inline">
-                                      <label><i class="fa-solid fa-map-location"></i>  Địa Chỉ: </label>
-                                      <input value="<?php echo $infoUser['address'] ?>" class="form-control" type="text" name="adr">
-                                  </div>
-                                  <script>
-                                    function showSuccessMessage() {
-                                        alert("Cập nhật thông tin thành công!");
-                                    }
-                                  </script>
-                                  <div style="text-align: right;" class="form-group form-group--inline">
-                                  <button onclick="showSuccessMessage()" type="submit" class="btn btn-primary">Cập nhật</button>
-                                  </div>
-                                      <!-- ... (Các trường nhập liệu khác) ... -->
-
-                                      
-                                  </div>
-                              </div>
-                          </div>
-                      </form>
-                  </div>
-              </div>
-          </div>
-      </div>
-
+    </div>
 </main>
 
 <!-- Thêm JavaScript Bootstrap -->
@@ -376,34 +439,6 @@
 
       <div class="ps-footer bg--cover" data-background="images/background/parallax.jpg" style="margin-top: 300px;">
       
-      <div class="ps-footer bg--cover" data-background="images/background/parallax.jpg"><div>
-          <!-- <h3 class="ps-section__title" data-mask="Payment"> - Các Đối Tác Thanh Toán Trực Tuyến </h3> -->
-                <style>
-                .payment-method{float:left;width:100%}
-                .payment-method ul{display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-align-items:center;-ms-flex-align:center;align-items:center;margin:0;padding:0;list-style:none;white-space:nowrap;overflow-x:auto}
-                .payment-method li{background:#f0f4f7;float:left;padding:10px;border-radius:3px}
-                .payment-method li:not(:last-child){margin-right:10px}
-                .payment-method img{width:116px;height:55px}
-                </style>
-                    <div class="payment-method">
-                        <marquee onmouseover="this.stop()" onmouseout="this.start()" scrollamount="4">
-                          <ul>
-                            <!-- <li><img alt='Agribank' height='55' loading='normal' src='https://www.phanmemninja.com/wp-content/uploads/2019/04/Agribank-logo.png' width='116'/></li> -->
-                            <li><img alt='MBbank' height='55' loading='normal' src='https://upload.wikimedia.org/wikipedia/commons/2/25/Logo_MB_new.png' width='116'/></li>
-                            <li><img alt='zalo pay' height='55' loading='normal' src='https://cdn.jsdelivr.net/gh/thietkeblogspot/images/zalo_pay.png' width='116'/></li>
-                            <li><img alt='visa' height='55' loading='normal' src='https://cdn.jsdelivr.net/gh/thietkeblogspot/images/visa.png' width='116'/></li>
-                            <li><img alt='master card' height='55' loading='normal' src='https://cdn.jsdelivr.net/gh/thietkeblogspot/images/master_card.png' width='116'/></li>
-                            <li><img alt='vietcombank' height='55' loading='normal' src='https://cdn.jsdelivr.net/gh/thietkeblogspot/images/vietcom_bank.png' width='116'/></li>
-                            <li><img alt='vietinbank' height='55' loading='normal' src='https://cdn.jsdelivr.net/gh/thietkeblogspot/images/vietin_bank.png' width='116'/></li>
-                            <li><img alt='bidvbank' height='55' loading='normal' src='https://cdn.jsdelivr.net/gh/thietkeblogspot/images/bidv_bank.png' width='116'/></li>
-                            <li><img alt='sacombank' height='55' loading='normal' src='https://cdn.jsdelivr.net/gh/thietkeblogspot/images/sacom_bank.png' width='116'/></li>
-                            <li><img alt='eximbank' height='55' loading='normal' src='https://cdn.jsdelivr.net/gh/thietkeblogspot/images/exim_bank.png' width='116'/></li>
-                            <li><img alt='scbbank' height='55' loading='normal' src='https://cdn.jsdelivr.net/gh/thietkeblogspot/images/scb_bank.png' width='116'/></li>
-                            <li><img alt='vietcapitalbank' loading='normal' src='https://cdn.jsdelivr.net/gh/thietkeblogspot/images/vietcapital_bank.png' width='116'/></li>
-                          </ul>
-                        </marquee>
-                    </div>
-          </div>
         <div class="ps-footer__content">
           <div class="ps-container">
             <div class="row">
@@ -488,6 +523,7 @@
                   <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 ">
                     <p>&copy; <a href="#">SKYTHEMES</a>, Inc. All rights Resevered. Design by <a href="#"> Alena Studio</a></p>
                   </div>
+                  
                   <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 ">
                     <ul class="ps-social">
                       <li><a href="#"><i class="fa fa-facebook"></i></a></li>
@@ -500,7 +536,7 @@
           </div>
         </div>
       </div>
-    </main>
+    
     <!-- JS Library-->
     <script type="text/javascript" src="plugins/jquery/dist/jquery.min.js"></script>
     <script type="text/javascript" src="plugins/bootstrap/dist/js/bootstrap.min.js"></script>
@@ -525,27 +561,5 @@
 <script type="text/javascript" src="plugins/revolution/js/extensions/revolution.extension.actions.min.js"></script>
     <!-- Custom scripts-->
     <script type="text/javascript" src="js/main.js"></script>
-    <script>
-        function updateProfilePicture() {
-            var formData = new FormData($("#updateForm")[0]);
-
-            $.ajax({
-                url: "update_picture.php",
-                type: "POST",
-                data: formData,
-                processData: false,
-                contentType: false,
-                success: function(response) {
-                    // Update the profile image on success
-                    $("#profileImage").attr("src", response);
-                    alert("Profile picture updated successfully");
-                },
-                error: function(xhr, status, error) {
-                    alert("Error updating profile picture: " + xhr.responseText);
-                }
-            });
-        }
-    </script>
   </body>
-  
 </html>
