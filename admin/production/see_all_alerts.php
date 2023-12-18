@@ -14,52 +14,23 @@
 <body>
     <div class="container mt-5">
         <div class="row">
-            
             <div class="col-md-12 text-center mb-4">
-                <style>
-                    body {
-                        font-family: Arial, sans-serif;
-                        margin: 0;
-                        padding: 0;
-                        background-color: #f4f4f4;
-                    }
-
-                    .container {
-                        text-align: left;
-                        padding: 10px;
-                    }
-
-                    .back-button {
-                        display: inline-block;
-                        padding: 10px 20px;
-                        font-size: 16px;
-                        text-decoration: none;
-                        background-color: #3498db;
-                        color: #fff;
-                        border-radius: 4px;
-                        transition: background-color 0.3s;
-                    }
-
-                    .back-button:hover {
-                        background-color: #2980b9;
-                    }
-                </style>
-                <span><div class="container"><a href="../../admin/production/shoe.php" class="back-button">Trở Lại</a></div></span>
                 <!-- Thanh banner bên trái -->
                 <div class="bg-info p-3">
+                    
                     <h3 class="text-white">
                     <i class="fa-regular fa-bell fa-shake fa-2xl"></i>  <br><br>
-                        Thông báo Tư Vấn từ Khách hàng</h3>
+                        Thông báo</h3>
                 </div>
             </div>
 
             <div class="col-md-12" id="mainContent">
                 <!-- Nội dung chính -->
                 <?php
-                // Hiển thị nội dung mới nhất lớn đầu (Option 2)
+                // Hiển thị nội dung mặc định (Option 1)
                 include("../../connect.php");
 
-                $sql = "SELECT * FROM contacts ORDER BY created_at DESC"; // Sắp xếp theo thời gian tạo giảm dần
+                $sql = "SELECT * FROM contacts"; // Thay your_alerts_table bằng tên thực của bảng thông báo
 
                 $result = $conn->query($sql);
 
@@ -71,7 +42,7 @@
                         echo '<li class="list-group-item d-flex justify-content-between align-items-center">';
                         
                         echo '<div>';
-                        echo '<a target="_blank" href="view_alert.php?id=' . $row['id'] . '"  style="color: gray;">';
+                        echo '<a href="your_php_page.php?id=' . $row['id'] . '" style="color: gray;">';
                         echo '<strong>' . $row['NAME'] .' ('. $row['email'] .')' .' đã gửi lời nhắn :' .'</strong> '. $row['message'];
                         echo '</div>';
                         echo '<span class="badge badge-info">' . $row['created_at'] . '</span>';

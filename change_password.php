@@ -265,7 +265,7 @@
                         <ul class="nav child_menu">
                             <li><a href="profile_1.php">Hồ Sơ</a></li>
                             <li><a href="card_payment.php">Phương Thức Thanh Toán</a></li>
-                            <!-- <li><a href="index3.html">Địa Chỉ Nhận Hàng</a></li> -->
+                            <li><a href="voucher.php">Kho Voucher</a></li>
                             <li style="margin-left: 15px !important; background-color: #3498db !important;color: #fff !important;"><a href="change_password.php">Đổi Mật Khẩu</a></li>
                         </ul>
                     </li>

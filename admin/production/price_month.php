@@ -79,8 +79,9 @@
                 
                   <li><a><i class="fa fa-money"></i> Doanh Thu<span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                    <li><a href="banchay.php">Biểu đồ bán chạy</a></li>                    
-                      <li><a href="#">Theo Tuần</a></li>
+                    <li><a href="banchay.php">Biểu đồ bán chạy</a></li>   
+                    <li><a href="Khovoucher.php">Thêm Voucher</a></li>                 
+                      
                     </ul>
                   </li>
 

@@ -124,22 +124,22 @@
                     <div class="ps-checkout__billing">
                       <h3>Chi Tiết Thanh Toán</h3>
                             <div class="form-group form-group--inline">
-                              <label><strong>Họ Tên</strong><span></span>
+                              <label><strong>Họ Tên</strong><span>*</span>
                               </label>
                               <input readonly value="<?php echo $infoUser['fullname'] ?>" class="form-control" type="text">
                             </div>
                             <div class="form-group form-group--inline">
-                              <label><strong>Email</strong><span></span>
+                              <label><strong>Email</strong><span>*</span>
                               </label>
                               <input readonly value="<?php echo $infoUser['email'] ?>" class="form-control" type="email">
                             </div>
                             <div class="form-group form-group--inline">
-                              <label><strong>Số Điện Thoại</strong><span></span>
+                              <label><strong>Số Điện Thoại</strong><span>*</span>
                               </label>
                               <input readonly value="<?php echo $infoUser['phone'] ?>" class="form-control" type="text">
                             </div>
                             <div class="form-group form-group--inline" id="addressContainer">         
-                  <label><strong>Địa chỉ nhận hàng</strong><span><code>*</code></span></label>
+                  <label><strong>Địa chỉ</strong><span>*</span></label>
                   <input id="addressInput" readonly value="<?php echo $infoUser['address'] ?>" class="form-control" type="text">
            
               </div>
@@ -227,7 +227,7 @@
     </style>
                        <img style="background-color: white;" id="top-right-image" src='images/logo.png' alt="Top Right Image">
                         <h3>Hóa Đơn Của Bạn </h3>
-                        <span style="color: #23d32bd1;" class="date">(Thời Gian Tạo: <?php echo $currentDate; ?>)</span>
+                        <span style="color:white" class="date">(Thời Gian Tạo: <?php echo $currentDate; ?>)</span>
                       </header>
                       <style>
                       .table {
@@ -272,31 +272,55 @@
                                 $sumPrice += $totalPrice;
                                 ?>
                                 <tr>
-                                    <td><?php echo $shoe['shoe_name'] ?> (sz: <span style="color: #e3d70f;"> <?php echo $cart['shoe_size'] ?></span>) </td>
+                                    <td><?php echo $shoe['shoe_name'] ?> (sz: <span><?php echo $cart['shoe_size'] ?></span>) </td>
                                     <td style="color:; text-align: center !important; "><span > <?php echo $orderQuantity ?> </span> </td>
                                     <td><?php echo $totalPrice ?> <span style="font-size: 10px;">VND</span> </td>
                                 </tr>
                                 <tr>
                                     <!-- <td><?php echo $totalPrice ?> VND</td> -->
                                 </tr>
+                                
                             <?php
                             }
+                            
+                            
                             ?>
                           </tbody>
                         </table>
                   <hr width="100%" text-align="center">
-                  <h4 style="color: aliceblue; padding-left: 2%;">Thành tiền: <span style="color: aqua; float: right; padding-right: 1%;"><?php echo $sumPrice ?> <span style="font-size: 12px;">VND</span> </span></h4>
+                  <h4 style="color: aliceblue; padding-left: 2%;">Giá Gốc <span style="color: aqua; float: right; padding-right: 1%;"><?php echo $sumPrice ?> <span style="font-size: 12px;">VND</span> </span></h4>
+                  <h4 style="color: aliceblue; padding-left: 2%;">Voucher: <span style="color: aqua; float: right; padding-right: 1%;">-<?php echo $infoUser['sale'] ?> % </span> </span></h4>
 
-
+                  <?php $sumPrice=$sumPrice-$sumPrice*($infoUser['sale']/100); ?>
+                  <!-- <h4 style="color: aliceblue; padding-left: 2%;">Thành tiền: <span style="color: aqua; float: right; padding-right: 1%;"><?php echo $sumPrice ?> <span style="font-size: 12px;">VND (-<?php echo $infoUser['sale'] ?> % )</span> </span></h4> -->
+ <h4 style="color: aliceblue; padding-left: 2%;">Thành tiền: <span style="color: aqua; float: right; padding-right: 1%;"><?php echo $sumPrice ?> <span style="font-size: 12px;">VND</span> </span></h4>
                       </div>
-                     
                       <footer>
+                      <h3 style="font-size: 14px; margin-bottom: 10px;">
+    <a href="voucher.php" style="background-color: #FFEB3B; padding: 12px; color: #2196F3; text-decoration: none; border-radius: 8px; display: inline-block; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); transition: transform 0.3s ease-in-out; font-weight: bold;">
+        Chọn Voucher
+    </a>
+    <br>
+    <?php
+    if ($infoUser['sale'] > 0) {
+        $uploadDir = 'admin/production/voucher/';
+        $imagePath = $uploadDir . $infoUser['image_voucher'];
+        echo "Hiện Tại: Voucher Giảm " . $infoUser['sale'] . "%";
+        if (!empty($infoUser['image_voucher'])) {
+            echo '<br><img src="' . $imagePath . '" alt="Voucher Image" style="width: 300px; height: auto;">';
+        } else {
+            echo '<br>Chưa có ảnh voucher';
+        }
+    }
+    ?>
+</h3>                           
                         <h3>Phương thức thanh toán</h3>  
+
                         <div class="form-group cheque">
                           <div class="ps-radio">
                             <input class="form-control" type="radio" id="rdo01" name="payment" checked>
                             <label for="rdo01">Thanh toán khi nhận hàng</label>
-                            <p style="color:red">Vui lòng kiểm tra kỹ thông tin nhận hàng</p>
+                            <p>Vui lòng gửi thông tin của bạn về nơi nhận hàng</p>
                           </div>
                         </div>
                         <div class="form-group paypal">
@@ -423,10 +447,13 @@
                                 });
                             </script>
                             </span>                       
-                          
+                         
                             <button name="submit_payment" class="ps-btn ps-btn--fullwidth">Đặt Hàng<i class="ps-icon-next"></i></button>
                           <?php
+                          $userId=$infoUser['id'];
                             if(isset($_POST['submit_payment'])){
+                              // $updateQuery = "UPDATE user SET sale = NULL, image_voucher = NULL WHERE id = '$userId'";
+                              // mysqli_query($conn, $updateQuery);
                               foreach($cartList as $cart){
                                 $shoe = $shoeRepository->getById($cart['shoe_id'])->fetch_assoc();
                                 // $orderRepository->insert($cart['id']);
@@ -451,7 +478,7 @@
                     </div>
                     <div class="ps-shipping">
                       <h3>FREE SHIPPING</h3>
-                      <p>ĐƠN HÀNG CỦA BẠN ĐƯỢC MIỄN PHÍ VẬN CHUYỂN.<br> <a href="#"> FREESHIP</a> for free shipping on every order, every time.</p>
+                      <p>YOUR ORDER QUALIFIES FOR FREE SHIPPING.<br> <a href="#"> Singup </a> for free shipping on every order, every time.</p>
                     </div>
                   </div>
             </div>

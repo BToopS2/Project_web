@@ -253,7 +253,7 @@ $orderList = $orderRepository->getAll2($id);
                         <ul class="nav child_menu">
                             <li><a href="profile_1.php">Hồ Sơ</a></li>
                             <li><a href="card_payment.php">Phương Thức Thanh Toán</a></li>
-                            <!-- <li><a href="index3.html">Địa Chỉ Nhận Hàng</a></li> -->
+                            <li><a href="voucher.php">Kho Voucher</a></li>
                             <li><a href="change_password.php">Đổi Mật Khẩu</a></li>
                         </ul>
                     </li>
@@ -318,11 +318,11 @@ $orderList = $orderRepository->getAll2($id);
                             <th class="text-center" style="min-width:100px">STT</th>
                                 <th class="text-center" style="min-width:100px">Tên Khách Hàng</th>
                                 <th class="text-center" style="min-width:100px">Địa Chỉ</th>
-                                <th class="text-center" style="min-width:100px">Tên Sản Phẩm</th>
-                                <th class="text-center" style="min-width:100px">Tổng Tiền</th>
+                                <th class="text-center" style="min-width:100px">Tên Sản Phẩm</th>    
                                 <th class="text-center" style="min-width:100px">Kích Cỡ</th>
                                 <th class="text-center" style="min-width:100px">Số Lượng</th>
                                 <th class="text-center" style="min-width:100px">Màu</th>
+                                <th class="text-center" style="min-width:100px">Tổng Tiền</th>
                                 <th class="text-center" style="min-width:100px">Ngày Đặt Hàng</th>
                                 <th class="text-center" style="min-width:100px">Trạng Thái</th>
                    
@@ -339,13 +339,14 @@ $orderList = $orderRepository->getAll2($id);
                                     <td class="text-center"><?php echo $order['fullname'] ?></td>
                                     <td class="text-center"><?php echo $order['address'] ?></td>
                                     <td class="text-center"><?php echo $order['name'] ?></td>
-                                    <td> <?php
-                                        $subtotal = ($order['price'] - $order['price'] * $order['sale'] * 0.01) * $order['quantity'];
-                                        echo $subtotal . " VND (" . ($order['price'] - $order['price'] * $order['sale'] * 0.01) . "x" . $order['quantity'] . ")";
-                                        ?></td>
                                     <td class="text-center"><?php echo $order['shoe_size'] ?></td>
                                     <td class="text-center"><?php echo $order['quantity'] ?></td>
                                     <td class="text-center"><?php echo $order['shoe_color'] ?></td>
+                                    <td> <?php
+                                        $subtotal = ($order['price'] - $order['price'] * $order['sale'] * 0.01) * $order['quantity'];
+                                        $subtotal=$subtotal-$subtotal*$infoUser['sale']/100;
+                                        echo $subtotal . " VND (" . ($order['price'] - $order['price'] * $order['sale'] * 0.01) . "x" . $order['quantity'] . ")";
+                                        ?></td>
                                     <td class="text-center"><?php echo $order['date'] ?></td>
                                     <td class="text-center">
                                         <?php if ($order['status'] == 4) { ?>
