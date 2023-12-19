@@ -2,9 +2,8 @@
 session_start();
 require_once("../../backend/auth.php");
 require_once("../../utils/checkEmpty.php");
-require("D:/xampp/htdocs/Project_web/PHPMailer/src/PHPMailer.php");
-require("D:/xampp/htdocs/Project_web/PHPMailer/src/SMTP.php");
-
+require("../../PHPMailer/src/PHPMailer.php");
+require("../../PHPMailer/src/SMTP.php");
 // Bao gồm các lớp PHPMailer
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
@@ -96,12 +95,40 @@ if (isset($_POST['submit'])) {
                                     <input minlength="5" maxlength="20" class="input--style-4" type="text" name="username">
                                 </div>
                             </div>
-                            <div class="col-2">
-                                <div class="input-group">
-                                    <label class="label">Password</label>
-                                    <input  minlength="8" maxlength="50" class="input--style-4" type="password" name="password">
-                                </div>
-                            </div>
+   
+
+<div class="col-2">
+    <div class="input-group">
+        <label class="label">Mật khẩu</label>
+        <input minlength="8" maxlength="50" class="input--style-4" type="password" name="password" oninput="validatePassword()">
+    </div>
+</div>
+
+<script>
+    function validatePassword() {
+        var passwordInput = document.getElementsByName("password")[0];
+        var password = passwordInput.value;
+
+        // Biểu thức chính quy để kiểm tra ít nhất một chữ cái viết hoa, một ký tự đặc biệt và một chữ số
+        var uppercaseRegex = /[A-Z]/;
+        var specialCharRegex = /[!@#$%^&*()_+{}\[\]:;<>,.?~\\/-]/;
+        var digitRegex = /\d/;
+
+        // Kiểm tra xem mật khẩu đáp ứng yêu cầu hay không
+        var isUppercasePresent = uppercaseRegex.test(password);
+        var isSpecialCharPresent = specialCharRegex.test(password);
+        var isDigitPresent = digitRegex.test(password);
+
+        // Hiển thị thông báo lỗi nếu yêu cầu không được đáp ứng
+        if (!isUppercasePresent || !isSpecialCharPresent || !isDigitPresent) {
+            passwordInput.setCustomValidity("Mật khẩu phải chứa ít nhất một chữ cái viết hoa, một ký tự đặc biệt và một chữ số.");
+        } else {
+            passwordInput.setCustomValidity(""); // Xóa thông báo lỗi tùy chỉnh
+        }
+    }
+</script>
+
+
                         </div>
                         <div class="row row-space">
                             <div class="col-2">
