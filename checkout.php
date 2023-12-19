@@ -297,17 +297,17 @@
                       </div>
                       <footer>
                       <h3 style="font-size: 9px; margin-bottom: 10px;">
+    <!-- Your HTML content -->
+<?php if ($infoUser['image_voucher'] == NULL): ?>
     <a href="voucher.php" style="background-color: #FFEB3B; padding: 12px; color: #2196F3; text-decoration: none; border-radius: 8px; display: inline-block; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); transition: transform 0.3s ease-in-out; font-weight: bold;">
         Chọn Voucher
     </a>
-   <!-- Include jQuery library (you can download it from https://jquery.com/download/) -->
-<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<?php else: ?>
+    <a href="#" id="removeVoucherBtn" style="background-color: white; padding: 12px; color: #2196F3; text-decoration: none; border-radius: 8px; display: inline-block; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); transition: transform 0.3s ease-in-out; font-weight: bold;">
+        Bỏ Voucher
+    </a>
+<?php endif; ?>
 
-<!-- Your HTML content -->
-
-<a href="#" id="removeVoucherBtn" style="background-color: white; padding: 12px; color: #2196F3; text-decoration: none; border-radius: 8px; display: inline-block; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); transition: transform 0.3s ease-in-out; font-weight: bold;">
-    Bỏ Voucher
-</a>
 <script>
 // JavaScript function to handle removing voucher
 $(document).ready(function() {
@@ -335,6 +335,7 @@ $(document).ready(function() {
     });
 });
 </script>
+
 
 <script>
 // JavaScript function to handle removing voucher
