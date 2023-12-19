@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <title>See All Alerts</title>
     <!-- Sử dụng Bootstrap CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
@@ -13,6 +14,18 @@
 
 <body>
     <div class="container mt-5">
+     <style>.btn-gmail {
+            background-color: #4fba69;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+    </style>
+     <a href="http://husstore.com.vn/admin/production/shoe.php" class="btn-gmail" >Trở về</a>
+     <p></p>
         <div class="row">
             <div class="col-md-12 text-center mb-4">
                 <!-- Thanh banner bên trái -->
@@ -42,7 +55,7 @@
                         echo '<li class="list-group-item d-flex justify-content-between align-items-center">';
                         
                         echo '<div>';
-                        echo '<a href="your_php_page.php?id=' . $row['id'] . '" style="color: gray;">';
+                        echo '<a target="_blank"  href="view_alert.php?id=' . $row['id'] . '" style="color: gray;">';
                         echo '<strong>' . $row['NAME'] .' ('. $row['email'] .')' .' đã gửi lời nhắn :' .'</strong> '. $row['message'];
                         echo '</div>';
                         echo '<span class="badge badge-info">' . $row['created_at'] . '</span>';

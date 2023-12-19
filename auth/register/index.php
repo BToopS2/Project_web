@@ -2,8 +2,8 @@
 session_start();
 require_once("../../backend/auth.php");
 require_once("../../utils/checkEmpty.php");
-require("../../PHPMailer/src/PHPMailer.php");
-require("../../PHPMailer/src/SMTP.php");
+require("D:/xampp/htdocs/Project_web/PHPMailer/src/PHPMailer.php");
+require("D:/xampp/htdocs/Project_web/PHPMailer/src/SMTP.php");
 // Bao gồm các lớp PHPMailer
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;

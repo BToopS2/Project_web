@@ -182,7 +182,7 @@ h6 {
   background: -webkit-linear-gradient(bottom left, #fc2c77 0%, #6c4079 100%);
   background: -moz-linear-gradient(bottom left, #fc2c77 0%, #6c4079 100%);
   background: -o-linear-gradient(bottom left, #fc2c77 0%, #6c4079 100%);
-  background: linear-gradient(to top right, #fc2c77 0%, #6c4079 100%);
+  background: linear-gradient(135deg, #20d051c7 50%, #55f377b0 60%) !important;
 }
 
 /* ==========================================================================

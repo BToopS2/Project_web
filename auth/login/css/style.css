@@ -8201,7 +8201,7 @@ h1, h2, h3, h4, h5,
   background: -ms-linear-gradient(-45deg, #f75959 0%, #f35587 100%);
   background: -webkit-linear-gradient(315deg, #f75959 0%, #f35587 100%);
   background: -o-linear-gradient(315deg, #f75959 0%, #f35587 100%);
-  background: linear-gradient(135deg, #f75959 0%, #f35587 100%);
+  background: linear-gradient(135deg, #20d051c7 50%, #55f377b0 60%) !important;
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f75959', endColorstr='#f35587', GradientType=1 );
   color: #fff; }
   .text-wrap .text h2 {
@@ -8223,7 +8223,7 @@ h1, h2, h3, h4, h5,
     color: #000;
     font-weight: 700; }
   .form-group a {
-    color: gray; }
+    color: #28a745; }
 
 .form-control {
   height: 48px;
@@ -8364,7 +8364,7 @@ h1, h2, h3, h4, h5,
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f75959', endColorstr='#f35587', GradientType=1 ); }
     .btn.btn-primary:hover {
       border: 1px solid #f35588;
-      background: #f35588;
+      background: #16df58;
       color: #fff; }
     .btn.btn-primary.btn-outline-primary {
       border: 1px solid #f35588;
@@ -8385,7 +8385,7 @@ h1, h2, h3, h4, h5,
     .btn.btn-white.btn-outline-white {
       border: 1px solid #fff;
       background: transparent;
-      color: #fff; }
+      color: #f75959; }
       .btn.btn-white.btn-outline-white:hover {
         border: 1px solid transparent;
         background: #fff;

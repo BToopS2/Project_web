@@ -190,7 +190,7 @@
             url: 'update_address.php',
             data: { id: userId, address: updatedAddress }, // Include user ID in the data
             success: function(response) {
-                alert('Address saved: ' + updatedAddress);
+                alert('Địa chỉ nhận hàng đã được thay đổi thành:  ' + updatedAddress);
                 // If you need to perform additional actions upon successful save, do them here.
             },
             error: function(error) {

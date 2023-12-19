@@ -235,6 +235,7 @@ if ($order['status'] == 2) {
 } elseif ($order['status'] == 3) {
 ?>
     <a class="btn btn-success" href="#" role="button">Đã Duyệt</a>
+    
 <?php
 } else {
     ?>
@@ -245,7 +246,11 @@ if ($order['status'] == 2) {
 
 </td>
 <td>
-
+<?php 
+if ($order['status'] == 3) {
+?>
+<a style="background-color:#28a745" class="btn btn-success" href="../production/invoice.html" role="button">Xuất Hóa Đơn</a>
+<?php } ?>
 <?php
 if ($order['status'] == 2) {
 ?>

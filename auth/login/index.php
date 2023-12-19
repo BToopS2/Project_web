@@ -33,7 +33,7 @@
 								<h2>Welcome to login</h2>
 								<p>Don't have an account?</p>
 								<a href="../register/index.php" class="btn btn-white btn-outline-white">Sign Up</a><p>
-								<p><a href="quen.php" style="color: azure;">Forgot your password? <span style="color: beige;">Reset it</span></a></p>
+								<p><a href="quen.php" style="color: azure;">Forgot your password? <span style="color: #f75959;">Reset it</span></a></p>
 							</div>
 			      </div>
 						<div class="login-wrap p-4 p-lg-5">
