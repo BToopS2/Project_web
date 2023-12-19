@@ -356,7 +356,7 @@ $orderList = $orderRepository->getAll2($id);
                                         echo $subtotal . " VND (" . ($order['price'] - $order['price'] * $order['sale'] * 0.01) . "x" . $order['quantity'] . ")";
                                         ?>
                                     </td>
-                                    <td style="color: red; font-weight:bold;;"><?php echo $subtotal=$subtotal-$subtotal*$order['sale_cart']/100;?>(-<?php echo $order['sale_cart'] ?>%)</td>
+                                    <td style="color: red; font-weight:bold;;">Còn <?php echo $subtotal=$subtotal-$subtotal*$order['sale_cart']/100;?>VND (-<?php echo $order['sale_cart'] ?>%)</td>
                                     <td class="text-center"><?php echo $order['date'] ?></td>
                                     <td class="text-center">
                                         <?php if ($order['status'] == 3) { ?>
