@@ -8,6 +8,9 @@
     include("../../connect.php");
     $sql = "SELECT * FROM contacts LIMIT 5"; 
     $result = $conn->query($sql);
+    $infoUser = Auth::loginWithCookie();
+    require_once("../../backend/authWithCookie.php");
+    require_once("../../backend/auth.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -198,8 +201,8 @@
               <th class="text-center" style="min-width:50px">STT</th>
               <th class="text-center" style="min-width:150px">Tên Khách Hàng</th>
               <th class="text-center" style="min-width:150px">Địa Chỉ</th>
-              <th class="text-center" style="min-width:150px">Tên Giày</th>
-              <th class="text-center" style="min-width:50px">Giá Giày</th>
+              <th class="text-center" style="min-width:150px">Tên Sản Phẩm</th>
+              <th class="text-center" style="min-width:50px">Giá </th>
               <th class="text-center" style="min-width:100px">Kích Cỡ</th>
               <th class="text-center" style="min-width:100px">Số Lượng</th>
               <th class="text-center" style="min-width:100px">Màu</th>
@@ -216,34 +219,40 @@
                 <td><?php echo $order['fullname']?></td>
                 <td><?php echo $order['address']?></td>
                 <td><?php echo $order['name']?></td>
-                <td><?php echo ($order['price'] - $order['price']*$order['sale']*0.01)." VND" ?></td>
+                <td><?php echo ($order['price'] - $order['price']*$order['sale']*0.01) ." VND"?></td>
+                <!-- <td><?php echo ($order['price'] - $order['price']*$order['sale']*0.01)-($order['price'] - $order['price']*$order['sale']*0.01)*$infoUser['sale']*0.01." VND" ?></td> -->
                 <td><?php echo $order['shoe_size']?></td>          
                 <td><?php echo $order['quantity']?></td>
                 <td><?php echo $order['shoe_color']?></td>
                 <td><?php echo $order['date']?></td>
                 <td><?php
-                    if($order['status'] == 2){
-                 ?>
-                 <a class="btn btn-warning" href="acceptOrder.php?id=<?php echo $order['cart_id']?>" role="button">Duyệt Đơn</a>
-                 <?php 
-                    }
-                ?>
-                <?php
-                    if($order['status'] == 3){
-                 ?>
-                 <a class="btn btn-success" href="#" role="button">Đã Duyệt</a>
-                 <?php 
-                    }
-                ?>
-                 </td>
-                <td>
-                <?php
-                    if($order['status'] == 2){
-                 ?>
-                  <a class="btn btn-danger" href="deleteOrder.php?id=<?php echo $order['order_id']?>" role="button" onclick="return confirm('Bạn có muốn hủy đơn không?');">Hủy Đơn</a></td>
-                 <?php 
-                    }
-                ?>
+if ($order['status'] == 2) {
+?>
+    <a class="btn btn-warning" href="acceptOrder.php?id=<?php echo $order['cart_id'] ?>" role="button">Duyệt Đơn</a>
+<?php
+} elseif ($order['status'] == 3) {
+?>
+    <a class="btn btn-success" href="#" role="button">Đã Duyệt</a>
+<?php
+} else {
+    ?>
+    <a class="btn btn-info" href="#" role="button">Đang Chờ...</a>
+   
+<?php
+}
+?>
+
+</td>
+<td>
+
+<?php
+if ($order['status'] == 2) {
+?>
+    <a class="btn btn-danger" href="deleteOrder.php?id=<?php echo $order['order_id'] ?>" role="button" onclick="return confirm('Bạn có muốn hủy đơn không?');">Hủy Đơn</a>
+<?php
+}
+?>
+
                    
             </tr>
             <?php

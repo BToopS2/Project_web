@@ -198,7 +198,7 @@
             <p style="font-size: 30px; text-align: center;">Sản Phẩm Bán Chạy</p>
           <table id="tableShoe">
             <tr>  
-         <!-- <th class="text-center" style="min-width:150px">Tên Giày</th>
+         <!-- <th class="text-center" style="min-width:150px">Tên Sản Phẩm</th>
               <th class="text-center" style="min-width:100px">Số Lượng</th> -->
             </tr>
             <?php

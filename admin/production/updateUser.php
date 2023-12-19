@@ -195,7 +195,7 @@
         <form method="POST" action="">
         <div class="form-group">
           <label for="exampleInputEmail1">Họ Tên</label>
-          <input required value="<?php echo $userInfo['fullname']?>" minlength="5" maxlength="50" name="fullname" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nhập tên giày">
+          <input required value="<?php echo $userInfo['fullname']?>" minlength="5" maxlength="50" name="fullname" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nhập Tên Sản Phẩm">
         </div>
         <div class="form-group">
           <label for="exampleInputPassword1">Email</label>

@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $_SESSION['confirmation_code'] = $confirmationCode;
 
         // Gửi email với liên kết xác nhận
-        $resetLink = "http://localhost/Project_Web/auth/login/reset.php?email=" . urlencode($email) . "&code=" . urlencode($confirmationCode);
+        $resetLink = "http://husstore.com.vn/auth/login/reset.php?email=" . urlencode($email) . "&code=" . urlencode($confirmationCode);
         $subject = "Xác nhận đặt lại mật khẩu";
         $message = "Nhấp vào liên kết sau để xác nhận và đặt lại mật khẩu của bạn: $resetLink";
 

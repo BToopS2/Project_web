@@ -201,8 +201,8 @@
                 $listShoe = $shoeRepository->getById($_GET['id']);
                 foreach($listShoe as $shoe){
             ?>
-          <label for="exampleInputEmail1">Tên Giày</label>
-          <input required value="<?php echo $shoe['shoe_name']?>" minlength="5" maxlength="50" name="name" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nhập tên giày">
+          <label for="exampleInputEmail1">Tên Sản Phẩm</label>
+          <input required value="<?php echo $shoe['shoe_name']?>" minlength="5" maxlength="50" name="name" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nhập Tên Sản Phẩm">
         </div>
         <div class="form-group">
           <label for="exampleInputPassword1">Giá Tiền (VND)</label>
