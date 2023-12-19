@@ -200,6 +200,7 @@
               <th class="text-center" style="min-width:150px">Địa Chỉ</th>
               <th class="text-center" style="min-width:150px">Tên Giày</th>
               <th class="text-center" style="min-width:50px">Giá Giày</th>
+              <th class="text-center" style="min-width:50px">Voucher</th>
               <th class="text-center" style="min-width:100px">Kích Cỡ</th>
               <th class="text-center" style="min-width:100px">Số Lượng</th>
               <th class="text-center" style="min-width:100px">Màu</th>
@@ -217,33 +218,39 @@
                 <td><?php echo $order['address']?></td>
                 <td><?php echo $order['name']?></td>
                 <td><?php echo ($order['price'] - $order['price']*$order['sale']*0.01)." VND" ?></td>
+                <?php $subtotal = ($order['price'] - $order['price'] * $order['sale'] * 0.01) * $order['quantity']?>
+                <td style="color: red; font-weight:bold;;"><?php echo $subtotal=$subtotal-$subtotal*$order['sale_cart']/100;?>(-<?php echo $order['sale_cart'] ?>%)</td>
                 <td><?php echo $order['shoe_size']?></td>          
                 <td><?php echo $order['quantity']?></td>
                 <td><?php echo $order['shoe_color']?></td>
                 <td><?php echo $order['date']?></td>
                 <td><?php
-                    if($order['status'] == 2){
-                 ?>
-                 <a class="btn btn-warning" href="acceptOrder.php?id=<?php echo $order['cart_id']?>" role="button">Duyệt Đơn</a>
-                 <?php 
-                    }
-                ?>
-                <?php
-                    if($order['status'] == 3){
-                 ?>
-                 <a class="btn btn-success" href="#" role="button">Đã Duyệt</a>
-                 <?php 
-                    }
-                ?>
-                 </td>
-                <td>
-                <?php
-                    if($order['status'] == 2){
-                 ?>
-                  <a class="btn btn-danger" href="deleteOrder.php?id=<?php echo $order['order_id']?>" role="button" onclick="return confirm('Bạn có muốn hủy đơn không?');">Hủy Đơn</a></td>
-                 <?php 
-                    }
-                ?>
+if ($order['status'] == 2) {
+?>
+    <a class="btn btn-warning" href="acceptOrder.php?id=<?php echo $order['cart_id'] ?>" role="button">Duyệt Đơn</a>
+<?php
+} elseif ($order['status'] == 3) {
+?>
+    <a class="btn btn-success" href="#" role="button">Đã Duyệt</a>
+<?php
+} else {
+    ?>
+    <a class="btn btn-info" href="#" role="button">Đang Chờ</a>
+<?php
+}
+?>
+
+</td>
+<td>
+
+<?php
+if ($order['status'] == 2) {
+?>
+    <a class="btn btn-danger" href="deleteOrder.php?id=<?php echo $order['order_id'] ?>" role="button" onclick="return confirm('Bạn có muốn hủy đơn không?');">Hủy Đơn</a>
+<?php
+}
+?>
+
                    
             </tr>
             <?php
