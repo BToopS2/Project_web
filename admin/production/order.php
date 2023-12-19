@@ -55,7 +55,7 @@
 
             <!-- menu profile quick info -->
             <div class="profile clearfix">
-              <div class="profile_info" style="text-align: center;">
+              <div class="profile_info">
                 <span>Welcome,</span>
                 <h2> <?php require_once("../../backend/filterWithCookieAdmin.php") ?></h2>
               </div>
@@ -77,17 +77,19 @@
                     </ul>
                   </li>
                 
-                  <li><a><i class="fa fa-money"></i> Sản phẩm bán chạy<span class="fa fa-chevron-down"></span></a>
+                  <li><a><i class="fa fa-money"></i> Sản Phẩm Bán Chạy<span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="banchay.php">Biểu đồ bán chayj</a></li>
+                      <li><a href="banchay.php">Biểu Đồ Bán Chạy</a></li>
+                      <li><a href="Khovoucher.php">Thêm Voucher</a></li>
                       
                     </ul>
                   </li>
 
                   <li><a><i class="fa fa-line-chart"></i> Biểu Đồ Doanh Thu <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="#">Lượt truy cập</a></li>
+                      <li><a href="truycap.php">Lượt truy cập</a></li>
                       <li><a href="price.php">Doanh Thu</a></li>
+                      <li><a href="price_month.php">Doanh Thu Theo Tháng</a></li>
                  
                     </ul>
                   </li>
@@ -196,8 +198,9 @@
               <th class="text-center" style="min-width:50px">STT</th>
               <th class="text-center" style="min-width:150px">Tên Khách Hàng</th>
               <th class="text-center" style="min-width:150px">Địa Chỉ</th>
-              <th class="text-center" style="min-width:150px">Tên Sản Phẩm</th>
+              <th class="text-center" style="min-width:150px">Tên Giày</th>
               <th class="text-center" style="min-width:50px">Giá Giày</th>
+              <th class="text-center" style="min-width:50px">Voucher</th>
               <th class="text-center" style="min-width:100px">Kích Cỡ</th>
               <th class="text-center" style="min-width:100px">Số Lượng</th>
               <th class="text-center" style="min-width:100px">Màu</th>
@@ -215,33 +218,39 @@
                 <td><?php echo $order['address']?></td>
                 <td><?php echo $order['name']?></td>
                 <td><?php echo ($order['price'] - $order['price']*$order['sale']*0.01)." VND" ?></td>
+                <?php $subtotal = ($order['price'] - $order['price'] * $order['sale'] * 0.01) * $order['quantity']?>
+                <td style="color: red; font-weight:bold;;"><?php echo $subtotal=$subtotal-$subtotal*$order['sale_cart']/100;?>(-<?php echo $order['sale_cart'] ?>%)</td>
                 <td><?php echo $order['shoe_size']?></td>          
                 <td><?php echo $order['quantity']?></td>
                 <td><?php echo $order['shoe_color']?></td>
                 <td><?php echo $order['date']?></td>
                 <td><?php
-                    if($order['status'] == 2){
-                 ?>
-                 <a class="btn btn-warning" href="acceptOrder.php?id=<?php echo $order['cart_id']?>" role="button">Duyệt Đơn</a>
-                 <?php 
-                    }
-                ?>
-                <?php
-                    if($order['status'] == 3){
-                 ?>
-                 <a class="btn btn-success" href="#" role="button">Đã Duyệt</a>
-                 <?php 
-                    }
-                ?>
-                 </td>
-                <td>
-                <?php
-                    if($order['status'] == 2){
-                 ?>
-                  <a class="btn btn-danger" href="deleteOrder.php?id=<?php echo $order['order_id']?>" role="button" onclick="return confirm('Bạn có muốn hủy đơn không?');">Hủy Đơn</a></td>
-                 <?php 
-                    }
-                ?>
+if ($order['status'] == 2) {
+?>
+    <a class="btn btn-warning" href="acceptOrder.php?id=<?php echo $order['cart_id'] ?>" role="button">Duyệt Đơn</a>
+<?php
+} elseif ($order['status'] == 3) {
+?>
+    <a class="btn btn-success" href="#" role="button">Đã Duyệt</a>
+<?php
+} else {
+    ?>
+    <a class="btn btn-info" href="#" role="button">Đang Chờ</a>
+<?php
+}
+?>
+
+</td>
+<td>
+
+<?php
+if ($order['status'] == 2) {
+?>
+    <a class="btn btn-danger" href="deleteOrder.php?id=<?php echo $order['order_id'] ?>" role="button" onclick="return confirm('Bạn có muốn hủy đơn không?');">Hủy Đơn</a>
+<?php
+}
+?>
+
                    
             </tr>
             <?php

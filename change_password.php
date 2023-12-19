@@ -265,7 +265,7 @@
                         <ul class="nav child_menu">
                             <li><a href="profile_1.php">Hồ Sơ</a></li>
                             <li><a href="card_payment.php">Phương Thức Thanh Toán</a></li>
-                            <!-- <li><a href="index3.html">Địa Chỉ Nhận Hàng</a></li> -->
+                            <li><a href="voucher.php">Kho Voucher</a></li>
                             <li style="margin-left: 15px !important; background-color: #3498db !important;color: #fff !important;"><a href="change_password.php">Đổi Mật Khẩu</a></li>
                         </ul>
                     </li>
@@ -300,26 +300,82 @@
                     <input readonly value="<?php echo $infoUser['id'] ?>" class="form-control" type="text" name="id">
                 </div>
 
-               
+               <!-- ... Your existing HTML code ... -->
+<!-- ... Your existing HTML code ... -->
 
-                    <div class="form-group form-group--inline">
-                        <label>Mật khẩu hiện tại<span style= "color:red">*</span></label>
-                        <input class="form-control" type="password" name="current_password" required>
-                    </div>
+<div class="form-group form-group--inline">
+    <label>Mật khẩu hiện tại<span style="color:red">*</span></label>
+    <input class="form-control" type="password" name="current_password" required>
+</div>
 
-                    <div class="form-group form-group--inline">
-                        <label>Mật khẩu mới<span style= "color:red">*</span></label>
-                        <!-- <input id="new_password" class="form-control" type="password" name="new_password" required> -->
-                        <input class="form-control" type="password" name="new_password" required minlength="8">
-                    </div>
+<div class="form-group form-group--inline">
+    <label>Mật khẩu mới<span style="color:red">*</span></label>
+    <input id="new_password" class="form-control" type="password" name="new_password" required minlength="8">
+    <small id="passwordHelp" class="form-text text-muted">Ít nhất 8 ký tự.</small>
+</div>
 
-                    <div class="form-group form-group--inline">
-                        <label>Xác nhận mật khẩu<span style= "color:red">* </span></label>
-                        <input  class="form-control" type="password" name="confirm_password" required>
-                    </div>
-                    <div class="form-group form-group--inline">
-                    <button style="text-align:right;" id="updateButton" type="button" class="btn btn-primary" onclick="validatePassword();">Đổi Mật Khẩu</button>
-                    </div>
+<div id="error-message" style="color: red;"></div>
+
+<script>
+    function validatePassword() {
+        var currentPasswordInput = document.querySelector('[name="current_password"]');
+        var newPasswordInput = document.getElementById('new_password');
+        var minLength = parseInt(newPasswordInput.getAttribute('minlength'), 10);
+        var passwordHelp = document.getElementById('passwordHelp');
+        var updateButton = document.getElementById('updateButton');
+        var errorMessage = document.getElementById('error-message');
+
+        if (newPasswordInput.value.length < minLength) {
+            passwordHelp.style.color = 'red';
+            errorMessage.textContent = 'Mật khẩu mới phải có ít nhất 8 ký tự.';
+            // Disable the button if the password is too short
+            updateButton.disabled = true;
+        } else {
+            passwordHelp.style.color = 'black';
+            errorMessage.textContent = ''; // Clear the error message
+            // Enable the button if the password meets the length requirement
+            updateButton.disabled = false;
+        }
+
+        if (currentPasswordInput.value === newPasswordInput.value) {
+            errorMessage.textContent = 'Mật khẩu mới không được trùng với mật khẩu hiện tại.';
+            // Disable the button if the current password matches the new password
+            updateButton.disabled = true;
+        }
+    }
+
+    // Attach the validatePassword function to the input event of the new password field
+    document.getElementById('new_password').addEventListener('input', validatePassword);
+
+    function submitForm() {
+        var currentPassword = document.querySelector('[name="current_password"]').value;
+        var newPassword = document.querySelector('[name="new_password"]').value;
+
+        if (currentPassword === newPassword) {
+            var errorMessage = document.getElementById('error-message');
+            errorMessage.textContent = 'Mật khẩu mới không được trùng với mật khẩu hiện tại.';
+            return; // Stop the form submission
+        }
+
+        // Additional validation logic can be added here if needed
+        // For example, check if the current password matches the user's actual password
+
+        // Submit the form if all validations pass
+        document.forms['yourFormName'].submit();
+    }
+</script>
+
+<!-- ... Your existing HTML code ... -->
+
+<div class="form-group form-group--inline">
+    <label>Xác nhận mật khẩu<span style="color:red">*</span></label>
+    <input class="form-control" type="password" name="confirm_password" required>
+</div>
+
+<div class="form-group form-group--inline">
+    <button style="text-align:right;" id="updateButton" type="button" class="btn btn-primary" onclick="validatePassword();">Đổi Mật Khẩu</button>
+</div>
+
                 </div>
             </div>
         </div>

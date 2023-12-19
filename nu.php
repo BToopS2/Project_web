@@ -40,7 +40,47 @@
 <!--[if IE 7]><body class="ie7 lt-ie8 lt-ie9 lt-ie10"><![endif]-->
 <!--[if IE 8]><body class="ie8 lt-ie9 lt-ie10"><![endif]-->
 <!--[if IE 9]><body class="ie9 lt-ie10"><![endif]-->
+<style>
+      .ps-shoe__thumbnail img {
+    width: 100%;
+    height: 330px; /* Adjust the height as needed */
+    object-fit: cover;
+  }
 
+  .ps-shoe__variants .ps-shoe__variant img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    margin-right: 5px; /* Adding some space between mini images */
+  }
+
+  .ps-shoe__content #imageShoeBanner {
+    width: 98%;
+    height: 400px; /* Adjust the height as needed */
+    object-fit: cover;
+  }
+  </style>
+  <style>
+        .moving-container {
+            overflow: hidden;
+            white-space: nowrap;
+            
+        }
+
+        .moving-content {
+            font-weight: bold;
+            display: inline-block;
+            animation: moveLeft 20s linear infinite, blink 1s infinite; 
+        }
+        @keyframes moveLeft {
+            from {
+                transform: translateX(100%);
+            }
+            to {
+                transform: translateX(-100%);
+            }
+        }
+    </style>
 <body class="ps-loading">
   <div class="header--sidebar"></div>
   <header class="header">
@@ -74,14 +114,11 @@
         </div>
         <div class="navigation__column center">
           <ul class="main-menu menu">
-            <li class="menu-item menu-item-has-children dropdown"><a href="index.php">Home</a>
-            </li>
-            <li class="menu-item menu-item-has-children has-mega-menu"><a href="#">Men</a>
-
-            </li>
-            <li class="menu-item"><a href="#">Women</a></li>
-            <li class="menu-item"><a href="#">Kids</a></li>
-            <li class="menu-item menu-item-has-children dropdown"><a href="#">News</a>
+            <li class="menu-item menu-item-has-children dropdown"><a href="index.php">Trang Chủ</a></li>
+            <li class="menu-item menu-item-has-children dropdown"><a href="nam.php">Nam</a></li>
+            <li class="menu-item menu-item-has-children dropdown"><a href="nu.php">Nữ</a></li>
+            <li class="menu-item menu-item-has-children dropdown"><a href="tre_em.php">Trẻ Em</a></li>
+            <li class="menu-item menu-item-has-children dropdown"><a href="#">Tin Tức</a>
               <ul class="sub-menu">
                 <li class="menu-item menu-item-has-children dropdown"><a href="blog-grid.php">Blog-grid</a>
                   <ul class="sub-menu">
@@ -92,7 +129,7 @@
                 <li class="menu-item"><a href="blog-list.php">Blog List</a></li>
               </ul>
             </li>
-            <li class="menu-item menu-item-has-children dropdown"><a href="contact-us.php">Contact</a>
+            <li class="menu-item menu-item-has-children dropdown"><a href="contact-us.php">Liên Hệ</a>
             </li>
           </ul>
         </div>
@@ -487,6 +524,7 @@
   <!-- Custom scripts-->
   <script type="text/javascript" src="js/main.js"></script>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!--  Front end effect in checkboxes  -->
   <script>
     $(document).ready(function() {
       $('#categoryList li').on('click', function(e) {
@@ -511,6 +549,7 @@
       });
     });
   </script>
+  <!-- Filter the type of clothing associated with the brand and the price -->
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       const typeFilterLinks = document.querySelectorAll('.ps-widget--category')[0].querySelectorAll('.filter');
@@ -602,6 +641,7 @@
       });
     });
   </script>
+<!--   sort by name, increase/decrease price -->
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       const selectFilter = document.querySelector('.ps-product__filter select');
@@ -635,6 +675,7 @@
       });
     });
   </script>
+<!-- Filter number of all types of cloth -->
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       const filterLinks = document.querySelectorAll('.filter');
@@ -680,7 +721,7 @@
       });
     });
   </script>
-
+<!-- Pagination -->
   <script>
     // JavaScript code to handle pagination
     document.addEventListener("DOMContentLoaded", function() {
@@ -704,6 +745,22 @@
 
       // Initially show the first page
       showPage(currentPage);
+
+      // Calculate the total number of pages based on total items
+      const totalItems = items.length;
+      const totalPages = Math.ceil(totalItems / itemsPerPage);
+
+      // Dynamically generate pagination based on total pages
+      const pagination = document.querySelector('.pagination');
+      let paginationHTML = '';
+
+      for (let i = 1; i <= totalPages; i++) {
+        paginationHTML += `<li class="page-item" data-page="${i}">
+                          <a href="#" class="page-link">${i}</a>
+                       </li>`;
+      }
+
+      pagination.innerHTML = paginationHTML;
 
       // Event listener for pagination clicks
       document.querySelectorAll('.pagination .page-item').forEach(item => {

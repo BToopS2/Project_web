@@ -124,25 +124,86 @@
                     <div class="ps-checkout__billing">
                       <h3>Chi Tiết Thanh Toán</h3>
                             <div class="form-group form-group--inline">
-                              <label>Họ Tên<span>*</span>
+                              <label><strong>Họ Tên</strong><span>*</span>
                               </label>
                               <input readonly value="<?php echo $infoUser['fullname'] ?>" class="form-control" type="text">
                             </div>
                             <div class="form-group form-group--inline">
-                              <label>Email<span>*</span>
+                              <label><strong>Email</strong><span>*</span>
                               </label>
                               <input readonly value="<?php echo $infoUser['email'] ?>" class="form-control" type="email">
                             </div>
                             <div class="form-group form-group--inline">
-                              <label>Số Điện Thoại<span>*</span>
+                              <label><strong>Số Điện Thoại</strong><span>*</span>
                               </label>
                               <input readonly value="<?php echo $infoUser['phone'] ?>" class="form-control" type="text">
                             </div>
-                            <div class="form-group form-group--inline">
-                              <label>Địa chỉ<span>*</span>
-                              </label>
-                              <input readonly value="<?php echo $infoUser['address'] ?>" class="form-control" type="text">
-                            </div>
+                            <div class="form-group form-group--inline" id="addressContainer">         
+                  <label><strong>Địa chỉ</strong><span>*</span></label>
+                  <input id="addressInput" readonly value="<?php echo $infoUser['address'] ?>" class="form-control" type="text">
+           
+              </div>
+              
+              <div class="form-group form-group--inline">
+    <button style="background-color:cadetblue" type="button" class="btn btn-secondary btn-with-icon" onclick="toggleAddressEdit()">
+        <i class="bi bi-pencil"></i> <!-- Bootstrap Icons pencil icon -->
+        Chỉnh sửa địa chỉ
+    </button>
+    <button type="button" class="btn btn-primary" onclick="saveAddress()" style="display: none;">Lưu thay đổi</button>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</div>
+
+<script>
+    // Store the initial address value when the page loads
+    var initialAddressValue = '<?php echo $infoUser['address']; ?>';
+
+    function toggleAddressEdit() {
+        var addressInput = $('#addressInput');
+        var saveButton = $('[onclick="saveAddress()"]');
+
+        // Toggle readonly attribute
+        addressInput.prop('readonly', function (_, value) {
+            return !value;
+        });
+
+        // Toggle buttons
+        $('[onclick="toggleAddressEdit()"]').toggle();
+        saveButton.toggle();
+
+        // If not in edit mode, reset the address input to its initial value
+        if (!addressInput.prop('readonly')) {
+            addressInput.val(initialAddressValue);
+        }
+
+        // Focus on the address input
+        addressInput.focus();
+    }
+
+    function saveAddress() {
+        var userId = <?php echo $infoUser['id']; ?>; // Retrieve the user ID
+
+        var updatedAddress = $('#addressInput').val();
+
+        // Perform AJAX request to update the address
+        $.ajax({
+            type: 'POST',
+            url: 'update_address.php',
+            data: { id: userId, address: updatedAddress }, // Include user ID in the data
+            success: function(response) {
+                alert('Address saved: ' + updatedAddress);
+                // If you need to perform additional actions upon successful save, do them here.
+            },
+            error: function(error) {
+                alert('Error saving address: ' + error.responseText);
+            }
+        });
+
+        // Toggle back to readonly mode after saving
+        toggleAddressEdit();
+    }
+</script>
+
+
                     </div>
                   </div>
                   <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 ">
@@ -153,6 +214,18 @@
                           // Lấy thời gian hiện tại
                           $currentDate = date("d/m/Y H:i:s");
                       ?>
+                       <style>
+        /* Custom CSS for positioning the image */
+        #top-right-image {
+          position: relative;
+            top: 10px;
+            margin-left:300px;
+            max-width: 80px; /* Adjust the maximum width as needed */
+            max-height: 80px; /* Adjust the maximum height as needed */
+            color: #2196F3;
+        }
+    </style>
+                       <img style="background-color: white;" id="top-right-image" src='images/logo.png' alt="Top Right Image">
                         <h3>Hóa Đơn Của Bạn </h3>
                         <span style="color:white" class="date">(Thời Gian Tạo: <?php echo $currentDate; ?>)</span>
                       </header>
@@ -199,26 +272,115 @@
                                 $sumPrice += $totalPrice;
                                 ?>
                                 <tr>
-                                    <td><?php echo $shoe['shoe_name'] ?> (sz: <span style="color:#ffcc00"><?php echo $cart['shoe_size']?></span>) </td>
+                                    <td><?php echo $shoe['shoe_name'] ?> (sz: <span><?php echo $cart['shoe_size'] ?></span>) </td>
                                     <td style="color:; text-align: center !important; "><span > <?php echo $orderQuantity ?> </span> </td>
                                     <td><?php echo $totalPrice ?> <span style="font-size: 10px;">VND</span> </td>
                                 </tr>
                                 <tr>
                                     <!-- <td><?php echo $totalPrice ?> VND</td> -->
                                 </tr>
+                                
                             <?php
                             }
+                            
+                            
                             ?>
                           </tbody>
                         </table>
                   <hr width="100%" text-align="center">
-                  <h4 style="color: aliceblue; padding-left: 2%;">Thành tiền: <span style="color: aqua; float: right; padding-right: 1%;"><?php echo $sumPrice ?> <span style="font-size: 12px;">VND</span> </span></h4>
+                  <h4 style="color: aliceblue; padding-left: 2%;">Giá Gốc <span style="color: aqua; float: right; padding-right: 1%;"><?php echo $sumPrice ?> <span style="font-size: 12px;">VND</span> </span></h4>
+                  <h4 style="color: aliceblue; padding-left: 2%;">Voucher: <span style="color: aqua; float: right; padding-right: 1%;">-<?php echo $infoUser['sale'] ?> % </span> </span></h4>
 
-
+                  <?php $sumPrice=$sumPrice-$sumPrice*($infoUser['sale']/100); ?>
+                  <!-- <h4 style="color: aliceblue; padding-left: 2%;">Thành tiền: <span style="color: aqua; float: right; padding-right: 1%;"><?php echo $sumPrice ?> <span style="font-size: 12px;">VND (-<?php echo $infoUser['sale'] ?> % )</span> </span></h4> -->
+ <h4 style="color: aliceblue; padding-left: 2%;">Thành tiền: <span style="color: aqua; float: right; padding-right: 1%;"><?php echo $sumPrice ?> <span style="font-size: 12px;">VND</span> </span></h4>
                       </div>
-                     
                       <footer>
+                      <h3 style="font-size: 9px; margin-bottom: 10px;">
+    <a href="voucher.php" style="background-color: #FFEB3B; padding: 12px; color: #2196F3; text-decoration: none; border-radius: 8px; display: inline-block; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); transition: transform 0.3s ease-in-out; font-weight: bold;">
+        Chọn Voucher
+    </a>
+   <!-- Include jQuery library (you can download it from https://jquery.com/download/) -->
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+<!-- Your HTML content -->
+
+<a href="#" id="removeVoucherBtn" style="background-color: white; padding: 12px; color: #2196F3; text-decoration: none; border-radius: 8px; display: inline-block; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); transition: transform 0.3s ease-in-out; font-weight: bold;">
+    Bỏ Voucher
+</a>
+<script>
+// JavaScript function to handle removing voucher
+$(document).ready(function() {
+    $('#removeVoucherBtn').on('click', function(e) {
+        e.preventDefault();
+
+        // Assuming $userId is defined somewhere in your code
+        var userId = <?php echo $infoUser['id']; ?>; // Replace with the actual user ID
+
+        // AJAX request to deletevoucher.php
+        $.ajax({
+            type: 'POST',
+            url: 'deletevoucher.php',
+            data: { userId: userId },
+            success: function(response) {             
+                console.log(response);  
+                alert('Voucher removed successfully');            
+                location.reload();
+            },
+            error: function(xhr, status, error) {
+                // Handle errors (if needed)
+                console.error(xhr.responseText);
+            }
+        });
+    });
+});
+</script>
+
+<script>
+// JavaScript function to handle removing voucher
+$(document).ready(function() {
+    $('#removeVoucherBtn').on('click', function(e) {
+        e.preventDefault();
+
+        // Assuming $userId is defined somewhere in your code
+        var userId = $userId; // Replace with the actual user ID
+
+        // AJAX request to deletevoucher.php
+        $.ajax({
+            type: 'POST',
+            url: 'deletevoucher.php',
+            data: { userId: userId },
+            success: function(response) {
+                // Handle success (if needed)
+                console.log(response);
+                // Reload the page or update the UI as necessary
+                location.reload();
+            },
+            error: function(xhr, status, error) {
+                // Handle errors (if needed)
+                console.error(xhr.responseText);
+            }
+        });
+    });
+});
+</script>
+
+    <br>
+    <?php
+    if ($infoUser['sale'] > 0) {
+        $uploadDir = 'admin/production/voucher/';
+        $imagePath = $uploadDir . $infoUser['image_voucher'];
+        echo "Hiện Tại: Voucher Giảm " . $infoUser['sale'] . "%";
+        if (!empty($infoUser['image_voucher'])) {
+            echo '<br><img src="' . $imagePath . '" alt="Voucher Image" style="width: 300px; height: auto;">';
+        } else {
+            echo '<br>Chưa có ảnh voucher';
+        }
+    }
+    ?>
+</h3>                           
                         <h3>Phương thức thanh toán</h3>  
+
                         <div class="form-group cheque">
                           <div class="ps-radio">
                             <input class="form-control" type="radio" id="rdo01" name="payment" checked>
@@ -350,14 +512,18 @@
                                 });
                             </script>
                             </span>                       
-                          
+                         
                             <button name="submit_payment" class="ps-btn ps-btn--fullwidth">Đặt Hàng<i class="ps-icon-next"></i></button>
                           <?php
+                          $userId=$infoUser['id'];
                             if(isset($_POST['submit_payment'])){
+                            
                               foreach($cartList as $cart){
                                 $shoe = $shoeRepository->getById($cart['shoe_id'])->fetch_assoc();
                                 // $orderRepository->insert($cart['id']);
-                                $cartRepository->updateStatusByUserIdAndShoeId($infoUser['id'],$shoe['shoe_id'],2);
+                                $cartRepository->updateStatusByUserIdAndShoeId($infoUser['id'],$shoe['shoe_id'],2,$infoUser['sale']);
+                                $updateQuery = "UPDATE user SET sale = NULL, image_voucher = NULL WHERE id = '$userId'";
+                                mysqli_query($conn, $updateQuery);
                               }
                               // echo "<script>alert('Đặt hàng thành công, Xin Cảm Ơn !');
                               //   window.location.href='index.php';

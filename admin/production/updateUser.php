@@ -51,7 +51,7 @@
 
          <!-- menu profile quick info -->
          <div class="profile clearfix">
-              <div class="profile_info" style="text-align: center;">
+              <div class="profile_info">
                 <span>Welcome,</span>
                 <h2> <?php require_once("../../backend/filterWithCookieAdmin.php") ?></h2>
               </div>
@@ -195,7 +195,7 @@
         <form method="POST" action="">
         <div class="form-group">
           <label for="exampleInputEmail1">Họ Tên</label>
-          <input required value="<?php echo $userInfo['fullname']?>" minlength="5" maxlength="50" name="fullname" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nhập Tên Sản Phẩm">
+          <input required value="<?php echo $userInfo['fullname']?>" minlength="5" maxlength="50" name="fullname" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nhập tên giày">
         </div>
         <div class="form-group">
           <label for="exampleInputPassword1">Email</label>
