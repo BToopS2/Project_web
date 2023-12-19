@@ -32,11 +32,31 @@
             $sql = "select * from cart where user_id=$user_id and status=$status"; 
             return mysqli_query($conn,$sql);
         }
-        public function updateStatusByUserIdAndShoeId($user_id,$shoe_id,$status){
+        public function updateStatusByUserIdAndShoeId($user_id, $shoe_id, $status, $sale) {
             global $conn;
-            $sql = "update cart set status = $status where user_id = $user_id and shoe_id = $shoe_id"; 
-            return mysqli_query($conn,$sql);
+        
+            // Use prepared statement to prevent SQL injection
+            $sql = "UPDATE cart SET status = ?, sale_cart = ? WHERE user_id = ? AND shoe_id = ?";
+            
+            $stmt = mysqli_prepare($conn, $sql);
+        
+            // Check for errors in preparing the statement
+            if ($stmt === false) {
+                return false;
+            }
+        
+            // Bind parameters
+            mysqli_stmt_bind_param($stmt, 'iiii', $status, $sale, $user_id, $shoe_id);
+        
+            // Execute the statement
+            $result = mysqli_stmt_execute($stmt);
+        
+            // Close the statement
+            mysqli_stmt_close($stmt);
+        
+            return $result;
         }
+        
         public function updateStatusById($id,$status){
             global $conn;
             $sql = "update cart set status = $status where id = $id"; 
