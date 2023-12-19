@@ -845,9 +845,11 @@
     ></df-messenger>
     <script type="text/javascript">
     document.write('<style>body{padding-bottom:20px}#e_itexpress_left{display:none;position:fixed;z-index:9999;top:0;left:0}#e_itexpress_footer{display:none;position:fixed;z-index:9999;bottom:-50px;left:0;width:100%;height:104px;background:url(https://itexpress.vn/images/noel/ft.png) repeat-x bottom left}#e_itexpress_bottom_left{display:none;position:fixed;z-index:9999;bottom:20px;left:20px}@media (min-width: 992px){#e_itexpress_left,#e_itexpress_footer,#e_itexpress_bottom_left{display:block}}</style>');
-    document.write('<img id="e_itexpress_left" src="https://itexpress.vn/images/noel/topleft.png"/>');
-    document.write('<div id="e_itexpress_footer"></div>');
-    document.write('<img id="e_itexpress_bottom_left" src="https://itexpress.vn/images/noel/bottomleft.png"/>');
+// document.write('<img id="e_itexpress_left" src="https://itexpress.vn/images/noel/topleft.png"/>');
+
+document.write('<div id="e_itexpress_footer"></div>');
+document.write('<img id="e_itexpress_bottom_left" src="https://itexpress.vn/images/noel/bottomleft.png"/>');
+
    
 </script>
 
