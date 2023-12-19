@@ -181,70 +181,16 @@ $orderList = $orderRepository->getAll2($id);
     </div>
     
     <main class="ps-main">
-    <style>
-        /* Thêm CSS để tùy chỉnh giao diện */
-        #tableShoe {
-            background-color: #f8f9fa; /* Màu xám nhạt */
-            color: #495057; /* Màu chữ in đẹp */
-            text-align: center;
-            
-        }
-
-        #tableShoe th, #tableShoe td {
-            border-color: #e9ecef; /* Màu đường viền */
-        }
-
-        #tableShoe thead th {
-            background-color: #343a40; /* Màu nền đen cho phần đầu bảng */
-            color: #ffffff; /* Màu chữ in đẹp cho tiêu đề */
-            text-align: center;
-        }
-        .btn-back:hover {
-            background-color: #0056b3; /* Màu nền xanh dương đậm khi di chuột qua */
-        }
-
-        .badge-status {
-            font-size: 12px;
-            padding: 8px 12px;
-        }
-        .btn-back {
-            margin-top: 20px;
-            display: inline-block;
-            padding: 10px 15px;
-            background-color: #007bff; /* Màu nền xanh dương cho nút Back */
-            color: #fff; /* Màu chữ in trắng */
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            text-decoration: none;
-            
-        }
-        .btn-container {
-            margin-top: 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-    </style>
-<main class="ps-main">
+    
   
-  <body class="nav-md">
-    <div class="container body">
-      <div style="margin-top:70px" class="main_container">
-        <div class="col-md-3 left_col">
-          <div class="left_col scroll-view">
-            <!-- <div class="navbar nav_title" style="border: 0;">
-          
-            </div> -->
+ 
 
-            <div class="clearfix"></div>
+           
 
             <!-- menu profile quick info -->
            
          
 
-            <!-- sidebar menu -->
-            <div class="container mt-5">
     
         <script src="admin/vendors/jquery/dist/jquery.min.js"></script>
                         <!-- Bootstrap -->
@@ -277,7 +223,7 @@ $orderList = $orderRepository->getAll2($id);
                         <script src="admin/build/js/custom.min.js"></script>
         
                         <h2 style="text-align: center;"> <i class="fa-regular fa-credit-card"></i> VOUCHER HOT</h2>
-        <div  class="col-md-12" style="background-color: red;">
+        
            
                         
             <h3> <i class="fa-solid fa-user-shield" style="margin-bottom: 10px;"></i> NHANH TAY VOUCHER LIỀN TAY(<code>Áp Dụng Ngay</code>)</h3>
@@ -363,10 +309,13 @@ if ($result) {
             url: "voucher_user.php",
             data: { id: id, sale_value: saleValue, image_path: imagePath },
             success: function(response) {
-                alert('Lấy Voucher thành công' + response);
+                // Show a confirmation dialog
+                var isConfirmed = confirm('Voucher lấy thành công. Bạn có muốn chuyển đến trang thanh toán không?');
 
-                // Redirect to checkout.php after successful AJAX request
-                window.location.href = 'checkout.php';
+                if (isConfirmed) {
+                    // Redirect to checkout.php after user confirms
+                    window.location.href = 'checkout.php';
+                }
             },
             error: function() {
                 alert('Error executing PHP file.');
@@ -374,6 +323,7 @@ if ($result) {
         });
     }
 </script>
+
 
 
 
