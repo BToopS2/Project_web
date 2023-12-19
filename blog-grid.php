@@ -85,7 +85,7 @@
                   </li>
                   <li class="menu-item menu-item-has-children dropdown"><a href="#">Tin Tức</a>
                         <ul class="sub-menu">
-                          <li class="menu-item menu-item-has-children dropdown"><a href="blog-grid.php">Tin tức về các mặt hàng</a>
+                          <li class="menu-item menu-item-has-children dropdown"><a href="blog-grid.php">Tin tức các mặt hàng</a>
                                 
                           </li>
                           <li class="menu-item menu-item-has-children dropdown"><a href="blog-list.php">Các bộ sưu tập</a>
