@@ -85,17 +85,11 @@
                   </li>
                   <li class="menu-item menu-item-has-children dropdown"><a href="#">Tin Tức</a>
                         <ul class="sub-menu">
-                          <li class="menu-item menu-item-has-children dropdown"><a href="blog-grid.php">Mặt Hàng Bán Chạy</a>
-                                <ul class="sub-menu">
-                                  <li class="menu-item"><a href="blog-grid.php">Giày</a></li>
-                                  <li class="menu-item"><a href="blog-grid-2.php">Quần Áo</a></li>
-                                </ul>
+                          <li class="menu-item menu-item-has-children dropdown"><a href="blog-grid.php">Tin tức các mặt hàng</a>
+                               
                           </li>
-                          <li class="menu-item menu-item-has-children dropdown"><a href="blog-list.php">Đánh Giá</a>
-                                <ul class="sub-menu">
-                                  <li class="menu-item"><a href="blog-grid.php">Mặt Hàng Được Đánh Giá Nhiều Nhất</a></li>
-                                  <li class="menu-item"><a href="blog-grid-2.php">Mặt Hàng Được Đánh Giá Ít</a></li>
-                                </ul>
+                          <li class="menu-item menu-item-has-children dropdown"><a href="blog-list.php">Các bộ sưu tập</a>
+                                
                           </li>
                         </ul>
                   </li>
