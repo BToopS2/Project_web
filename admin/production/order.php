@@ -202,7 +202,8 @@
               <th class="text-center" style="min-width:150px">Tên Khách Hàng</th>
               <th class="text-center" style="min-width:150px">Địa Chỉ</th>
               <th class="text-center" style="min-width:150px">Tên Sản Phẩm</th>
-              <th class="text-center" style="min-width:50px">Giá </th>
+              <th class="text-center" style="min-width:50px">Giá</th>
+              <th class="text-center" style="min-width:50px">Giá add Voucher</th>
               <th class="text-center" style="min-width:100px">Kích Cỡ</th>
               <th class="text-center" style="min-width:100px">Số Lượng</th>
               <th class="text-center" style="min-width:100px">Màu</th>
@@ -219,8 +220,9 @@
                 <td><?php echo $order['fullname']?></td>
                 <td><?php echo $order['address']?></td>
                 <td><?php echo $order['name']?></td>
-                <td><?php echo ($order['price'] - $order['price']*$order['sale']*0.01) ." VND"?></td>
-                <!-- <td><?php echo ($order['price'] - $order['price']*$order['sale']*0.01)-($order['price'] - $order['price']*$order['sale']*0.01)*$infoUser['sale']*0.01." VND" ?></td> -->
+                <td><?php echo ($order['price'] - $order['price']*$order['sale']*0.01)." VND" ?></td>
+                <?php $subtotal = ($order['price'] - $order['price'] * $order['sale'] * 0.01) * $order['quantity']?>
+                <td style="color: red; font-weight:bold;;"><?php echo $subtotal=$subtotal-$subtotal*$order['sale_cart']/100;?>(-<?php echo $order['sale_cart'] ?>%)</td>
                 <td><?php echo $order['shoe_size']?></td>          
                 <td><?php echo $order['quantity']?></td>
                 <td><?php echo $order['shoe_color']?></td>
@@ -236,8 +238,7 @@ if ($order['status'] == 2) {
 <?php
 } else {
     ?>
-    <a class="btn btn-info" href="#" role="button">Đang Chờ...</a>
-   
+    <a class="btn btn-info" href="#" role="button">Đang Chờ</a>
 <?php
 }
 ?>

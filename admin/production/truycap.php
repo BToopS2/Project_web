@@ -105,13 +105,14 @@ $visitCountToday = isset($visitData[$today]) ? $visitData[$today] : 0;
                 
                   <li><a><i class="fa fa-money"></i> Doanh Thu<span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                    <li><a href="banchay.php">Biểu đồ bán chạy</a></li>                    
+                    <li><a href="banchay.php">Biểu đồ bán chạy</a></li>   
+                    <li><a href="Khovoucher.php">Thêm Voucher</a></li>                 
                     </ul>
                   </li>
 
                   <li><a><i class="fa fa-line-chart"></i> Biểu Đồ Phát Triển <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="#">Lượt truy cập</a></li>
+                      <li><a href="truycap.php">Lượt truy cập</a></li>
                       <li><a href="price.php">Doanh Thu</a></li>
                       <li><a href="price_month.php">Theo Tháng</a></li>
                     

@@ -452,12 +452,13 @@
                           <?php
                           $userId=$infoUser['id'];
                             if(isset($_POST['submit_payment'])){
-                              // $updateQuery = "UPDATE user SET sale = NULL, image_voucher = NULL WHERE id = '$userId'";
-                              // mysqli_query($conn, $updateQuery);
+                            
                               foreach($cartList as $cart){
                                 $shoe = $shoeRepository->getById($cart['shoe_id'])->fetch_assoc();
                                 // $orderRepository->insert($cart['id']);
-                                $cartRepository->updateStatusByUserIdAndShoeId($infoUser['id'],$shoe['shoe_id'],2);
+                                $cartRepository->updateStatusByUserIdAndShoeId($infoUser['id'],$shoe['shoe_id'],2,$infoUser['sale']);
+                                $updateQuery = "UPDATE user SET sale = NULL, image_voucher = NULL WHERE id = '$userId'";
+                                mysqli_query($conn, $updateQuery);
                               }
                               // echo "<script>alert('Đặt hàng thành công, Xin Cảm Ơn !');
                               //   window.location.href='index.php';

@@ -318,12 +318,12 @@ $orderList = $orderRepository->getAll2($id);
                             <tr>  <th class="text-center" style="min-width:100px">STT</th>
                                 <th class="text-center" style="min-width:100px">Tên Khách Hàng</th>
                                 <th class="text-center" style="min-width:100px">Địa Chỉ</th>
-                                <th class="text-center" style="min-width:100px">Tên Sản Phẩm</th>
-                              
+                                <th class="text-center" style="min-width:100px">Tên Sản Phẩm</th>                         
                                 <th class="text-center" style="min-width:100px">Kích Cỡ</th>
                                 <th class="text-center" style="min-width:100px">Số Lượng</th>
                                 <th class="text-center" style="min-width:100px">Màu</th>
                                 <th class="text-center" style="min-width:100px">Tổng Tiền</th>
+                                <th class="text-center" style="min-width:100px">Voucher</th>
                                 <th class="text-center" style="min-width:100px">Ngày Đặt Hàng</th>
                                 <th class="text-center" style="min-width:100px">Trạng Thái</th>
                                
@@ -347,10 +347,11 @@ $orderList = $orderRepository->getAll2($id);
                                     <td class="text-center">
                                         <?php
                                         $subtotal = ($order['price'] - $order['price'] * $order['sale'] * 0.01) * $order['quantity'];
-                                        $subtotal=$subtotal-$subtotal*$infoUser['sale']/100;
+                                        
                                         echo $subtotal . " VND (" . ($order['price'] - $order['price'] * $order['sale'] * 0.01) . "x" . $order['quantity'] . ")";
                                         ?>
                                     </td>
+                                    <td style="color: red; font-weight:bold;;">Còn<?php echo $subtotal=$subtotal-$subtotal*$order['sale_cart']/100;?>VND (-<?php echo $order['sale_cart'] ?>%)</td>
                                     <td class="text-center"><?php echo $order['date'] ?></td>
                                     <td class="text-center">
                                         <?php if ($order['status'] == 3) { ?>
