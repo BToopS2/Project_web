@@ -53,7 +53,7 @@
 							<form method="POST" class="signin-form">
 			      		<div class="form-group mb-3">
 			      			<label class="label" for="name">Username</label>
-			      			<input minlength="5" maxlength="20" name="username" type="text" class="form-control" placeholder="Username" required>
+			      			<input minlength="5" maxlength="50" name="username" type="text" class="form-control" placeholder="Username" required>
 			      		</div>
 		            <div class="form-group mb-3">
 		            	<label class="label" for="password">Password</label>
