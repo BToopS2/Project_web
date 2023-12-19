@@ -296,10 +296,75 @@
  <h4 style="color: aliceblue; padding-left: 2%;">Thành tiền: <span style="color: aqua; float: right; padding-right: 1%;"><?php echo $sumPrice ?> <span style="font-size: 12px;">VND</span> </span></h4>
                       </div>
                       <footer>
-                      <h3 style="font-size: 14px; margin-bottom: 10px;">
+                      <h3 style="font-size: 9px; margin-bottom: 10px;">
     <a href="voucher.php" style="background-color: #FFEB3B; padding: 12px; color: #2196F3; text-decoration: none; border-radius: 8px; display: inline-block; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); transition: transform 0.3s ease-in-out; font-weight: bold;">
         Chọn Voucher
     </a>
+   <!-- Include jQuery library (you can download it from https://jquery.com/download/) -->
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+<!-- Your HTML content -->
+
+<a href="#" id="removeVoucherBtn" style="background-color: white; padding: 12px; color: #2196F3; text-decoration: none; border-radius: 8px; display: inline-block; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); transition: transform 0.3s ease-in-out; font-weight: bold;">
+    Bỏ Voucher
+</a>
+<script>
+// JavaScript function to handle removing voucher
+$(document).ready(function() {
+    $('#removeVoucherBtn').on('click', function(e) {
+        e.preventDefault();
+
+        // Assuming $userId is defined somewhere in your code
+        var userId = <?php echo $infoUser['id']; ?>; // Replace with the actual user ID
+
+        // AJAX request to deletevoucher.php
+        $.ajax({
+            type: 'POST',
+            url: 'deletevoucher.php',
+            data: { userId: userId },
+            success: function(response) {             
+                console.log(response);  
+                alert('Voucher removed successfully');            
+                location.reload();
+            },
+            error: function(xhr, status, error) {
+                // Handle errors (if needed)
+                console.error(xhr.responseText);
+            }
+        });
+    });
+});
+</script>
+
+<script>
+// JavaScript function to handle removing voucher
+$(document).ready(function() {
+    $('#removeVoucherBtn').on('click', function(e) {
+        e.preventDefault();
+
+        // Assuming $userId is defined somewhere in your code
+        var userId = $userId; // Replace with the actual user ID
+
+        // AJAX request to deletevoucher.php
+        $.ajax({
+            type: 'POST',
+            url: 'deletevoucher.php',
+            data: { userId: userId },
+            success: function(response) {
+                // Handle success (if needed)
+                console.log(response);
+                // Reload the page or update the UI as necessary
+                location.reload();
+            },
+            error: function(xhr, status, error) {
+                // Handle errors (if needed)
+                console.error(xhr.responseText);
+            }
+        });
+    });
+});
+</script>
+
     <br>
     <?php
     if ($infoUser['sale'] > 0) {
