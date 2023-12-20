@@ -24,7 +24,7 @@
             text-decoration: none;
         }
     </style>
-     <a href="http://husstore.com.vn/admin/production/shoe.php" class="btn-gmail" >Trở về</a>
+     <a href="shoe.php" class="btn-gmail" >Trở về</a>
      <p></p>
         <div class="row">
             <div class="col-md-12 text-center mb-4">
