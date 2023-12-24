@@ -154,7 +154,7 @@
                         <div class="ps-post__thumbnail"><a class="ps-post__overlay" href="blog-detail.php"></a><img src="images/blog/a4_1.jpg" alt=""></div>
                           <div class="ps-post__content"><a class="ps-post__title" href="blog-detail.php">Giày Thể Thao Adidas Podular S3.1</a>
                           <p class="ps-post__meta"><span>By:<a class="mr-5" href="blog.php">TV2H_team</a></span> -<span class="ml-5">Jun 13, 2023</span></p>
-                          <p>Chào mừng đến với thế giới sáng tạo và phong cách của Adidas với đôi giày đặc biệt - Adidas P.O.D S3.1. Được thiết kế với tinh thần đổi mới và hiệu suất, P.O.D S3.1 không chỉ là một đôi giày, mà là biểu tượng của sự thoải mái và phong cách.</p><a class="ps-morelink" href="blog-detail.php">Đọc thêm<i class="fa fa-long-arrow-right"></i></a>
+                          <p>Chào mừng đến với thế giới sáng tạo và phong cách của Adidas với đôi giày đặc biệt - Adidas P.O.D S3.1. Được thiết kế với tinh thần đổi mới và hiệu suất, P.O.D S3.1 là biểu tượng của sự thoải mái và phong cách.</p><a class="ps-morelink" href="blog-detail.php">Đọc thêm<i class="fa fa-long-arrow-right"></i></a>
                           <!--<p>Tận dụng các khung công việc linh hoạt để cung cấp một tóm tắt mạnh mẽ cho cái nhìn tổng quan ở cấp độ cao. Các phương pháp lặp lại trong chiến lược doanh nghiệp khuyến khích tư duy cộng tác để thúc đẩy thêm.</p><a class="ps-morelink" href="blog-detail.php">Đọc thêm<i class="fa fa-long-arrow-right"></i></a>-->
                         </div> 
                         </div>
@@ -164,8 +164,8 @@
                         <div class="ps-post__thumbnail"><a class="ps-post__overlay" href="blog-detail.php"></a><img src="images/blog/a5.jpg" alt=""></div>
                           <div class="ps-post__content"><a class="ps-post__title" href="blog-detail.php">Adidas Prophere Adds Maroon Stripes</a>
                             <p class="ps-post__meta"><span>By:<a class="mr-5" href="blog.php">TV2H_team</a></span> -<span class="ml-5">Jun 15, 2023</span></p>
-                            <p>Chào mừng bạn đến với thế giới độc đáo và cá tính của Adidas, nơi sự hiện đại và phong cách hòa quyện trong đôi giày Adidas Prophere Adds Maroon Stripes. Được thiết kế để nổi bật và tỏa sáng.</p><a class="ps-morelink" href="blog-detail.php">Đọc thêm<i class="fa fa-long-arrow-right"></i></a>
-                          </div>
+                            <p>Chào mừng bạn đến với thế giới độc đáo và cá tính của Adidas, nơi sự hiện đại và phong cách hòa quyện trong đôi giày Adidas Prophere Adds Maroon Stripes. /p><a class="ps-morelink" href="blog-detail.php">Đọc thêm<i class="fa fa-long-arrow-right"></i></a>
+                        </div>
                         </div>
                       </div>
                       <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 ">
